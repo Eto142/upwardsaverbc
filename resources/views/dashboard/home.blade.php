@@ -1,465 +1,212 @@
-@include('dashboard.header')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bank App UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      padding-bottom: 70px;
+    }
 
+    .btn-main {
+      background-color: #fddbd3;
+      color: #b93b2d;
+      border-radius: 20px;
+      font-weight: 500;
+    }
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    .btn-outline-main {
+      border: 1px solid #fddbd3;
+      color: #b93b2d;
+      border-radius: 20px;
+      font-weight: 500;
+    }
 
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
+    .shortcut-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        
-        
-        
-        
-      <style>
-  .container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgba(240, 240, 240, 0.8); /* Transparent background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    .bg-shortcut-1 { background-color: #fbe9e7; color: #b93b2d; }
+    .bg-shortcut-2 { background-color: #e3f2fd; color: #1565c0; }
+    .bg-shortcut-3 { background-color: #f3e5f5; color: #6a1b9a; }
+    .bg-shortcut-4 { background-color: #fdf2cb; color: #2c3e50; }
 
-  .marquee-container {
-    overflow: hidden;
-    border-radius: 10px;
-  }
+    .transaction-box {
+      background-color: #f6f6f6;
+      padding: 15px;
+      border-radius: 12px;
+    }
 
-  .marquee {
-    color: white;
-    background-color: rgba(48, 92, 137, 0.8); /* Transparent background color */
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 10px;
-  }
-</style>
-        
-        
-        
-        
-        <div class="content-body">
-            <!-- row -->
-            <div class="container-fluid">
-                <div class="form-head mb-4">
-                    <h5 class="text-black font-w600 mb-0">Overview</h5>
-                </div>
-    <style>
-        /* Style for close button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+    .bottom-nav {
+      border-top: 1px solid #ddd;
+    }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+    .bottom-nav .nav-link {
+      color: #888;
+      font-size: 13px;
+    }
 
-        /* Custom style for the container box */
-        .container-box {
-            position: relative;
-          
-            padding: 20px;
-            margin: 20px;
-         
-        }
+    .bottom-nav .nav-link.active {
+      color: #f26a63;
+    }
 
-        /* Style for the smaller button */
-        .small-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 5px 10px;
-            font-size: 12px;
-        }
-    </style>
+    .small-text {
+      font-size: 13px;
+    }
 
-@if(Auth::user()->kyc_status=='0')
- 
-<!-- Container box where the button will be placed -->
-<div class="container-box">
-    <!-- Button to open the modal -->
-    <button class="btn btn-primary small-btn" data-toggle="modal" data-target="#kycModal">Open KYC Verification</button>
-</div>
+    .clickable {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
- 
-  @endif
-<!-- The Modal -->
-<div class="modal" id="kycModal">
-
-    <!-- Modal content -->
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">KYC Verification</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-				<form action="{{ route('upload.kyc')}}" method="POST"
-				enctype="multipart/form-data">
-				@csrf
-				
-				 <div class="form-group">
-                        <label for="idCard">Driver's License</label>
-                        <input type="file" class="form-control" id="idCard" name="driver_license" >
-                    </div>
-                      <div class="form-group">
-                        <label for="passport">Passport:</label>
-                        <input type="file" class="form-control" id="passport" name="pass" >
-                    </div>
-				
-                    <div class="form-group">
-                        <label for="idCard">Residence ID Card:</label>
-                        <input type="file" class="form-control" id="idCard" name="card">
-                    </div>
-                  
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </div>
+<div class="container pt-4">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h6 class="mb-0 fw-semibold">Hello, {{Auth::user()->first_name}}!</h6>
     </div>
-
-</div>
-
-
-               <div class="col-sm-12">
-                   {{-- <div class="marquee-container">
-    <marquee class="marquee" behavior="scroll" direction="left" scrollamount="5">
-      If traditional withdrawal methods are not meeting your needs or if you're looking for a more convenient and secure way to access your funds, virtual card withdrawals are the way to go. They offer instant accessibility, security, convenience, global accessibility, budgeting control, and contribute to environmental sustainability. Embrace the future of finance with virtual cards!
-    </marquee>
-  </div> --}}
-
-
-    <div class="card" style="background-color: #305C89;">
-        <div class="card-body d-flex justify-content-between align-items-center">
-            <div>
-                  
-                <p style="color: white; margin-bottom: 0.5rem;">TOTAL BALANCE<span class="text-danger"></span></p>
-                
-                <div class="balance-container">
-                    <h6 id="visibleBalance" class="fw-bold text-white" style="font-size: 1.25rem;">
-                     
-    @if (Auth::user()->user_block == 1)
-        <div class="alert alert-danger">
-            ACCOUNT BLOCKED (PLEASE CLEAR YOUR TAX)
-        </div>
-    @else
-        {{ Auth::user()->currency }}{{ number_format($balance, 2) }}
-    @endif
-                    </h6>
-                    <h6 id="hiddenBalance" class="fw-bold text-white hidden-balance d-none" style="font-size: 1.25rem;">
-                        ********
-                    </h6>
-                </div>
-            </div>
-            <div class="form-check form-switch d-flex align-items-center">
-                <input class="form-check-input m-0 me-2" type="checkbox" id="balanceToggle">
-                <label class="form-check-label text-white mb-0" for="balanceToggle" style="padding-left: 15px"></label>
-            </div>
-        </div>
+    <div class="text-end">
+      <span class="text-muted small d-block">
+        <span id="accountNumber"> {{ Auth::user()->a_number }}</span>
+        <i class="bi bi-copy ms-1 clickable" id="copyIcon" onclick="copyAccountNumber()" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard"></i>
+      </span>
     </div>
-</div>
+  </div>
 
-                
-                
-                <style>
-                    /* Custom styles for the switch button */
-                    .form-check-input {
-                        width: 40px;
-                        height: 20px;
-                        margin-left: 10px;
-                    }
-                
-                    .form-check-input:checked + .form-check-label::before {
-                        background-color: #28a745; /* Green color when switch is ON */
-                    }
-                
-                    .form-check-label::before {
-                        width: 38px;
-                        height: 18px;
-                    }
-                </style>
-                
-                <script>
-                    // JavaScript code remains the same
-                </script>
-                
-                    <div class="d-flex justify-content-between">
-                          
-                    </div>
-                     <h6 style="padding-left: 16px;"><span class="text-primary">{{Auth::user()->a_number}} - ACTIVE</span></h6>
-                    <hr class="hr">
+  <div class="mt-2">
+    <span class="badge bg-light text-dark small-text">Savings</span>
+  </div>
 
-                    <div class="row">
-             <div class="col-sm-12 col-lg-12">
-               <div class="">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <h5><span class="text-black">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span></h5>
-                        <br>
-                        <h5 class="fw-bold text-black">
-                            <span id="visibleBalance2"> @if (Auth::user()->user_block == 1)
-        <div class="alert alert-danger">
-            ACCOUNT BLOCKED (PLEASE CLEAR YOUR TAX)
-        </div>
-    @else
-        {{ Auth::user()->currency }}{{ number_format($balance, 2) }}
-    @endif</span>
-                            <span id="hiddenBalance2" class="d-none">{{ str_repeat('*', strlen(number_format($balance, 2))) }}</span>
-                        </h5>
-                    </div>
-                    <div class="form-check form-switch d-flex align-items-center">
-                        <input class="form-check-input m-0 me-2" type="checkbox" id="balanceToggle2">
-                        <label class="form-check-label text-black mb-0" for="balanceToggle2" style="padding-left: 35px">Hide Balance</label>
-                    </div>
-                   
-                </div>
-            </div>
-        </div>
+  <div class="mt-2 d-flex align-items-center gap-1">
+    <span class="text-muted small-text">Book balance</span>
+    <span id="balance" class="fw-bold clickable" onclick="toggleBalance()">••••</span>
+    <i class="bi bi-eye ms-1 text-muted small-text clickable" onclick="toggleBalance()"></i>
+  </div>
+
+  <!-- Buttons -->
+  <div class="d-flex gap-2 mt-3">
+    <button class="btn btn-main flex-fill"><i class="bi bi-plus-circle"></i> Fund account</button>
+    <button class="btn btn-outline-main flex-fill"><i class="bi bi-arrow-right"></i> Transfer</button>
+    <button class="btn btn-outline-main flex-fill"><i class="bi bi-currency-exchange"></i> FX</button>
+  </div>
+
+ <!-- Shortcuts -->
+<h6 class="mt-4">Shortcuts</h6>
+<div class="d-flex justify-content-around text-center">
+  <a href="{{route('crypto')}}" class="text-decoration-none text-dark">
+    <div>
+      <div class="shortcut-icon bg-shortcut-1"><i class="bi bi-currency-bitcoin"></i></div>
+      <small>Crypto</small>
     </div>
+  </a>
+  <a href="{{route('deposit')}}" class="text-decoration-none text-dark">
+    <div>
+      <div class="shortcut-icon bg-shortcut-2"><i class="bi bi-bank2"></i></div>
+      <small>Check Deposit</small>
+    </div>
+  </a>
+  <a href="{{route('loan')}}" class="text-decoration-none text-dark">
+    <div>
+      <div class="shortcut-icon bg-shortcut-3"><i class="bi bi-credit-card"></i></div>
+      <small>Loan</small>
+    </div>
+  </a>
+  <a href="{{route('paypal')}}" class="text-decoration-none text-dark">
+    <div>
+      <div class="shortcut-icon bg-shortcut-4"><i class="bi bi-paypal"></i></div>
+      <small>PayPal</small>
+    </div>
+  </a>
 </div>
 
+
+  <!-- Transaction -->
+  <h6 class="mt-4 d-flex justify-content-between align-items-center">Transaction history
+    <a href="#" class="small text-decoration-none">See more</a>
+  </h6>
+  <div class="transaction-box d-flex justify-content-between align-items-center">
+    <div>
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-arrow-right-circle-fill text-danger"></i>
+        <span class="small">000013250518232600000...</span>
+      </div>
+      <small class="text-muted">Transfer</small>
+    </div>
+    <div class="text-end">
+      <small class="text-muted">From •••0579</small>
+    </div>
+  </div>
+
+  <!-- Investments -->
+  <h6 class="mt-4">Investments</h6>
+  <div class="card border-0 bg-light mb-5">
+    <div class="card-body text-center">
+      <i class="bi bi-safe2-fill" style="font-size: 2rem;"></i>
+      <p class="mt-2 mb-0">Your investment vault</p>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="navbar fixed-bottom bg-white bottom-nav">
+  <div class="container d-flex justify-content-around text-center">
+    <a class="nav-link active" href="{{route('dashboard')}}"><i class="bi bi-house-door-fill"></i><br><small>Home</small></a>
+    <a class="nav-link" href="{{route('card')}}"><i class="bi bi-credit-card-2-front"></i><br><small>Card</small></a>
+    <a class="nav-link" href="{{route('bank')}}"><i class="bi bi-arrow-left-right"></i><br><small>Transfers</small></a>
+    <a class="nav-link" href="{{route('transactions')}}"><i class="bi bi-clock-history"></i><br><small>History</small></a>
+  </div>
+</nav>
+
+<!-- Scripts -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const balanceToggle2 = document.getElementById('balanceToggle2');
-        const visibleBalance2 = document.getElementById('visibleBalance2');
-        const hiddenBalance2 = document.getElementById('hiddenBalance2');
+  // Toggle balance visibility
+  const balanceEl = document.getElementById("balance");
+  let isHidden = true;
 
-        balanceToggle2.addEventListener('change', function () {
-            if (this.checked) {
-                visibleBalance2.classList.add('d-none');
-                hiddenBalance2.classList.remove('d-none');
-            } else {
-                visibleBalance2.classList.remove('d-none');
-                hiddenBalance2.classList.add('d-none');
-            }
-        });
+  function toggleBalance() {
+    balanceEl.innerText = isHidden ? " {{ Auth::user()->currency }}{{ number_format($balance, 2) }}" : "•••";
+    isHidden = !isHidden;
+  }
+
+  // Copy account number with better UX
+  function copyAccountNumber() {
+    const accNum = document.getElementById("accountNumber").innerText;
+    const icon = document.getElementById("copyIcon");
+
+    navigator.clipboard.writeText(accNum).then(() => {
+      const tooltip = bootstrap.Tooltip.getInstance(icon);
+      tooltip.setContent({ '.tooltip-inner': 'Copied!' });
+      icon.classList.replace("bi-copy", "bi-check2");
+
+      setTimeout(() => {
+        tooltip.setContent({ '.tooltip-inner': 'Copy to clipboard' });
+        icon.classList.replace("bi-check2", "bi-copy");
+      }, 2000);
     });
+  }
+
+  // Enable Bootstrap tooltip
+  document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
 </script>
 
-
-
-
-
-
-                    <div class="balance-box">
-        <div class="balance-box-content">
-            <div class="balance-box-left">Ledger balance:  @if (Auth::user()->user_block == 1)
-        <div class="alert alert-danger">
-            ACCOUNT BLOCKED (PLEASE CLEAR YOUR TAX)
-        </div>
-    @else
-        {{ Auth::user()->currency }}{{ number_format($balance, 2) }}
-    @endif</div>
-            <div class="balance-box-right"><a href='{{url('transactions')}}' style='color:white'><i class="fa fa-history"></i> History</a></div>
-        </div>
-    </div>
-    
-    <style>
-.balance-box {
-    background-color: #305C89;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.balance-box-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.balance-box-left,
-.balance-box-right {
-    font-weight: bold;
-}
-
-.history-icon {
-    margin-right: 5px;
-}
-
-/* Responsive Styling */
-@media screen and (max-width: 768px) {
-    .balance-box {
-        padding: 15px;
-        margin: 15px 0;
-    }
-
-    .balance-box-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .balance-box-left,
-    .balance-box-right {
-        margin-right: 10px;
-        font-size: 0.8em; /* Adjust font size for smaller screens */
-    }
-
-    .balance-box-right a {
-        font-size: 0.8em; /* Adjust font size for smaller screens */
-        margin-left: auto; /* Move "History" link to the right end */
-    }
-
-    .history-icon {
-        font-size: 1.3em; /* Adjust icon size for smaller screens */
-    }
-}
-
-</style>
-    
-<div class="grid-container-two">
-    <div class="d-block text-center">
-        <div class="withdraw-icon bg-danger">
-            <a href="{{route('bank')}}">&#128179;</a>
-        </div>
-        <a href="{{route('bank')}}" style='color:black'><span>Bank Transfer</span></a>
-    </div>
-    <div class="d-block text-center">
-        <div class="withdraw-icon bg-warning">
-            <a href="{{route('cryptopage')}}">
-             <img src="bitcoin.png" alt="Loan" style="width: 24px; height: 24px;"></a>
-        </div>
-        <a href="{{route('cryptopage')}}" style='color:black'><span>Crypto</span></a>
-    </div>
-    <div class="d-block text-center">
-        <div class="withdraw-icon bg-info">
-            <a href="{{route('paypal')}}">
-             <img src="paypal.png" alt="Loan" style="width: 24px; height: 24px;"></a>
-        </div>
-        <span><a href="{{route('paypal')}}" style='color:black'>Paypal</a></span>
-    </div>
-  
-
-    <div class="d-block text-center">
-        <div class="withdraw-icon bg-succes">
-            <a href="{{ route('deposit') }}">&#10003;</a>
-        </div>
-        <a href="{{ route('deposit') }}" style="color:black;">
-            <span>Check Deposit</span>  
-        </a>
-    </div>
-    
-
-    <div class="d-block text-center">
-        <div class="withdraw-icon bg-dark">
-            <a href="{{route('loan')}}">
-                
-                 <img src="loan.png" alt="Loan" style="width: 24px; height: 24px;"></a>
-        </div>
-        <a href="{{route('loan')}}" style='color:black'><span>Loan</span></a>
-    </div>
-</div>
-
-
-                   
-
-                   
-
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-body pb-1">
-                                <div class="row align-items-center">
-                                    <div class="col-xl-5 col-xxl-12 col-md-5">
-                                        <h4 class="fs-20 text-black mb-4"></h4>
-                                        <div class="row">
-
-                                        </div>
-                                    </div>
-                                    
-                                    <div id="bankCarousel" class="carousel slide" data-bs-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="bank-advert1.jpg" class="d-block w-100" alt="Bank Advert 1">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="bank-advert2.jpg" class="d-block w-100" alt="Bank Advert 2">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="bank-advert3.jpg" class="d-block w-100" alt="Bank Advert 3">
-                                            </div>
-                                        </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#bankCarousel" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#bankCarousel" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                    
-                                            {{-- <div class="col-12">
-                                                <div class="bg-info rounded text-center p-3">
-                                                    <div class="d-inline-block position-relative donut-chart-sale mb-3">
-                                                        <span class="donut1" data-peity='{ "fill": ["rgb(255, 255, 255)", "rgba(255, 255, 255, 0.2)"],   "innerRadius": 33, "radius": 10}'>0/100</span>
-                                                      
-                                                    </div>
-                                                    <span class="fs-14 text-white d-block">Loans</span>
-                                                </div>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
-
-
-    @include('dashboard.footer')
-
-
-
-
-
-
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const balanceToggle = document.getElementById('balanceToggle');
-        const visibleBalance = document.getElementById('visibleBalance');
-        const hiddenBalance = document.getElementById('hiddenBalance');
-
-        balanceToggle.addEventListener('change', function () {
-            if (this.checked) {
-                visibleBalance.classList.add('d-none');
-                hiddenBalance.classList.remove('d-none');
-            } else {
-                visibleBalance.classList.remove('d-none');
-                hiddenBalance.classList.add('d-none');
-            }
-        });
-    });
-</script>
-
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

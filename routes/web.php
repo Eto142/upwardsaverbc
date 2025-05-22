@@ -68,55 +68,32 @@ Route::get('/business-savings', function () {
     return view('home.business-savings');
 });
 
-Route::get('/home-mortgage', function () {
-    return view('home.home-mortgage');
+
+Route::get('/personal', function () {
+    return view('home.personal');
 });
 
-Route::get('/personal-loan', function () {
-    return view('home.personal-loan');
+Route::get('/business', function () {
+    return view('home.business');
 });
 
-
-Route::get('/investment-property', function () {
-    return view('home.investment-property');
+Route::get('/credit-card', function () {
+    return view('home.credit-card');
 });
 
+Route::get('/loans', function () {
+    return view('home.loans');
+});
 
 Route::get('/commercial-real', function () {
     return view('home.commercial-real');
 });
 
-Route::get('/business-term', function () {
-    return view('home.business-term');
-});
 
-Route::get('/online-banking', function () {
-    return view('home.online-banking');
-});
-
-Route::get('/wire-transfer', function () {
-    return view('home.wire-transfer');
-});
-
-Route::get('/lost-card', function () {
-    return view('home.lost-card');
-});
-
-Route::get('/services', function () {
-    return view('home.services');
-});
+;
 
 
 
-
-
-
-
-
-// Route::get('/register',[UserController::class,'registerPage']);
-// Route::post('/register-user',[UserController::class,'create']);
-// Route::get('/login',[UserController::class,'loginPage']);
-// Route::post('/login-user',[UserController::class,'loginUser']);
 
 Route::middleware([
     'auth:sanctum',

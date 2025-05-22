@@ -19,7 +19,7 @@
          <h2>{{ $data['subject'] }}</h2>
             <p>{{ $data['message'] }}</p>
             <!--<p>We wanted to inform you about an important update regarding your account. [Provide concise and relevant information here]</p>-->
-            <!--<p>If you have any questions or concerns, please don't hesitate to contact our support team at <a href="mailto:support@upwardsaverbc.cc">support@upwardsaverbc.cc</a>.</p>-->
+            <!--<p>If you have any questions or concerns, please don't hesitate to contact our support team at <a href="mailto:support@Upward Saver Bank Corporation.cc">support@Upward Saver Bank Corporation.cc</a>.</p>-->
             <!--<p>Best Regards,<br>Upward Saver Bank Corporation</p>-->
         </div>
         <div class="footer">

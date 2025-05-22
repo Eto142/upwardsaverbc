@@ -1,154 +1,193 @@
-<!-- Main Footer -->
-<style>
-    .footer-widget * {
-        color: white !important;
-    }
 
-    .main-footer {
-        background-color: #1F1B44;
-    }
-</style>
-<footer class="main-footer">
-    <div class="auto-container">
-        <!--Widgets Section-->
-        <div class="widgets-section">
-            <div class="row clearfix">
-                <!-- Column -->
-                <div class="big-column col-lg-6 col-md-12 col-sm-6 col-12">
-                    <div class="row clearfix">
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget logo-widget">
+<footer class="footer-wrap">
+  <div class="container">
+  <div class="row pt-100 pb-75">
+  <div class="col-xl-3 col-lg-5 col-md-5 col-sm-6">
+  <div class="footer-widget">
+  <a href="/" class="footer-logo">
+  <img src="https://ccufinance.com/storage/app/public/photos/nwyJuMPaoAHFokEF4Qg7hUdLFjJAgkoiCzvtddEm.png" alt="Image">
+  </a>
+  <p class="comp-desc">
+  We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.
+  </p>
+  <ul class="social-profile style1 list-style">
+  <li>
+  <a target="_blank" href="https://facebook.com/">
+  <i class="ri-facebook-fill"></i>
+  </a>
+  </li>
+  <li>
+  <a target="_blank" href="https://twitter.com/">
+  <i class="ri-twitter-fill"></i>
+  </a>
+  </li>
+  <li>
+  <a target="_blank" href="https://instagram.com/">
+  <i class="ri-instagram-line"></i>
+  </a>
+  </li>
+  <li>
+  <a target="_blank" href="https://linkedin.com/">
+  <i class="ri-linkedin-fill"></i>
+  </a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+  <div class="footer-widget">
+  <h3 class="footer-widget-title">Company</h3>
+  <ul class="footer-menu list-style">
+  <li>
+  <a href="about" target="_blank">
+  About Us
+  </a>
+  </li>
+  <li>
+  <a href="business" target="_blank">
+  Business Banking
+  </a>
+  </li>
+  <li>
+  <a href="personal" target="_blank">
+  Personal Banking
+  </a>
+  </li>
+  <li>
+  <a href="cards" target="_blank">
+  Credit Cards
+  </a>
+  </li>
+  <li>
+  <a href="loans" target="_blank">
+  Loans
+  </a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-6">
+  <div class="footer-widget">
+  <h3 class="footer-widget-title">Resources</h3>
+  <ul class="footer-menu list-style">
+  <li>
+  <a href="contact" target="_blank">
+  Contact Us
+  </a>
+  </li>
+  <li>
+  <a href="faq" target="_blank">
+  FAQ's
+  </a>
+  </li>
+  <li>
+  <a href="apps" target="_blank">
+  Download App
+  </a>
+  </li>
+  <li>
+  <a href="privacy-policy" target="_blank">
+  Privacy Policy
+  </a>
+  </li>
+  <li>
+  <a href="terms-of-service" target="_blank">
+  Terms &amp; Conditions
+  </a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-xl-2 col-lg-5 col-md-6 col-sm-6 pe-xl-4">
+  <div class="footer-widget">
+  <h3 class="footer-widget-title">Transfer Money</h3>
+  <ul class="footer-menu list-style">
+  <li>
+  <a href="login" >
+  Register/Login
+  </a>
+  </li>
+  <li>
+  <a href="register" >
+  IBank Transfer
+  </a>
+  </li>
+  <li>
+  <a href="login" target="_blank">
+  USA Money Transfer
+  </a>
+  </li>
+  <li>
+  <a href="login" target="_blank">
+  UK Money Transfer
+  </a>
+  </li>
+  <li>
+  <a href="login" target="_blank">
+  Euro Money Transfer
+  </a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  <div class="col-xl-3 col-lg-7 col-md-6 col-sm-6">
+  <div class="footer-widget">
+  <h3 class="footer-widget-title">Contact Us</h3>
+  <ul class="contact-info list-style">
+  <li>
+  <i class="ri-map-pin-fill"></i>
+  <h6>Location</h6>
+  <p>301 East Water Street, Charlottesville, VA 22904 Virginia</p>
+  </li>
+  <li>
+  <i class="ri-mail-open-fill"></i>
+  <h6>Email</h6>
+  <a href="#">Upward Saver Bank Corporation</a>
+  </li>
+  <li>
+  <i class="ri-phone-fill"></i>
+  <h6>Phone</h6>
+  <a href="">VIP ONLY</a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-12">
+  <p class="copyright-text"><i class="ri-copyright-line"></i> <span></span> 2025 Copyright. All Rights Reserved By <a href="login" target="_blank">Upward Saver Bank Corporation</a></p>
+  </div>
+  </div>
+  </div>
+  </footer>
+  </div>
+    
+  <a href="javascript:void(0)" class="back-to-top bounce"><i class="ri-arrow-up-s-line"></i></a>
+  
+  
+  <script data-cfasync="false" src="https://cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script src="temp/custom/assets/js/jquery.min.js"></script>
+  <script src="temp/custom/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="temp/custom/assets/js/form-validator.min.js"></script>
+  <script src="temp/custom/assets/js/contact-form-script.js"></script>
+  <script src="temp/custom/assets/js/aos.js"></script>
+  <script src="temp/custom/assets/js/owl.carousel.min.js"></script>
+  <script src="temp/custom/assets/js/odometer.min.js"></script>
+  <script src="temp/custom/assets/js/jquery.countdown.min.js"></script>
+  <script src="temp/custom/assets/js/fancybox.js"></script>
+  <script src="temp/custom/assets/js/jquery.appear.js"></script>
+  <script src="temp/custom/assets/js/tweenmax.min.js"></script>
+  <script src="temp/custom/assets/js/main.js"></script>
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 
-                                <div class="call">
-                                    Phone:
-                                    <a class="phone" href="+447701423168">+447701423168</a>
-                                    <a class="email" href="mailto:support@upwardsaverbc.cc">support@upwardsaverbc.cc</a>
-                                </div>
-
-                                <div id="google_translate_element" style="height:0px!important;">
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget">
-                                <h5>Company</h5>
-                                <ul class="list-link">
-                                    <li><a href="{{url('about')}}">About Us</a></li>
-                                   
-                                    <li><a href="{{url('ultimate')}}l">Ultimate Checking</a></li>
-                                    <!-- <li><a href="https://ofmetro.com//p/business-term-loans">Business Saving</a></li>
-                                       <li><a href="https://ofmetro.com//p/online-banking">Online Banking Us</a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column -->
-                <div class="big-column col-lg-6 col-md-12 col-sm-6 col-12">
-                    <div class="row clearfix">
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget">
-                                <h5>Quick Links</h5>
-                                <ul class="list-link">
-                                    <li><a href="{{url('business-savings')}}">Business Account</a></li>
-                                    <li><a href="{{url('lost-card')}}">Lost Card</a></li>
-                                    <li><a href="{{url('health-saving')}}">Health Savings</a></li>
-                                    <!-- <li><a href="https://ofmetro.com//p/home-mortgage-loans">Home Mortgage</a></li>
-                                       <li><a href="https://ofmetro.com//p/wire-transfers">Wire Transfers</a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget newsletter-widget">
-                                <h5>Our Newsletter</h5>
-                                <div class="text">
-                                    Subscribe to our newsletter and we will inform you about
-                                    latest updates and offers
-                                </div>
-                                <!-- Newsletter Form -->
-                                <!-- <div class="newsletter-form">
-                                       <form method="post">
-                                           <div class="form-group">
-                                               <input type="email" name="email" value="" placeholder="Email Address..." required />
-                                               <button type="submit" class="theme-btn icofont-arrow-right"></button>
-                                           </div>
-                                       </form>
-                                   </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="auto-container">
-                <div class="bottom-inner">
-                    <div class="row clearfix">
-                        <div class="col-lg-8 col-md-12 col-sm-12">
-                            <div class="copyright">
-                                © 2025 <strong>Upward Saver Bank Corporation</strong>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <ul class="social-nav">
-                                <li>
-                                    <a href="#" class="icofont-twitter"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="icofont-facebook"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="icofont-instagram"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-</div>
-<!--End pagewrapper-->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+  
+  </html>
 
 
 
-<!-- Scroll To Top -->
-<div class="scroll-to-top scroll-to-target" data-target="html">
-    <span class="fa fa-arrow-circle-up"></span>
-</div>
-
-<script src="front/js/jquery.js"></script>
-<script src="front/js/popper.min.js"></script>
-<script src="front/js/bootstrap.min.js"></script>
-<script src="front/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="front/js/jquery.fancybox.js"></script>
-<script src="front/js/appear.js"></script>
-<script src="front/js/owl.js"></script>
-<script src="front/js/wow.js"></script>
-<script src="front/js/validate.js"></script>
-<script src="front/js/jquery-ui.js"></script>
-<script src="front/js/script.js"></script>
-
-
-
-</body>
-
-
-
-<!-- Mirrored from ofmetro.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 May 2024 12:16:23 GMT -->
-</html>
+  

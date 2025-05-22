@@ -1,479 +1,744 @@
-<!-- Banner section start -->
+
+    
 @include('home.header')
-
-
-
-
-
-        	<!-- Banner Section -->
-            <div class="banner-section">
-                <div class="main-slider-carousel owl-carousel owl-theme" style="height:620px;">
-    
-                    <div class="slide" data-bg-image="https://ofmetro.com//front/images/main-slider/intro-1.jpg" style="height:620px;">
-                        <div class="auto-container w-100">
-                            <div class="row clearfix">
-                                <!-- Content Column -->
-                                <div class="content-column col-lg-7 col-md-12 col-sm-12">
-    <div class="inner-column">
-        <h1>
-            <span>Daily Life's Finances<br>
-                <span style="color: #FF573D">Re-imagined</span>
-            </span>
-            <span>For All</span>
-        </h1>
-        <div class="text" style="color: #1F1B44;">
-            Upward Saver Bank Corporation continues to simplify and improve the financial aspect of today's world bit by bit through modern technologies and community involvement.
-        </div>
-        <div class="btn-box" style="display: flex; gap: 10px;">
-            <a href="{{route('register')}}" class="theme-btn btn-style-one rounded">
-                <span class="txt">Create Account</span>
-            </a>
-            <a href="{{route('login')}}" class="theme-btn btn-style-one rounded">
-                <span class="txt">Login</span>
-            </a>
-        </div>
+<section class="hero-wrap style2">
+    <div class="container">
+    <div class="hero-shape" data-speed="0.06" data-revert="true">
+    <img src="temp/custom/assets/img/hero/hero-shape-4.png" alt="Image" class="hero-shape-one">
+    <img src="temp/custom/assets/img/hero/hero-shape-5.png" alt="Image" class="hero-shape-two">
+    <img src="temp/custom/assets/img/hero/hero-shape-6.png" alt="Image" class="hero-shape-three">
     </div>
-</div>
-
-                        </div>
-                    </div>
-    
-                    
-    
-                </div>
-    
-    
-            </div>
-            <!-- End Banner Section -->
-    
-            <!-- CTA Section Start -->
-            <div class="cta-section" style="background:#1F1B44;">
-                <div class="auto-container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7">
-                            <!-- CTA Content Start -->
-                            <div class="cta-content">
-                                <h3 class="title">For Enquires <span class="text-bold">Fill our contact form!</span></h3>
-                                <p>We boast of a dedicated 24 hour, 7 days a week support system for any your enquires</p>
-                            </div>
-                            <!-- CTA Content End -->
-                        </div>
-                        <div class="col-lg-5">
-                            <!-- CTA Phone Number Start -->
-                            <div class="cta-phone text-lg-end text-strat">
-                                <h2 class="title"></h2>
-                            </div>
-                            <!-- CTA Phone Number Start -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- CTA Section End -->
-    
-            <!-- About Section -->
-            <div class="about-section">
-                <div class="auto-container">
-                    <div class="inner-container">
-                        <div class="row align-items-center clearfix">
-                            <!-- Image Column -->
-                            <div class="image-column col-lg-6">
-                                <div class="about-image">
-                                    <div class="about-inner-image">
-                                        <img src="front/images/about/home-about.png" alt="about">
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <!-- Content Column -->
-                            <div class="content-column col-lg-6 col-md-12 col-sm-12 mb-0">
-                                <div class="about-column">
-                                    <div class="sec-title">
-                                        <div class="title">about us</div>
-                                        <h2> <span style="color: #FF573D">Upward Saver Bank Corporation</span> <br></h2>
-                                    </div>
-                                    <div class="text">
-                                        <p>
-                                            Upward Saver Bank Corporation We kept our promise and expanded our reach, improving our technology thereby performing faster and safer transactions lightening fast.
-                                        </p>
-                                    </div>
-                                    <div style="color: #FF573D" class="signature">Grinstand</div>
-                                </div>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End About Section -->
-    
-            <!-- Services Section -->
-            <div class="services-section">
-                <div class="auto-container">
-                    <div class="sec-title">
-                        <div class="title">our services</div>
-                        <h2><span>Best modern solving remedies</span> For Your Business</h2>
-                    </div>
-                    <div class="inner-container">
-                        <div class="row g-0">
-    
-                            <!-- Service Block -->
-                            <div class="service-block col-lg-3 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="icon-box">
-                                        <span class="icon ti-shield"></span>
-                                    </div>
-                                    <h5><a>Lightening Fast Transactions</a></h5>
-                                    <div class="text">Fast and supervised way to save, transfer your funds at full guarantee.</div>
-                                </div>
-                            </div>
-    
-                            <!-- Service Block -->
-                            <div class="service-block col-lg-3 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="icon-box">
-                                        <span class="icon ti-home"></span>
-                                    </div>
-                                    <h5><a>Customer Support</a></h5>
-                                    <div class="text">Access to the most experience and professional support system carefully selected to  handle daily enquires.</div>
-                                </div>
-                            </div>
-    
-                            <!-- Service Block -->
-                            <div class="service-block col-lg-3 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="icon-box">
-                                        <span class="fab fa-bitcoin"></span>
-                                    </div>
-                                    <h5><a>Digital Assets</a></h5>
-                                    <div class="text">We have evolved over time, popular digital assets, like bitcoin, are utilized and harnessed safely.</div>
-                                </div>
-                            </div>
-    
-                            <!-- Service Block -->
-                            <div class="service-block col-lg-3 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="icon-box">
-                                        <span class="icon ti-money"></span>
-                                    </div>
-                                    <h5><a> Quick Loans</a></h5>
-                                    <div class="text">We offer loans to suit your need with very low interest rates. Also available to every one regardless of your status.</div>
-                                </div>
-                            </div>
-    
-                        </div>
-    
-                    </div>
-                </div>
-            </div>
-            <!-- End Services Section -->
-    
-            <!-- Project Section -->
-            <div class="project-section">
-                <div class="auto-container">
-    
-                    <!-- Sec Title -->
-                    <div class="sec-title">
-                        <div class="clearfix">
-                            <div class="pull-left">
-                                <h2 style="color: #FF573D">Our <span>Ground-breaking Strategies Are Top Notch</span></h2>
-                            </div>
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="outer-container">
-                    <div class="row clearfix">
-    
-                        <!-- Column -->
-                        <div class="column col-lg-6 col-md-12 col-sm-12">
-                            <div class="row clearfix">
-    
-                                <!-- Inner Column -->
-                                <div class="inner-column col-lg-6 col-md-6 col-sm-12">
-                                    <div class="gallery-block">
-                                        <div class="inner-box">
-                                            <div class="image">
-                                                <img src="front/images/gallery/2.jpg" alt="" />
-                                                <div class="overlay-box">
-                                                    <div class="overlay-inner">
-                                                        <h3><a>Upward Saver Bank Corporation</a></h3>
-                                                        <div class="designation">Banking & Financial</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <!-- Inner Column -->
-                                <div class="inner-column col-lg-6 col-md-6 col-sm-12">
-                                    <div class="gallery-block">
-                                        <div class="inner-box">
-                                            <div class="image">
-                                                <img src="front/images/gallery/3.jpg" alt="" />
-                                                <div class="overlay-box">
-                                                    <div class="overlay-inner">
-                                                        <h3><a>Upward Saver Bank Corporation</a></h3>
-                                                        <div class="designation">Professional Consultation</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <!-- Inner Column -->
-                                <div class="inner-column col-lg-12 col-md-12 col-sm-12">
-                                    <div class="gallery-block">
-                                        <div class="inner-box">
-                                            <div class="image">
-                                                <img src="front/images/gallery/4.jpg" alt="" />
-                                                <div class="overlay-box">
-                                                    <div class="overlay-inner">
-                                                        <h3><a>Upward Saver Bank Corporation</a></h3>
-                                                        <div class="designation">Savings & Strategy</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                            </div>
-                        </div>
-    
-                        <!-- Column -->
-                        <div class="column col-lg-6 col-md-12 col-sm-12">
-                            <div class="gallery-block">
-                                <div class="inner-box">
-                                    <div class="image">
-                                        <img src="front/images/gallery/1.jpg" alt="" />
-                                        <div class="overlay-box">
-                                            <div class="overlay-inner">
-                                                <h3><a>Upward Saver Bank Corporation</a></h3>
-                                                <div class="designation">Home & Business Loan</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
-                </div>
-            </div>
-            <!-- End Project Section -->
-    
-    
-    
-            <!-- Sponsors Section -->
-            <div class="sponsors-section">
-        <div class="auto-container">
-    
-            <div class="carousel-outer">
-                <!--Sponsors Slider-->
-                <ul class="sponsors-carousel owl-carousel owl-theme">
-                    <li>
-                        <div class="image-box"><a href="#"><img src="front/images/clients/1.png" alt=""></a></div>
-                    </li>
-                    <li>
-                        <div class="image-box"><a href="#"><img src="front/images/clients/2.png" alt=""></a></div>
-                    </li>
-                    <li>
-                        <div class="image-box"><a href="#"><img src="front/images/clients/4.png" alt=""></a></div>
-                    </li>
-                    <li>
-                        <div class="image-box"><a href="#"><img src="front/images/clients/5.png" alt=""></a></div>
-                    </li>
-                    <li>
-                        <div class="image-box"><a href="#"><img src="front/images/clients/1.png" alt=""></a></div>
-                    </li>
-                    <li>
-                        <div class="image-box"><a href="#"><img src="front/images/clients/2.png" alt=""></a></div>
-                    </li>
-                </ul>
-            </div>
-    
-        </div>
-    </div>		<!--End Sponsors Section-->
-    <style>
-    /* Override any existing styles that might be hiding the text */
-    .reputation-block .inner-box .text {
-        display: block !important;
-        visibility: visible !important;
-    }
-</style>
-            <!-- Reputation Section Two -->
-            <div class="reputation-section-two style-two">
-                <div class="auto-container">
-                    <div class="row clearfix">
-    
-                        <!-- Form Column -->
-                        <div class="form-column col-lg-5 col-md-12 col-sm-12">
-                            <div class="inner-column">
-                                <div class="form-boxed">
-                                    <!-- <h5>Our Values</h5> -->
-                                    <div class="text">The mission of Upward Saver Bank Corporation is to go beyond what was deemed impossible and to  contribute to the sustainable development of the international banking sector by
-                                        providing. Below are our core values</div>
-    
-                                    <div class="consult-form">
-                                        <div class="sidebar-widget categories-blog">
-        <div class="sidebar-title">
-            <h4>Our Values</h4>
-        </div>
-        <ul>
-            <li><a>Support </a></li>
-                                        <li><a>Ease </a></li>
-                                        
-                                        <li><a>Community </a></li>
-                                        <li><a>Safety </a></li>
-                                        <li><a>Speed </a></li>
-                                        <li><a>Privacy </a></li>
-                                        <li><a>Bond </a></li>
-        </ul>
+    <div class="row align-items-center gx-5">
+    <div class="col-lg-6">
+    <div class="hero-content">
+    <span data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">SIMPLE, QUICK, SECURED</span>
+    <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Transfer Money Across The World In Real time</h1>
+    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Upward Saver Bank Corporation transformed the digital banking industry using data and technology more than ten years ago. We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.</p>
+    <div class="hero-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+    <a href="{{route('login')}}" class="btn style1">REGISTER<i class="ri-arrow-right-s-line"></i></a>
+   <a href="{{route('login')}}" class="btn style1">LOGIN<i class="ri-arrow-right-s-line"></i></a>
     </div>
-                                    </div>
-                                </div>
-    
-                            </div>
-                        </div>
-    
-                        <!-- Content Column -->
-                        <div class="content-column col-lg-7 col-md-12 col-sm-12">
-                            <div class="inner-column">
-                                <div class="sec-title">
-                                    <div class="title">why us?</div>
-                                    <h2><span>Your Breakthrough </span>Means<br> a lot To Us</h2>
-                                </div>
-                                <div class="blocks-outer">
-    
-                                    <!-- Reputation Block -->
-                                    <div class="reputation-block">
-                                        <div class="inner-box">
-                                            <h5>Our Vision</h5>
-                                            <div class="text">We have evolved and worked with both large and small business seamlessly, helping improve growth to the business structure.</div>
-                                        </div>
-                                    </div>
-    
-                                    <!-- Reputation Block -->
-                                    <div class="reputation-block">
-                                        <div class="inner-box">
-                                            <h5>Our Aim</h5>
-                                            <div class="text">Our vision and scope at TD Group Ltd is to use internationally improved modern banking practices to provide the community and micro, small, and medium-sized businesses with responsible financial services and solutions. We are also committed to delivering high value for our clients, shareholders, employees, and society at large. The mission is based on our values, which include honesty and transparency, professionalism, dedication to our customers, teamwork, and social and environmental responsibility..</div>
-                                        </div>
-                                    </div>
-    
-    
-    
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
-                </div>
-            </div>
-            <!-- End Reputation Section -->
-    
-    
-    
-            <!-- Blog Section -->
-            <div class="blog-section">
-                <div class="auto-container">
-                    <!-- Sec Title -->
-    
-                    <div class="inner-container">
-                        <div class="clearfix row g-0">
-                            <!-- Column -->
-                            <div class="column col-lg-8 col-md-12 col-sm-12">
-    
-                                <!-- News Block -->
-                                <div class="news-block">
-                                    <div class="inner-box">
-                                        <div class="clearfix">
-                                            <!-- Image Column -->
-                                            <div class="image-column col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-column">
-                                                    <div class="image">
-                                                        <a><img src="front/images/resource/news-1.jpg" alt="" /></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Content Column -->
-                                            <div class="content-column col-lg-6 col-md-6 col-sm-12">
-                                                <div class="inner-column">
-                                                    <div class="arrow-one"></div>
-                                                    <div class="title">Home Mortgage Loans</div>
-                                                    <h4><a>You've never been this close to reaching your goals than with us, the right way. Our rates are affordable with utmost flexiblity.</a></h4>
-                                                    <div class="post-date">July 14th, 2023 by <span>Admin</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <!-- News Block -->
-                                <div class="news-block">
-                                    <div class="inner-box">
-                                        <div class="clearfix row g-0">
-                                            <!-- Content Column -->
-                                            <div class="content-column col-lg-6 col-md-6 col-sm-12 order-lg-1 order-2">
-                                                <div class="inner-column">
-                                                    <div class="arrow-two"></div>
-                                                    <div class="title">Personal Finance</div>
-                                                    <h4><a>Been planning that dream vacation? a family trip to paris? come talk to us about it, we're here for you.</a></h4>
-                                                    <div class="post-date">March 6th, 2024 by <span>Admin</span></div>
-                                                </div>
-                                            </div>
-                                            <!-- Image Column -->
-                                            <div class="image-column col-lg-6 col-md-6 col-sm-12 order-lg-2 order-1">
-                                                <div class="inner-column">
-                                                    <div class="image">
-                                                        <a><img src="front/images/resource/news-2.jpg" alt="" /></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                            </div>
-    
-                            <!-- Column -->
-                            <div class="column col-lg-4 col-md-12 col-sm-12">
-                                <!-- News Block Two -->
-                                <div class="news-block-two">
-                                    <div class="inner-box">
-                                        <div class="image">
-                                            <a><img src="front/images/resource/news-3.jpg" alt="" /></a>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <div class="lower-content">
-                                            <div class="title">HSA</div>
-                                            <h4><a>An HSA (Health Saving Account) helps employees save in advance for future medical expenses.</a></h4>
-                                            <div class="post-date">June 13th, 2012 by <span>Admin</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Blog Section -->
-    
-            
-    
-    <!-- Map Section -->
-    <!-- <div class="map-section">
-                <div class="contact-map-area">
-                    <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.961936781822!2d-122.34013238480624!3d47.60742979591455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab3cbba9c83%3A0x548849e16a192f92!2s1301%202nd%20Ave%20%232600%2C%20Seattle%2C%20WA%2098101%2C%20USA!5e0!3m2!1sen!2sng!4v1626796438815!5m2!1sen!2sng" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
-            </div> -->
-    <!-- End Map Section -->
+    <div class="hero-contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+    <div class="hero-contact-img">
+    <a href="contact">
+    <img src="temp/custom/assets/img/testimonials/client-1.jpg" alt="Image">
+    </a>
+    <a href="contact">
+    <img src="temp/custom/assets/img/testimonials/client-2.jpg" alt="Image">
+    </a>
+    <a href="contact">
+    <img src="temp/custom/assets/img/testimonials/client-3.jpg" alt="Image">
+    </a>
+    </div>
+    <div class="hero-contact-text">
+    <p>Need Help? Contact our <a href="contact" class="link style1">digital support</a> &amp; tell us about your query.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="hero-img-wrap">
+    <div class="hero-promo-text bounce">
+    <span><i class="flaticon-group"></i></span>
+    <h6>18.5M+ <span>Active Users</span></h6>
+    </div>
+    <div class="hero-img-one">
+    <img src="temp/custom/assets/img/hero/hero-img-2.jpg" alt="Image">
+    </div>
+    <div class="hero-img-two">
+    <img src="temp/custom/assets/img/hero/hero-img-3.jpg" alt="Image">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
     
     
     
     
+    
+    <section class="about-wrap style2 pb-100">
+    <div class="container">
+    <div class="row gx-5 align-items-center">
+    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+    <div class="about-img-wrap">
+    <img src="temp/custom/assets/img/shape-1.png" alt="Image" class="about-shape-one">
+    <div class="about-img-one">
+    <img src="temp/custom/assets/img/about/about-img-5.jpg" alt="Image">
+    </div>
+    <div class="about-img-two">
+    <img src="temp/custom/assets/img/about/about-img-6.jpg" alt="Image">
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+    <div class="about-content">
+    <div class="content-title style1">
+    <span>ABOUT US</span>
+    <h2>We revolutionized Digital Banking</h2>
+    <p>We've grown to become one of the largest digital banking providers, committed to inventing, simplifying, and humanizing the banking experience.</p>
+    </div>
+    <div class="feature-item-wrap">
+    <div class="feature-item">
+    <div class="feature-icon">
+    <i class="flaticon-application"></i>
+    </div>
+    <div class="feature-text">
+    <h3>Powerful Mobile &amp; Online App</h3>
+    <p>Our mobile app service is quick and easy to use, and you can get it from your app store.</p>
+    </div>
+    </div>
+    <div class="feature-item">
+    <div class="feature-icon">
+    <i class="flaticon-speedometer"></i>
+    </div>
+    <div class="feature-text">
+    <h3>Brings More Transperency &amp; Speed</h3>
+    <p>Our digital banking services are transparent and quick, and we're building a reliable network.</p>
+    </div>
+    </div>
+    </div>
+    <a href="about" class="btn style1">READ MORE<i class="ri-arrow-right-s-line"></i></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <div class="feature-wrap style1 ptb-100 bg-whisper">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-6 offset-xl-3 col-lg-10 offset-lg-1">
+    <div class="section-title style1 text-center mb-40">
+    <span>POPULAR CURRENCY TOOLS</span>
+    <h2>Set Up &amp; Exchange Money From Your Cards In A Minute</h2>
+    </div>
+    </div>
+     </div>
+    <div class="feature-slider-one owl-carousel">
+    <div class="feature-card style3">
+    <div class="feature-title">
+    <span>
+    <i class="flaticon-hand"></i>
+    </span>
+    <h3><a href="login">Money Transfer</a></h3>
+    </div>
+    <p>With our digital platform, you may send money to relatives and friends all around the world.</p>
+    <a href="login" class="link style1">SEND MONEY<i class="ri-arrow-right-s-line"></i></a>
+    </div>
+    <div class="feature-card style3">
+    <div class="feature-title">
+    <span>
+    <i class="flaticon-pie-chart"></i>
+    </span>
+    <h3><a href="login">Curreny Charts</a></h3>
+    </div>
+    <p>You can always watch the market's movement and make trading decisions with our currency charts.</p>
+    <a href="login" class="link style1">VIEW CHART<i class="ri-arrow-right-s-line"></i></a>
+    </div>
+    <div class="feature-card style3">
+    <div class="feature-title">
+    <span>
+    <i class="flaticon-notification"></i>
+    </span>
+    <h3><a href="login">Rate Alerts</a></h3>
+    </div>
+    <p>To enable our clients to convert, we at Stana Group provide the finest currency rates in the market.</p>
+    <a href="login" class="link style1">CREATE ALERT<i class="ri-arrow-right-s-line"></i></a>
+    </div>
+    <div class="feature-card style3">
+    <div class="feature-title">
+    <span>
+    <i class="flaticon-user-2"></i>
+    </span>
+    <h3><a href="register">Create Account</a></h3>
+    </div>
+    <p>Create a free digital bank account with us today to send money around the world.</p>
+    <a href="login" class="link style1">GET STARTED <i class="ri-arrow-right-s-line"></i></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <section class="wh-wrap style2 ptb-100">
+    <div class="container">
+    <div class="row gx-5 align-items-center">
+    <div class="col-lg-6 order-lg-1 order-md-2 order-2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <div class="wh-content">
+    <div class="content-title style1">
+    <span>WHY CHOOSE US</span>
+    <h2>We are innovative and digital</h2>
+    <p>Upward Saver Bank Corporation transformed the credit card business using data and technology more than ten years ago. We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.</p>
+    </div>
+    <div class="feature-item-wrap">
+    <div class="feature-item">
+    <div class="feature-icon">
+     <i class="flaticon-tick"></i>
+    </div>
+    <div class="feature-text">
+    <h3>Historical Currency Rates</h3>
+    <p></p>
+    </div>
+    </div>
+    <div class="feature-item">
+    <div class="feature-icon">
+    <i class="flaticon-tick"></i>
+    </div>
+    <div class="feature-text">
+    <h3>Travel Expense Calculator</h3>
+    <p></p>
+    </div>
+    </div>
+    <div class="feature-item">
+    <div class="feature-icon">
+    <i class="flaticon-tick"></i>
+    </div>
+    <div class="feature-text">
+    <h3>Currency Email Updates</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6 order-lg-2 order-md-1 order-1" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+    <div class="row align-items-end">
+    <div class="col-6 wh-img-wrap">
+    <img src="temp/custom/assets/img/shape-2.png" alt="Image" class="wh-shape-one moveHorizontal">
+    <div class="wh-img">
+    <img src="temp/custom/assets/img/why-choose-us/wh-img-4.jpg" alt="Image">
+    </div>
+    <div class="wh-img">
+    <img src="temp/custom/assets/img/why-choose-us/wh-img-5.jpg" alt="Image">
+    </div>
+    </div>
+    <div class="col-6 wh-img-wrap">
+    <div class="wh-img">
+    <img src="temp/custom/assets/img/shape-3.png" alt="Image" class="wh-shape-two bounce">
+    <img src="temp/custom/assets/img/why-choose-us/wh-img-6.jpg" alt="Image">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <section class="exchange-table-wrap pb-100">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+    <div class="section-title style1 text-center mb-40">
+    <span>LIVE EXCHANGE RATES</span>
+    <h2>Exchange Money Across The World In Real Time With Lowest Fees</h2>
+    </div>
+    </div>
+    </div>
+    <div class="exchange-table">
+    <table class="table">
+    <thead>
+     <tr>
+    <th scope="col">
+    <div class="inverse">
+    <span>Inverse</span>
+    <input type="checkbox" id="switch" />
+    <label for="switch">Toggle</label>
+    </div>
+    </th>
+    <th scope="col">Amount</th>
+    <th scope="col">Change(24h)</th>
+    <th scope="col">Chart(24h)</th>
+    <th scope="col"><span class="action"><i class="ri-edit-line"></i>Edit</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <div class="country-flag">
+    <img src="temp/custom/assets/img/flag/usa.png" alt="Image">
+    US Dollar
+    </div>
+    </td>
+    <td>
+    120.54
+    </td>
+    <td>
+    <span class="text-green">+0.50%</span>
+    </td>
+    <td>
+    <img src="temp/custom/assets/img/chart-img/chart-1.png" alt="Image">
+    </td>
+    <td>
+    <button class="btn style1" type="button"><i class="ri-send-plane-line"></i>Send</button>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="country-flag">
+    <img src="temp/custom/assets/img/flag/japan.png" alt="Image">
+    Japanees Yen
+    </div>
+    </td>
+    <td>
+    134.76
+    </td>
+    <td>
+    <span class="text-green">+0.24%</span>
+    </td>
+    <td>
+    <img src="temp/custom/assets/img/chart-img/chart-2.png" alt="Image">
+    </td>
+    <td>
+    <button class="btn style1" type="button"><i class="ri-send-plane-line"></i>Send</button>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="country-flag">
+    <img src="temp/custom/assets/img/flag/uk.png" alt="Image">
+    British Pound
+    </div>
+    </td>
+    <td>
+    245.10
+    </td>
+    <td>
+    <span class="text-red">-0.30%</span>
+    </td>
+    <td>
+    <img src="temp/custom/assets/img/chart-img/chart-3.png" alt="Image">
+    </td>
+    <td>
+    <button class="btn style1" type="button"><i class="ri-send-plane-line"></i>Send</button>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="country-flag">
+    <img src="temp/custom/assets/img/flag/newzland.png" alt="Image">
+    Newzland Dollar
+    </div>
+    </td>
+    <td>
+    0.7564
+    </td>
+    <td>
+    <span class="text-red">-0.063%</span>
+    </td>
+    <td>
+    <img src="temp/custom/assets/img/chart-img/chart-4.png" alt="Image">
+    </td>
+    <td>
+    <button class="btn style1" type="button"><i class="ri-send-plane-line"></i>Send</button>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="country-flag">
+    <img src="temp/custom/assets/img/flag/canada.png" alt="Image">
+    Canadian Dollar
+    </div>
+    </td>
+    <td>
+    1.2741
+    </td>
+    <td>
+    <span class="text-red">-0.76%</span>
+    </td>
+    <td>
+    <img src="temp/custom/assets/img/chart-img/chart-5.png" alt="Image">
+    </td>
+    <td>
+    <button class="btn style1" type="button"><i class="ri-send-plane-line"></i>Send</button>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="country-flag">
+    <img src="temp/custom/assets/img/flag/france.png" alt="Image">
+    Swiss Franc
+    </div>
+    </td>
+    <td>
+    15.063
+    </td>
+    <td>
+    <span class="text-green">+0.26%</span>
+    </td>
+    <td>
+    <img src="temp/custom/assets/img/chart-img/chart-6.png" alt="Image">
+    </td>
+    <td>
+    <button class="btn style1" type="button"><i class="ri-send-plane-line"></i>Send</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="row align-items-center">
+    <div class="col-sm-6">
+    <button type="button" class="add-currency"><span><i class="ri-add-circle-line"></i></span>Add Currency</button>
+    </div>
+    <div class="col-sm-6 text-sm-end">
+    <p class="update-status">Last Updated Jan 20, 2022</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <div class="feature-wrap style1 pt-100 pb-75 bg-whisper">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+    <div class="section-title style1 text-center mb-40">
+    <span>YOUR BENIFITS</span>
+    <h2>Your one-stop digital banking platform</h2>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <div class="feature-card style4">
+    <div class="feature-icon">
+    <i class="flaticon-planet-earth"></i>
+    </div>
+    <div class="feature-info">
+    <h3><a href="#">Global Coverage</a></h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+    <div class="feature-card style4">
+    <div class="feature-icon">
+    <i class="flaticon-money-bag-1"></i>
+    </div>
+    <div class="feature-info">
+    <h3><a href="#">Easy Transfer Method</a></h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+    <div class="feature-card style4">
+    <div class="feature-icon">
+    <i class="flaticon-notification"></i>
+    </div>
+    <div class="feature-info">
+    <h3><a href="#">Global 24/7 Support</a></h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+    <div class="feature-card style4">
+    <div class="feature-icon">
+    <i class="flaticon-money-1"></i>
+    </div>
+    <div class="feature-info">
+    <h3><a href="#">Lowest Fee</a></h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+    <div class="feature-card style4">
+    <div class="feature-icon">
+    <i class="flaticon-automation"></i>
+    </div>
+    <div class="feature-info">
+    <h3><a href="#">Instant Processing</a></h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
+    <div class="feature-card style4">
+    <div class="feature-icon">
+    <i class="flaticon-shield"></i>
+    </div>
+    <div class="feature-info">
+    <h3><a href="#">Bank Lavel Security</a></h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    <section class="currency-wrap pt-100 pb-75 bg-whisper">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+    <div class="section-title style1 text-center mb-40">
+    <span>CURRENCY PROFILE</span>
+    <h2>Get These Local Account Details Just Like Pay A Local</h2>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/usa.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>USD - US Dollar</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/eu.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>EUR - Euro</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/uk.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>GBP - British Pound</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/canada.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>CAD - Canadian Dollar</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/images/197582.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>KRW - South Korean won</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/japan.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>JPY - Japaneese Yen</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/images/197375.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>CNY - Chinese Yuan</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/newzland.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>NZD - NZ Dollar</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+    <div class="currency-card">
+    <div class="currency-flag"><img src="temp/custom/assets/img/flag/france.png" alt="Image"></div>
+    <div class="currency-info">
+    <h3>CHF - Swiss Franc</h3>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <section class="testimonial-wrap ptb-100">
+    <div class="container">
+    <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+    <div class="section-title style1 text-center mb-40">
+    <span>OUR REVIEWS</span>
+    <h2>More Than 18M+ Happy Customers Trust Our Services</h2>
+    </div>
+    </div>
+    <div class="testimonial-slider-two owl-carousel">
+    
+    
+    <div class="testimonial-card style3" style="min-height: 300px;">
+    <div class="client-info-area">
+    <div class="client-info-wrap">
+    <div class="client-img">
+    <img src="temp/custom/assets/img/testimonials/client-3.jpg" alt="Image">
+    </div>
+    <div class="client-info">
+    <h3>Jim Morison</h3>
+    <span>Director, BAT</span>
+    </div>
+    </div>
+    <div class="quote-icon">
+    <i class="flaticon-quotation-mark"></i>
+    </div>
+    </div>
+    <p class="client-quote">I opened a checking and savings account at Upward Saver Bank Corporation on McHenry in Modesto, California. The teller who helped me was a pleasure to work with. She was very knowledgeable and through setting up my accounts. She made my day a pleasant day. Thank you for the terrific customer service.</p>
+    </div>
+    
+    
+    <div class="testimonial-card style3" style="min-height: 300px;">
+    <div class="client-info-area">
+    <div class="client-info-wrap">
+    <div class="client-img">
+    <img src="temp/custom/assets/img/testimonials/client-4.jpg" alt="Image">
+    </div>
+    <div class="client-info">
+    <h3>Alex Cruis</h3>
+    <span>CEO, IBAC</span>
+    </div>
+    </div>
+    <div class="quote-icon">
+    <i class="flaticon-quotation-mark"></i>
+    </div>
+    </div>
+    <p class="client-quote">I opened a checking and savings account at Upward Saver Bank Corporation on McHenry in Modesto, California. The teller who helped me was a pleasure to work with. She was very knowledgeable and through setting up my accounts. She made my day a pleasant day. Thank you for the terrific customer service.</p>
+    </div>
+    
+    
+    <div class="testimonial-card style3" style="min-height: 300px;">
+    <div class="client-info-area">
+    <div class="client-info-wrap">
+    <div class="client-img">
+     <img src="temp/custom/assets/img/testimonials/client-5.jpg" alt="Image">
+    </div>
+    <div class="client-info">
+    <h3>Tom Haris</h3>
+    <span>Engineer, Olleo</span>
+    </div>
+    </div>
+    <div class="quote-icon">
+    <i class="flaticon-quotation-mark"></i>
+    </div>
+    </div>
+    <p class="client-quote">I've been with Upward Saver Bank Corporation for four years. I went through a loan modification with them, as well as a six-month forbearance. I also have a credit card with them, which they have cancelled after every late payment, as well as a cash account with withdrawal fees. They are always there to help me.</p>
+    </div>
+    <div class="testimonial-card style3" style="min-height: 300px;">
+    <div class="client-info-area">
+    <div class="client-info-wrap">
+    <div class="client-img">
+    <img src="temp/custom/assets/img/testimonials/client-1.jpg" alt="Image">
+    </div>
+    <div class="client-info">
+    <h3>Harry Jackson</h3>
+    <span>Enterpreneur</span>
+    </div>
+    </div>
+    <div class="quote-icon">
+    <i class="flaticon-quotation-mark"></i>
+    </div>
+    </div>
+    <p class="client-quote">Karla treated me as if I were a person, not simply a customer. She remained on the phone with me until I had calmed down and she was satisfied that I was fine. She stated that she would not be able to go until she had further information. </p>
+    </div>
+    <div class="testimonial-card style3" style="min-height: 300px;">
+    <div class="client-info-area">
+    <div class="client-info-wrap">
+    <div class="client-img">
+    <img src="temp/custom/assets/img/testimonials/client-2.jpg" alt="Image">
+    </div>
+    <div class="client-info">
+    <h3>Chris Haris</h3>
+    <span>MD, ITec</span>
+    </div>
+    </div>
+    <div class="quote-icon">
+    <i class="flaticon-quotation-mark"></i>
+    </div>
+    </div>
+    <p class="client-quote">I usually request service through the app or website, although I have called in on occasion. They're all extremely responsive and accommodating.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    <section class="blog-wrap pt-100 pb-75 bg-whisper">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+    <div class="section-title style1 text-center mb-40">
+    <span>OUR BLOG</span>
+    <h2>Keep Up To Date With Global Content From Our Trusted Team</h2>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+    <div class="blog-card style2">
+    <div class="blog-img">
+    <img src="temp/custom/assets/img/blog/blog-1.jpg" alt="Image">
+    <a href="#" class="blog-cat">Corporate</a>
+    </div>
+    <div class="blog-info">
+    <ul class="blog-metainfo  list-style">
+    <li><i class="ri-calendar-2-line"></i><a href="#">May 22, 2022</a></li>
+    <li><i class="ri-chat-3-line"></i>10+ Comment</li>
+    </ul>
+    <h3><a href="https://www.cnbc.com/2020/02/27/5-things-every-new-business-owner-needs-to-know-before-starting.html" target="_blank">5 Things You Need To Know Before Starting Business</a></h3>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+    <div class="blog-card style2">
+    <div class="blog-img">
+    <img src="temp/custom/assets/img/blog/blog-2.jpg" alt="Image">
+    <a href="#" class="blog-cat">Consumer</a>
+    </div>
+    <div class="blog-info">
+    <ul class="blog-metainfo  list-style">
+    <li><i class="ri-calendar-2-line"></i><a href="#">May 13, 2022</a></li>
+    <li><i class="ri-chat-3-line"></i>10+ Comment</li>
+    </ul>
+    <h3><a href="https://www.investopedia.com/articles/insights/122016/9-common-effects-inflation.asp#:~:text=An%20overall%20rise%20in%20prices,fast%20at%20the%20higher%20rate." target="_blank">Effect Of Inflation On Our Daily Expenditure</a></h3>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <div class="blog-card style2">
+    <div class="blog-img">
+    <img src="temp/custom/assets/img/blog/blog-3.jpg" alt="Image">
+    <a href="#" class="blog-cat">Finance</a>
+    </div>
+    <div class="blog-info">
+    <ul class="blog-metainfo  list-style">
+    <li><i class="ri-calendar-2-line"></i><a href="#">Apr 15, 2022</a></li>
+    <li><i class="ri-chat-3-line"></i>10+ Comment</li>
+    </ul>
+    <h3><a href="https://www.airtreks.com/go/foreign-currency/" target="_blank">7 Tips To Get Best Exchange Rate In Currency</a></h3>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+  
+
+
+
 @include('home.footer')
-

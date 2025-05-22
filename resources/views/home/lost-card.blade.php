@@ -39,7 +39,7 @@
         
                                         If your Santa Trust Bank Corporation Card has been lost or stolen, notify us immediately.
         
-                                        Phone:+447701423168 or send us an email at support@upwardsaverbc.cc 24 hours, 7 days a week. </p>
+                                        Phone:+447701423168 or send us an email at support@Upward Saver Bank Corporation.cc 24 hours, 7 days a week. </p>
                                 </div>
                             </div>
                         </div>

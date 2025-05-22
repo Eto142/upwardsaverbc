@@ -28,8 +28,8 @@
                 <div class="col-lg-12">
                     <div class="text-center mb-5 text-muted">
                         <a href="index.html" class="d-block auth-logo">
-                            <img src="{{asset('logo.png')}}" alt="" height="20" class="auth-logo-dark mx-auto">
-                            <img src="{{asset('logo.png')}}" alt="" height="20" class="auth-logo-light mx-auto">
+                            <img src="{{asset('logo1.png')}}" alt="" height="20" class="auth-logo-dark mx-auto">
+                            <img src="{{asset('logo1.png')}}" alt="" height="20" class="auth-logo-light mx-auto">
                         </a>
                     </div>
                 </div>
