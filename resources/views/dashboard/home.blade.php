@@ -98,10 +98,17 @@
 
   <!-- Buttons -->
   <div class="d-flex gap-2 mt-3">
-    <button class="btn btn-main flex-fill"><i class="bi bi-plus-circle"></i> Fund account</button>
-    <button class="btn btn-outline-main flex-fill"><i class="bi bi-arrow-right"></i> Transfer</button>
-    <button class="btn btn-outline-main flex-fill"><i class="bi bi-currency-exchange"></i> FX</button>
-  </div>
+  <a href="{{route('deposit')}}" class="btn btn-main flex-fill">
+    <i class="bi bi-plus-circle"></i> Fund account
+  </a>
+  <a href="{{route('bank')}}" class="btn btn-outline-main flex-fill">
+    <i class="bi bi-arrow-right"></i> Transfer
+  </a>
+  <a href="#fx" class="btn btn-outline-main flex-fill">
+    <i class="bi bi-currency-exchange"></i> FX
+  </a>
+</div>
+
 
  <!-- Shortcuts -->
 <h6 class="mt-4">Shortcuts</h6>
@@ -134,21 +141,77 @@
 
 
   <!-- Transaction -->
-  <h6 class="mt-4 d-flex justify-content-between align-items-center">Transaction history
-    <a href="#" class="small text-decoration-none">See more</a>
-  </h6>
-  <div class="transaction-box d-flex justify-content-between align-items-center">
-    <div>
-      <div class="d-flex align-items-center gap-2">
-        <i class="bi bi-arrow-right-circle-fill text-danger"></i>
-        <span class="small">000013250518232600000...</span>
-      </div>
-      <small class="text-muted">Transfer</small>
-    </div>
-    <div class="text-end">
-      <small class="text-muted">From •••0579</small>
-    </div>
+<!-- Transaction -->
+<h6 class="mt-4 d-flex justify-content-between align-items-center">
+  Transaction history
+  <a href="{{route('transactions')}}" class="small text-decoration-none">See more</a>
+</h6>
+
+@if($transaction->isEmpty())
+  <div class="text-center text-muted py-4">
+    No transactions yet.
   </div>
+@else
+  @foreach($transaction as $details)
+    <div class="transaction-box d-flex justify-content-between align-items-center mb-2">
+      <div>
+        <div class="d-flex align-items-center gap-2">
+          @if($details->transaction == 'Bank Transfer')
+            <i class="bi bi-arrow-right-circle-fill text-success"></i>
+          @elseif($details->transaction == 'Loan')
+            <i class="bi bi-arrow-up-circle-fill text-dark"></i>
+          @elseif($details->transaction == 'Card')
+            <i class="bi bi-credit-card-fill text-dark"></i>
+          @elseif($details->transaction == 'Crypto Withdrawal')
+            <i class="bi bi-currency-bitcoin text-warning"></i>
+          @elseif($details->transaction == 'Paypal Withdrawal')
+            <i class="bi bi-paypal text-info"></i>
+          @elseif($details->transaction == 'Skrill Withdrawal')
+            <i class="bi bi-wallet2 text-success"></i>
+          @else
+            <i class="bi bi-info-circle-fill text-muted"></i>
+          @endif
+
+          <span class="small">
+            {{ Str::limit($details->transaction_description, 25) }}
+          </span>
+        </div>
+        <small class="text-muted">{{ $details->transaction }}</small>
+      </div>
+
+      <div class="text-end">
+        <small class="text-muted">
+          @if(str_contains($details->transaction_description, 'From'))
+            {{ $details->transaction_description }}
+          @else
+            From •••{{ substr($details->account_number ?? '0000', -4) }}
+          @endif
+        </small>
+        <br>
+        <small>
+          @if(in_array($details->transaction, ['Bank Transfer', 'Paypal Withdrawal', 'Skrill Withdrawal', 'Crypto Withdrawal']))
+            -{{ Auth::user()->currency }}{{ number_format($details->transaction_amount, 2) }}
+          @elseif($details->transaction == 'Loan')
+            +{{ Auth::user()->currency }}{{ number_format($details->transaction_amount, 2) }}
+          @elseif($details->transaction == 'Card')
+            &nbsp;
+          @endif
+        </small>
+        <br>
+        @if($details->transaction == 'Card' && $details->transaction_status == '1')
+          <a href="javascript:void(0)" class="badge light badge-success">Approved</a>
+        @elseif($details->transaction_status == '1')
+          <a href="javascript:void(0)" class="badge light badge-success">Successful</a>
+        @elseif($details->transaction_status == '0')
+          <a href="javascript:void(0)" class="badge light badge-primary">Pending</a>
+        @else
+          <a href="javascript:void(0)" class="badge light badge-warning">Failed</a>
+        @endif
+      </div>
+    </div>
+  @endforeach
+@endif
+
 
   <!-- Investments -->
   <h6 class="mt-4">Investments</h6>
