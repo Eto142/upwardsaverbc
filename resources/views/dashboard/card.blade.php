@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bank App UI - Card</title>
+  <title>Upward Saver - Card</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
@@ -209,8 +209,10 @@
       <!-- Card actions -->
       <div class="d-flex gap-2 mt-3">
         <button class="btn btn-main flex-fill"><i class="bi bi-eye"></i> Show CVV</button>
-        <button class="btn btn-outline-main flex-fill"><i class="bi bi-credit-card"></i> Freeze</button>
+        <button class="btn btn-outline-danger flex-fill"><i class="bi bi-trash"></i> Delete</button>
+
       </div>
+      
     @endif
   @empty
     <!-- No card available -->
@@ -221,6 +223,15 @@
       <a href="{{route('request.card', Auth::user()->id)}}" class="btn btn-main mt-3">Request Card</a>
     </div>
   @endforelse
+
+   <!-- Card delivery request -->
+  @if(!$details->isEmpty() && $detail->status != 0)
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-outline-main" data-bs-toggle="modal" data-bs-target="#deliveryModal">
+        <i class="bi bi-truck"></i> Request Physical Card Delivery
+      </button>
+    </div>
+  @endif
 
   <!-- Card features -->
   <h6 class="mt-4">Card Features</h6>
@@ -240,14 +251,7 @@
     </div>
   </div>
 
-  <!-- Card delivery request -->
-  @if(!$details->isEmpty() && $detail->status != 0)
-    <div class="text-center mt-4">
-      <button type="button" class="btn btn-outline-main" data-bs-toggle="modal" data-bs-target="#deliveryModal">
-        <i class="bi bi-truck"></i> Request Physical Card Delivery
-      </button>
-    </div>
-  @endif
+ 
 
   <!-- Personal information -->
   <h6 class="mt-4">Personal Information</h6>

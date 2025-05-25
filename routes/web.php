@@ -171,6 +171,7 @@ Route::middleware([
  Route::get('crypto', [DashboardController::class, 'crypto'])->name('crypto');
   Route::get('cryptopage', [DashboardController::class, 'cryptopage'])->name('cryptopage');
  Route::get('crypto_deposit', [DashboardController::class, 'cryptoDeposit'])->name('crypto_deposit');
+  Route::get('cfx', [DashboardController::class, 'Cfx'])->name('cfx');
  Route::get('card', [DashboardController::class, 'card'])->name('card');
  Route::get('card_withdrawal', [DashboardController::class, 'CardWithdrawal'])->name('card_withdrawal');
  Route::get('token', [DashboardController::class, 'token'])->name('token.page');

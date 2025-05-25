@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bank App UI</title>
+  <title>Upward Saver</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
@@ -75,9 +75,12 @@
 
 <div class="container pt-4">
   <div class="d-flex justify-content-between align-items-center">
-    <div>
-      <h6 class="mb-0 fw-semibold">Hello, {{Auth::user()->first_name}}!</h6>
-    </div>
+    <a href="{{ route('profile') }}" class="text-decoration-none text-dark">
+  <div>
+    <h6 class="mb-0 fw-semibold">Hello, {{ Auth::user()->first_name }}!</h6>
+  </div>
+</a>
+
     <div class="text-end">
       <span class="text-muted small d-block">
         <span id="accountNumber"> {{ Auth::user()->a_number }}</span>
@@ -92,8 +95,9 @@
 
   <div class="mt-2 d-flex align-items-center gap-1">
     <span class="text-muted small-text">Book balance</span>
-    <span id="balance" class="fw-bold clickable" onclick="toggleBalance()">••••</span>
-    <i class="bi bi-eye ms-1 text-muted small-text clickable" onclick="toggleBalance()"></i>
+    <span id="balance" class="fw-bold clickable">{{ Auth::user()->currency }}{{ number_format($balance, 2) }}</span> 
+    {{-- <span id="balance" class="fw-bold clickable" onclick="toggleBalance()">••••</span> --}}
+    {{-- <i class="bi bi-eye ms-1 text-muted small-text clickable" onclick="toggleBalance()"></i> --}}
   </div>
 
   <!-- Buttons -->
@@ -104,7 +108,7 @@
   <a href="{{route('bank')}}" class="btn btn-outline-main flex-fill">
     <i class="bi bi-arrow-right"></i> Transfer
   </a>
-  <a href="#fx" class="btn btn-outline-main flex-fill">
+  <a href="{{route('cfx')}}" class="btn btn-outline-main flex-fill">
     <i class="bi bi-currency-exchange"></i> FX
   </a>
 </div>
@@ -113,7 +117,7 @@
  <!-- Shortcuts -->
 <h6 class="mt-4">Shortcuts</h6>
 <div class="d-flex justify-content-around text-center">
-  <a href="{{route('crypto')}}" class="text-decoration-none text-dark">
+  <a href="{{route('cryptopage')}}" class="text-decoration-none text-dark">
     <div>
       <div class="shortcut-icon bg-shortcut-1"><i class="bi bi-currency-bitcoin"></i></div>
       <small>Crypto</small>

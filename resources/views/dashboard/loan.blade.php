@@ -3,21 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loans | Bank App</title>
+  <title>Bank App UI - Loan Request</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
-    :root {
-      --primary-color: #b93b2d;
-      --primary-bg: #fddbd3;
-      --secondary-text: #888;
-      --card-bg: #f6f6f6;
-      --active-nav: #f26a63;
-      --success-color: #2BC155;
-      --error-color: #FF2E2E;
-      --warning-color: #FFA500;
-    }
-    
     body {
       background-color: #fff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -25,421 +14,322 @@
     }
 
     .btn-main {
-      background-color: var(--primary-bg);
-      color: var(--primary-color);
-      border-radius: 20px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .btn-main:hover {
-      background-color: #fcc9bc;
-      color: var(--primary-color);
-    }
-
-    .btn-warning {
-      background-color: var(--warning-color);
-      color: white;
+      background-color: #fddbd3;
+      color: #b93b2d;
       border-radius: 20px;
       font-weight: 500;
     }
 
-    .btn-success {
+    .btn-outline-main {
+      border: 1px solid #fddbd3;
+      color: #b93b2d;
       border-radius: 20px;
       font-weight: 500;
     }
-
-    .btn-rounded {
-      border-radius: 20px;
-      padding: 0.25rem 1rem;
-      font-size: 0.875rem;
-    }
-
-    .box-bdr-red {
-      border-left: 4px solid var(--error-color);
-      background-color: rgba(255, 46, 46, 0.1);
-    }
-
-    .box-bdr-green {
-      border-left: 4px solid var(--success-color);
-      background-color: rgba(43, 193, 85, 0.1);
-    }
-
-    .text-red {
-      color: var(--error-color);
-    }
-
-    .text-green {
-      color: var(--success-color);
-    }
-
-    .text-warning {
-      color: var(--warning-color);
-    }
-
-    .shortcut-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 4px;
-    }
-
-    .bg-shortcut-1 { background-color: #fbe9e7; color: var(--primary-color); }
-    .bg-shortcut-2 { background-color: #e3f2fd; color: #1565c0; }
-    .bg-shortcut-3 { background-color: #f3e5f5; color: #6a1b9a; }
-    .bg-shortcut-4 { background-color: #fdf2cb; color: #2c3e50; }
 
     .transaction-box {
-      background-color: var(--card-bg);
+      background-color: #f6f6f6;
       padding: 15px;
       border-radius: 12px;
     }
 
     .bottom-nav {
       border-top: 1px solid #ddd;
-      padding: 0.5rem 0;
     }
 
     .bottom-nav .nav-link {
-      color: var(--secondary-text);
-      font-size: 0.8rem;
-      padding: 0.5rem;
-      text-align: center;
-      flex: 1;
-    }
-
-    .bottom-nav .nav-link i {
-      font-size: 1.2rem;
-      display: block;
-      margin: 0 auto 0.2rem;
+      color: #888;
+      font-size: 13px;
     }
 
     .bottom-nav .nav-link.active {
-      color: var(--active-nav);
+      color: #f26a63;
     }
 
     .small-text {
-      font-size: 0.8125rem;
+      font-size: 13px;
     }
 
     .clickable {
       cursor: pointer;
     }
     
-    /* Card styling */
-    .card {
-      border-radius: 15px;
-      border: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1.5rem;
+    /* Loan specific styles */
+    .loan-card {
+      background-color: #f8f9fa;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
     
-    .card-header {
-      border-radius: 15px 15px 0 0 !important;
-      background-color: var(--card-bg);
-    }
-    
-    /* Table styling */
-    .table-responsive {
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    
-    .table {
-      margin-bottom: 0;
-    }
-    
-    .table th {
+    .balance-display {
+      font-size: 24px;
       font-weight: 600;
-      background-color: var(--card-bg);
-      border-bottom: 2px solid #ddd;
+      color: #2c3e50;
     }
     
-    .table td {
-      vertical-align: middle;
+    .loan-option {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background-color: white;
     }
     
-    /* Modal styling */
-    .modal-content {
-      border-radius: 15px;
+    .loan-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 20px;
+      background-color: #b93b2d;
+      color: white;
     }
     
-    /* Footer */
-    .footer {
-      padding: 1rem;
+    .form-control {
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+    
+    .form-select {
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+    
+    .info-note {
+      background-color: #E3F2FD;
+      border-left: 4px solid #1976D2;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .terms-box {
+      background-color: #f6f6f6;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    
+    .loan-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    
+    .stat-item {
       text-align: center;
-      color: var(--secondary-text);
-      font-size: 0.875rem;
+      padding: 10px;
+      background-color: white;
+      border-radius: 12px;
+      flex: 1;
+      margin: 0 5px;
     }
     
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .fs-38 {
-        font-size: 28px !important;
-      }
-      
-      .fs-20 {
-        font-size: 18px !important;
-      }
-      
-      .fs-18 {
-        font-size: 16px !important;
-      }
-      
-      .fs-12 {
-        font-size: 11px !important;
-      }
-      
-      .card-body {
-        padding: 1rem;
-      }
-      
-      .table-responsive {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
+    .stat-value {
+      font-weight: 600;
+      font-size: 18px;
+      color: #2c3e50;
     }
     
-    @media (max-width: 576px) {
-      .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      .shortcut-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-      }
-      
-      .modal-dialog {
-        margin: 0.5rem auto;
-      }
+    .stat-label {
+      font-size: 12px;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-<div class="content-body">
+<div class="container pt-4">
+  <!-- Alerts -->
   @if (session('error'))
-    <div class="alert box-bdr-red alert-dismissible fade show text-red mx-3 mt-3" role="alert">
-      <b>Error!</b> {{ session('error') }}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> {{ session('error') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @elseif (session('status'))
-    <div class="alert box-bdr-green alert-dismissible fade show text-green mx-3 mt-3" role="alert">
-      <b>Success!</b> {{ session('status') }}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> {{ session('status') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
 
-  <div class="container pt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="text-black fw-semibold mb-0">Loans</h2>
-      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#reqLoan">
-        Request Loan <i class="bi bi-star-fill ms-1"></i>
-      </button>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h5 class="mb-0 fw-semibold">Loan Request</h5>
     </div>
+    <div class="text-end">
+      <span class="text-muted small d-block">
+        <span id="accountNumber">{{ Auth::user()->a_number }}</span>
+        <i class="bi bi-copy ms-1 clickable" id="copyIcon" onclick="copyAccountNumber()" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard"></i>
+      </span>
+    </div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex align-items-center">
-              <div class="flex-grow-1">
-                <h2 class="fs-38 text-black fw-semibold mb-1">{{Auth::user()->currency}}{{number_format($outstanding_loan, 2, '.', ',')}}</h2>
-                <span class="fs-18 text-muted">Outstanding</span>
-              </div>
-              <div class="p-3 border rounded-circle ms-3">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M26.9165 1.41669H7.08317C5.58028 1.41669 4.13894 2.01371 3.07623 3.07642C2.01353 4.13912 1.4165 5.58046 1.4165 7.08335V17C1.4165 17.3757 1.56576 17.7361 1.83144 18.0018C2.09711 18.2674 2.45745 18.4167 2.83317 18.4167H9.9165V31.1667C9.91583 31.4376 9.99289 31.7031 10.1385 31.9316C10.2842 32.1601 10.4923 32.342 10.7382 32.4559C10.9847 32.5693 11.2585 32.6096 11.5273 32.5719C11.796 32.5343 12.0482 32.4202 12.254 32.2434L16.2915 28.7867L20.329 32.2434C20.5856 32.4628 20.9122 32.5834 21.2498 32.5834C21.5875 32.5834 21.9141 32.4628 22.1707 32.2434L26.2082 28.7867L30.2457 32.2434C30.5023 32.4628 30.8289 32.5834 31.1665 32.5834C31.3715 32.5819 31.574 32.5385 31.7615 32.4559C32.0074 32.342 32.2155 32.1601 32.3612 31.9316C32.5068 31.7031 32.5838 31.4376 32.5832 31.1667V7.08335C32.5832 5.58046 31.9862 4.13912 30.9234 3.07642C29.8607 2.01371 28.4194 1.41669 26.9165 1.41669ZM4.24984 15.5834V7.08335C4.24984 6.33191 4.54835 5.61124 5.0797 5.07988C5.61105 4.54853 6.33172 4.25002 7.08317 4.25002C7.83462 4.25002 8.55529 4.54853 9.08664 5.07988C9.61799 5.61124 9.9165 6.33191 9.9165 7.08335V15.5834H4.24984ZM29.7498 28.0925L27.129 25.84C26.8724 25.6205 26.5458 25.4999 26.2082 25.4999C25.8705 25.4999 25.5439 25.6205 25.2873 25.84L21.2498 29.2967L17.2123 25.84C16.9557 25.6205 16.6292 25.4999 16.2915 25.4999C15.9538 25.4999 15.6273 25.6205 15.3707 25.84L12.7498 28.0925V7.08335C12.7481 6.08812 12.4842 5.1109 11.9848 4.25002H26.9165C27.668 4.25002 28.3886 4.54853 28.92 5.07988C29.4513 5.61124 29.7498 6.33191 29.7498 7.08335V28.0925ZM26.9165 8.50002C26.9165 8.87574 26.7673 9.23608 26.5016 9.50175C26.2359 9.76743 25.8756 9.91669 25.4998 9.91669H16.9998C16.6241 9.91669 16.2638 9.76743 15.9981 9.50175C15.7324 9.23608 15.5832 8.87574 15.5832 8.50002C15.5832 8.1243 15.7324 7.76396 15.9981 7.49829C16.2638 7.23261 16.6241 7.08335 16.9998 7.08335H25.4998C25.8756 7.08335 26.2359 7.23261 26.5016 7.49829C26.7673 7.76396 26.9165 8.1243 26.9165 8.50002ZM26.9165 14.1667C26.9165 14.5424 26.7673 14.9027 26.5016 15.1684C26.2359 15.4341 25.8756 15.5834 25.4998 15.5834H16.9998C16.6241 15.5834 16.2638 15.4341 15.9981 15.1684C15.7324 14.9027 15.5832 14.5424 15.5832 14.1667C15.5832 13.791 15.7324 13.4306 15.9981 13.165C16.2638 12.8993 16.6241 12.75 16.9998 12.75H25.4998C25.8756 12.75 26.2359 12.8993 26.5016 13.165C26.7673 13.4306 26.9165 13.791 26.9165 14.1667ZM26.9165 19.8334C26.9165 20.2091 26.7673 20.5694 26.5016 20.8351C26.2359 21.1008 25.8756 21.25 25.4998 21.25H16.9998C16.6241 21.25 16.2638 21.1008 15.9981 20.8351C15.7324 20.5694 15.5832 20.2091 15.5832 19.8334C15.5832 19.4576 15.7324 19.0973 15.9981 18.8316C16.2638 18.5659 16.6241 18.4167 16.9998 18.4167H25.4998C25.8756 18.4167 26.2359 18.5659 26.5016 18.8316C26.7673 19.0973 26.9165 19.4576 26.9165 19.8334Z" fill="#858585"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex align-items-center">
-              <div class="flex-grow-1">
-                <h2 class="fs-38 text-black fw-semibold mb-1">{{Auth::user()->currency}}{{number_format(Auth::user()->eligible_loan, 2, '.', ',')}}</h2>
-                <span class="fs-18 text-muted">Eligible Amount</span>
-              </div>
-              <div class="p-3 border rounded-circle ms-3">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M32.3668 9.72969C30.9793 6.78884 28.782 4.31932 26.0137 2.58667C22.1634 0.18354 17.6028 -0.579886 13.1815 0.442442C8.7603 1.45813 4.99628 4.14008 2.59315 7.9904C0.183379 11.8407 -0.580047 16.3947 0.44228 20.8226C1.46461 25.2438 4.14656 29.0079 7.99024 31.411C10.6987 33.1038 13.8056 34 16.9854 34H17.1912C20.3577 33.9602 23.438 33.0441 26.1067 31.3579C26.8834 30.8666 27.1091 29.8443 26.6178 29.0676C26.1266 28.2909 25.1043 28.0652 24.3276 28.5564C22.1833 29.9173 19.7005 30.6542 17.1514 30.6874C14.5358 30.7206 11.98 29.997 9.74944 28.6095C6.64927 26.6711 4.49176 23.644 3.67522 20.0857C2.85869 16.5275 3.46943 12.8631 5.40787 9.76288C9.40424 3.37001 17.8617 1.4183 24.2545 5.41467C26.4851 6.80875 28.2509 8.79366 29.3662 11.157C30.4549 13.4605 30.8797 16.0163 30.5943 18.539C30.4947 19.4484 31.1453 20.2716 32.0614 20.3712C32.9709 20.4708 33.794 19.8202 33.8936 18.9041C34.2455 15.7641 33.7144 12.5909 32.3668 9.72969Z" fill="#2BC155"></path>
-                  <path d="M22.4914 11.2377L14.4846 19.2445L11.5169 16.2768C10.8663 15.6262 9.81732 15.6262 9.16669 16.2768C8.51605 16.9274 8.51605 17.9764 9.16669 18.6271L13.3095 22.7699C13.6348 23.0952 14.0597 23.2545 14.4846 23.2545C14.9095 23.2545 15.3345 23.0952 15.6598 22.7699L24.8351 13.588C25.4857 12.9373 25.4857 11.8883 24.8351 11.2377C24.1844 10.5937 23.1354 10.5937 22.4914 11.2377Z" fill="#2BC155"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex align-items-center">
-              <div class="flex-grow-1">
-                <h2 class="fs-38 text-black fw-semibold mb-1">{{Auth::user()->currency}}{{number_format($pending_loan, 2, '.', ',')}}</h2>
-                <span class="fs-18 text-muted">Pending</span>
-              </div>
-              <div class="p-3 border rounded-circle ms-3">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0)">
-                  <path d="M32.3733 9.72855C30.9854 6.78675 28.7873 4.31644 26.0182 2.58323C22.1666 0.179327 17.6112 -0.584345 13.1819 0.438311C8.75922 1.45433 4.99399 4.13714 2.59008 7.9887C0.179532 11.8403 -0.58414 16.3957 0.438516 20.825C1.46117 25.2477 4.14399 29.0129 7.98891 31.4168C10.6983 33.1102 13.8061 34.0067 16.987 34.0067H17.1928C20.3604 33.9668 23.4416 33.0504 26.1112 31.3637C26.8881 30.8723 27.1139 29.8496 26.6225 29.0727C26.1311 28.2957 25.1084 28.07 24.3315 28.5614C22.1866 29.9227 19.703 30.6598 17.153 30.693C14.5366 30.7262 11.9799 30.0024 9.74867 28.6145C6.6475 26.6754 4.4893 23.6473 3.6725 20.0879C2.8557 16.5153 3.46664 12.8496 5.4057 9.74847C9.40336 3.35355 17.8635 1.4012 24.2584 5.39886C26.4897 6.79339 28.2561 8.77894 29.3717 11.143C30.4608 13.4473 30.8858 16.0039 30.6002 18.5274C30.5006 19.4371 31.1514 20.2606 32.0678 20.3602C32.9776 20.4598 33.801 19.809 33.9006 18.8926C34.2526 15.7649 33.7213 12.5907 32.3733 9.72855Z" fill="#FF2E2E"></path>
-                  <path d="M22.7647 11.2359C22.114 10.5852 21.0647 10.5852 20.414 11.2359L17.0007 14.6559L13.5874 11.2426C12.9366 10.5918 11.8874 10.5918 11.2366 11.2426C10.5858 11.8934 10.5858 12.9426 11.2366 13.5934L14.6499 17.0066L11.2366 20.4199C10.5858 21.0707 10.5858 22.1199 11.2366 22.7707C11.562 23.0961 11.987 23.2555 12.412 23.2555C12.837 23.2555 13.262 23.0961 13.5874 22.7707L17.0007 19.3574L20.414 22.7707C20.7394 23.0961 21.1644 23.2555 21.5894 23.2555C22.0144 23.2555 22.4394 23.0961 22.7647 22.7707C23.4155 22.1199 23.4155 21.0707 22.7647 20.4199L19.3515 17L22.7647 13.5867C23.4155 12.9359 23.4155 11.8867 22.7647 11.2359Z" fill="#FF2E2E"></path>
-                  </g>
-                  <defs>
-                  <clipPath id="clip0">
-                  <rect width="34" height="34" fill="white"></rect>
-                  </clipPath>
-                  </defs>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-12 mt-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
-          <div>
-            <h4 class="fs-20 text-black mb-1">Loan History</h4>
-            <span class="fs-12 text-muted"><i class="bi bi-info-circle"></i> Loans are only offered to existing and eligible customers</span>
-          </div>
-        </div>
-        
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead class="bg-light">
-              <tr>
-                <th>Reference</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Account Number</th>
-                <th class="text-center">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($transaction as $details)
-              <tr>
-                <td><span class="text-black">{{$details->transaction_ref}}</span></td>
-                <td><span class="text-black fw-semibold">{{Auth::user()->currency}}{{number_format($details->transaction_amount, 2)}}</span></td>
-                <td><span class="text-black">{{ \Carbon\Carbon::parse($details->transaction_created_at)->format('D, M j, Y g:i A') }}</span></td>
-                <td><span class="text-black">{{Auth::user()->a_number}}</span></td>
-                <td class="text-center">
-                  @if($details->transaction_status == '1')
-                  <span class="btn btn-success btn-rounded">Completed</span>
-                  @else
-                  <span class="btn btn-warning btn-rounded">Pending</span>
-                  @endif
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-      </div>
+  <!-- Loan Stats -->
+  <div class="loan-stats">
+    <div class="stat-item">
+      <div class="stat-value">{{Auth::user()->currency}}{{number_format(Auth::user()->eligible_loan, 2)}}</div>
+      <div class="stat-label">Eligible Amount</div>
     </div>
+    <div class="stat-item">
+      <div class="stat-value">{{Auth::user()->currency}}{{number_format($outstanding_loan, 2)}}</div>
+      <div class="stat-label">Outstanding</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">{{Auth::user()->currency}}{{number_format($pending_loan, 2)}}</div>
+      <div class="stat-label">Pending</div>
+    </div>
+  </div>
+
+  <!-- Loan Form -->
+  <div class="transaction-box">
+    <div class="info-note">
+      <i class="bi bi-info-circle-fill me-2"></i>
+      You're eligible for a loan up to {{Auth::user()->currency}}{{number_format(Auth::user()->eligible_loan, 2)}} based on your account activity.
+    </div>
+    
+    <form action="{{ route('make.loan') }}" method="POST">
+      @csrf
+      <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+      
+      <div class="mb-3">
+        <label class="form-label">Loan Amount</label>
+        <div class="input-group">
+          <span class="input-group-text">{{Auth::user()->currency}}</span>
+          <input type="number" name="amount" class="form-control" 
+                 placeholder="Enter amount" 
+                 required 
+                 min="100" 
+                 max="{{Auth::user()->eligible_loan}}"
+                 step="100">
+        </div>
+        <small class="text-muted">Minimum: {{Auth::user()->currency}}100</small>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Loan Type</label>
+        <select class="form-select" name="loan_type" required>
+          <option value="Personal Loan">Personal Loan</option>
+          <option value="Business Loan">Business Loan</option>
+          <option value="Emergency Loan">Emergency Loan</option>
+          <option value="Education Loan">Education Loan</option>
+        </select>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Repayment Period</label>
+        <select class="form-select" name="repayment_period" required>
+          <option value="30">1 Month</option>
+          <option value="90">3 Months</option>
+          <option value="180" selected>6 Months</option>
+          <option value="365">12 Months</option>
+        </select>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Purpose</label>
+        <textarea name="reason" class="form-control" rows="3" placeholder="Briefly describe the purpose of this loan" required></textarea>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Transaction PIN</label>
+        <input type="password" name="transaction_pin" class="form-control" placeholder="Enter 4-digit PIN" maxlength="4" required>
+      </div>
+      
+      <div class="terms-box">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="termsCheck" required>
+          <label class="form-check-label small" for="termsCheck">
+            I agree to the loan terms and conditions. I understand that late repayments may incur additional fees.
+          </label>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-main w-100 mt-3">
+        <i class="bi bi-cash-stack"></i> Request Loan
+      </button>
+    </form>
+  </div>
+  
+  <!-- Loan History -->
+  <div class="mt-4">
+    <h6 class="fw-semibold mb-3">Recent Loan Transactions</h6>
+    
+    @if(count($transaction) > 0)
+      @foreach($transaction as $details)
+      <div class="loan-option mb-2">
+        <div class="loan-icon">
+          <i class="bi bi-cash-coin"></i>
+        </div>
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between">
+            <span class="fw-semibold">{{$details->transaction_ref}}</span>
+            <span class="{{$details->transaction_status == '1' ? 'text-success' : 'text-warning'}}">
+              {{$details->transaction_status == '1' ? 'Completed' : 'Pending'}}
+            </span>
+          </div>
+          <div class="d-flex justify-content-between small">
+            <span class="text-muted">{{ \Carbon\Carbon::parse($details->transaction_created_at)->format('M d, Y') }}</span>
+            <span class="fw-semibold">{{Auth::user()->currency}}{{number_format($details->transaction_amount, 2)}}</span>
+          </div>
+        </div>
+      </div>
+      @endforeach
+    @else
+      <div class="text-center py-4">
+        <i class="bi bi-cash-stack fs-1 text-muted"></i>
+        <p class="text-muted">No loan transactions yet</p>
+      </div>
+    @endif
   </div>
 </div>
 
-
-
-<!-- Request Loan Modal -->
-<form action="{{route('make.loan')}}" method="POST">
-  @csrf
-  <div class="modal fade" id="reqLoan" tabindex="-1" aria-labelledby="reqLoanLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="reqLoanLabel">Request Loan</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div id="loan_response"></div>
-          <div class="mb-3">
-            <label for="loanAmount" class="form-label">Amount</label>
-            <div class="input-group">
-              <span class="input-group-text">{{Auth::user()->currency}}</span>
-              <input type="number" id="loanAmount" name="amount" class="form-control" placeholder="5000" required>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="loanReason" class="form-label">Reason for loan</label>
-            <textarea id="loanReason" name="reason" class="form-control" placeholder="Enter your reason..." required></textarea>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-main">Request Now</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-
 <!-- Bottom Navigation -->
 <nav class="navbar fixed-bottom bg-white bottom-nav">
-  <div class="container-fluid d-flex justify-content-around text-center px-0">
-    <a class="nav-link" href="{{route('dashboard')}}">
-      <i class="bi bi-house-door"></i>
-      <span class="d-block small-text">Home</span>
-    </a>
-    <a class="nav-link" href="{{route('card')}}">
-      <i class="bi bi-credit-card-2-front"></i>
-      <span class="d-block small-text">Card</span>
-    </a>
-    <a class="nav-link active" href="{{route('bank')}}">
-      <i class="bi bi-arrow-left-right"></i>
-      <span class="d-block small-text">Transfers</span>
-    </a>
-    <a class="nav-link" href="{{route('transactions')}}">
-      <i class="bi bi-clock-history"></i>
-      <span class="d-block small-text">History</span>
-    </a>
+  <div class="container d-flex justify-content-around text-center">
+    <a class="nav-link" href="{{route('dashboard')}}"><i class="bi bi-house-door"></i><br><small>Home</small></a>
+    <a class="nav-link" href="{{route('card')}}"><i class="bi bi-credit-card-2-front"></i><br><small>Card</small></a>
+    <a class="nav-link" href="{{route('bank')}}"><i class="bi bi-arrow-left-right"></i><br><small>Transfers</small></a>
+    <a class="nav-link active" href="{{route('transactions')}}"><i class="bi bi-clock-history"></i><br><small>History</small></a>
   </div>
 </nav>
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Simple DataTable-like functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const table = document.querySelector('table');
-    if (table) {
-      // You can add sorting functionality here if needed
-      // This is a simplified version without external dependencies
-    }
+  // Copy account number with better UX
+  function copyAccountNumber() {
+    const accNum = document.getElementById("accountNumber").innerText;
+    const icon = document.getElementById("copyIcon");
+
+    navigator.clipboard.writeText(accNum).then(() => {
+      const tooltip = bootstrap.Tooltip.getInstance(icon);
+      tooltip.setContent({ '.tooltip-inner': 'Copied!' });
+      icon.classList.replace("bi-copy", "bi-check2");
+
+      setTimeout(() => {
+        tooltip.setContent({ '.tooltip-inner': 'Copy to clipboard' });
+        icon.classList.replace("bi-check2", "bi-copy");
+      }, 2000);
+    });
+  }
+
+  // Enable Bootstrap tooltip
+  document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl);
+    });
     
-    // Form validation for loan request
-    const loanForm = document.querySelector('form[action="{{route('make.loan')}}"]');
-    if (loanForm) {
-      loanForm.addEventListener('submit', function(e) {
-        const amountInput = document.getElementById('loanAmount');
-        if (!amountInput.value || parseFloat(amountInput.value) <= 0) {
-          e.preventDefault();
-          alert('Please enter a valid loan amount');
-        }
-        
-        const reasonInput = document.getElementById('loanReason');
-        if (!reasonInput.value.trim()) {
-          e.preventDefault();
-          alert('Please enter a reason for your loan');
-        }
-      });
+    // Set max amount to eligible loan amount
+    const amountInput = document.querySelector('input[name="amount"]');
+    if(amountInput) {
+      amountInput.max = {{Auth::user()->eligible_loan}};
     }
   });
 </script>

@@ -120,7 +120,7 @@
   <div class="transaction-box">
     <div class="alert alert-notice mb-3">
       <i class="bi bi-exclamation-circle-fill me-2"></i>
-      You're about to transfer from your account's available balance. This action cannot be reversed.
+      You're about to transfer from your account's available balance. Please enter your correct information.
     </div>
     
     <form action="{{route('bank.transfer')}}" method="POST">

@@ -3,23 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PayPal Withdrawal | Bank App</title>
+  <title>Bank App UI - PayPal Withdrawal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
-    :root {
-      --primary-color: #b93b2d;
-      --primary-bg: #fddbd3;
-      --secondary-text: #888;
-      --card-bg: #f6f6f6;
-      --active-nav: #f26a63;
-      --success-color: #2BC155;
-      --error-color: #FF2E2E;
-      --warning-color: #FFA500;
-      --info-color: #1EAAE7;
-      --paypal-color: #003087;
-    }
-    
     body {
       background-color: #fff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -27,20 +14,14 @@
     }
 
     .btn-main {
-      background-color: var(--primary-bg);
-      color: var(--primary-color);
+      background-color: #fddbd3;
+      color: #b93b2d;
       border-radius: 20px;
       font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .btn-main:hover {
-      background-color: #fcc9bc;
-      color: var(--primary-color);
     }
 
     .btn-paypal {
-      background-color: var(--paypal-color);
+      background-color: #003087;
       color: white;
       border-radius: 20px;
       font-weight: 500;
@@ -48,220 +29,159 @@
 
     .btn-paypal:hover {
       background-color: #002b76;
-      color: white;
     }
 
     .transaction-box {
-      background-color: var(--card-bg);
+      background-color: #f6f6f6;
       padding: 15px;
       border-radius: 12px;
     }
 
     .bottom-nav {
       border-top: 1px solid #ddd;
-      padding: 0.5rem 0;
     }
 
     .bottom-nav .nav-link {
-      color: var(--secondary-text);
-      font-size: 0.8rem;
-      padding: 0.5rem;
-      text-align: center;
-      flex: 1;
-    }
-
-    .bottom-nav .nav-link i {
-      font-size: 1.2rem;
-      display: block;
-      margin: 0 auto 0.2rem;
+      color: #888;
+      font-size: 13px;
     }
 
     .bottom-nav .nav-link.active {
-      color: var(--active-nav);
+      color: #f26a63;
     }
 
     .small-text {
-      font-size: 0.8125rem;
+      font-size: 13px;
     }
 
     .clickable {
       cursor: pointer;
     }
     
-    /* Card styling */
-    .card {
-      border-radius: 15px;
-      border: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1.5rem;
-    }
-    
-    .card-header {
-      border-radius: 15px 15px 0 0 !important;
-      background-color: var(--card-bg);
-    }
-    
-    /* Form styling */
-    .form-control, .form-select {
-      padding: 0.75rem 1rem;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-    }
-    
-    .form-control:focus, .form-select:focus {
-      border-color: var(--paypal-color);
-      box-shadow: 0 0 0 0.25rem rgba(0, 48, 135, 0.2);
-    }
-    
-    /* Alert styling */
-    .alert {
-      border-radius: 10px;
-      padding: 1rem;
-    }
-    
-    .box-bdr-red {
-      border-left: 4px solid var(--error-color);
-      background-color: rgba(255, 46, 46, 0.1);
-    }
-    
-    .box-bdr-green {
-      border-left: 4px solid var(--success-color);
-      background-color: rgba(43, 193, 85, 0.1);
-    }
-    
-    .text-red {
-      color: var(--error-color);
-    }
-    
-    .text-green {
-      color: var(--success-color);
-    }
-    
-    /* PayPal branding */
-    .paypal-brand {
-      color: var(--paypal-color);
-      font-weight: 600;
+    /* PayPal specific styles */
+    .paypal-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
     }
     
     .paypal-icon {
-      color: var(--paypal-color);
-      margin-right: 0.5rem;
+      color: #003087;
+      font-size: 24px;
+      margin-right: 10px;
     }
     
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
+    .balance-display {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
     }
     
-    @media (max-width: 576px) {
-      .card-body {
-        padding: 1rem;
-      }
+    .warning-note {
+      background-color: #FFF3E0;
+      border-left: 4px solid #FFA000;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
     
-    /* Loading spinner */
-    .btn-loading .spinner-border {
-      display: inline-block;
-      margin-left: 0.5rem;
+    .form-control {
+      border-radius: 12px;
+      padding: 12px 15px;
+    }
+    
+    .input-group-text {
+      border-radius: 12px 0 0 12px;
     }
   </style>
 </head>
 <body>
 
-    
-
-<div class="content-body">
+<div class="container pt-4">
+  <!-- Alerts -->
   @if (session('error'))
-    <div class="alert box-bdr-red alert-dismissible fade show text-red mx-3 mt-3" role="alert">
-      <b>Error!</b> {{ session('error') }}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> {{ session('error') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @elseif (session('status'))
-    <div class="alert box-bdr-green alert-dismissible fade show text-green mx-3 mt-3" role="alert">
-      <b>Success!</b> {{ session('status') }}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> {{ session('status') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   @endif
 
-  <div class="container pt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="text-black fw-semibold mb-0">PayPal Withdrawal</h2>
+  <div class="paypal-header">
+    <i class="bi bi-paypal paypal-icon"></i>
+    <div>
+      <h5 class="mb-0 fw-semibold">PayPal Withdrawal</h5>
     </div>
+    <div class="ms-auto text-end">
+      <span class="text-muted small d-block">
+        <span id="accountNumber">{{ Auth::user()->a_number }}</span>
+        <i class="bi bi-copy ms-1 clickable" id="copyIcon" onclick="copyAccountNumber()" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard"></i>
+      </span>
+    </div>
+  </div>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-8">
-        <div class="card">
-          <div class="card-header bg-light">
-            <h5 class="card-title mb-0">Balance: {{Auth::user()->currency}}{{number_format($balance, 2, '.', ',')}}</h5>
-          </div>
-          <div class="card-body">
-            <div class="alert alert-light mb-4">
-              <i class="bi bi-exclamation-circle-fill paypal-icon"></i>
-              You're about to transfer from your account's available balance. This action cannot be reversed. Be sure to enter correct details.
-            </div>
-            <div id="response_code"></div>
+  <!-- Balance Display -->
+  <div class="transaction-box mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="text-muted">Available Balance</span>
+      <span class="balance-display">{{Auth::user()->currency}}{{number_format($balance, 2, '.', ',')}}</span>
+    </div>
+  </div>
 
-            <form action="{{route('paypal.transfer')}}" method="POST" id="withdrawalForm">
-              @csrf
-              <input type="hidden" name="email" value="{{ Auth::user()->email }}" />
-
-              <div class="mb-3">
-                <label for="amount" class="form-label fw-semibold">Amount</label>
-                <div class="input-group">
-                  <span class="input-group-text">{{Auth::user()->currency}}</span>
-                  <input id="amount" type="number" name="amount" class="form-control" placeholder="Enter Amount" required min="0" step="0.01">
-                </div>
-                <div class="invalid-feedback">Please enter a valid amount</div>
-              </div>
-
-              <div class="mb-3">
-                <label for="paypal_email" class="form-label fw-semibold">PayPal Email</label>
-                <input id="paypal_email" type="email" name="email" class="form-control" value="{{Auth::user()->email}}" required>
-                <div class="invalid-feedback">Please enter a valid PayPal email</div>
-              </div>
-
-              <div class="mb-4">
-                <label for="transaction_pin" class="form-label fw-semibold">Transaction Pin</label>
-                <input id="transaction_pin" type="password" name="transaction_pin" maxlength="4" class="form-control" required pattern="\d{4}" placeholder="4-digit PIN">
-                <div class="invalid-feedback">Please enter a valid 4-digit PIN</div>
-              </div>
-
-              <button type="submit" id="submitBtn" class="btn btn-paypal w-100 py-2">
-                <span id="buttonText">Withdraw via PayPal</span>
-                <span class="spinner-border spinner-border-sm d-none" id="spinner" role="status" aria-hidden="true"></span>
-              </button>
-            </form>
-          </div>
+  <!-- Withdrawal Form -->
+  <div class="transaction-box">
+    <div class="warning-note">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>
+      You're about to transfer from your account. This action cannot be reversed.
+    </div>
+    
+    <form action="{{ route('paypal.transfer') }}" method="POST" id="withdrawalForm">
+      @csrf
+      <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+      
+      <div class="mb-3">
+        <label class="form-label">Amount</label>
+        <div class="input-group">
+          <span class="input-group-text">{{Auth::user()->currency}}</span>
+          <input type="number" name="amount" class="form-control" placeholder="Enter amount" required min="0" step="0.01">
         </div>
       </div>
-    </div>
-
-    <!-- OTP Modal -->
-    <div class="modal fade" id="otpModal" tabindex="-1" aria-labelledby="otpModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="otpModalLabel">OTP Verification</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      
+      <div class="mb-3">
+        <label class="form-label">PayPal Email</label>
+        <input type="email" name="paypal_email" class="form-control" placeholder="Enter PayPal email" required value="{{Auth::user()->email}}">
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Transaction PIN</label>
+        <input type="password" name="transaction_pin" class="form-control" placeholder="Enter 4-digit PIN" maxlength="4" required>
+      </div>
+      
+      <button type="submit" class="btn btn-paypal w-100">
+        <i class="bi bi-arrow-up-circle"></i> Withdraw to PayPal
+      </button>
+    </form>
+  </div>
+  
+  <!-- OTP Modal -->
+  <div class="modal fade" id="otpModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">OTP Verification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-warning">
+            <i class="bi bi-shield-lock"></i>
+            Enter the OTP sent to your registered email
           </div>
-          <div class="modal-body">
-            <div class="alert alert-warning">
-              <i class="bi bi-shield-lock-fill me-2"></i> Enter the OTP sent to your registered email
-            </div>
-            <form id="otpForm">
-              <div class="mb-3">
-                <input type="number" name="otp" class="form-control form-control-lg text-center" placeholder="Enter 6-digit OTP" required>
-              </div>
-              <button type="submit" class="btn btn-paypal w-100">Verify & Complete</button>
-            </form>
-          </div>
+          <input type="number" name="otp" class="form-control mb-3" placeholder="Enter OTP">
+          <button type="button" class="btn btn-paypal w-100">Confirm Withdrawal</button>
         </div>
       </div>
     </div>
@@ -270,79 +190,61 @@
 
 <!-- Bottom Navigation -->
 <nav class="navbar fixed-bottom bg-white bottom-nav">
-  <div class="container-fluid d-flex justify-content-around text-center px-0">
-    <a class="nav-link" href="{{route('dashboard')}}">
-      <i class="bi bi-house-door"></i>
-      <span class="d-block small-text">Home</span>
-    </a>
-    <a class="nav-link" href="{{route('card')}}">
-      <i class="bi bi-credit-card-2-front"></i>
-      <span class="d-block small-text">Card</span>
-    </a>
-    <a class="nav-link active" href="{{route('bank')}}">
-      <i class="bi bi-arrow-left-right"></i>
-      <span class="d-block small-text">Transfers</span>
-    </a>
-    <a class="nav-link" href="{{route('transactions')}}">
-      <i class="bi bi-clock-history"></i>
-      <span class="d-block small-text">History</span>
-    </a>
+  <div class="container d-flex justify-content-around text-center">
+    <a class="nav-link" href="{{route('dashboard')}}"><i class="bi bi-house-door"></i><br><small>Home</small></a>
+    <a class="nav-link" href="{{route('card')}}"><i class="bi bi-credit-card-2-front"></i><br><small>Card</small></a>
+    <a class="nav-link active" href="{{route('bank')}}"><i class="bi bi-arrow-left-right"></i><br><small>Transfers</small></a>
+    <a class="nav-link" href="{{route('transactions')}}"><i class="bi bi-clock-history"></i><br><small>History</small></a>
   </div>
 </nav>
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('withdrawalForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const buttonText = document.getElementById('buttonText');
-    const spinner = document.getElementById('spinner');
+  // Copy account number with better UX
+  function copyAccountNumber() {
+    const accNum = document.getElementById("accountNumber").innerText;
+    const icon = document.getElementById("copyIcon");
+
+    navigator.clipboard.writeText(accNum).then(() => {
+      const tooltip = bootstrap.Tooltip.getInstance(icon);
+      tooltip.setContent({ '.tooltip-inner': 'Copied!' });
+      icon.classList.replace("bi-copy", "bi-check2");
+
+      setTimeout(() => {
+        tooltip.setContent({ '.tooltip-inner': 'Copy to clipboard' });
+        icon.classList.replace("bi-check2", "bi-copy");
+      }, 2000);
+    });
+  }
+
+  // Form submission handling
+  document.getElementById('withdrawalForm').addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    form.addEventListener('submit', function(e) {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        e.stopPropagation();
-      } else {
-        // Show loading state
-        submitBtn.disabled = true;
-        buttonText.textContent = 'Processing...';
-        spinner.classList.remove('d-none');
-        
-        // In a real app, you would submit the form here
-        // For demo, we'll show the OTP modal after a delay
-        setTimeout(() => {
-          const otpModal = new bootstrap.Modal(document.getElementById('otpModal'));
-          otpModal.show();
-          submitBtn.disabled = false;
-          buttonText.textContent = 'Withdraw via PayPal';
-          spinner.classList.add('d-none');
-        }, 1500);
-      }
+    // Show loading state
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+    
+    // Simulate form processing
+    setTimeout(() => {
+      // In a real app, you would submit the form here
+      // For demo, we'll show the OTP modal
+      var otpModal = new bootstrap.Modal(document.getElementById('otpModal'));
+      otpModal.show();
       
-      form.classList.add('was-validated');
-    }, false);
-    
-    // OTP form handling
-    const otpForm = document.getElementById('otpForm');
-    if (otpForm) {
-      otpForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Here you would validate the OTP and submit the form
-        alert('Withdrawal request submitted successfully!');
-        const otpModal = bootstrap.Modal.getInstance(document.getElementById('otpModal'));
-        otpModal.hide();
-      });
-    }
-    
-    // Prevent form submission on Enter key in input fields
-    const inputs = form.querySelectorAll('input:not([type="submit"])');
-    inputs.forEach(input => {
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-        }
-      });
+      // Reset button state
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="bi bi-arrow-up-circle"></i> Withdraw to PayPal';
+    }, 1500);
+  });
+
+  // Enable Bootstrap tooltip
+  document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl);
     });
   });
 </script>
