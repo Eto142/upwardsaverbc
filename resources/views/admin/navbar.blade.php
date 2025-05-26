@@ -8,8 +8,8 @@
           <!-- Sidebar brand starts -->
           <div class="brand">
             <a href="{{url('dashboard')}}" class="logo">
-              <img src="{{asset('logo.png')}}" class="d-none d-md-block me-4" alt="Rapid Admin Dashboard" />
-              <img src="{{asset('logo.png')}}" class="d-block d-md-none me-4" alt="Rapid Admin Dashboard" />
+              <img src="{{asset('logo1.png')}}" class="d-none d-md-block me-4" alt="Rapid Admin Dashboard" />
+              <img src="{{asset('logo1.png')}}" class="d-block d-md-none me-4" alt="Rapid Admin Dashboard" />
             </a>
           </div>
           <!-- Sidebar brand ends -->
@@ -26,7 +26,7 @@
                 </li>
                 
                  <li>
-            <a href="{{route('wallet')}}">
+            <a href="{{route('admin.wallet')}}">
               <i class="bi bi-box"></i>
               <span class="menu-text">Update Wallet</span>
             </a>
@@ -39,13 +39,20 @@
                 </li>
 
                 <li>
-                  <a href="{{route('user.loans')}}">
+                  <a href="{{route('admin.user.loans')}}">
                     <i class="bi bi-cash-stack"></i>
                     <span class="menu-text">Loans</span>
                   </a>
                 </li>
+
+                                <li>
+                  <a href="{{route('admin.user.loans')}}">
+                    <i class="bi bi-cash-stack"></i>
+                    <span class="menu-text">Investments</span>
+                  </a>
+                </li>
                 <li>
-                  <a href="{{route('user.transaction')}}">
+                  <a href="{{route('admin.user.transaction')}}">
                     <i class="bi bi-calendar4"></i>
                     <span class="menu-text">Transactions</span>
                   </a>
@@ -53,21 +60,21 @@
                 
                 
                 <li>
-                  <a href="{{route('admin.change.password')}}">
+                  <a href="{{route('admin.admin.change.password')}}">
                     <i class="bi bi-emoji-expressionless"></i>
                     <span class="menu-text">Change Password</span>
                   </a>
                 </li>
                 
                 <li>
-                  <a href="{{route('user.mail')}}">
+                  <a href="{{route('admin.user.mail')}}">
                     <i class="bi bi-code-square"></i>
                     <span class="menu-text">Send Email</span>
                   </a>
                 </li>
                 
                   <li>
-                  <a href="https://USBC.online/">
+                  <a href="https://upwardsaverbc.com/">
                     <i class="bi bi-globe"></i>
                     <span class="menu-text">Visit Site</span>
                   </a>

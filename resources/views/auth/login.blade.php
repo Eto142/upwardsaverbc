@@ -430,7 +430,7 @@
                         <div class="mb-6">
                             <div class="flex items-center justify-between mb-2">
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                                <a href="https://ccufinance.com/forgot-password" class="text-sm text-primary-600 hover:text-primary-500">
+                                <a href="{{route('password.request')}}" class="text-sm text-primary-600 hover:text-primary-500">
                                     Forgot Password?
                                 </a>
                             </div>

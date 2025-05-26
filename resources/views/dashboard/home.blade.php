@@ -94,7 +94,7 @@
   </div>
 
   <div class="mt-2 d-flex align-items-center gap-1">
-    <span class="text-muted small-text">Book balance</span>
+    <span class="text-muted small-text">Book Balance</span>
     <span id="balance" class="fw-bold clickable">{{ Auth::user()->currency }}{{ number_format($balance, 2) }}</span> 
     {{-- <span id="balance" class="fw-bold clickable" onclick="toggleBalance()">••••</span> --}}
     {{-- <i class="bi bi-eye ms-1 text-muted small-text clickable" onclick="toggleBalance()"></i> --}}
@@ -217,25 +217,97 @@
 @endif
 
 
-  <!-- Investments -->
-  <h6 class="mt-4">Investments</h6>
-  <div class="card border-0 bg-light mb-5">
-    <div class="card-body text-center">
-      <i class="bi bi-safe2-fill" style="font-size: 2rem;"></i>
-      <p class="mt-2 mb-0">Your investment vault</p>
+ <!-- Investments -->
+@forelse($trades as $trade)
+  <div class="card border-0 shadow-sm bg-white mb-3 rounded-4 overflow-hidden">
+    <div class="card-body p-4">
+      <div class="d-flex justify-content-between align-items-start">
+        <!-- Trade Details -->
+        <div class="flex-grow-1 pe-3">
+          <!-- Asset Header -->
+          <div class="d-flex align-items-center mb-2">
+            <span class="badge bg-primary bg-opacity-10 text-primary fw-semibold me-2 py-1 px-2 rounded-2">
+              {{ strtoupper($trade->asset_symbol) }}
+            </span>
+            <h6 class="mb-0 fw-bold text-dark">{{ $trade->asset_name }}</h6>
+          </div>
+          
+          <!-- Trade Metadata -->
+          <div class="row g-2 small">
+            <div class="col-6">
+              <div class="text-muted">Type</div>
+              <div class="fw-medium">{{ ucfirst($trade->type) }}</div>
+            </div>
+            <div class="col-6">
+              <div class="text-muted">Order</div>
+              <div class="fw-medium">{{ ucfirst($trade->order_type) }}</div>
+            </div>
+            <div class="col-6">
+              <div class="text-muted">Amount</div>
+              <div class="fw-medium">${{ number_format($trade->amount_usd, 2) }}</div>
+            </div>
+            <div class="col-6">
+              <div class="text-muted">Quantity</div>
+              <div class="fw-medium">{{ $trade->quantity }}</div>
+            </div>
+            @if($trade->limit_price)
+            <div class="col-12">
+              <div class="text-muted">Limit Price</div>
+              <div class="fw-medium">${{ number_format($trade->limit_price, 2) }}</div>
+            </div>
+            @endif
+          </div>
+        </div>
+        
+        <!-- Icon -->
+        <div class="text-primary bg-primary bg-opacity-10 p-3 rounded-3">
+          <i class="bi bi-safe2-fill" style="font-size: 1.8rem;"></i>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Status/Progress Bar (optional) -->
+    <div class="progress rounded-0" style="height: 4px;">
+      <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
   </div>
+@empty
+  <div class="card border-0 bg-light mb-4">
+    <div class="card-body text-center py-5">
+      <i class="bi bi-safe2-fill text-muted opacity-50" style="font-size: 3rem;"></i>
+      <h5 class="mt-3 mb-1 fw-semibold">No investments yet</h5>
+      <p class="text-muted small mb-0">Your investment portfolio will appear here</p>
+    </div>
+  </div>
+@endforelse
+
 </div>
 
-<!-- Bottom Navigation -->
 <nav class="navbar fixed-bottom bg-white bottom-nav">
   <div class="container d-flex justify-content-around text-center">
-    <a class="nav-link active" href="{{route('dashboard')}}"><i class="bi bi-house-door-fill"></i><br><small>Home</small></a>
-    <a class="nav-link" href="{{route('card')}}"><i class="bi bi-credit-card-2-front"></i><br><small>Card</small></a>
-    <a class="nav-link" href="{{route('bank')}}"><i class="bi bi-arrow-left-right"></i><br><small>Transfers</small></a>
-    <a class="nav-link" href="{{route('transactions')}}"><i class="bi bi-clock-history"></i><br><small>History</small></a>
+    <a class="nav-link active" href="{{ route('dashboard') }}">
+      <i class="bi bi-house-door-fill"></i><br><small>Home</small>
+    </a>
+    <a class="nav-link" href="{{ route('card') }}">
+      <i class="bi bi-credit-card-2-front"></i><br><small>Card</small>
+    </a>
+    <a class="nav-link" href="{{ route('bank') }}">
+      <i class="bi bi-arrow-left-right"></i><br><small>Transfers</small>
+    </a>
+    <a class="nav-link" href="{{ route('transactions') }}">
+      <i class="bi bi-clock-history"></i><br><small>History</small>
+    </a>
+    
+    <!-- Logout -->
+    <form method="POST" action="{{route('logOut')}}" class="d-inline">
+      @csrf
+      <button type="submit" class="nav-link btn btn-link p-0 m-0" style="color: inherit; text-decoration: none;">
+        <i class="bi bi-box-arrow-right"></i><br><small>Logout</small>
+      </button>
+    </form>
   </div>
 </nav>
+
 
 <!-- Scripts -->
 <script>

@@ -9,6 +9,7 @@ use App\Models\Loan;
 use App\Models\User;
 use App\Models\Debit;
 use App\Models\Credit;
+use App\Models\Trade;
 use GuzzleHttp\Client;
 use App\Models\Deposit;
 use App\Mail\DebitEmail;
@@ -32,6 +33,50 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
+
+
+
+  public function admindashboard()
+{
+    // Get totals
+    $totalDeposits = Deposit::count();
+    $totalLoans = Loan::count();
+    $totalTransactions = Transaction::count();
+    $totalTrades = Trade::count();
+    $totalUsers = User::count();
+    $totalCards = Card::count();
+
+    // Fetch all users (better to use User model here for consistency)
+    $result = User::paginate(10); // paginate users instead of get()
+    // Return view with data
+    return view('admin.home', compact(
+        'result',
+        'totalDeposits',
+        'totalLoans',
+        'totalTransactions',
+        'totalTrades',
+        'totalUsers',
+        'totalCards'
+    ));
+}
+
+
+
+
+
+public function ManageUsers()
+{
+    // Fetch all users, you can paginate if needed
+    $result = User::paginate(10);
+
+    
+
+    // Return the manage users view, passing the users data
+    return view('admin.manage_users', compact('result'));
+}
+
+
+
     public function users()
     {  if (Auth::user()->user_type == '1') {
             $result      = DB::table('users')->where('usertype', '0')->get();
@@ -42,27 +87,7 @@ class AdminController extends Controller
     }
     
   
-    //   public function updateWallet(Request $request)
-    // {
-
-
-    //     $update = Auth::user();
-    //     $update->wallet_address=$request['wallet_address'];
-    //     if($request->hasFile('image')){
-    //         $file= $request->file('image');
-    
-    //         $ext = $file->getClientOriginalExtension();
-    //         $filename = time().'.'.$ext;
-    //         $file->move('admin/uploads/admin',$filename);
-    //         $update->bar_code =  $filename;
-    //       }
-
-    //       $update->save();
-    //       return back()->with('status', 'Wallet Details Updated Successfully');  
-    // }
-    
- 
-    
+   
 
 
     

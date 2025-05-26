@@ -7,6 +7,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\controllers\UserManagementController;
+use App\Http\Controllers\TradeController;
+
+
+
+
 // use App\Http\Controllers\BankStatementController;
 
 /*
@@ -191,17 +196,27 @@ Route::middleware([
 Route::post('/send-bank-statement', [DashboardController::class, 'sendBankStatement'])->name('send.bank.statement');
 
 
+//trade controller
+// Route::post('/api/trade', [TradeController::class, 'store']);
+Route::post('/trades', [TradeController::class, 'store'])->name('trades.store');
+Route::get('/api/trades', [TradeController::class, 'history']);
 
 
 
 
 
 
+Route::prefix('admin')->name('admin.')->group(function () {
+Route::get('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'showLoginForm'])->name('login');
+ Route::post('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login']);
+  Route::post('logout', [App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])->name('logout');
 
-
+    Route::middleware('auth:admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'admindashboard'])->name('dashboard');
 
  // Admin Controller
 
+ Route::get('manage-users', [AdminController::class, 'ManageUsers'])->name('manage.users');
  Route::get('users', [AdminController::class, 'users'])->name('view.users');
  Route::get('update_wallet', [AdminController::class, 'eth'])->name('update.wallet');
  Route::get('admin_upload_nft', [AdminController::class, 'uploadNft'])->name('admin.upload.nft');
@@ -213,7 +228,7 @@ Route::post('/send-bank-statement', [DashboardController::class, 'sendBankStatem
  Route::post('admin_update_wallet', [AdminController::class, 'updateWallet'])->name('admin.save.wallet');
  Route::post('transfer', [AdminController::class, 'transferFunds'])->name('transfer-fund');
  Route::post('reflection-pin', [AdminController::class, 'reflectionPin'])->name('reflection');
- Route::get('/profile/{id}/', [AdminController::class, 'userProfile']);
+ Route::get('/profile/{id}/', [AdminController::class, 'userProfile'])->name('profile');
  Route::get('/delete/{id}', [AdminController::class, 'deleteUser']);
  Route::get('admin-change-password', [AdminController::class, 'adminChangePassword'])->name('admin.change.password');
  Route::match(['get', 'post'],'admin-update-password', [AdminController::class, 'adminUpdatePassword'])->name('admin.update.password');
@@ -262,7 +277,7 @@ Route::post('/update-trc',[AdminController::class, 'updateTrc'])->name('update-t
 Route::post('/update-btc',[AdminController::class, 'updateBtc'])->name('update-btc');
 Route::post('/update-eth',[AdminController::class, 'updateEth'])->name('update-eth');
 
-  Route::get('/send-mail/{id}/', [AdminController::class, 'sendMail']);
+  Route::get('/send-mail/{id}/', [AdminController::class, 'sendMail'])->name('send.mail');
   Route::get('/send-user-mail/{id}/', [AdminController::class, 'sendUserMail']);
   Route::get('send_mail', [AdminController::class, 'sendTestMail'])->name('user.mail');
   
@@ -274,4 +289,6 @@ Route::post('/update-eth',[AdminController::class, 'updateEth'])->name('update-e
     // Route::get('send_mail', [AdminController::class, 'sendTestMail'])->name('user.mail');
 
 
+    });
+});
 

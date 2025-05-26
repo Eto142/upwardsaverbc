@@ -228,7 +228,7 @@
   @if(!$details->isEmpty() && $detail->status != 0)
     <div class="text-center mt-4">
       <button type="button" class="btn btn-outline-main" data-bs-toggle="modal" data-bs-target="#deliveryModal">
-        <i class="bi bi-truck"></i> Request Physical Card Delivery
+        <i class="bi bi-truck"></i> Request Bank Card Delivery
       </button>
     </div>
   @endif

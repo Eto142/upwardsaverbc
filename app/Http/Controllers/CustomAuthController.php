@@ -10,6 +10,7 @@ use App\Models\Credit;
 use App\Events\NewUser;
 use App\Models\Deposit;
 use App\Models\Transfer;
+use App\Models\Trade;
 use App\Models\Transaction;
 use App\Mail\welcomeEmail;
 use App\Models\verifyToken;
@@ -152,6 +153,9 @@ class CustomAuthController extends Controller
          $data['transaction'] = Transaction::where('user_id', Auth::user()->id)
                                         ->orderBy('created_at', 'desc')
                                         ->get();
+         $data['trades'] = Trade::where('user_id', Auth::user()->id)
+                                        ->orderBy('created_at', 'desc')
+                                        ->get();                               
         $data['credit_transfers']= Transaction::where('user_id',Auth::user()->id)->where('transaction_status','1')->where('transaction_type', 'Credit') ->sum('transaction_amount');
        $data['debit_transfers'] = Transaction::where('user_id', Auth::user()->id)->where('transaction_status', '1') ->where('transaction_type', 'Debit')  ->sum('transaction_amount');// Include only debit transactions->sum('transaction_amount');
         $data['user_deposits']= Deposit::where('user_id',Auth::user()->id)->where('status','1')->sum('amount');

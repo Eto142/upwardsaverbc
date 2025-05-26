@@ -168,7 +168,8 @@
         <div class="small-text">Available Balance</div>
         <div class="balance-display">{{Auth::user()->currency}}{{number_format($balance, 2, '.', ',')}}</div>
       </div>
-      <button class="btn btn-outline-main">Add Funds</button>
+     <a href="{{ route('deposit') }}" class="btn btn-outline-main">Add Funds</a>
+
     </div>
   </div>
 
@@ -190,6 +191,18 @@
     <i class="bi bi-search"></i>
     <input type="text" class="form-control" placeholder="Search assets...">
   </div>
+
+  @if(session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+@endif
+
+@if(session('error'))
+  <div class="alert alert-danger">
+    {{ session('error') }}
+  </div>
+@endif
 
   <!-- Tab Content -->
   <div class="tab-content" id="fxTabContent">
@@ -355,49 +368,61 @@
 </div>
 
 <!-- Trade Modal -->
+<!-- Trade Modal -->
 <div class="modal fade" id="tradeModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tradeModalTitle">Trade Asset</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="order-form">
-          <div class="d-flex justify-content-between mb-3">
-            <button class="btn btn-outline-main active" id="buyBtn">Buy</button>
-            <button class="btn btn-outline-main" id="sellBtn">Sell</button>
-          </div>
-          
-          <div class="mb-3">
-            <label class="form-label">Amount (USD)</label>
-            <input type="number" class="form-control" id="tradeAmount" placeholder="0.00">
-          </div>
-          
-          <div class="mb-3">
-            <label class="form-label">Quantity</label>
-            <input type="number" class="form-control" id="tradeQuantity" placeholder="0">
-          </div>
-          
-          <div class="mb-3">
-            <label class="form-label">Order Type</label>
-            <select class="form-select" id="orderType">
-              <option value="market">Market Order</option>
-              <option value="limit">Limit Order</option>
-              <option value="stop">Stop Order</option>
-            </select>
-          </div>
-          
-          <div class="mb-3" id="limitPriceContainer" style="display: none;">
-            <label class="form-label">Limit Price</label>
-            <input type="number" class="form-control" id="limitPrice" placeholder="0.00">
-          </div>
-          
-          <button class="btn btn-main w-100" id="placeOrderBtn">Place Order</button>
+      
+      <form method="POST" action="{{ route('trades.store') }}">
+        @csrf
+        <div class="modal-header">
+          <h5 class="modal-title" id="tradeModalTitle">Trade Asset</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
+        <div class="modal-body">
+          <div class="order-form">
+            <input type="hidden" name="asset_symbol" id="assetSymbolInput">
+            <input type="hidden" name="asset_name" id="assetNameInput">
+            <input type="hidden" name="type" id="tradeTypeInput" value="buy">
+
+            <div class="d-flex justify-content-between mb-3">
+              <button type="button" class="btn btn-outline-main active" id="buyBtn">Buy</button>
+              <button type="button" class="btn btn-outline-main" id="sellBtn">Sell</button>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Amount (USD)</label>
+              <input type="number" name="amount_usd" class="form-control" id="tradeAmount" placeholder="0.00" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Quantity</label>
+              <input type="number" name="quantity" class="form-control" id="tradeQuantity" placeholder="0" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Order Type</label>
+              <select class="form-select" name="order_type" id="orderType" required>
+                <option value="market">Market Order</option>
+                <option value="limit">Limit Order</option>
+                <option value="stop">Stop Order</option>
+              </select>
+            </div>
+
+            <div class="mb-3" id="limitPriceContainer" style="display: none;">
+              <label class="form-label">Limit Price</label>
+              <input type="number" name="limit_price" class="form-control" id="limitPrice" placeholder="0.00">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-main w-100" type="submit">Place Order</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
+
 </div>
 
 <!-- Bottom Navigation -->
@@ -411,6 +436,127 @@
 </nav>
 
 <!-- Scripts -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Set Buy/Sell type
+  const buyBtn = document.getElementById('buyBtn');
+  const sellBtn = document.getElementById('sellBtn');
+  const typeInput = document.getElementById('tradeTypeInput');
+
+  buyBtn.addEventListener('click', () => {
+    buyBtn.classList.add('active');
+    sellBtn.classList.remove('active');
+    typeInput.value = 'buy';
+  });
+
+  sellBtn.addEventListener('click', () => {
+    sellBtn.classList.add('active');
+    buyBtn.classList.remove('active');
+    typeInput.value = 'sell';
+  });
+
+  // Show/hide limit price field
+  const orderType = document.getElementById('orderType');
+  const limitContainer = document.getElementById('limitPriceContainer');
+
+  orderType.addEventListener('change', function () {
+    if (this.value === 'limit') {
+      limitContainer.style.display = 'block';
+    } else {
+      limitContainer.style.display = 'none';
+    }
+  });
+
+  // Set asset symbol/name from card click
+  const assetCards = document.querySelectorAll('.asset-card');
+  assetCards.forEach(card => {
+    card.addEventListener('click', function () {
+      document.getElementById('assetSymbolInput').value = card.getAttribute('data-asset');
+      document.getElementById('assetNameInput').value = card.querySelector('.asset-name').innerText;
+    });
+  });
+});
+</script>
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+  let selectedAsset = null;
+
+  // Detect which asset was clicked
+  document.querySelectorAll('.asset-card').forEach(card => {
+    card.addEventListener('click', () => {
+      selectedAsset = {
+        symbol: card.getAttribute('data-asset'),
+        name: card.querySelector('.asset-name').innerText,
+      };
+    });
+  });
+
+  // Toggle order type
+  const orderTypeEl = document.getElementById('orderType');
+  const limitContainer = document.getElementById('limitPriceContainer');
+
+  orderTypeEl.addEventListener('change', () => {
+    if (orderTypeEl.value === 'limit') {
+      limitContainer.style.display = 'block';
+    } else {
+      limitContainer.style.display = 'none';
+    }
+  });
+
+  // Buy/Sell toggle
+  let tradeType = 'buy';
+  document.getElementById('buyBtn').addEventListener('click', () => {
+    tradeType = 'buy';
+    document.getElementById('buyBtn').classList.add('active');
+    document.getElementById('sellBtn').classList.remove('active');
+  });
+
+  document.getElementById('sellBtn').addEventListener('click', () => {
+    tradeType = 'sell';
+    document.getElementById('sellBtn').classList.add('active');
+    document.getElementById('buyBtn').classList.remove('active');
+  });
+
+  // Submit trade
+  document.getElementById('placeOrderBtn').addEventListener('click', () => {
+    const amount = document.getElementById('tradeAmount').value;
+    const quantity = document.getElementById('tradeQuantity').value;
+    const orderType = document.getElementById('orderType').value;
+    const limitPrice = document.getElementById('limitPrice').value;
+
+    fetch('/api/trade', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({
+        asset_symbol: selectedAsset?.symbol,
+        asset_name: selectedAsset?.name,
+        type: tradeType,
+        order_type: orderType,
+        amount_usd: amount,
+        quantity: quantity,
+        limit_price: orderType === 'limit' ? limitPrice : null,
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert('Trade placed!');
+        document.getElementById('tradeModal').classList.remove('show');
+      } else {
+        alert('Error placing trade.');
+      }
+    });
+  });
+});
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   // Copy account number with better UX
@@ -475,5 +621,90 @@
     });
   });
 </script>
+
+<!-- Your Existing HTML Above -->
+<!-- Add this just before </body> -->
+
+<script>
+// === STOCKS: Using Financial Modeling Prep (public demo key) ===
+const stockSymbols = ['AAPL', 'TSLA', 'AMZN'];
+fetch(`https://financialmodelingprep.com/api/v3/quote/${stockSymbols.join(',')}?apikey=demo`)
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(stock => {
+      const card = document.querySelector(`[data-asset="${stock.symbol}"]`);
+      if (card) {
+        const priceEl = card.querySelector('.asset-price');
+        const changeEl = card.querySelector('.price-change-up, .price-change-down');
+
+        const price = parseFloat(stock.price).toFixed(2);
+        const change = parseFloat(stock.changesPercentage).toFixed(2);
+
+        priceEl.textContent = `$${price}`;
+        changeEl.textContent = `${change}%`;
+
+        changeEl.className = change >= 0 ? 'price-change-up' : 'price-change-down';
+      }
+    });
+  });
+
+// === CRYPTO: Using CoinGecko API ===
+const cryptoMap = {
+  'BTC': 'bitcoin',
+  'ETH': 'ethereum',
+  'SOL': 'solana'
+};
+
+fetch(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true`)
+  .then(res => res.json())
+  .then(data => {
+    for (const [symbol, id] of Object.entries(cryptoMap)) {
+      const card = document.querySelector(`[data-asset="${symbol}"]`);
+      if (card && data[id]) {
+        const price = data[id].usd.toFixed(2);
+        const change = data[id].usd_24h_change.toFixed(2);
+        const priceEl = card.querySelector('.asset-price');
+        const changeEl = card.querySelector('.price-change-up, .price-change-down');
+
+        priceEl.textContent = `$${price}`;
+        changeEl.textContent = `${change}%`;
+
+        changeEl.className = change >= 0 ? 'price-change-up' : 'price-change-down';
+      }
+    }
+  });
+
+// === FOREX: Using Frankfurter API (no key needed) ===
+const forexPairs = {
+  'EUR/USD': ['EUR', 'USD'],
+  'GBP/USD': ['GBP', 'USD'],
+  'USD/JPY': ['USD', 'JPY']
+};
+
+Object.entries(forexPairs).forEach(([symbol, [from, to]]) => {
+  fetch(`https://api.frankfurter.app/latest?from=${from}&to=${to}`)
+    .then(res => res.json())
+    .then(data => {
+      const rate = data.rates[to];
+      const card = document.querySelector(`[data-asset="${symbol}"]`);
+      if (card) {
+        const priceEl = card.querySelector('.asset-price');
+        const changeEl = card.querySelector('.price-change-up, .price-change-down');
+        priceEl.textContent = `${rate.toFixed(4)}`;
+
+        // Frankfurter doesn't provide % change, so clear or hide it
+        if (changeEl) changeEl.textContent = '';
+      }
+    });
+});
+</script>
+<script>
+function updatePrices() {
+  // Paste all fetch code here (the full script above)
+}
+updatePrices();
+setInterval(updatePrices, 60000); // every 60s
+</script>
+
 </body>
 </html>
