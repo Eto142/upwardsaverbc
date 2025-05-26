@@ -18,7 +18,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Update Ethereum Wallet address</h4>
 
-                  <form method="post" action="{{route('update-eth')}}" enctype="multipart/form-data">
+                  <form method="post" action="{{route('admin.update-eth')}}" enctype="multipart/form-data">
                                      @csrf
                     <div class="form-group">
                       <input type="text" name="eth_address" class="form-control form-control-user" value="{{Auth::user()->eth_address}}">

@@ -21,87 +21,61 @@
                 </div>
             </div>
 
-            <div class="col-xl-12">
-                <div class="card" style="border-top-left-radius:30px; border-top-right-radius: 30px; ">
-                    <div class="card-body">
+           <div class="col-xl-12">
+    <div class="card" style="border-top-left-radius:30px; border-top-right-radius:30px;">
+        <div class="card-body">
+            <center><p class="card-title fs-4 fw-semibold">Send Mail</p></center>
 
+            {{-- Alert Messages --}}
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    <strong>Error!</strong> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @elseif (session('status') || session('message'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <strong>Success!</strong> {{ session('status') ?? session('message') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
 
+            <form action="{{ route('admin.send.mail') }}" method="POST" class="mt-4">
+                @csrf
 
-                        <center>
-                            <p class="card-title" id="someDiv">Send Mail</p>
-                        </center>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Email*</label>
+                    <div class="col-sm-9">
+                        <input type="email" name="email" class="form-control" required placeholder="Enter recipient email">
                     </div>
+                </div>
 
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Subject*</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="subject" class="form-control" required placeholder="Enter email subject">
+                    </div>
+                </div>
 
-                    <div class="col-xl-12">
-                        <div class="card">
-                            @if (session('error'))
-                            <div class="alert box-bdr-red alert-dismissible fade show text-red" role="alert">
-                                <b>Error!</b>{{ session('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                            @elseif (session('status'))
-                            <div class="alert box-bdr-green alert-dismissible fade show text-green" role="alert">
-                                <b>Success!</b> {{ session('status') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                            @elseif (session('message'))
-                            <div class="alert box-bdr-green alert-dismissible fade show text-green" role="alert">
-                                <b>Success!</b> {{ session('message') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                            @endif
-                            <div class="card-body">
-                                <h4 class="card-title mb-4"></h4>
-                                <form id="inter_form" action="{{ route('send.mail')}}" method="POST">
-                                    @csrf
+                <div class="row mb-4">
+                    <label class="col-sm-3 col-form-label">Message*</label>
+                    <div class="col-sm-9">
+                        <textarea name="message" rows="5" class="form-control" required placeholder="Enter your message"></textarea>
+                    </div>
+                </div>
 
-                                    <div class="row mb-4">
-                                        <label for="horizontal-firstname-input"
-                                            class="col-sm-3 col-form-label">Email*</label>
-                                        <div class="col-sm-9">
-                                            <input type="email" value="" class="form-control"
-                                                id="bank_name" name="email">
-                                        </div>
-                                    </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-primary btn-rounded px-4">
+                            Send Mail
+                        </button>
+                    </div>
+                </div>
+            </form>
 
-                                    <div class="row mb-4">
-                                        <label for="horizontal-firstname-input"
-                                            class="col-sm-3 col-form-label">Subject*</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="bank_name" name="subject">
-                                        </div>
-                                    </div>
+        </div>
+    </div>
+</div>
 
-
-
-
-                                    <div class="row mb-4">
-                                        <label for="horizontal-firstname-input"
-                                            class="col-sm-3 col-form-label">Message*</label>
-                                        <textarea class="form-control" id="exampleTextarea1" rows="4"
-                                            name="message"></textarea>
-                                    </div>
-
-
-                                    <div class="row justify-content-end">
-                                        <div class="col-sm-9">
-                                            <div>
-                                                <button id="send_pin"
-                                                    class="btn btn-primary btn-rounded waves-effect waves-light"
-                                                    type="submit">Send Mail</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <p class="response"></p>
-                            <!-- end card body -->
-                        </div>
-                        <!-- end card -->
                     </div>
                 </div>
             </div>

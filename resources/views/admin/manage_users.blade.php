@@ -64,7 +64,7 @@
 													class="badge shade-blue">View User</span></a></td>
 										<td><a href="{{route('admin.user.mail',$transaction->id)}}"><span
 													class="badge shade-green">Send Mail</span></a></td>
-										<td><a href="{{url('delete/'.$transaction->id)}}"
+										<td><a href="{{route('admin.delete',$transaction->id)}}"
 												onclick="confirm('Are you sure you want to delete this user?')"><span
 													class="badge shade-red">Delete User</span></a></td>
 

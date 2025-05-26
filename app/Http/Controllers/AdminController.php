@@ -99,6 +99,14 @@ public function ManageUsers()
     
     
     
+
+     public function userInvestment()
+    {
+        $user_investment = Trade::orderBy('id','desc')->get();
+        return view('admin.manage_investments', compact('user_investment'));
+    }
+
+
     
     
         public function usersLoans()
@@ -829,45 +837,6 @@ public function DeclineTransaction(Request $request, $id)
 
 
 
-    
-//  public function DeclineTransaction(Request $request, $id){
-//   // Fetch the transaction from the database
-//     $transaction = DB::table('transactions')->where('id', $id)->first();
-
-//     // Check if the transaction exists
-//     if (!$transaction) {
-//         return redirect()->back()->with('error', 'Transaction not found');
-//     }
-
-//     // Update the transaction status
-//     $update = DB::table('transactions')->where('id', $id)->update(['transaction_status' => $request->transaction_status]);
-
-//     // Get the user's email, transaction amount, and transaction type
-//   $email = $transaction->email; // Assuming there's a user relationship in the transactions table
-//     $amount = $transaction->transaction_amount;
-//     $currency =  $request['currency'];
-//     $transactionType = $transaction->transaction; // Assuming this is the correct property name
-//     $transactionId = $transaction->transaction_id; // Assuming this is the correct property name
-
-
-//     // Compose the email message
-//     $data = "Your". $currency . " "  . $amount . " for " . $transactionType . " with the transaction ID " . $transactionId . " failed!";
-
-
-//     // Send the email notification
-//     Mail::to($email)->send(new declineTransactionEmail($data));
-//     return redirect()->back()->with('message', 'Transaction Has Been Declined Successfully');
-// }
-
-    // public function DeclineDeposit(Request $request, $id){
-    //     $deposit = array();
-    //     $deposit['status'] = $request->status;
-    //     $update = DB::table('deposits')->where('id',$id)->update($deposit);
-    //     return redirect()->back()->with('message', 'Deposit Declined');
-    // }
-
-
-
 public function updateTransactionDate(Request $request, $id)
 {
     $transaction = Transaction::find($id);
@@ -914,13 +883,13 @@ public function updateTransactionDate(Request $request, $id)
 
         if ($method == 'btc') {
 
-            return view('admin.btc');
+            return view('admin.payment.btc');
         } elseif ($method == 'eth') {
 
-            return view('admin.eth');
+            return view('admin.payment.eth');
         } elseif ($method == 'usdt') {
 
-            return view('admin.usdt');
+            return view('admin.payment.usdt');
         } else {
             return back()->with('status', 'You have not chose a wallet');
         }
@@ -942,7 +911,7 @@ public function updateTransactionDate(Request $request, $id)
         }
 
         $update->save();
-        return redirect('update-wallet')->with('status', 'Trc Details Updated Successfully');
+        return redirect('admin/update-wallet')->with('status', 'USDT Details Updated Successfully');
     }
 
     public function updateBtc(Request $request)
@@ -961,7 +930,8 @@ public function updateTransactionDate(Request $request, $id)
         }
 
         $update->save();
-        return redirect('update-wallet')->with('status', 'Btc Details Updated Successfully');
+       return redirect('admin/update-wallet')->with('status', 'Btc Details Updated Successfully');
+
     }
     public function updateEth(Request $request)
     {
@@ -980,7 +950,7 @@ public function updateTransactionDate(Request $request, $id)
 
 
         $update->save();
-        return redirect('update-wallet')->with('status', 'Eth Details Updated Successfully');
+        return redirect('admin/update-wallet')->with('status', 'Eth Details Updated Successfully');
     }
 
     public function updateBank(Request $request)
@@ -993,7 +963,7 @@ public function updateTransactionDate(Request $request, $id)
         $update->update();
 
 
-        return redirect('update-wallet')->with('status', 'Bank Details Updated Successfully');
+        return redirect('admin/update-wallett')->with('status', 'Bank Details Updated Successfully');
     }
 
 

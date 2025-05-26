@@ -56,7 +56,7 @@
 							@endif
 							<div class="card-body">
 								<h4 class="card-title mb-4"></h4>
-								<form id="inter_form" action="{{ route('send.mail')}}" method="POST">
+								<form id="inter_form" action="{{ route('admin.send.mail')}}" method="POST">
 									@csrf
 
 									<div class="row mb-4">

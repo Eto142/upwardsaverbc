@@ -30,7 +30,7 @@
 			  <p class="card-description">
 			  Update Bank/Wallet Details
 			  </p>
-			  <form action ="{{ url('/choose-wallet')}}" method ="POST" enctype="multipart/form-data">
+			  <form action ="{{ route('admin.choose.wallet')}}" method ="POST" enctype="multipart/form-data">
 						 @csrf
 						 <div class="form-group">
 			<label class="btn btn-primary"> SELECT WALLET </label>

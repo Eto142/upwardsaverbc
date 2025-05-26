@@ -38,10 +38,6 @@
               <h6 class="text-muted mb-2">Total Users</h6>
               <h3 class="mb-0">{{ number_format($totalUsers) }}</h3>
               <div class="mt-2">
-                <span class="badge bg-success bg-opacity-10 text-success">
-                  <i class="bi bi-arrow-up me-1"></i> 5.9%
-                </span>
-                <span class="text-muted small ms-2">vs last month</span>
               </div>
             </div>
             <div class="bg-primary bg-opacity-10 p-3 rounded">
@@ -61,10 +57,6 @@
               <h6 class="text-muted mb-2">Total Deposits</h6>
               <h3 class="mb-0">{{ number_format($totalDeposits) }}</h3>
               <div class="mt-2">
-                <span class="badge bg-success bg-opacity-10 text-success">
-                  <i class="bi bi-arrow-up me-1"></i> 12.5%
-                </span>
-                <span class="text-muted small ms-2">vs last month</span>
               </div>
             </div>
             <div class="bg-success bg-opacity-10 p-3 rounded">
@@ -84,10 +76,6 @@
               <h6 class="text-muted mb-2">Total Loans</h6>
               <h3 class="mb-0">{{ number_format($totalLoans) }}</h3>
               <div class="mt-2">
-                <span class="badge bg-success bg-opacity-10 text-success">
-                  <i class="bi bi-arrow-up me-1"></i> 8.3%
-                </span>
-                <span class="text-muted small ms-2">vs last month</span>
               </div>
             </div>
             <div class="bg-info bg-opacity-10 p-3 rounded">
@@ -104,13 +92,9 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center">
             <div>
-              <h6 class="text-muted mb-2">Transactions</h6>
+              <h6 class="text-muted mb-2">Total Transactions</h6>
               <h3 class="mb-0">{{ number_format($totalTransactions) }}</h3>
               <div class="mt-2">
-                <span class="badge bg-success bg-opacity-10 text-success">
-                  <i class="bi bi-arrow-up me-1"></i> 15.7%
-                </span>
-                <span class="text-muted small ms-2">vs last month</span>
               </div>
             </div>
             <div class="bg-warning bg-opacity-10 p-3 rounded">
@@ -127,13 +111,9 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center">
             <div>
-              <h6 class="text-muted mb-2">Total Trades</h6>
+              <h6 class="text-muted mb-2">Total Investments</h6>
               <h3 class="mb-0">{{ number_format($totalTrades) }}</h3>
               <div class="mt-2">
-                <span class="badge bg-danger bg-opacity-10 text-danger">
-                  <i class="bi bi-arrow-down me-1"></i> 3.2%
-                </span>
-                <span class="text-muted small ms-2">vs last month</span>
               </div>
             </div>
             <div class="bg-purple bg-opacity-10 p-3 rounded">
@@ -153,10 +133,6 @@
               <h6 class="text-muted mb-2">Total Cards</h6>
               <h3 class="mb-0">{{ number_format($totalCards) }}</h3>
               <div class="mt-2">
-                <span class="badge bg-success bg-opacity-10 text-success">
-                  <i class="bi bi-arrow-up me-1"></i> 7.1%
-                </span>
-                <span class="text-muted small ms-2">vs last month</span>
               </div>
             </div>
             <div class="bg-dark bg-opacity-10 p-3 rounded">
@@ -180,20 +156,6 @@
               </h5>
               <p class="text-muted mb-0 small">Manage all registered users</p>
             </div>
-            <div class="d-flex flex-column flex-md-row gap-2">
-              <div class="input-group" style="max-width: 200px;">
-                <span class="input-group-text bg-white"><i class="bi bi-funnel"></i></span>
-                <select class="form-select">
-                  <option>All Users</option>
-                  <option>Active</option>
-                  <option>Inactive</option>
-                </select>
-              </div>
-              <button class="btn btn-primary">
-                <i class="bi bi-plus-circle me-1"></i> Add User
-              </button>
-            </div>
-          </div>
         </div>
         
         <div class="card-body p-0">

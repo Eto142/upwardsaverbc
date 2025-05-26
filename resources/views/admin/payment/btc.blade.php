@@ -27,7 +27,7 @@
 		  <div class="card">
 			<div class="card-body">
 			  <p class="card-description">
-				<form method="post" action="{{route('update-btc')}}" enctype="multipart/form-data">
+				<form method="post" action="{{route('admin.update-btc')}}" enctype="multipart/form-data">
 					@csrf
 
    <div class="form-group">

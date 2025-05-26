@@ -7,7 +7,7 @@
 
           <!-- Sidebar brand starts -->
           <div class="brand">
-            <a href="{{url('dashboard')}}" class="logo">
+            <a href="{{route('admin.dashboard')}}" class="logo">
               <img src="{{asset('logo1.png')}}" class="d-none d-md-block me-4" alt="Rapid Admin Dashboard" />
               <img src="{{asset('logo1.png')}}" class="d-block d-md-none me-4" alt="Rapid Admin Dashboard" />
             </a>
@@ -19,7 +19,7 @@
             <div class="sidebarMenuScroll">
               <ul>
                 <li class="active-page-link">
-                  <a href="{{url('dashboard')}}">
+                  <a href="{{route('admin.dashboard')}}">
                     <i class="bi bi-house"></i>
                     <span class="menu-text">Dashboard</span>
                   </a>
@@ -32,21 +32,21 @@
             </a>
           </li>
                 <li>
-                  <a href="{{url('dashboard')}}">
+                  <a href="{{route('admin.manage.users')}}">
                     <i class="bi bi-box"></i>
-                    <span class="menu-text">Users</span>
+                    <span class="menu-text"> Manage Users</span>
                   </a>
                 </li>
 
                 <li>
                   <a href="{{route('admin.user.loans')}}">
                     <i class="bi bi-cash-stack"></i>
-                    <span class="menu-text">Loans</span>
+                    <span class="menu-text"> Manage Loans</span>
                   </a>
                 </li>
 
                                 <li>
-                  <a href="{{route('admin.user.loans')}}">
+                  <a href="{{route('admin.user.investment')}}">
                     <i class="bi bi-cash-stack"></i>
                     <span class="menu-text">Investments</span>
                   </a>
@@ -54,7 +54,7 @@
                 <li>
                   <a href="{{route('admin.user.transaction')}}">
                     <i class="bi bi-calendar4"></i>
-                    <span class="menu-text">Transactions</span>
+                    <span class="menu-text">Manage Transactions</span>
                   </a>
                 </li>
                 
