@@ -177,12 +177,12 @@ class CustomAuthController extends Controller
         return redirect("login")->withSuccess('You are not allowed to access');
     }
 
-    public function adminHome()
-    {
+    // public function adminHome()
+    // {
 
-        return view('admin.home');
+    //     return view('admin.home');
  
-    }
+    // }
     
     public function signOut() {
         Session::flush();

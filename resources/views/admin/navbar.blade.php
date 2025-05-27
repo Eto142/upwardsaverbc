@@ -81,7 +81,7 @@
                 </li>
 
                 <li>
-                  <a href="{{route('logOut')}}">
+                  <a href="{{route('admin.logout')}}">
                     <i class="bi bi-emoji-expressionless"></i>
                     <span class="menu-text">Logout</span>
                   </a>

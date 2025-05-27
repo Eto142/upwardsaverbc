@@ -67,7 +67,8 @@ class AdminController extends Controller
 public function ManageUsers()
 {
     // Fetch all users, you can paginate if needed
-    $result = User::paginate(10);
+   $result = User::all();
+
 
     
 
