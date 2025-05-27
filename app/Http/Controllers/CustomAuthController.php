@@ -196,6 +196,23 @@ class CustomAuthController extends Controller
      
     }
 
+    public function UserlogOut(Request $request)
+{
+    // Log the user out
+    Auth::logout();
+
+    // Invalidate the session
+    $request->session()->invalidate();
+
+    // Regenerate CSRF token
+    $request->session()->regenerateToken();
+
+    // Redirect to login page (adjust the route name if different)
+    return redirect()->route('login')->with('status', 'You have been logged out.');
+}
+
+
+
     public function logOut() {
         Session::flush();
         Auth::logout();

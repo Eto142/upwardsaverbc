@@ -15,7 +15,7 @@
     </a>
     
     <!-- Logout -->
-    <form method="POST" action="{{route('logOut')}}" class="d-inline">
+    <form method="POST" action="{{route('user.logout')}}" class="d-inline">
       @csrf
       <button type="submit" class="nav-link btn btn-link p-0 m-0" style="color: inherit; text-decoration: none;">
         <i class="bi bi-box-arrow-right"></i><br><small>Logout</small>

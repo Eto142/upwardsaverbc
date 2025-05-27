@@ -81,11 +81,18 @@
                 </li>
 
                 <li>
-                  <a href="{{route('admin.logout')}}">
-                    <i class="bi bi-emoji-expressionless"></i>
-                    <span class="menu-text">Logout</span>
-                  </a>
-                </li>
+  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    <i class="bi bi-emoji-expressionless"></i>
+    <span class="menu-text">Logout</span>
+  </a>
+
+  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+    @csrf
+  </form>
+</li>
+
+
+                
               </ul>
             </div>
           </div>

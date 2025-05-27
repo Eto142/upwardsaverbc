@@ -130,6 +130,7 @@ Route::middleware([
  Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
  Route::get('log_out', [CustomAuthController::class, 'signOut'])->name('logout');
  Route::get('/logout', [CustomAuthController::class, 'logOut'])->name('logOut');
+ Route::post('/user/logout', [CustomAuthController::class, 'UserlogOut'])->name('user.logout');
  
  
  
@@ -209,11 +210,11 @@ Route::get('/api/trades', [TradeController::class, 'history']);
 
 Route::prefix('admin')->name('admin.')->group(function () {
 Route::get('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'showLoginForm'])->name('login');
- Route::post('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login']);
-  Route::post('logout', [App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])->name('logout');
+Route::post('login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login']);
+Route::post('logout', [App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])->name('logout');
 
-    Route::middleware('auth:admin')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'admindashboard'])->name('dashboard');
+Route::middleware('auth:admin')->group(function () {
+Route::get('/dashboard', [AdminController::class, 'admindashboard'])->name('dashboard');
 
  // Admin Controller
 

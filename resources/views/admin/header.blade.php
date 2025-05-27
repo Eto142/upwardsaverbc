@@ -86,9 +86,19 @@
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
                 <div class="header-profile-actions">
-                  <a href="#">Profile</a>
-                  <a href="#">Settings</a>
-                  <a href="{{route('logOut')}}">Logout</a>
+                  {{-- <a href="#">Profile</a>
+                  <a href="#">Settings</a> --}}
+                  <li>
+  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    <i class="bi bi-emoji-expressionless"></i>
+    <span class="menu-text">Logout</span>
+  </a>
+
+  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+    @csrf
+  </form>
+</li>
+
                 </div>
               </div>
             </div>
