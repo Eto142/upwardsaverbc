@@ -62,6 +62,10 @@
       color: #f26a63;
     }
 
+    .a{
+      text-decoration:none;
+    }
+
     .small-text {
       font-size: 13px;
     }
