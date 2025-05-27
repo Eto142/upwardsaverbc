@@ -75,11 +75,45 @@
 
 <div class="container pt-4">
   <div class="d-flex justify-content-between align-items-center">
-    <a href="{{ route('profile') }}" class="text-decoration-none text-dark">
+ <a href="{{ route('profile') }}" class="text-decoration-none text-dark d-flex align-items-center">
+  <!-- Profile Picture Circle -->
+  <div class="rounded-circle overflow-hidden me-3" style="width: 40px; height: 40px; position: relative;">
+    @if(Auth::user()->display_picture)
+      <img src="{{ asset('uploads/display/' . Auth::user()->display_picture) }}" 
+           alt="Profile" 
+           class="w-100 h-100 object-fit-cover"
+           onclick="event.preventDefault(); triggerFileInput()"
+           style="cursor: pointer;">
+    @else
+      <div class="bg-secondary w-100 h-100 d-flex align-items-center justify-content-center"
+           onclick="event.preventDefault(); triggerFileInput()"
+           style="cursor: pointer;">
+        <span class="text-white">{{ strtoupper(substr(Auth::user()->first_name, 0, 1)) }}</span>
+      </div>
+    @endif
+  </div>
+  
+  <!-- Greeting Text -->
   <div>
     <h6 class="mb-0 fw-semibold">Hello, {{ Auth::user()->first_name }}!</h6>
   </div>
 </a>
+
+<!-- Hidden Form for Profile Picture Upload -->
+<form id="uploadForm" action="{{ route('personal.dp') }}" method="POST" enctype="multipart/form-data" style="display: none;">
+  @csrf
+  <input type="file" id="profilePictureInput" name="image" accept="image/*" onchange="uploadProfilePicture()">
+</form>
+
+<script>
+  function triggerFileInput() {
+    document.getElementById('profilePictureInput').click();
+  }
+
+  function uploadProfilePicture() {
+    document.getElementById('uploadForm').submit();
+  }
+</script>
 
     <div class="text-end">
       <span class="text-muted small d-block">
@@ -90,7 +124,7 @@
   </div>
 
   <div class="mt-2">
-    <span class="badge bg-light text-dark small-text">Savings</span>
+    <span class="badge bg-light text-dark small-text">{{ Auth::user()->account_type}}</span>
   </div>
 
   <div class="mt-2 d-flex align-items-center gap-1">
@@ -123,16 +157,22 @@
       <small>Crypto</small>
     </div>
   </a>
-  <a href="{{route('deposit')}}" class="text-decoration-none text-dark">
+    <a href="{{route('deposit')}}" class="text-decoration-none text-dark">
     <div>
-      <div class="shortcut-icon bg-shortcut-2"><i class="bi bi-bank2"></i></div>
-      <small>Check Deposit</small>
+      <div class="shortcut-icon bg-shortcut-3"><i class="bi bi-bank2"></i></div>
+      <small>Deposit</small>
     </div>
   </a>
   <a href="{{route('loan')}}" class="text-decoration-none text-dark">
     <div>
       <div class="shortcut-icon bg-shortcut-3"><i class="bi bi-credit-card"></i></div>
       <small>Loan</small>
+    </div>
+  </a>
+    <a href="{{route('paybills')}}" class="text-decoration-none text-dark">
+    <div>
+      <div class="shortcut-icon bg-shortcut-3"><i class="bi bi-cash-stack"></i></div>
+      <small>Pay Bills</small>
     </div>
   </a>
   <a href="{{route('paypal')}}" class="text-decoration-none text-dark">
@@ -283,69 +323,6 @@
 
 </div>
 
-<nav class="navbar fixed-bottom bg-white bottom-nav">
-  <div class="container d-flex justify-content-around text-center">
-    <a class="nav-link active" href="{{ route('dashboard') }}">
-      <i class="bi bi-house-door-fill"></i><br><small>Home</small>
-    </a>
-    <a class="nav-link" href="{{ route('card') }}">
-      <i class="bi bi-credit-card-2-front"></i><br><small>Card</small>
-    </a>
-    <a class="nav-link" href="{{ route('bank') }}">
-      <i class="bi bi-arrow-left-right"></i><br><small>Transfers</small>
-    </a>
-    <a class="nav-link" href="{{ route('transactions') }}">
-      <i class="bi bi-clock-history"></i><br><small>History</small>
-    </a>
-    
-    <!-- Logout -->
-    <form method="POST" action="{{route('logOut')}}" class="d-inline">
-      @csrf
-      <button type="submit" class="nav-link btn btn-link p-0 m-0" style="color: inherit; text-decoration: none;">
-        <i class="bi bi-box-arrow-right"></i><br><small>Logout</small>
-      </button>
-    </form>
-  </div>
-</nav>
-
-
-<!-- Scripts -->
-<script>
-  // Toggle balance visibility
-  const balanceEl = document.getElementById("balance");
-  let isHidden = true;
-
-  function toggleBalance() {
-    balanceEl.innerText = isHidden ? " {{ Auth::user()->currency }}{{ number_format($balance, 2) }}" : "•••";
-    isHidden = !isHidden;
-  }
-
-  // Copy account number with better UX
-  function copyAccountNumber() {
-    const accNum = document.getElementById("accountNumber").innerText;
-    const icon = document.getElementById("copyIcon");
-
-    navigator.clipboard.writeText(accNum).then(() => {
-      const tooltip = bootstrap.Tooltip.getInstance(icon);
-      tooltip.setContent({ '.tooltip-inner': 'Copied!' });
-      icon.classList.replace("bi-copy", "bi-check2");
-
-      setTimeout(() => {
-        tooltip.setContent({ '.tooltip-inner': 'Copy to clipboard' });
-        icon.classList.replace("bi-check2", "bi-copy");
-      }, 2000);
-    });
-  }
-
-  // Enable Bootstrap tooltip
-  document.addEventListener("DOMContentLoaded", function () {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-      new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-  });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@include('dashboard.footer')
 </body>
 </html>

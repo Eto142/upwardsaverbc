@@ -200,6 +200,11 @@
           <div class="card-name">
             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
           </div>
+          
+  <div class="card-cvv" id="cvvField" style="font-weight: 500;">
+    CVV <span id="cvvValue">•••</span>
+  </div>
+
           <div class="card-expiry">
             Exp: {{ \Carbon\Carbon::parse($detail->card_expiry)->format('m/y') }}
           </div>
@@ -208,7 +213,10 @@
       
       <!-- Card actions -->
       <div class="d-flex gap-2 mt-3">
-        <button class="btn btn-main flex-fill"><i class="bi bi-eye"></i> Show CVV</button>
+         <button class="btn btn-main flex-fill" onclick="toggleCVV()">
+    <i class="bi bi-eye" id="cvvIcon"></i> <span id="cvvBtnText">Show CVV</span>
+  </button>
+       
         <button class="btn btn-outline-danger flex-fill"><i class="bi bi-trash"></i> Delete</button>
 
       </div>
@@ -239,7 +247,7 @@
     <i class="bi bi-lightning card-feature-icon"></i>
     <div>
       <h6 class="mb-1">Instant Access</h6>
-      <p class="small-text mb-0">Apply and activate instantly</p>
+      <p class="small-text mb-0">Apply and Activate</p>
     </div>
   </div>
   
@@ -247,7 +255,7 @@
     <i class="bi bi-shield-check card-feature-icon"></i>
     <div>
       <h6 class="mb-1">Safety</h6>
-      <p class="small-text mb-0">No physical handing. No risk of loss</p>
+      <p class="small-text mb-0">Physical Delivery & No risk of loss</p>
     </div>
   </div>
 
@@ -312,15 +320,7 @@
   </div>
 </div>
 
-<!-- Bottom Navigation -->
-<nav class="navbar fixed-bottom bg-white bottom-nav">
-  <div class="container d-flex justify-content-around text-center">
-    <a class="nav-link" href="{{route('dashboard')}}"><i class="bi bi-house-door"></i><br><small>Home</small></a>
-    <a class="nav-link" href="{{route('card')}}"><i class="bi bi-credit-card-2-front-fill active"></i><br><small>Card</small></a>
-    <a class="nav-link" href="{{route('bank')}}"><i class="bi bi-arrow-left-right"></i><br><small>Transfers</small></a>
-    <a class="nav-link" href="{{route('transactions')}}"><i class="bi bi-clock-history"></i><br><small>History</small></a>
-  </div>
-</nav>
+@include('dashboard.footer')
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -349,6 +349,35 @@
       new bootstrap.Tooltip(tooltipTriggerEl);
     });
   });
+</script>
+
+<!-- Replace this with your Blade variable -->
+<script>
+  const actualCVV = "{{ $detail->card_cvc }}"; // Blade variable for Laravel
+</script>
+
+<script>
+  let isCVVVisible = false;
+
+  function toggleCVV() {
+    const cvvValue = document.getElementById("cvvValue");
+    const cvvIcon = document.getElementById("cvvIcon");
+    const cvvBtnText = document.getElementById("cvvBtnText");
+
+    isCVVVisible = !isCVVVisible;
+
+    if (isCVVVisible) {
+      cvvValue.textContent = actualCVV;
+      cvvIcon.classList.remove("bi-eye");
+      cvvIcon.classList.add("bi-eye-slash");
+      cvvBtnText.textContent = "Hide CVV";
+    } else {
+      cvvValue.textContent = "•••";
+      cvvIcon.classList.remove("bi-eye-slash");
+      cvvIcon.classList.add("bi-eye");
+      cvvBtnText.textContent = "Show CVV";
+    }
+  }
 </script>
 </body>
 </html>

@@ -447,6 +447,20 @@ public function UserOtp(Request $request)
         return view('dashboard.deposit',$data);
     }
 
+
+     public function paybills()
+    { 
+       $data['outstanding_loan']= Loan::where('user_id',Auth::user()->id)->where('status','1')->sum('amount');
+       $data['pending_loan']= Loan::where('user_id', Auth::user()->id)->where('status','0')->sum('amount');
+       $data['transaction']= Transaction::where('user_id', Auth::user()->id)->where('transaction','Loan')->get();
+        return view('dashboard.paybills',$data);
+    } 
+
+
+
+
+
+
     public function loan()
     { 
        $data['outstanding_loan']= Loan::where('user_id',Auth::user()->id)->where('status','1')->sum('amount');

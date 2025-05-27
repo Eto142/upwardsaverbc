@@ -155,6 +155,7 @@ Route::middleware([
  Route::post('make-cryptodeposit', [DashboardController::class, 'makeCryptoDeposit'])->name('make.cryptodeposit');
  Route::get('make-deposit', [DashboardController::class, 'makeDeposit'])->name('make.deposit');
  Route::get('loan', [DashboardController::class, 'loan'])->name('loan');
+  Route::get('paybills', [DashboardController::class, 'paybills'])->name('paybills');
  Route::get('loan-user', [DashboardController::class, 'LoanUser'])->name('loan-user');
  Route::post('make-loan', [DashboardController::class, 'makeLoan'])->name('make.loan');
  Route::post('continue-loan', [DashboardController::class, 'ContinueLoan'])->name('continue.loan');

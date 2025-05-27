@@ -89,27 +89,17 @@
       border-radius: 12px;
     }
 
-    .bottom-nav {
+  .bottom-nav {
       border-top: 1px solid #ddd;
-      padding: 0.5rem 0;
     }
 
     .bottom-nav .nav-link {
-      color: var(--secondary-text);
-      font-size: 0.8rem;
-      padding: 0.5rem;
-      text-align: center;
-      flex: 1;
-    }
-
-    .bottom-nav .nav-link i {
-      font-size: 1.2rem;
-      display: block;
-      margin: 0 auto 0.2rem;
+      color: #888;
+      font-size: 13px;
     }
 
     .bottom-nav .nav-link.active {
-      color: var(--active-nav);
+      color: #f26a63;
     }
 
     .small-text {
@@ -412,28 +402,7 @@
   </div>
 </div>
 
-<!-- Bottom Navigation -->
-<nav class="navbar fixed-bottom bg-white bottom-nav">
-  <div class="container-fluid d-flex justify-content-around text-center px-0">
-    <a class="nav-link" href="{{route('dashboard')}}">
-      <i class="bi bi-house-door"></i>
-      <span class="d-block small-text">Home</span>
-    </a>
-    <a class="nav-link" href="{{route('card')}}">
-      <i class="bi bi-credit-card-2-front"></i>
-      <span class="d-block small-text">Card</span>
-    </a>
-    <a class="nav-link active" href="{{route('bank')}}">
-      <i class="bi bi-arrow-left-right"></i>
-      <span class="d-block small-text">Transfers</span>
-    </a>
-    <a class="nav-link" href="{{route('transactions')}}">
-      <i class="bi bi-clock-history"></i>
-      <span class="d-block small-text">History</span>
-    </a>
-  </div>
-</nav>
-
+<@include('dashboard.footer')
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

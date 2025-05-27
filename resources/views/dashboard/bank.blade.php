@@ -33,7 +33,7 @@
       border-radius: 12px;
     }
 
-    .bottom-nav {
+   .bottom-nav {
       border-top: 1px solid #ddd;
     }
 
@@ -183,14 +183,7 @@
 </div>
 
 <!-- Bottom Navigation -->
-<nav class="navbar fixed-bottom bg-white bottom-nav">
-  <div class="container d-flex justify-content-around text-center">
-    <a class="nav-link" href="{{route('dashboard')}}"><i class="bi bi-house-door"></i><br><small>Home</small></a>
-    <a class="nav-link" href="{{route('card')}}"><i class="bi bi-credit-card-2-front"></i><br><small>Card</small></a>
-    <a class="nav-link active" href="{{route('bank')}}"><i class="bi bi-arrow-left-right"></i><br><small>Transfers</small></a>
-    <a class="nav-link" href="{{route('transactions')}}"><i class="bi bi-clock-history"></i><br><small>History</small></a>
-  </div>
-</nav>
+@include('dashboard.footer')
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
