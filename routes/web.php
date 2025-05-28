@@ -266,14 +266,19 @@ Route::delete('/delete/{id}', [AdminController::class, 'deleteUser'])->name('del
   Route::get('/decline-loan/{id}/', [AdminController::class, 'DeclineLoan']);
 
 // admin deposit control
-  Route::get('/approve-deposit/{id}/', [AdminController::class, 'ApproveDeposit']);
-  Route::get('/decline-deposit/{id}/', [AdminController::class, 'DeclineDeposit']);
+//   Route::get('/approve-deposit/{id}/', [AdminController::class, 'ApproveDeposit']);
+  Route::post('/approve-deposit/{id}', [AdminController::class, 'ApproveDeposit'])->name('approve-deposit');
+  Route::post('/decline-deposit/{id}', [AdminController::class, 'DeclineDeposit'])->name('decline-deposit');
 
-  Route::get('/approve-card/{id}/', [AdminController::class, 'ApproveCard']);
-  Route::get('/approve-transaction/{id}/', [AdminController::class, 'ApproveTransaction']);
-  Route::get('/update-transaction-date/{id}/', [AdminController::class, 'updateTransactionDate']);
-  Route::get('/decline-transaction/{id}/', [AdminController::class, 'DeclineTransaction']);
-  Route::get('/decline-card/{id}/', [AdminController::class, 'DeclineCard']);
+
+   Route::post('/approve-card/{id}', [AdminController::class, 'ApproveCard'])->name('approve-card');
+//   Route::get('/approve-card/{id}/', [AdminController::class, 'ApproveCard']);
+
+Route::post('/approve-transaction/{id}', [AdminController::class, 'ApproveTransaction'])->name('approve-transaction'); 
+Route::post('/update-transaction-date/{id}', [AdminController::class, 'updateTransactionDate'])->name('update-transaction-date');
+Route::post('/decline-transaction/{id}', [AdminController::class, 'DeclineTransaction'])->name('decline-transaction'); 
+Route::post('/decline-card/{id}', [AdminController::class, 'DeclineCard'])->name('decline-card'); 
+
 
 
   //admin kyc controller

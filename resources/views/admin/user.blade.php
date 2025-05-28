@@ -360,21 +360,21 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <form action="{{ url('update-transaction-date/' . $transaction->id) }}" class="d-flex">
+                                        <form action="{{ route('admin.update-transaction-date', $transaction->id) }}" class="d-flex">
                                             @csrf
                                             <input type="datetime-local" id="new_date" name="new_date" value="{{$transaction->created_at}}" class="form-control form-control-sm me-2">
                                             <button type="submit" class="btn btn-sm btn-outline-primary">Update</button>
                                         </form>
                                     </td>
                                     <td class="d-flex">
-                                        <form action="{{url('approve-transaction/'.$transaction->id)}}" method="POST" class="me-2">
+                                        <form action="{{route('admin.approve-transaction', $transaction->id)}}" method="POST" class="me-2">
                                             @csrf
                                             <input type="hidden" name="transaction_status" value="1">
                                             <input type="hidden" name="user_id" value="{{ $transaction->user_id }}">
                                             <input type="hidden" name="currency" value="{{$userProfile->currency}}"/>
                                             <button type="submit" class="btn btn-sm btn-success">Approve</button>
                                         </form>
-                                        <form action="{{url('decline-transaction/'.$transaction->id)}}" method="POST">
+                                        <form action="{{route('admin.decline-transaction', $transaction->id)}}" method="POST">
                                             @csrf
                                             <input type="hidden" name="transaction_status" value="2">
                                             <input type="hidden" name="user_id" value="{{$transaction->user_id}}">
@@ -428,7 +428,7 @@
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($deposit->created_at)->format('D, M j, Y g:i A') }}</td>
                                     <td class="d-flex">
-                                        <form action="{{url('approve-deposit/'.$deposit->id)}}" method="POST" class="me-2">
+                                        <form action="{{ route('admin.approve-deposit', $deposit->id) }}" method="POST" class="me-2">
                                             @csrf
                                             <input type="hidden" name="status" value="1">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
@@ -437,7 +437,7 @@
                                             <input type="hidden" name="deposit_type" value="{{$deposit->deposit_type}}">
                                             <button type="submit" class="btn btn-sm btn-success">Approve</button>
                                         </form>
-                                        <form action="{{url('decline-deposit/'.$deposit->id)}}" method="POST">
+                                        <form action="{{ route('admin.decline-deposit', $deposit->id) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="status" value="2">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
