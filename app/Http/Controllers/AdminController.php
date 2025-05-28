@@ -776,9 +776,6 @@ public function DeclineCard(Request $request, $id)
 
 
 
-
-use App\Mail\approveTransactionEmail;
-
 public function approveTransaction(Request $request, $id)
 {
     // Fetch the transaction from the database
