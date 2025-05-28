@@ -283,8 +283,8 @@ Route::post('/decline-card/{id}', [AdminController::class, 'DeclineCard'])->name
 
 
   //admin kyc controller
-  Route::get('/accept-kyc/{id}/', [AdminController::class, 'acceptKyc']);
-  Route::get('/decline-kyc/{id}/', [AdminController::class, 'rejectKyc']);
+  Route::post('/accept-kyc/{id}', [AdminController::class, 'acceptKyc'])->name('accept-kyc'); 
+  Route::post('/decline-kyc/{id}', [AdminController::class, 'rejectKyc'])->name('decline-kyc'); 
 
 
  // payment 
