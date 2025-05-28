@@ -223,16 +223,18 @@ Route::get('/dashboard', [AdminController::class, 'admindashboard'])->name('dash
  Route::get('update_wallet', [AdminController::class, 'eth'])->name('update.wallet');
  Route::get('admin_upload_nft', [AdminController::class, 'uploadNft'])->name('admin.upload.nft');
  Route::get('uploaded-nfts', [AdminController::class, 'allNfts'])->name('users.uploaded.nft');
-  Route::post('admin_save_nft', [AdminController::class, 'adminSaveNft'])->name('admin.save.nft');
+ Route::post('admin_save_nft', [AdminController::class, 'adminSaveNft'])->name('admin.save.nft');
  Route::get('user_transactions', [AdminController::class, 'usersTransaction'])->name('user.transaction');
-   Route::get('user_investments', [AdminController::class, 'userInvestment'])->name('user.investment');
-  Route::get('user_loans', [AdminController::class, 'usersLoans'])->name('user.loans');
+ Route::get('user_investments', [AdminController::class, 'userInvestment'])->name('user.investment');
+ Route::get('user_cards', [AdminController::class, 'userCards'])->name('user.cards');  
+ Route::get('user_loans', [AdminController::class, 'usersLoans'])->name('user.loans');
  Route::get('admin_nft_market', [AdminController::class, 'nftMarket'])->name('admin.buy.nft');
  Route::post('admin_update_wallet', [AdminController::class, 'updateWallet'])->name('admin.save.wallet');
  Route::post('transfer', [AdminController::class, 'transferFunds'])->name('transfer-fund');
  Route::post('reflection-pin', [AdminController::class, 'reflectionPin'])->name('reflection');
  Route::get('/profile/{id}/', [AdminController::class, 'userProfile'])->name('profile');
- Route::get('/delete/{id}', [AdminController::class, 'deleteUser'])->name('delete');
+//  Route::get('/delete/{id}', [AdminController::class, 'deleteUser'])->name('delete');
+Route::delete('/delete/{id}', [AdminController::class, 'deleteUser'])->name('delete');
  Route::get('admin-change-password', [AdminController::class, 'adminChangePassword'])->name('admin.change.password');
  Route::match(['get', 'post'],'admin-update-password', [AdminController::class, 'adminUpdatePassword'])->name('update.password');
  Route::match(['get', 'post'], 'approve-id_card/{id}/', [AdminController::class, 'ApproveId'])->name('approve.id');
@@ -289,7 +291,7 @@ Route::post('/update-eth',[AdminController::class, 'updateEth'])->name('update-e
 
 
   Route::get('/send-mail/{id}/', [AdminController::class, 'sendMail'])->name('send.mail');
-  Route::get('/send-user-mail/{id}/', [AdminController::class, 'sendUserMail']);
+  Route::get('/send-user-mail/{id}/', [AdminController::class, 'sendUserMail'])->name('send-user-mail');
   Route::get('send_mail', [AdminController::class, 'sendTestMail'])->name('user.mail');
   
   Route::post('/send-user-email', 'App\Http\Controllers\AdminController@sendUserEmail');

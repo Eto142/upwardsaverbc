@@ -79,7 +79,7 @@
     <h2>We revolutionized Digital Banking</h2>
     <p>We've grown to become one of the largest digital banking providers, committed to inventing, simplifying, and humanizing the banking experience.</p>
     </div>
-    <div class="feature-item-wrap">
+    {{-- <div class="feature-item-wrap">
     <div class="feature-item">
     <div class="feature-icon">
     <i class="flaticon-application"></i>
@@ -88,7 +88,7 @@
     <h3>Powerful Mobile &amp; Online App</h3>
     <p>Our mobile app service is quick and easy to use, and you can get it from your app store.</p>
     </div>
-    </div>
+    </div> --}}
     <div class="feature-item">
     <div class="feature-icon">
     <i class="flaticon-speedometer"></i>

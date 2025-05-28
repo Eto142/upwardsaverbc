@@ -34,6 +34,20 @@
 					<div class="card-header">
 						<div class="card-title">All Users</div>
 					</div>
+
+					@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-2 mx-3" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show mt-2 mx-3" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="highlightRowColumn" class="table custom-table">
@@ -64,9 +78,13 @@
 													class="badge shade-blue">View User</span></a></td>
 										<td><a href="{{route('admin.user.mail',$transaction->id)}}"><span
 													class="badge shade-green">Send Mail</span></a></td>
-										<td><a href="{{route('admin.delete',$transaction->id)}}"
-												onclick="confirm('Are you sure you want to delete this user?')"><span
-													class="badge shade-red">Delete User</span></a></td>
+										<td> <form action="{{route('admin.delete', $transaction->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle" style="width: 32px; height: 32px;" data-bs-toggle="tooltip" title="Delete User" onclick="return confirm('Are you sure you want to delete this user?')">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </form></td>
 
 									</tr>
 									@endforeach

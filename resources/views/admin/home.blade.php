@@ -26,6 +26,19 @@
   </div>
 </div>
 
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-2 mx-3" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show mt-2 mx-3" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 
   <!-- Summary Cards - Properly arranged in 3 columns on laptop, stacked on mobile -->
   <div class="row g-3 mb-4">
@@ -217,10 +230,10 @@
                       <a href="{{ route('admin.profile', $user->id) }}" class="btn btn-sm btn-outline-primary rounded-circle" style="width: 32px; height: 32px;" data-bs-toggle="tooltip" title="View Profile">
                         <i class="bi bi-eye"></i>
                       </a>
-                      <a href="{{ url('send-user-mail/'.$user->id) }}" class="btn btn-sm btn-outline-success rounded-circle" style="width: 32px; height: 32px;" data-bs-toggle="tooltip" title="Send Email">
+                      <a href="{{ route('admin.send-user-mail',$user->id) }}" class="btn btn-sm btn-outline-success rounded-circle" style="width: 32px; height: 32px;" data-bs-toggle="tooltip" title="Send Email">
                         <i class="bi bi-envelope"></i>
                       </a>
-                      <form action="{{ url('delete/'.$user->id) }}" method="POST" class="d-inline">
+                      <form action="{{route('admin.delete', $user->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle" style="width: 32px; height: 32px;" data-bs-toggle="tooltip" title="Delete User" onclick="return confirm('Are you sure you want to delete this user?')">

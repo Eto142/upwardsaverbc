@@ -51,6 +51,14 @@
                     <span class="menu-text">Investments</span>
                   </a>
                 </li>
+
+                                 <li>
+                  <a href="{{route('admin.user.cards')}}">
+                    <i class="bi bi-cash-stack"></i>
+                    <span class="menu-text">Cards</span>
+                  </a>
+                </li>
+                
                 <li>
                   <a href="{{route('admin.user.transaction')}}">
                     <i class="bi bi-calendar4"></i>

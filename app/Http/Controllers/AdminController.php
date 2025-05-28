@@ -107,6 +107,12 @@ public function ManageUsers()
         return view('admin.manage_investments', compact('user_investment'));
     }
 
+    public function userCards()
+    {
+        $user_cards = Card::orderBy('id','desc')->get();
+        return view('admin.manage_cards', compact('user_cards'));
+    }
+
 
     
     
@@ -121,12 +127,13 @@ public function ManageUsers()
     
     
         public function deleteUser($id)
-    {
-  
-        $user  = User::findOrFail($id);
-        $user->delete();
-        return back()->with('status', 'User deleted Successfully');  
-    }
+{
+    $user = User::findOrFail($id);
+    $user->delete();
+
+    return redirect()->back()->with('success', 'User deleted successfully.');
+}
+
     
     
 
