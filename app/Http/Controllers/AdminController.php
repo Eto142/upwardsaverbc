@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+
 use App\Models\Nft;
 use App\Models\Card;
 use App\Models\Loan;
@@ -30,6 +31,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+
 
 class AdminController extends Controller
 {
@@ -774,9 +776,7 @@ public function DeclineCard(Request $request, $id)
 
 
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
+
 use App\Mail\approveTransactionEmail;
 
 public function approveTransaction(Request $request, $id)
