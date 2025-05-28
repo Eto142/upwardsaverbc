@@ -154,8 +154,8 @@ Loans
 <div class="user-login d-lg-none">
 <span><i class="ri-user-add-line"></i></span>
 <ul class="list-style">
-<li><a href="login">Sign In</a></li>
-<li><a href="register">Sign Up</a></li>
+<li><a href="{{ route('login') }}">Sign In</a></li>
+<li><a href="{{ route('register') }}">Sign Up</a></li>
 </ul>
 </div>
 <div class="mobile-menu d-lg-none">
@@ -164,3 +164,46 @@ Loans
 </div></div>
 </div>
 </header>
+ <!-- Top Right -->
+                      <!-- GTranslate Wrapper -->
+<div class="gtranslate_wrapper"></div>
+
+<!-- GTranslate Settings -->
+<script>
+  window.gtranslateSettings = {
+    default_language: "en",
+    detect_browser_language: true,
+    wrapper_selector: ".gtranslate_wrapper",
+    alt_flags: {
+      en: "usa",
+      pt: "brazil",
+      es: "colombia",
+      fr: "quebec"
+    }
+    // Removed switcher_horizontal_position and switcher_vertical_position to use custom CSS
+  };
+</script>
+
+<!-- GTranslate Script -->
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+<!-- Custom Positioning CSS -->
+<style>
+  .gtranslate_wrapper {
+    position: fixed !important;
+    top: 80px !important; /* Adjust this if your navbar is taller/shorter */
+    right: 20px !important;
+    z-index: 9999 !important;
+  }
+
+  /* OPTIONAL: Center at top instead of top-right — uncomment below to use */
+  /*
+  .gtranslate_wrapper {
+    position: fixed !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    z-index: 9999 !important;
+  }
+  */
+</style>

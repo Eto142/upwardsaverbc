@@ -5,32 +5,13 @@
   <div class="col-xl-3 col-lg-5 col-md-5 col-sm-6">
   <div class="footer-widget">
   <a href="/" class="footer-logo">
-  <img src="https://ccufinance.com/storage/app/public/photos/nwyJuMPaoAHFokEF4Qg7hUdLFjJAgkoiCzvtddEm.png" alt="Image">
+  <img src="logo02.png" alt="Image">
   </a>
   <p class="comp-desc">
   We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.
   </p>
   <ul class="social-profile style1 list-style">
-  <li>
-  <a target="_blank" href="https://facebook.com/">
-  <i class="ri-facebook-fill"></i>
-  </a>
-  </li>
-  <li>
-  <a target="_blank" href="https://twitter.com/">
-  <i class="ri-twitter-fill"></i>
-  </a>
-  </li>
-  <li>
-  <a target="_blank" href="https://instagram.com/">
-  <i class="ri-instagram-line"></i>
-  </a>
-  </li>
-  <li>
-  <a target="_blank" href="https://linkedin.com/">
-  <i class="ri-linkedin-fill"></i>
-  </a>
-  </li>
+  
   </ul>
   </div>
   </div>
@@ -53,11 +34,7 @@
   Personal Banking
   </a>
   </li>
-  <li>
-  <a href="cards" target="_blank">
-  Credit Cards
-  </a>
-  </li>
+
   <li>
   <a href="loans" target="_blank">
   Loans
@@ -80,65 +57,21 @@
   FAQ's
   </a>
   </li>
-  <li>
-  <a href="apps" target="_blank">
-  Download App
-  </a>
-  </li>
-  <li>
-  <a href="privacy-policy" target="_blank">
-  Privacy Policy
-  </a>
-  </li>
-  <li>
-  <a href="terms-of-service" target="_blank">
-  Terms &amp; Conditions
-  </a>
-  </li>
+  
+ 
   </ul>
   </div>
   </div>
-  <div class="col-xl-2 col-lg-5 col-md-6 col-sm-6 pe-xl-4">
-  <div class="footer-widget">
-  <h3 class="footer-widget-title">Transfer Money</h3>
-  <ul class="footer-menu list-style">
-  <li>
-  <a href="login" >
-  Register/Login
-  </a>
-  </li>
-  <li>
-  <a href="register" >
-  IBank Transfer
-  </a>
-  </li>
-  <li>
-  <a href="login" target="_blank">
-  USA Money Transfer
-  </a>
-  </li>
-  <li>
-  <a href="login" target="_blank">
-  UK Money Transfer
-  </a>
-  </li>
-  <li>
-  <a href="login" target="_blank">
-  Euro Money Transfer
-  </a>
-  </li>
-  </ul>
-  </div>
-  </div>
+
   <div class="col-xl-3 col-lg-7 col-md-6 col-sm-6">
   <div class="footer-widget">
   <h3 class="footer-widget-title">Contact Us</h3>
   <ul class="contact-info list-style">
   <li>
   <i class="ri-map-pin-fill"></i>
-  <h6>Location</h6>
+  {{-- <h6>Location</h6>
   <p>301 East Water Street, Charlottesville, VA 22904 Virginia</p>
-  </li>
+  </li> --}}
   <li>
   <i class="ri-mail-open-fill"></i>
   <h6>Email</h6>

@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error {{ $exception->getStatusCode() ?? 'Error' }} | {{ config('app.name', 'Our Application') }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Error {{ $exception->getStatusCode() ?? 'Error' }} | {{ config('app.name', 'Upward Saver') }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #4f46e5;
-            --error-color: #dc2626;
-            --text-color: #1f2937;
-            --text-light: #6b7280;
-            --bg-color: #f9fafb;
-            --card-bg: #ffffff;
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --error: #dc2626;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --gray-500: #6b7280;
+            --gray-300: #d1d5db;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
         }
         
         * {
@@ -23,235 +35,247 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-color);
-            color: var(--text-color);
-            text-align: center;
+            background-color: var(--gray-100);
+            color: var(--gray-900);
+            line-height: 1.5;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            line-height: 1.5;
-            padding: 20px;
+            padding: 1.5rem;
         }
         
-        .error-container {
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            padding: 2.5rem;
-            max-width: 600px;
+        .error-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
             width: 100%;
-            margin: 1rem 0;
+            max-width: 640px;
+            padding: 3rem;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            border-left: 6px solid var(--error-color);
+            border-top: 4px solid var(--error);
         }
         
-        h1 {
-            font-size: 2.5rem;
-            color: var(--error-color);
-            margin: 0 0 1rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+        .error-card.warning { border-top-color: var(--warning); }
+        .error-card.success { border-top-color: var(--success); }
         
         .error-icon {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--error);
+        }
+        .warning .error-icon { color: var(--warning); }
+        .success .error-icon { color: var(--success); }
+        
+        .error-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
         }
         
         .error-code {
-            font-size: 1.1rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
+            color: var(--gray-500);
+            background: var(--gray-100);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            display: inline-block;
         }
         
         .error-message {
-            font-size: 1.1rem;
+            font-size: 1.125rem;
+            color: var(--gray-700);
             margin-bottom: 2rem;
-            color: var(--text-color);
             line-height: 1.6;
         }
         
-        .actions {
+        .error-actions {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
         
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .btn svg {
-            width: 18px;
-            height: 18px;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border: 2px solid transparent;
         }
         
         .btn-primary {
-            background: var(--primary-color);
-            color: white;
-            border: 2px solid var(--primary-color);
+            background-color: var(--primary);
+            color: var(--white);
         }
         
         .btn-primary:hover {
-            background: #4338ca;
-            border-color: #4338ca;
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
         
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
         }
         
-        .btn-secondary:hover {
-            background: rgba(79, 70, 229, 0.1);
+        .btn-outline:hover {
+            background-color: rgba(79, 70, 229, 0.1);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
         }
         
-        footer {
-            margin-top: 1.5rem;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            max-width: 600px;
-            width: 100%;
+        .error-footer {
+            margin-top: 3rem;
+            color: var(--gray-500);
+            font-size: 0.875rem;
         }
-
-        /* Small devices (phones, 600px and down) */
-        @media only screen and (max-width: 600px) {
-            .error-container {
-                padding: 1.5rem;
+        
+        .error-logo {
+            margin-bottom: 1.5rem;
+            max-width: 180px;
+            height: auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .error-card {
+                padding: 2rem 1.5rem;
             }
             
-            h1 {
-                font-size: 2rem;
-                gap: 0.75rem;
-            }
-            
-            .error-icon {
-                width: 32px;
-                height: 32px;
+            .error-title {
+                font-size: 1.75rem;
             }
             
             .error-message {
                 font-size: 1rem;
-                margin-bottom: 1.5rem;
             }
             
-            .actions {
+            .error-actions {
                 flex-direction: column;
                 gap: 0.75rem;
             }
             
             .btn {
                 width: 100%;
-                justify-content: center;
-                padding: 0.65rem 1.25rem;
             }
         }
-
-        /* Medium devices (tablets, 600px to 768px) */
-        @media only screen and (min-width: 600px) and (max-width: 768px) {
-            .error-container {
-                padding: 2rem;
-            }
-            
-            h1 {
-                font-size: 2.25rem;
-            }
-        }
-
-        /* Large devices (laptops/desktops, 768px and up) */
-        @media only screen and (min-width: 768px) {
-            .error-container {
-                padding: 3rem;
-            }
-            
-            h1 {
-                font-size: 3rem;
-            }
-            
-            .error-icon {
-                width: 48px;
-                height: 48px;
-            }
-            
-            .error-message {
-                font-size: 1.25rem;
-            }
-        }
-
+        
         /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.4s ease-out forwards;
+        
+        .animate-in {
+            animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <div class="error-container animate-fade-in-up">
-        <h1>
-            <svg class="error-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            Error {{ $exception->getStatusCode() ?? 'Error' }}
-        </h1>
+    <div class="error-card animate-in {{ $exception->getStatusCode() == 403 ? 'warning' : ($exception->getStatusCode() == 404 ? '' : 'error') }}">
+        <!-- Company Logo -->
+        <img src="logo.png" alt="Upward Saver" class="error-logo">
         
-        <div class="error-code">
-            {{ $exception->getStatusCode() ? 'HTTP ' . $exception->getStatusCode() : 'Application Error' }}
+        <!-- Error Icon (changes based on error type) -->
+        <div class="error-icon">
+            @if($exception->getStatusCode() == 403)
+                <i class="fas fa-lock"></i>
+            @elseif($exception->getStatusCode() == 404)
+                <i class="fas fa-map-marker-alt"></i>
+            @elseif($exception->getStatusCode() == 500)
+                <i class="fas fa-server"></i>
+            @else
+                <i class="fas fa-exclamation-circle"></i>
+            @endif
+        </div>
+        
+        <div class="error-header">
+            <h1 class="error-title">
+                @if($exception->getStatusCode() == 403)
+                    Access Denied
+                @elseif($exception->getStatusCode() == 404)
+                    Page Not Found
+                @elseif($exception->getStatusCode() == 419)
+                    Session Expired
+                @elseif($exception->getStatusCode() == 429)
+                    Too Many Requests
+                @elseif($exception->getStatusCode() == 500)
+                    Server Error
+                @elseif($exception->getStatusCode() == 503)
+                    Maintenance Mode
+                @else
+                    Something Went Wrong
+                @endif
+            </h1>
+            <span class="error-code">
+                @if($exception->getStatusCode())
+                    HTTP {{ $exception->getStatusCode() }}
+                @else
+                    Application Error
+                @endif
+            </span>
         </div>
         
         <div class="error-message">
-            {{ $exception->getMessage() ?? 'Something unexpected went wrong. Our team has been notified and we\'re working to fix it.' }}
+            @if($exception->getMessage())
+                {{ $exception->getMessage() }}
+            @else
+                @if($exception->getStatusCode() == 403)
+                    You don't have permission to access this resource.
+                @elseif($exception->getStatusCode() == 404)
+                    The page you're looking for doesn't exist or has been moved.
+                @elseif($exception->getStatusCode() == 419)
+                    Your session has expired. Please refresh and try again.
+                @elseif($exception->getStatusCode() == 429)
+                    You've sent too many requests. Please wait and try again.
+                @elseif($exception->getStatusCode() == 500)
+                    We're experiencing server issues. Our team has been notified.
+                @elseif($exception->getStatusCode() == 503)
+                    We're currently down for maintenance. Please check back soon.
+                @else
+                    An unexpected error occurred. Our team has been notified.
+                @endif
+            @endif
         </div>
         
-        <div class="actions">
+        <div class="error-actions">
             <a href="{{ url('/') }}" class="btn btn-primary">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-                Return Home
+                <i class="fas fa-home"></i> Return Home
             </a>
-            
-            <a href="mailto:support@example.com" class="btn btn-secondary">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                Contact Support
+            <a href="{{ url()->previous() }}" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+            <a href="mailto:support@upwardsaverbc.com" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Contact Support
             </a>
         </div>
+        
+        <div class="error-footer">
+            &copy; {{ date('Y') }} Upward Saver. All rights reserved.
+        </div>
     </div>
-    
-    <footer>
-        &copy; {{ date('Y') }} {{ config('app.name', 'Our Application') }}. All rights reserved.
-    </footer>
 </body>
 </html>

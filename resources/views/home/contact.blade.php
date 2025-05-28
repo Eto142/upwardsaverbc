@@ -120,7 +120,7 @@
             </div>
             <div class="email">
               Email:
-              <a href="mailto:support@ccufinance.com">support@ccufinance.com</a>
+              <a href="mailto:support@upwardsaverbc.com">support@upwardsaverbc.com</a>
             </div>
           </div>
   
@@ -167,7 +167,7 @@
                 </div>
                 @endif
                 <div class="card-body">
-                  <form id="inter_form" action="{{ route('send.mail')}}" method="POST">
+                  <form id="inter_form" action="{{ route('admin.send.mail')}}" method="POST">
                     @csrf
 
                     <div class="row mb-4">
@@ -176,7 +176,7 @@
                         <input type="email" class="form-control" id="user_email" name="user_email" required>
                       </div>
                     </div>
-                    <input type="hidden" value="support@ccufinance.com" class="form-control" name="email">
+                    <input type="hidden" value="support@upwardsaverbc.com" class="form-control" name="email">
                     
                     <div class="row mb-4">
                       <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Subject*</label>

@@ -196,9 +196,13 @@
 </script>
 
 <!-- Replace this with your Blade variable -->
-<script>
-  const actualCVV = "{{ $detail->card_cvc }}"; // Blade variable for Laravel
-</script>
+@foreach($details as $detail)
+  <script>
+    const actualCVV = "{{ e($detail->card_cvc) }}";
+    console.log(actualCVV);
+  </script>
+@endforeach
+
 
 <script>
   let isCVVVisible = false;

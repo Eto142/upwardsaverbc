@@ -177,6 +177,8 @@ class DashboardController extends Controller
     {
          
         $data['details'] = Card::where('user_id',Auth::user()->id)->get();
+        $data['detail'] = Card::where('user_id', Auth::user()->id)->first();
+
         
         return view('dashboard.card',$data);
  

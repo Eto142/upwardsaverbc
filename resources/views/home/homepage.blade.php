@@ -15,7 +15,7 @@
     <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Transfer Money Across The World In Real time</h1>
     <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Upward Saver Bank Corporation transformed the digital banking industry using data and technology more than ten years ago. We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.</p>
     <div class="hero-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-    <a href="{{route('login')}}" class="btn style1">REGISTER<i class="ri-arrow-right-s-line"></i></a>
+    <a href="{{route('register')}}" class="btn style1">REGISTER<i class="ri-arrow-right-s-line"></i></a>
    <a href="{{route('login')}}" class="btn style1">LOGIN<i class="ri-arrow-right-s-line"></i></a>
     </div>
     <div class="hero-contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
@@ -39,8 +39,8 @@
     <div class="col-lg-6">
     <div class="hero-img-wrap">
     <div class="hero-promo-text bounce">
-    <span><i class="flaticon-group"></i></span>
-    <h6>18.5M+ <span>Active Users</span></h6>
+    {{-- <span><i class="flaticon-group"></i></span> --}}
+    {{-- <h6>18.5M+ <span>Active Users</span></h6> --}}
     </div>
     <div class="hero-img-one">
     <img src="temp/custom/assets/img/hero/hero-img-2.jpg" alt="Image">
@@ -153,7 +153,7 @@
     <span>
     <i class="flaticon-user-2"></i>
     </span>
-    <h3><a href="register">Create Account</a></h3>
+    <h3><a href="{{ route('register') }}">Create Account</a></h3>
     </div>
     <p>Create a free digital bank account with us today to send money around the world.</p>
     <a href="login" class="link style1">GET STARTED <i class="ri-arrow-right-s-line"></i></a>
