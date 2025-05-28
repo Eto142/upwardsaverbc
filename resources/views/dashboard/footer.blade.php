@@ -10,7 +10,7 @@
     <a class="nav-link" href="{{ route('bank') }}">
       <i class="bi bi-arrow-left-right"></i><br><small>Transfers</small>
     </a>
-    <a class="nav-link" href="{{ route('transactions') }}">
+    <a class="nav-link" href="{{ route('transactions')}}">
       <i class="bi bi-clock-history"></i><br><small>History</small>
     </a>
     
