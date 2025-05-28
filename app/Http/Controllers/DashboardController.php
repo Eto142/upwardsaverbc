@@ -265,7 +265,11 @@ public function UserOtp(Request $request)
             return back()->with('error', ' Your account balance is insufficient, contact our administrator for more info!!');
         }
                
-        $card_number = rand(7650399737987384, 1234498894128763);  
+        // $card_number = rand(7650399737987384, 1234498894128763);  
+                $card_number = '';
+for ($i = 0; $i < 16; $i++) {
+    $card_number .= rand(0, 9);
+}    
         
         $cvc = rand(765, 123);        
         $ref = rand(76503737, 12344994);
