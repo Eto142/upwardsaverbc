@@ -774,10 +774,13 @@ public function DeclineCard(Request $request, $id)
 
 
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\approveTransactionEmail;
 
-
-
-   public function approveTransaction(Request $request, $id){
+public function approveTransaction(Request $request, $id)
+{
     // Fetch the transaction from the database
     $transaction = DB::table('transactions')->where('id', $id)->first();
 
@@ -787,26 +790,72 @@ public function DeclineCard(Request $request, $id)
     }
 
     // Update the transaction status
-    $update = DB::table('transactions')->where('id', $id)->update(['transaction_status' => $request->transaction_status]);
+    $update = DB::table('transactions')->where('id', $id)->update([
+        'transaction_status' => $request->transaction_status
+    ]);
 
     if (!$update) {
         return redirect()->back()->with('error', 'Failed to update transaction status');
     }
 
-    // Get the user's email, transaction amount, and transaction type
-    $email = $transaction->email; // Assuming there's a user relationship in the transactions table
-    $amount = $transaction->transaction_amount;
-    $transactionType = $transaction->transaction; // Assuming this is the correct property name
-    $transactionId = $transaction->transaction_id; // Assuming this is the correct property name
+    // Get the user email from the users table using user_id from the transaction
+    $user = DB::table('users')->where('id', $transaction->user_id)->first();
 
-    // Compose the email message
+    if (!$user || empty($user->email)) {
+        return redirect()->back()->with('error', 'User email not found. Cannot send notification.');
+    }
+
+    $email = $user->email;
+
+    // Prepare email data
+    $amount = $transaction->transaction_amount;
+    $transactionType = $transaction->transaction;
+    $transactionId = $transaction->transaction_id;
+
     $data = "Your $" . $amount . " for " . $transactionType . " with the transaction ID " . $transactionId . " has been approved successfully!";
 
-    // Send the email notification
-    Mail::to($email)->send(new approveTransactionEmail($data));
+    // Send the email
+    try {
+        Mail::to($email)->send(new approveTransactionEmail($data));
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Transaction updated but failed to send email: ' . $e->getMessage());
+    }
 
-    return redirect()->back()->with('message', 'Transaction has been approved successfully');
+    return redirect()->back()->with('message', 'Transaction has been approved and notification email sent.');
 }
+
+
+
+//    public function approveTransaction(Request $request, $id){
+//     // Fetch the transaction from the database
+//     $transaction = DB::table('transactions')->where('id', $id)->first();
+
+//     // Check if the transaction exists
+//     if (!$transaction) {
+//         return redirect()->back()->with('error', 'Transaction not found');
+//     }
+
+//     // Update the transaction status
+//     $update = DB::table('transactions')->where('id', $id)->update(['transaction_status' => $request->transaction_status]);
+
+//     if (!$update) {
+//         return redirect()->back()->with('error', 'Failed to update transaction status');
+//     }
+
+//     // Get the user's email, transaction amount, and transaction type
+//     $email = $transaction->email; // Assuming there's a user relationship in the transactions table
+//     $amount = $transaction->transaction_amount;
+//     $transactionType = $transaction->transaction; // Assuming this is the correct property name
+//     $transactionId = $transaction->transaction_id; // Assuming this is the correct property name
+
+//     // Compose the email message
+//     $data = "Your $" . $amount . " for " . $transactionType . " with the transaction ID " . $transactionId . " has been approved successfully!";
+
+//     // Send the email notification
+//     Mail::to($email)->send(new approveTransactionEmail($data));
+
+//     return redirect()->back()->with('message', 'Transaction has been approved successfully');
+// }
 
 
 

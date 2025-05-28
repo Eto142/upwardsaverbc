@@ -1,4 +1,4 @@
-@include('dashboard.header')
+
         <!--**********************************
             Sidebar end
         ***********************************-->
@@ -167,5 +167,5 @@
 
 
 </body>
-
+@include('dashboard.footer')
 </html>
