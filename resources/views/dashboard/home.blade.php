@@ -56,12 +56,28 @@
     <span class="badge bg-light text-dark small-text">{{ Auth::user()->account_type}}</span>
   </div>
 
-  <div class="mt-2 d-flex align-items-center gap-1">
-    <span class="text-muted small-text">Book Balance</span>
-    <span id="balance" class="fw-bold clickable">{{ Auth::user()->currency }}{{ number_format($balance, 2) }}</span> 
-    {{-- <span id="balance" class="fw-bold clickable" onclick="toggleBalance()">••••</span> --}}
-    {{-- <i class="bi bi-eye ms-1 text-muted small-text clickable" onclick="toggleBalance()"></i> --}}
-  </div>
+ @if (Auth::user()->user_block == 1)
+    <div class="alert alert-danger d-flex align-items-center shadow-sm p-3 rounded" role="alert">
+        <i class="bi bi-lock-fill me-2" style="font-size: 1.5rem;"></i>
+        <div>
+            <strong>Account Blocked:</strong> Please clear your outstanding tax obligations to restore access.
+        </div>
+    </div>
+@elseif (Auth::user()->user_activity == 1)
+    <div class="alert alert-warning d-flex align-items-center shadow-sm p-3 rounded mt-3" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 1.5rem;"></i>
+        <div>
+            <strong>Suspicious Activity Detected:</strong> Your account is under review for potential money laundering. Please contact support.
+        </div>
+    </div>
+@else
+    <div class="mt-2 d-flex align-items-center gap-2">
+        <span class="text-muted small-text">Book Balance:</span>
+        <span id="balance" class="fw-bold clickable">
+            {{ Auth::user()->currency }}{{ number_format($balance, 2) }}
+        </span>
+    </div>
+@endif
 
   <!-- Buttons -->
   <div class="d-flex gap-2 mt-3">

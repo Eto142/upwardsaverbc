@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use DB;
-
 use App\Models\Nft;
 use App\Models\Card;
 use App\Models\Loan;
@@ -19,6 +18,9 @@ use App\Mail\CreditEmail;
 use App\Mail\approveLoanEmail;
 use App\Mail\approveTransactionEmail;
 use App\Mail\declineTransactionEmail;
+use App\Mail\approveEmail;
+use App\Mail\approveDepositEmail;
+use App\Mail\declineDepositEmail;
 use App\Mail\declineLoanEmail;
 use App\Mail\approveCardEmail;
 use App\Mail\declineCardEmail;
@@ -31,7 +33,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-
 
 class AdminController extends Controller
 {
@@ -615,9 +616,9 @@ public function sendUserMail($userId)
      $amount = $deposit->amount;
      $deposit_type = $deposit->deposit_type;
 
-    $data = "Your $" . $amount ." Deposit has been approved successfully!";
+    $data = "Your " . Auth::user()->currency . $amount . " deposit has been approved successfully!";
 
-    // Mail::to($email)->send(new approveLoanEmail($data));
+   Mail::to($email)->send(new approveDepositEmail($data));
     return redirect()->back()->with('message', 'Deposit Has Been Approved Successfully');
 }
 
@@ -642,7 +643,7 @@ public function DeclineDeposit(Request $request, $id)
 
     $data = "Your $" . $amount ." Loan request has been declined!";
 
-    // Mail::to($email)->send(new declineLoanEmail($data));
+    Mail::to($email)->send(new declineDepositEmail($data));
     return redirect()->back()->with('message', 'Deposit Has Been Declined Successfully');
 }
 
@@ -776,8 +777,10 @@ public function DeclineCard(Request $request, $id)
 
 
 
-public function approveTransaction(Request $request, $id)
-{
+
+
+
+   public function approveTransaction(Request $request, $id){
     // Fetch the transaction from the database
     $transaction = DB::table('transactions')->where('id', $id)->first();
 
@@ -787,72 +790,26 @@ public function approveTransaction(Request $request, $id)
     }
 
     // Update the transaction status
-    $update = DB::table('transactions')->where('id', $id)->update([
-        'transaction_status' => $request->transaction_status
-    ]);
+    $update = DB::table('transactions')->where('id', $id)->update(['transaction_status' => $request->transaction_status]);
 
     if (!$update) {
         return redirect()->back()->with('error', 'Failed to update transaction status');
     }
 
-    // Get the user email from the users table using user_id from the transaction
-    $user = DB::table('users')->where('id', $transaction->user_id)->first();
-
-    if (!$user || empty($user->email)) {
-        return redirect()->back()->with('error', 'User email not found. Cannot send notification.');
-    }
-
-    $email = $user->email;
-
-    // Prepare email data
+    // Get the user's email, transaction amount, and transaction type
+    $email = $transaction->email; // Assuming there's a user relationship in the transactions table
     $amount = $transaction->transaction_amount;
-    $transactionType = $transaction->transaction;
-    $transactionId = $transaction->transaction_id;
+    $transactionType = $transaction->transaction; // Assuming this is the correct property name
+    $transactionId = $transaction->transaction_id; // Assuming this is the correct property name
 
+    // Compose the email message
     $data = "Your $" . $amount . " for " . $transactionType . " with the transaction ID " . $transactionId . " has been approved successfully!";
 
-    // Send the email
-    try {
-        Mail::to($email)->send(new approveTransactionEmail($data));
-    } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Transaction updated but failed to send email: ' . $e->getMessage());
-    }
+    // Send the email notification
+    Mail::to($email)->send(new approveTransactionEmail($data));
 
-    return redirect()->back()->with('message', 'Transaction has been approved and notification email sent.');
+    return redirect()->back()->with('message', 'Transaction has been approved successfully');
 }
-
-
-
-//    public function approveTransaction(Request $request, $id){
-//     // Fetch the transaction from the database
-//     $transaction = DB::table('transactions')->where('id', $id)->first();
-
-//     // Check if the transaction exists
-//     if (!$transaction) {
-//         return redirect()->back()->with('error', 'Transaction not found');
-//     }
-
-//     // Update the transaction status
-//     $update = DB::table('transactions')->where('id', $id)->update(['transaction_status' => $request->transaction_status]);
-
-//     if (!$update) {
-//         return redirect()->back()->with('error', 'Failed to update transaction status');
-//     }
-
-//     // Get the user's email, transaction amount, and transaction type
-//     $email = $transaction->email; // Assuming there's a user relationship in the transactions table
-//     $amount = $transaction->transaction_amount;
-//     $transactionType = $transaction->transaction; // Assuming this is the correct property name
-//     $transactionId = $transaction->transaction_id; // Assuming this is the correct property name
-
-//     // Compose the email message
-//     $data = "Your $" . $amount . " for " . $transactionType . " with the transaction ID " . $transactionId . " has been approved successfully!";
-
-//     // Send the email notification
-//     Mail::to($email)->send(new approveTransactionEmail($data));
-
-//     return redirect()->back()->with('message', 'Transaction has been approved successfully');
-// }
 
 
 

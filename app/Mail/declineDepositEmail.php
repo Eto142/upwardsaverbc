@@ -5,7 +5,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class approveTransactionEmail extends Mailable
+class declineDepositEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -24,8 +24,8 @@ class approveTransactionEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Transaction Approved ✅')
-                    ->view('emails.transaction_approved')
+        return $this->subject('Deposit Declined ❌')
+                    ->view('emails.deposit_declined')
                     ->with(['messageContent' => $this->messageContent]);
     }
 }

@@ -502,7 +502,7 @@
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($loan->created_at)->format('D, M j, Y g:i A') }}</td>
                                     <td class="d-flex">
-                                        <form action="{{route('admin.approve-loan/', $loan->id)}}" method="POST" class="me-2">
+                                        <form action="{{route('admin.approve-loan', $loan->id)}}" method="POST" class="me-2">
                                             @csrf
                                             <input type="hidden" name="status" value="1">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
@@ -511,7 +511,7 @@
                                             <input type="hidden" name="reason" value="{{$loan->reason}}">
                                             <button type="submit" class="btn btn-sm btn-success">Approve</button>
                                         </form>
-                                        <form action="{{route('admin.decline-loan/', $loan->id)}}" method="POST">
+                                        <form action="{{route('admin.decline-loan', $loan->id)}}" method="POST">
                                             @csrf
                                             <input type="hidden" name="status" value="2">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
@@ -631,7 +631,7 @@
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($cards->created_at)->format('D, M j, Y g:i A') }}</td>
                                     <td class="d-flex">
-                                        <form action="{{url('approve-card/'.$cards->id)}}" method="POST" class="me-2">
+                                        <form action="{{route('admin.approve-card', $cards->id)}}" method="POST" class="me-2">
                                             @csrf
                                             <input type="hidden" name="status" value="1">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
@@ -640,7 +640,7 @@
                                             <input type="hidden" name="card_number" value="{{$cards->card_number}}">
                                             <button type="submit" class="btn btn-sm btn-success">Approve</button>
                                         </form>
-                                        <form action="{{url('decline-card/'.$cards->id)}}" method="POST">
+                                        <form action="{{route('admin.decline-card',$cards->id)}}" method="POST">
                                             @csrf
                                             <input type="hidden" name="status" value="2">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
