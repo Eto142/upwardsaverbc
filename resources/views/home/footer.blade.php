@@ -75,12 +75,18 @@
   <li>
   <i class="ri-mail-open-fill"></i>
   <h6>Email</h6>
-  <a href="#">Upward Saver Bank Corporation</a>
+  <a href="mailto:support@upwardsaverbc.com">Upward Saver Bank Corporation</a>
   </li>
   <li>
   <i class="ri-phone-fill"></i>
   <h6>Phone</h6>
-  <a href="">VIP ONLY</a>
+  <a href="">+44 770 142 3168‬
+</a>
+  </li>
+
+  <i class="ri-phone-fill"></i>
+  <h6>Address</h6>
+  <a href="">256 Cowbridge Road E, Cardiff CF119TN, United Kingdom</a>
   </li>
   </ul>
   </div>

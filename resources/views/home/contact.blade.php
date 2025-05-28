@@ -116,7 +116,7 @@
           <div class="column col-lg-6 col-md-6 col-sm-12">
             <h2>Canton, <span>United Kingdom</span></h2>
             <div class="text">
-              256 Cowbridge Road E, Cardiff CF119TN
+              256 Cowbridge Road E, Cardiff CF119TN, United Kingdom
             </div>
             <div class="email">
               Email:
@@ -127,7 +127,8 @@
           <!-- Column -->
           <div class="column col-lg-6 col-md-6 col-sm-12">
             <div class="call">
-              Phone No:<br /><a href="tel:+447701423168">+44 7701 423168</a>
+              Phone No:<br /><a href="tel:+447701423168">+44 770 142 3168‬
+</a>
             </div>
             <ul class="location-list">
               <li>
