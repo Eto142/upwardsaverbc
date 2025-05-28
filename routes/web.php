@@ -262,8 +262,9 @@ Route::delete('/delete/{id}', [AdminController::class, 'deleteUser'])->name('del
 
 
  Route::match(['get', 'post'], 'decline-loan/{id}', [AdminController::class, 'DeclineLoan'])->name('decline-loan');
-  Route::get('/approve-loan/{id}/', [AdminController::class, 'ApproveLoan']);
-  Route::get('/decline-loan/{id}/', [AdminController::class, 'DeclineLoan']);
+  Route::post('/approve-loan/{id}/', [AdminController::class, 'ApproveLoan'])->name('approve-loan'); 
+ Route::post('/decline-loan/{id}/', [AdminController::class, 'DeclineLoan'])->name('decline-loan'); 
+
 
 // admin deposit control
 //   Route::get('/approve-deposit/{id}/', [AdminController::class, 'ApproveDeposit']);
