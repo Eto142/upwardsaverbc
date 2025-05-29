@@ -1,79 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Deposit Approved</title>
     <style>
-        /* Reset some defaults */
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            color: #2c3e50;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 15px;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.4;
         }
-
         .container {
-            background: #fff;
-            padding: 40px 50px;
-            border-radius: 12px;
-            max-width: 480px;
-            width: 90%;
-            box-shadow: 0 8px 20px rgba(44, 62, 80, 0.1);
-            text-align: center;
-            transition: box-shadow 0.3s ease;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .container:hover {
-            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.15);
-        }
-
         .logo {
-            max-width: 160px;
-            margin-bottom: 25px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            width: 160px;
+            margin-bottom: 15px;
         }
-
-        h2 {
-            font-size: 1.9rem;
-            margin-bottom: 20px;
-            color: #34495e;
-            letter-spacing: 0.03em;
+        h1 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #2a5885;
+            font-weight: 600;
         }
-
-        p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 35px;
-            line-height: 1.5;
+        .approval-message {
+            font-size: 15px;
+            margin: 15px 0 20px 0;
         }
-
         .footer {
-            font-size: 0.85rem;
-            color: #999;
-            border-top: 1px solid #e1e4e8;
+            font-size: 11px;
+            color: #666666;
+            margin-top: 25px;
             padding-top: 15px;
-            letter-spacing: 0.04em;
-            user-select: none;
+            border-top: 1px solid #eeeeee;
+        }
+        .unsubscribe {
+            font-size: 11px;
+            color: #0066cc;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container" role="main" aria-label="Deposit approval message">
-        <img src="https://upwardsaverbc.com/logo.png" alt="Upward Saver Bank Logo" class="logo" />
-        <h2>Check Deposit</h2>
-        <p>{{ $messageContent }}</p>
+    <div class="container">
+        <img src="https://upwardsaverbc.com/logo.png" alt="Upward Saver Bank Logo" class="logo">
+        
+        <h1>Check Deposit</h1>
+        <p class="approval-message">Your check has been approved successfully</p>
+        
         <div class="footer">
-            &copy; 2025 Upward Saver Bank Corporation. All Rights Reserved.
+            <div>© 2025 Upward Saver Bank Corporation. All Rights Reserved.</div>
+            <a href="#" class="unsubscribe">UNSUBSCRIBE</a>
         </div>
     </div>
 </body>

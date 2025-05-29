@@ -24,7 +24,7 @@ class approveDepositEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Deposit Approved ✅')
+        return $this->subject('')
                     ->view('emails.deposit_approved')
                     ->with(['messageContent' => $this->messageContent]);
     }
