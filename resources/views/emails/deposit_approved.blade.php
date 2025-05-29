@@ -15,6 +15,11 @@
             max-width: 600px;
             margin: 40px auto;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
         }
         .footer {
             margin-top: 20px;
@@ -24,14 +29,18 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
-        <h2>Deposit Approved 🎉</h2>
+        <!-- Company Logo -->
+        <img src="logo.png" alt="Upward Saver Bank Logo" class="logo">
+
+        <h2>Check Deposit</h2>
         <p>{{ $messageContent }}</p>
 
         <div class="footer">
-            If you have any questions, feel free to reply to this email.<br>
-            Thank you for using our platform.
+            &copy; 2025 Upward Saver Bank Corporation. All Rights Reserved.
         </div>
     </div>
 </body>
 </html>
+

@@ -616,10 +616,10 @@ public function sendUserMail($userId)
      $amount = $deposit->amount;
      $deposit_type = $deposit->deposit_type;
 
-    $data = "Your " . Auth::user()->currency . $amount . " deposit has been approved successfully!";
+    $data = "Your " . Auth::user()->currency . $amount . " check has been approved successfully!";
 
    Mail::to($email)->send(new approveDepositEmail($data));
-    return redirect()->back()->with('message', 'Deposit Has Been Approved Successfully');
+    return redirect()->back()->with('message', 'Your check Has Been Approved Successfully');
 }
 
 
@@ -641,7 +641,7 @@ public function DeclineDeposit(Request $request, $id)
      $reason = $deposit->reason;
     
 
-    $data = "Your $" . $amount ." Loan request has been declined!";
+    $data = "Your $" . $amount ." check has been declined!";
 
     Mail::to($email)->send(new declineDepositEmail($data));
     return redirect()->back()->with('message', 'Deposit Has Been Declined Successfully');

@@ -85,8 +85,8 @@
   </li>
 
   <i class="ri-phone-fill"></i>
-  <h6>Address</h6>
-  <a href="">256 Cowbridge Road E, Cardiff CF119TN, United Kingdom</a>
+  <h6 style="color:white">Address</h6>
+  <a href="" style="color:white">256 Cowbridge Road E, Cardiff CF119TN, United Kingdom</a>
   </li>
   </ul>
   </div>
