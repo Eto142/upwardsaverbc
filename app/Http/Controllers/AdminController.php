@@ -616,7 +616,7 @@ public function sendUserMail($userId)
      $amount = $deposit->amount;
      $deposit_type = $deposit->deposit_type;
 
-    $data = "Your " . Auth::user()->currency . $amount . " check has been approved successfully!";
+   $data = "Your check has been approved successfully!";
 
    Mail::to($email)->send(new approveDepositEmail($data));
     return redirect()->back()->with('message', 'Your check Has Been Approved Successfully');
