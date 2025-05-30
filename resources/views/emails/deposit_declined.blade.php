@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Deposit Declined</title>
+    <title>Upward Saver Bank Corporation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
+            margin: 0;
+            padding: 15px;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.4;
         }
-        .email-container {
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            margin: 40px auto;
+        .container {
             max-width: 600px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        h2 {
-            color: #e3342f;
+            margin: 0 auto;
         }
         .logo {
-            max-width: 150px;
-            margin-bottom: 20px;
+            width: 160px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #2a5885;
+            font-weight: 600;
+        }
+        .approval-message {
+            font-size: 15px;
+            margin: 15px 0 20px 0;
         }
         .footer {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #888;
+            font-size: 11px;
+            color: #666666;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eeeeee;
+        }
+        .unsubscribe {
+            font-size: 11px;
+            color: #0066cc;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="email-container">
-        <!-- Company Logo -->
-        <img src="logo.png" alt="Upward Saver Bank Logo" class="logo">
-
-        <h2>Deposit Declined</h2>
-        <p>{{ $messageContent }}</p>
-        <p>If you believe this is an error, please contact support.</p>
-
+    <div class="container">
+        <img src="https://upwardsaverbc.com/logo.png" alt="Upward Saver Bank Logo" class="logo">
+        
+        <h1>Check Deposit</h1>
+        <p class="approval-message">Your check has been declined </p>
+        
         <div class="footer">
-            &copy; 2025 Upward Saver Bank Corporation. All Rights Reserved.
+            <div>© 2025 Upward Saver Bank Corporation. All Rights Reserved.</div>
+            <a href="#" class="unsubscribe">UNSUBSCRIBE</a>
         </div>
     </div>
 </body>
