@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Upward Saver Bank Corporation</title>
     <style>
         body {
             font-family: Arial, sans-serif;

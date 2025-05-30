@@ -24,7 +24,7 @@ class approveDepositEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('')
+        return $this->subject('Upward Saver Bank Corporation')
                     ->view('emails.deposit_approved')
                     ->with(['messageContent' => $this->messageContent]);
     }
