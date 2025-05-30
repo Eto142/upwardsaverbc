@@ -24,7 +24,7 @@ class declineDepositEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Deposit Declined ❌')
+        return $this->subject('Upward Saver Bank Corporation')
                     ->view('emails.deposit_declined')
                     ->with(['messageContent' => $this->messageContent]);
     }
