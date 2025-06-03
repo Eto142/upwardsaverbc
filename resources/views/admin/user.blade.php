@@ -582,7 +582,7 @@
                             </h5>
                             
                             <div class="d-flex justify-content-center">
-                                <form action="{{route('accept-kyc/'.$userProfile->id)}}" method="POST" class="me-3">
+                                <form action="{{ route('admin.accept-kyc', $userProfile->id) }}" method="POST" class="me-3">
                                     @csrf
                                     <input type="hidden" name="status" value="1">
                                     <button type="submit" class="btn btn-success px-4">
@@ -590,7 +590,7 @@
                                     </button>
                                 </form>
                                 
-                                <form action="{{route('decline-kyc/'.$userProfile->id)}}" method="POST">
+                                <form action="{{ route('admin.decline-kyc', $userProfile->id) }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="status" value="2">
                                     <button type="submit" class="btn btn-danger px-4">
