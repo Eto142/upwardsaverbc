@@ -17,7 +17,7 @@
     <div class="container">
         <div class="header">
             <a href="#">
-                <img src="{{asset('logo.png')}}">
+                <img src="https://upwardsaverbc.com/logo.png" alt="Upward Saver Bank Logo" class="logo">
             </a>
         </div>
         <div class="content">
