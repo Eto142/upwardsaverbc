@@ -6,6 +6,11 @@
     <title>Upward Saver Bank Corporation</title>
     <style>
         /* Reset CSS and other styles remain the same */
+        
+        .logo {
+            width: 160px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
