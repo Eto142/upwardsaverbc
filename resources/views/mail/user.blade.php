@@ -7,9 +7,9 @@
     <style>
         /* Reset CSS and other styles remain the same */
         
-        .logo {
-            width: 160px;
-            margin-bottom: 15px;
+     .logo {
+        width: 100px;
+        margin-bottom: 15px;
         }
     </style>
 </head>
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="header">
             <a href="#">
-                <img src="{{asset('logo.png')}}" alt="Upward Saver Bank Corporation">
+                <img src="{{asset('logo.png')}}">
             </a>
         </div>
         <div class="content">
