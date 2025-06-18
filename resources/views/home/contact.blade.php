@@ -168,7 +168,7 @@
                 </div>
                 @endif
                 <div class="card-body">
-                  <form id="inter_form" action="{{ route('admin.send.mail')}}" method="POST">
+                  <form id="inter_form" action="{{ route('send-mail')}}" method="POST">
                     @csrf
 
                     <div class="row mb-4">

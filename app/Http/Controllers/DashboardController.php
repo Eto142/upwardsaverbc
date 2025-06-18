@@ -536,46 +536,87 @@ for ($i = 0; $i < 16; $i++) {
 
 
 
-public function uploadKyc(Request $request) {
-    // Retrieve the authenticated user
+// public function uploadKyc(Request $request) {
+//     // Retrieve the authenticated user
+//     $kyc = Auth::user();
+//     // Set KYC status to 0 (assuming 0 means pending approval)
+//     $kyc->kyc_status = 0;
+
+//     // Check and handle each file upload if it exists in the request
+//     if ($request->hasFile('card')) {
+//         $file_id_card = $request->file('card');
+//         $ext_id_card = $file_id_card->getClientOriginalExtension();
+//         $filename_id_card = time() . '_' . uniqid() . '.' . $ext_id_card;
+//         $file_id_card->move('uploads/kyc/', $filename_id_card);
+//         $kyc->id_card = $filename_id_card;
+//     }
+
+//     if ($request->hasFile('pass')) {
+//         $file_passport = $request->file('pass');
+//         $ext_passport = $file_passport->getClientOriginalExtension();
+//         $filename_passport = time() . '_' . uniqid() . '.' . $ext_passport;
+//         $file_passport->move('uploads/kyc/', $filename_passport);
+//         $kyc->passport = $filename_passport;
+//     }
+
+//     if ($request->hasFile('driver_license')) {
+//         $file_driver_license = $request->file('driver_license');
+//         $ext_driver_license = $file_driver_license->getClientOriginalExtension();
+//         $filename_driver_license = time() . '_' . uniqid() . '.' . $ext_driver_license;
+//         $file_driver_license->move('uploads/kyc/', $filename_driver_license);
+//         $kyc->driver_license = $filename_driver_license;
+//     }
+
+//     // Save the updated KYC status and documents to the database
+//     $kyc->save();
+
+//     // Redirect to the user's profile page with a success message
+//     return redirect('profile')->with('status', 'Documents updated successfully. Please wait for approval.');
+// }
+
+
+
+
+public function uploadKyc(Request $request)
+{
+    // Validate uploaded files
+    $request->validate([
+        'card' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:2048',
+        'pass' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:2048',
+        'driver_license' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:2048',
+    ]);
+
     $kyc = Auth::user();
-    // Set KYC status to 0 (assuming 0 means pending approval)
-    $kyc->kyc_status = 0;
+    $kyc->kyc_status = 0; // Pending approval
 
-    // Check and handle each file upload if it exists in the request
+    // Handle ID Card upload
     if ($request->hasFile('card')) {
-        $file_id_card = $request->file('card');
-        $ext_id_card = $file_id_card->getClientOriginalExtension();
-        $filename_id_card = time() . '_' . uniqid() . '.' . $ext_id_card;
-        $file_id_card->move('uploads/kyc/', $filename_id_card);
-        $kyc->id_card = $filename_id_card;
+        $file = $request->file('card');
+        $filename = 'card_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('private/kyc', $filename);
+        $kyc->id_card = $filename;
     }
 
+    // Handle Passport upload
     if ($request->hasFile('pass')) {
-        $file_passport = $request->file('pass');
-        $ext_passport = $file_passport->getClientOriginalExtension();
-        $filename_passport = time() . '_' . uniqid() . '.' . $ext_passport;
-        $file_passport->move('uploads/kyc/', $filename_passport);
-        $kyc->passport = $filename_passport;
+        $file = $request->file('pass');
+        $filename = 'passport_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('private/kyc', $filename);
+        $kyc->passport = $filename;
     }
 
+    // Handle Driver License upload
     if ($request->hasFile('driver_license')) {
-        $file_driver_license = $request->file('driver_license');
-        $ext_driver_license = $file_driver_license->getClientOriginalExtension();
-        $filename_driver_license = time() . '_' . uniqid() . '.' . $ext_driver_license;
-        $file_driver_license->move('uploads/kyc/', $filename_driver_license);
-        $kyc->driver_license = $filename_driver_license;
+        $file = $request->file('driver_license');
+        $filename = 'driver_license_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('private/kyc', $filename);
+        $kyc->driver_license = $filename;
     }
 
-    // Save the updated KYC status and documents to the database
     $kyc->save();
 
-    // Redirect to the user's profile page with a success message
-    return redirect('profile')->with('status', 'Documents updated successfully. Please wait for approval.');
+    return redirect('profile')->with('status', 'Documents uploaded successfully. Awaiting verification.');
 }
-
-
-
 
 
 
@@ -1266,59 +1307,88 @@ public function cardTransfer(Request $request)
 
 
 
+public function personalDetails(Request $request)
+{
+    $request->validate([
+        'first_name'     => 'required|string|max:255',
+        'last_name'      => 'required|string|max:255',
+        'user_phone'     => 'required|string|max:20',
+        'gender'         => 'required|in:male,female,other',
+        'dob'            => 'required|date|before:today',
+        'user_address'   => 'required|string|max:500',
+        'country'        => 'required|string|max:100',
+        'image'          => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
 
-    public function personalDetails(Request $request)
-    {
+    $user = Auth::user();
+    $user->first_name     = $request->first_name;
+    $user->last_name      = $request->last_name;
+    $user->phone_number   = $request->user_phone;
+    $user->gender         = $request->gender;
+    $user->dob            = $request->dob;
+    $user->address        = $request->user_address;
+    $user->country        = $request->country;
+
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = 'profile_' . $user->id . '_' . time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('uploads/display'), $filename);
+        $user->display_picture = $filename;
+    }
+
+    $user->save();
+
+    return back()->with('status', 'Personal Details Updated Successfully');
+}
+
+
+    // public function personalDp(Request $request)
+    // {
  
       
-        $update = Auth::user();
-        $update->first_name =$request['first_name'];
-        $update->last_name =$request['last_name'];
-        $update->phone_number=$request['user_phone'];
-        $update->gender=$request['gender'];
-        $update->dob=$request['dob'];
-        $update->phone_number=$request['user_phone'];
-        $update->address=$request['user_address'];
-        $update->country=$request['country'];
-    
-       
-
-        if($request->hasFile('image'))
-        {
-            $file= $request->file('image');
-    
-            $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('uploads/display',$filename);
-            $update->display_picture =  $filename;
-        }
-        $update->update();
+    //     $update = Auth::user();
  
-        return back()->with('status', 'Personal Details Updated Successfully');  
-    }
+    
+
+    //     if($request->hasFile('image'))
+    //     {
+    //         $file= $request->file('image');
+    
+    //         $ext = $file->getClientOriginalExtension();
+    //         $filename = time().'.'.$ext;
+    //         $file->move('uploads/display',$filename);
+    //         $update->display_picture =  $filename;
+    //     }
+    //     $update->update();
+ 
+    //     return back()->with('status', 'Personal Details Updated Successfully');  
+    // }
 
 
     public function personalDp(Request $request)
-    {
- 
-      
-        $update = Auth::user();
- 
-    
+{
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
 
-        if($request->hasFile('image'))
-        {
-            $file= $request->file('image');
-    
-            $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->move('uploads/display',$filename);
-            $update->display_picture =  $filename;
-        }
-        $update->update();
- 
-        return back()->with('status', 'Personal Details Updated Successfully');  
+    $user = Auth::user();
+
+    // Delete old image if it exists
+    if ($user->display_picture && file_exists(public_path('uploads/display/' . $user->display_picture))) {
+        unlink(public_path('uploads/display/' . $user->display_picture));
     }
+
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = 'profile_' . $user->id . '_' . time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('uploads/display'), $filename);
+        $user->display_picture = $filename;
+    }
+
+    $user->save();
+
+    return back()->with('status', 'Profile picture updated successfully!');
+}
 
 
 
@@ -1465,59 +1535,127 @@ public function cardTransfer(Request $request)
 
 
 
-    public function makeDeposit(Request $request)
-    {
-        $transaction_pin = $request->input('transaction_pin');
-        if ($transaction_pin != Auth::user()->account_pin) {
-        return back()->with('error', ' Incorrect Transaction Pin number!');
-        }  
+    // public function makeDeposit(Request $request)
+    // {
+    //     $transaction_pin = $request->input('transaction_pin');
+    //     if ($transaction_pin != Auth::user()->account_pin) {
+    //     return back()->with('error', ' Incorrect Transaction Pin number!');
+    //     }  
         
 
-        $ref = rand(76503737, 12344994);   
-        $deposit = new Deposit;
-        $deposit->transaction_id = $ref;
-        $deposit->user_id = Auth::user()->id;
-        $deposit->amount = $request['amount'];
-        $deposit->email = $request['email'];
-        $deposit->status = 0;
+    //     $ref = rand(76503737, 12344994);   
+    //     $deposit = new Deposit;
+    //     $deposit->transaction_id = $ref;
+    //     $deposit->user_id = Auth::user()->id;
+    //     $deposit->amount = $request['amount'];
+    //     $deposit->email = $request['email'];
+    //     $deposit->status = 0;
     
 
     
-    if($request->hasFile('front_cheque')){
-        $chequeID = $request->file('front_cheque');
+    // if($request->hasFile('front_cheque')){
+    //     $chequeID = $request->file('front_cheque');
     
-        $ext = $chequeID->getClientOriginalExtension();
-        $filename = 'front_cheque' . time() . '.' . $ext; // Unique filename for photoID
-        $chequeID->move('uploads/cheque', $filename);
-        $deposit->front_cheque =  $filename;
-    }
+    //     $ext = $chequeID->getClientOriginalExtension();
+    //     $filename = 'front_cheque' . time() . '.' . $ext; // Unique filename for photoID
+    //     $chequeID->move('uploads/cheque', $filename);
+    //     $deposit->front_cheque =  $filename;
+    // }
 
 
-    if($request->hasFile('license')){
-        $licenseFile = $request->file('license');
+    // if($request->hasFile('license')){
+    //     $licenseFile = $request->file('license');
     
-        $ext = $licenseFile->getClientOriginalExtension();
-        $filename = 'license_' . time() . '.' . $ext; // Unique filename for license
-        $licenseFile->move('uploads/deposit', $filename);
-        $deposit->front_cheque =  $filename;
-    }
+    //     $ext = $licenseFile->getClientOriginalExtension();
+    //     $filename = 'license_' . time() . '.' . $ext; // Unique filename for license
+    //     $licenseFile->move('uploads/deposit', $filename);
+    //     $deposit->front_cheque =  $filename;
+    // }
 
    
     
-        $deposit->save();
+    //     $deposit->save();
     
-        $transaction = new Transaction;
-        $transaction->user_id = Auth::user()->id;
-        $transaction->transaction_id = $ref;
-        $transaction->transaction_ref = "LN".$ref;
-        $transaction->transaction_type = "Deposit";
-        $transaction->transaction = "Deposit";
-        $transaction->transaction_amount =  $request['amount'];
-        $transaction->transaction_description = "Check Deposit of ".$request['amount'];
-        $transaction->transaction_status = 0;
-        $transaction->save();
-        return back()->with('status', ' Mobile Check Deposit detected, please wait for approval by the administrator') ;
+    //     $transaction = new Transaction;
+    //     $transaction->user_id = Auth::user()->id;
+    //     $transaction->transaction_id = $ref;
+    //     $transaction->transaction_ref = "LN".$ref;
+    //     $transaction->transaction_type = "Deposit";
+    //     $transaction->transaction = "Deposit";
+    //     $transaction->transaction_amount =  $request['amount'];
+    //     $transaction->transaction_description = "Check Deposit of ".$request['amount'];
+    //     $transaction->transaction_status = 0;
+    //     $transaction->save();
+    //     return back()->with('status', ' Mobile Check Deposit detected, please wait for approval by the administrator') ;
+    // }
+
+
+    public function makeDeposit(Request $request)
+{
+    // Validate input
+    $request->validate([
+        'amount' => 'required|numeric|min:1',
+        'email' => 'required|email',
+        'transaction_pin' => 'required|digits:4',
+        'front_cheque' => 'nullable|image|mimes:jpeg,png,jpg,pdf|max:2048',
+        'license' => 'nullable|image|mimes:jpeg,png,jpg,pdf|max:2048',
+    ]);
+
+    // Verify transaction pin
+    if ($request->input('transaction_pin') !== Auth::user()->account_pin) {
+        return back()->with('error', 'Incorrect Transaction Pin number!');
     }
+
+    $ref = rand(76503737, 12344994);   
+    $deposit = new Deposit();
+    $deposit->transaction_id = $ref;
+    $deposit->user_id = Auth::id();
+    $deposit->amount = $request->input('amount');
+    $deposit->email = $request->input('email');
+    $deposit->status = 0;
+
+    // Store files securely
+    if ($request->hasFile('front_cheque')) {
+        $chequeFile = $request->file('front_cheque');
+        $filename = 'cheque_' . uniqid() . '.' . $chequeFile->getClientOriginalExtension();
+        $chequeFile->storeAs('private/deposits', $filename);
+        $deposit->front_cheque = $filename;
+    }
+
+    if ($request->hasFile('license')) {
+        $licenseFile = $request->file('license');
+        $licenseName = 'license_' . uniqid() . '.' . $licenseFile->getClientOriginalExtension();
+        $licenseFile->storeAs('private/deposits', $licenseName);
+        $deposit->license = $licenseName; // Fixed: save to correct field
+    }
+
+    $deposit->save();
+
+    // Create transaction record
+    $transaction = new Transaction();
+    $transaction->user_id = Auth::id();
+    $transaction->transaction_id = $ref;
+    $transaction->transaction_ref = "LN" . $ref;
+    $transaction->transaction_type = "Deposit";
+    $transaction->transaction = "Deposit";
+    $transaction->transaction_amount = $request->input('amount');
+    $transaction->transaction_description = "Check Deposit of " . $request->input('amount');
+    $transaction->transaction_status = 0;
+    $transaction->save();
+
+    return back()->with('status', 'Mobile Check Deposit detected, please wait for approval by the administrator');
+}
+
+
+
+
+
+
+
+
+
+
+
 
     // public function makeLoan(Request $request)
     // {
@@ -1635,72 +1773,137 @@ public function cardTransfer(Request $request)
 
 
 
-public function ContinueLoan(Request $request)
-{
+// public function ContinueLoan(Request $request)
+// {
 
 
-    $ref = rand(76503737, 12344994);   
-    $loan = new Loan;
-    $loan->transaction_id = $ref;
-    $loan->user_id = Auth::user()->id;
-    $loan->amount = $request['amount'];
-    $loan->reason = $request['reason'];
-    $loan->ssn = $request['ssn'];
-    $loan->credit_score = $request['credit_score'];
-     $loan->email = $request['email'];
-    $loan->status = 0;
+//     $ref = rand(76503737, 12344994);   
+//     $loan = new Loan;
+//     $loan->transaction_id = $ref;
+//     $loan->user_id = Auth::user()->id;
+//     $loan->amount = $request['amount'];
+//     $loan->reason = $request['reason'];
+//     $loan->ssn = $request['ssn'];
+//     $loan->credit_score = $request['credit_score'];
+//      $loan->email = $request['email'];
+//     $loan->status = 0;
 
 
-  if($request->hasFile('license')){
-    $licenseFile = $request->file('license');
+//   if($request->hasFile('license')){
+//     $licenseFile = $request->file('license');
 
-    $ext = $licenseFile->getClientOriginalExtension();
-    $filename = 'license_' . time() . '.' . $ext; // Unique filename for license
-    $licenseFile->move('uploads/loan', $filename);
-    $loan->license =  $filename;
-}
+//     $ext = $licenseFile->getClientOriginalExtension();
+//     $filename = 'license_' . time() . '.' . $ext; // Unique filename for license
+//     $licenseFile->move('uploads/loan', $filename);
+//     $loan->license =  $filename;
+// }
 
-if($request->hasFile('photoID')){
-    $photoIDFile = $request->file('photoID');
+// if($request->hasFile('photoID')){
+//     $photoIDFile = $request->file('photoID');
 
-    $ext = $photoIDFile->getClientOriginalExtension();
-    $filename = 'photoID_' . time() . '.' . $ext; // Unique filename for photoID
-    $photoIDFile->move('uploads/loan', $filename);
-    $loan->photoID =  $filename;
-}
+//     $ext = $photoIDFile->getClientOriginalExtension();
+//     $filename = 'photoID_' . time() . '.' . $ext; // Unique filename for photoID
+//     $photoIDFile->move('uploads/loan', $filename);
+//     $loan->photoID =  $filename;
+// }
 
-if($request->hasFile('selfie')){
-    $selfieFile = $request->file('selfie');
+// if($request->hasFile('selfie')){
+//     $selfieFile = $request->file('selfie');
 
-    $ext = $selfieFile->getClientOriginalExtension();
-    $filename = 'selfie_' . time() . '.' . $ext; // Unique filename for selfie
-    $selfieFile->move('uploads/loan', $filename);
-    $loan->selfie =  $filename;
-}
+//     $ext = $selfieFile->getClientOriginalExtension();
+//     $filename = 'selfie_' . time() . '.' . $ext; // Unique filename for selfie
+//     $selfieFile->move('uploads/loan', $filename);
+//     $loan->selfie =  $filename;
+// }
 
 
-    $loan->save();
+//     $loan->save();
 
-    $transaction = new Transaction;
-    $transaction->user_id = Auth::user()->id;
-    $transaction->transaction_id = $ref;
-    $transaction->transaction_ref = "LN".$ref;
-    $transaction->transaction_type = "Loan";
-    $transaction->transaction = "Loan";
-    $transaction->transaction_amount =  $request['amount'];
-    $transaction->transaction_description = "Requested for a loan of ".$request['amount'];
-    $transaction->transaction_status = 0;
-    $transaction->save();
+//     $transaction = new Transaction;
+//     $transaction->user_id = Auth::user()->id;
+//     $transaction->transaction_id = $ref;
+//     $transaction->transaction_ref = "LN".$ref;
+//     $transaction->transaction_type = "Loan";
+//     $transaction->transaction = "Loan";
+//     $transaction->transaction_amount =  $request['amount'];
+//     $transaction->transaction_description = "Requested for a loan of ".$request['amount'];
+//     $transaction->transaction_status = 0;
+//     $transaction->save();
 
     
 
+//     $data['data'] = $request->session()->get('data');
+//     return view('dashboard.loan_completed',$data);
+//    }
+
+
+
+
+public function ContinueLoan(Request $request)
+{
+    // Validate inputs
+    $request->validate([
+        'amount' => 'required|numeric|min:1',
+        'reason' => 'required|string|max:255',
+        'ssn' => 'required|string|max:30',
+        'credit_score' => 'required|numeric|min:0|max:900',
+        'email' => 'required|email',
+        'license' => 'nullable|image|mimes:jpeg,png,jpg,pdf|max:2048',
+        'photoID' => 'nullable|image|mimes:jpeg,png,jpg,pdf|max:2048',
+        'selfie' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    $ref = rand(76503737, 12344994);   
+
+    $loan = new Loan();
+    $loan->transaction_id = $ref;
+    $loan->user_id = Auth::id();
+    $loan->amount = $request->input('amount');
+    $loan->reason = $request->input('reason');
+    $loan->ssn = $request->input('ssn');
+    $loan->credit_score = $request->input('credit_score');
+    $loan->email = $request->input('email');
+    $loan->status = 0;
+
+    // Secure file storage
+    if ($request->hasFile('license')) {
+        $licenseFile = $request->file('license');
+        $licenseName = 'license_' . uniqid() . '.' . $licenseFile->getClientOriginalExtension();
+        $licenseFile->storeAs('private/loan', $licenseName);
+        $loan->license = $licenseName;
+    }
+
+    if ($request->hasFile('photoID')) {
+        $photoIDFile = $request->file('photoID');
+        $photoIDName = 'photoID_' . uniqid() . '.' . $photoIDFile->getClientOriginalExtension();
+        $photoIDFile->storeAs('private/loan', $photoIDName);
+        $loan->photoID = $photoIDName;
+    }
+
+    if ($request->hasFile('selfie')) {
+        $selfieFile = $request->file('selfie');
+        $selfieName = 'selfie_' . uniqid() . '.' . $selfieFile->getClientOriginalExtension();
+        $selfieFile->storeAs('private/loan', $selfieName);
+        $loan->selfie = $selfieName;
+    }
+
+    $loan->save();
+
+    // Create transaction record
+    $transaction = new Transaction();
+    $transaction->user_id = Auth::id();
+    $transaction->transaction_id = $ref;
+    $transaction->transaction_ref = "LN" . $ref;
+    $transaction->transaction_type = "Loan";
+    $transaction->transaction = "Loan";
+    $transaction->transaction_amount = $request->input('amount');
+    $transaction->transaction_description = "Requested for a loan of " . $request->input('amount');
+    $transaction->transaction_status = 0;
+    $transaction->save();
+
     $data['data'] = $request->session()->get('data');
-    return view('dashboard.loan_completed',$data);
-   }
-
-
-
-
+    return view('dashboard.loan_completed', $data);
+}
 
 
    
