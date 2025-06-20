@@ -848,15 +848,24 @@ public function DeclineTransaction(Request $request, $id)
 
 
 
+
+
 public function updateTransactionDate(Request $request, $id)
 {
+    // Validate input
+    $request->validate([
+        'new_date' => 'required|date',
+    ]);
+
+    // Find the transaction
     $transaction = Transaction::find($id);
+
     if (!$transaction) {
         return redirect()->back()->with('error', 'Transaction not found.');
     }
 
-    $newDate = $request->input('new_date');
-    $transaction->created_at = $newDate;
+    // Parse and update date
+    $transaction->created_at = Carbon::parse($request->input('new_date'));
     $transaction->save();
 
     return redirect()->back()->with('message', 'Transaction date updated successfully.');

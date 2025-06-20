@@ -360,11 +360,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <form action="{{ route('admin.update-transaction-date', $transaction->id) }}" class="d-flex">
-                                            @csrf
-                                            <input type="datetime-local" id="new_date" name="new_date" value="{{$transaction->created_at}}" class="form-control form-control-sm me-2">
-                                            <button type="submit" class="btn btn-sm btn-outline-primary">Update</button>
-                                        </form>
+                                        <form action="{{ route('admin.update-transaction-date', $transaction->id) }}" method="POST" class="d-flex">
+    @csrf
+    <input type="datetime-local" name="new_date" value="{{ $transaction->created_at->format('Y-m-d\TH:i') }}" class="form-control form-control-sm me-2">
+    <button type="submit" class="btn btn-sm btn-outline-primary">Update</button>
+</form>
+
                                     </td>
                                     <td class="d-flex">
                                         <form action="{{route('admin.approve-transaction', $transaction->id)}}" method="POST" class="me-2">
