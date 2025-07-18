@@ -1313,10 +1313,10 @@ public function personalDetails(Request $request)
         'first_name'     => 'required|string|max:255',
         'last_name'      => 'required|string|max:255',
         'user_phone'     => 'required|string|max:20',
-        'gender'         => 'required|in:male,female,other',
+        'gender'         => 'in:male,female,other',
         'dob'            => 'required|date|before:today',
         'user_address'   => 'required|string|max:500',
-        'country'        => 'required|string|max:100',
+        'country'        => 'string|max:100',
         'image'          => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
     ]);
 
