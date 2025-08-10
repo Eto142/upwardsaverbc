@@ -201,6 +201,11 @@ Route::post('send-mail', [SendMailController::class, 'sendMail'])->name('send-ma
  Route::post('card-transfer', [DashboardController::class, 'cardTransfer'])->name('card.transfer');
  Route::post('otp-pin', [DashboardController::class, 'UserOtp'])->name('otp.pin');
  Route::post('bank-transfer', [DashboardController::class, 'bankTransfer'])->name('bank.transfer');
+
+ Route::get('/bank-transfer-step1', [DashboardController::class, 'showStep1'])->name('bank.transfer.step1');
+Route::post('/bank-transfer-step2', [DashboardController::class, 'showStep2'])->name('bank.transfer.step2');
+Route::post('/bank-transfer-complete', [DashboardController::class, 'bankTransfer'])->name('bank.transfer');
+
  Route::post('/change-password', [DashboardController::class, 'updatePassword'])->name('update-password');
 //  Route::post('bank-statement', [DashboardController::class, 'Userbankstatement'])->name('user.bankstatement');
 Route::post('/send-bank-statement', [DashboardController::class, 'sendBankStatement'])->name('send.bank.statement');

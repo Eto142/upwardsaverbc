@@ -40,7 +40,7 @@
   <div class="transfer-header">
     <div class="d-flex justify-content-between align-items-center">
       <span class="text-muted">Available Balance</span>
-      <span class="balance-display">{{Auth::user()->currency}}{{number_format($balance, 2, '.', ',')}}</span>
+      <span class="balance-display"> {{ Auth::user()->currency }}{{ number_format($balance, 2, '.', ',') }}</span>
     </div>
   </div>
 
@@ -51,35 +51,24 @@
       You're about to transfer from your account's available balance. Please enter your correct information.
     </div>
     
-    {{-- <form action="{{route('bank.transfer')}}" method="POST">
-      @csrf --}}
-      <form action="{{ route('bank.transfer.step2') }}" method="POST">
-    @csrf
-      <input type="hidden" name="email" value="{{ Auth::user()->email}}">  
-    
-      
+    <form action="{{route('bank.transfer')}}" method="POST">
+      @csrf
+      <input type="hidden" name="email" value="{{ Auth::user()->email}}">
+       <!-- Hidden inputs carrying data from Page 1 -->
+    @foreach($details as $key => $value)
+        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+    @endforeach
       <div class="mb-3">
-        <label class="form-label">Account Name</label>
-        <input type="text" name="account_name" class="form-control" placeholder="Recipient's name">
+        <label class="form-label">Amount</label>
+        <input type="number" name="amount" class="form-control" placeholder="Enter amount" required>
       </div>
       
       <div class="mb-3">
-        <label class="form-label">Account Number</label>
-        <input type="text" name="account_number" class="form-control" placeholder="Recipient's account number">
+        <label class="form-label">Transaction PIN</label>
+        <input type="password" name="transaction_pin" class="form-control" placeholder="Enter your 4-digit PIN" maxlength="4" required>
       </div>
       
-      <div class="mb-3">
-        <label class="form-label">Bank Name</label>
-        <input type="text" name="bank_name" class="form-control" placeholder="Recipient's bank">
-      </div>
-      
-      <div class="mb-3">
-        <label class="form-label">Routing Number</label>
-        <input type="text" name="routing_number" class="form-control" placeholder="Bank routing number">
-      </div>
-
-      
-      <button type="submit" class="btn btn-main w-100">Next</button>
+      <button type="submit" class="btn btn-main w-100">Transfer Funds</button>
     </form>
   </div>
   

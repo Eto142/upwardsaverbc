@@ -623,6 +623,64 @@ public function uploadKyc(Request $request)
 
 
 
+// BankController.php
+// public function showStep1()
+// {
+//     return view('bank.transfer-step1');
+// }
+public function showStep2(Request $request)
+{
+    $data['credit_transfers'] = Transaction::where('user_id', Auth::user()->id)
+        ->where('transaction_status', '1')
+        ->where('transaction_type', 'Credit')
+        ->sum('transaction_amount');
+
+    $data['debit_transfers'] = Transaction::where('user_id', Auth::user()->id)
+        ->where('transaction_status', '1')
+        ->where('transaction_type', 'Debit')
+        ->sum('transaction_amount');
+
+    $data['user_deposits'] = Deposit::where('user_id', Auth::user()->id)
+        ->where('status', '1')
+        ->sum('amount');
+
+    $data['user_loans'] = Loan::where('user_id', Auth::user()->id)
+        ->where('status', '1')
+        ->sum('amount');
+
+    $data['user_card'] = Card::where('user_id', Auth::user()->id)
+        ->sum('amount');
+
+    $data['user_credit'] = Credit::where('user_id', Auth::user()->id)
+        ->where('status', '1')
+        ->sum('amount');
+
+    $data['user_debit'] = Debit::where('user_id', Auth::user()->id)
+        ->where('status', '1')
+        ->sum('amount');
+
+    $data['balance'] = $data['user_deposits'] + $data['credit_transfers'] + $data['user_loans']
+        - $data['debit_transfers'] - $data['user_card'];
+
+    // Pass page 1 data to page 2
+    $details = $request->only([
+        'account_name',
+        'account_number',
+        'bank_name',
+        'routing_number',
+        'account_type'
+    ]);
+
+    $balance = $data['balance'];
+
+    return view('dashboard.transfer-step2', compact('details', 'data', 'balance'));
+}
+
+
+
+
+
+
 
     public function bankTransfer(Request $request)
     {
