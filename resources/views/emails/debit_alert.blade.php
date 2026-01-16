@@ -269,7 +269,7 @@
 						<td class="proton-td" colspan="10" style="">
 							<div class="proton-divider"></div>
 							<center>
-								<span style="color: #706d6b"> © 2025 Upward Saver Bank Corporation </span>
+								<span style="color: #706d6b"> © 2026 Upward Saver Bank Corporation </span>
 							</center>
 							<div class="proton-flex">
 								<a href="https://proton.me" class="proton-link">

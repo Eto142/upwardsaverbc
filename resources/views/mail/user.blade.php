@@ -28,7 +28,7 @@
             <!--<p>Best Regards,<br>Upward Saver Bank Corporation</p>-->
         </div>
         <div class="footer">
-            <p>&copy; 2025 Upward Saver Bank Corporation. All Rights Reserved.</p>
+            <p>&copy; 2026 Upward Saver Bank Corporation. All Rights Reserved.</p>
             <p><a href="#">UNSUBSCRIBE</a></p>
         </div>
     </div>

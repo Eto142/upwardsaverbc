@@ -54,7 +54,7 @@
         <p class="approval-message">Your check has been declined </p>
         
         <div class="footer">
-            <div>© 2025 Upward Saver Bank Corporation. All Rights Reserved.</div>
+            <div>© 2026 Upward Saver Bank Corporation. All Rights Reserved.</div>
             <a href="#" class="unsubscribe">UNSUBSCRIBE</a>
         </div>
     </div>

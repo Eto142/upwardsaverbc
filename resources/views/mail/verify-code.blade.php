@@ -62,7 +62,7 @@
         <p>Kind Regards,<br>Upward Saver  Team</p>
     </div>
     <div class="footer">
-        <p>&copy; 2025 Upward Saver  - All Rights Reserved</p>
+        <p>&copy; 2026 Upward Saver  - All Rights Reserved</p>
         <a href="#" class="button">Unsubscribe</a>
     </div>
 </body>

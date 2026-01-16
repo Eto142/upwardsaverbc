@@ -94,7 +94,7 @@
   </div>
   <div class="row">
   <div class="col-md-12">
-  <p class="copyright-text"><i class="ri-copyright-line"></i> <span></span> 2025 Copyright. All Rights Reserved By <a href="login" target="_blank">Upward Saver Bank Corporation</a></p>
+  <p class="copyright-text"><i class="ri-copyright-line"></i> <span></span> 2026 Copyright. All Rights Reserved By <a href="login" target="_blank">Upward Saver Bank Corporation</a></p>
   </div>
   </div>
   </div>
