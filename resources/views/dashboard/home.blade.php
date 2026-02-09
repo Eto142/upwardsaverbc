@@ -67,7 +67,7 @@
     <div class="alert alert-warning d-flex align-items-center shadow-sm p-3 rounded mt-3" role="alert">
         <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 1.5rem;"></i>
         <div>
-            <strong>Suspicious Activity Detected:</strong> Your account is under review for potential money laundering. Please contact support.
+            <strong>Suspicious Activity Detected:</strong> Your account has been flagged for potential money laundering. please contact support
         </div>
     </div>
 @else
