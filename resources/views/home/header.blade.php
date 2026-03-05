@@ -175,7 +175,7 @@ Loans
     detect_browser_language: true,
     wrapper_selector: ".gtranslate_wrapper",
     alt_flags: {
-      en: "usa",
+      // en: "usa",
       pt: "brazil",
       es: "colombia",
       fr: "quebec"
