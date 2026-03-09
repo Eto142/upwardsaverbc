@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -26,33 +26,17 @@
 </head>
 <body class="bk-body">
 
-<!-- Preloader -->
-<div class="bk-preloader" id="bkPreloader">
-  <div class="bk-pl-particles">
-    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-  </div>
-  <div class="bk-pl-body">
-    <div class="bk-pl-ring-wrap">
-      <svg class="bk-pl-ring" viewBox="0 0 130 130">
-        <defs>
-          <linearGradient id="bkPlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#e51c24"/>
-            <stop offset="100%" stop-color="#AC39D4"/>
-          </linearGradient>
-        </defs>
-        <circle class="bk-pl-track" cx="65" cy="65" r="58"/>
-        <circle class="bk-pl-arc"   cx="65" cy="65" r="58"/>
+<!-- Loader -->
+<div class="bk-loader" id="bkLoader">
+  <div class="bk-loader-content">
+    <div class="bk-loader-icon">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="bk-shield" d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path class="bk-check" d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       </svg>
-      <div class="bk-pl-logo-box">
-        <img src="logo1.png" alt="Upward Saver Bank">
-      </div>
     </div>
-    <div class="bk-pl-pct" id="bkPlPct">0<span>%</span></div>
-    <p class="bk-pl-msg">Securing your connection
-      <span class="bk-pl-dot d1"></span>
-      <span class="bk-pl-dot d2"></span>
-      <span class="bk-pl-dot d3"></span>
-    </p>
+    <div class="bk-loader-bar"><div class="bk-loader-bar-fill"></div></div>
+    <p class="bk-loader-text">Securing your connection<span class="bk-loader-dots"></span></p>
   </div>
 </div>
 
@@ -131,46 +115,43 @@
     <p><i class="ri-mail-line"></i> support@upwardsaverbc.com</p>
   </div>
 </div>
- <!-- Top Right -->
-                      <!-- GTranslate Wrapper -->
+
+<!-- GTranslate Widget -->
 <div class="gtranslate_wrapper"></div>
-
-<!-- GTranslate Settings -->
-<script>
-  window.gtranslateSettings = {
-    default_language: "en",
-    detect_browser_language: true,
-    wrapper_selector: ".gtranslate_wrapper",
-    alt_flags: {
-      // en: "usa",
-      pt: "brazil",
-      es: "colombia",
-      fr: "quebec"
-    }
-    // Removed switcher_horizontal_position and switcher_vertical_position to use custom CSS
-  };
-</script>
-
-<!-- GTranslate Script -->
+<script>window.gtranslateSettings={default_language:"en",detect_browser_language:true,wrapper_selector:".gtranslate_wrapper",alt_flags:{en:"usa",pt:"brazil",es:"colombia",fr:"quebec"}};</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
-<!-- Custom Positioning CSS -->
 <style>
-  .gtranslate_wrapper {
-    position: fixed !important;
-    top: 80px !important; /* Adjust this if your navbar is taller/shorter */
-    right: 20px !important;
-    z-index: 9999 !important;
-  }
-
-  /* OPTIONAL: Center at top instead of top-right — uncomment below to use */
-  /*
-  .gtranslate_wrapper {
-    position: fixed !important;
-    top: 20px !important;
-    left: 50% !important;
-    transform: translateX(-50%);
-    z-index: 9999 !important;
-  }
-  */
+/* GTranslate — compact dark pill */
+.gtranslate_wrapper{position:fixed!important;bottom:20px!important;right:20px!important;top:auto!important;left:auto!important;z-index:9999!important}
+.gtranslate_wrapper .gt_float_switcher{background:#0c2340!important;border:none!important;border-radius:40px!important;padding:5px 12px 5px 8px!important;box-shadow:0 4px 16px rgba(12,35,64,.4)!important;transition:all .25s ease!important;font-family:'Inter',sans-serif!important;min-height:0!important}
+.gtranslate_wrapper .gt_float_switcher:hover{box-shadow:0 6px 24px rgba(12,35,64,.55)!important;transform:translateY(-1px)!important}
+.gtranslate_wrapper .gt_float_switcher .gt-current-lang{color:#fff!important;font-size:.72rem!important;font-weight:600!important;letter-spacing:.3px!important;text-transform:uppercase!important}
+.gtranslate_wrapper .gt_float_switcher img.gt-current-lang-image{border-radius:50%!important;box-shadow:0 0 0 1.5px rgba(255,255,255,.2)!important;width:18px!important;height:18px!important}
+.gtranslate_wrapper .gt_float_switcher .gt-selected .gt-lang-code{color:#fff!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options{background:#0c2340!important;border:none!important;border-radius:10px!important;box-shadow:0 8px 32px rgba(0,0,0,.4)!important;padding:4px!important;margin-top:6px!important;max-height:200px!important;overflow-y:auto!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options a{color:rgba(255,255,255,.75)!important;font-size:.72rem!important;font-weight:500!important;padding:6px 10px!important;border-radius:8px!important;transition:background .15s ease!important;display:flex!important;align-items:center!important;gap:6px!important;font-family:'Inter',sans-serif!important;background:transparent!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options a:hover{background:rgba(21,101,192,.3)!important;color:#fff!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options a img{border-radius:50%!important;width:16px!important;height:16px!important;box-shadow:none!important}
+.gtranslate_wrapper .gt_float_switcher .gt_options::-webkit-scrollbar{width:3px}
+.gtranslate_wrapper .gt_float_switcher .gt_options::-webkit-scrollbar-track{background:transparent}
+.gtranslate_wrapper .gt_float_switcher .gt_options::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+/* Kill any white boxes GTranslate injects */
+.gt_float_switcher *{background-color:transparent!important}
+.gt_float_switcher,.gt_float_switcher .gt_options{background:#0c2340!important}
+@media(max-width:991px){.gtranslate_wrapper{bottom:18px!important;right:14px!important}}
+@media(max-width:767px){.gtranslate_wrapper{bottom:16px!important;right:10px!important}}
 </style>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '2f996998a0466ed1d7091914ec61bd6acc8106a9';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+

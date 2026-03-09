@@ -20,28 +20,28 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#38bdf8',
-                            100: '#38bdf8',
-                            200: '#38bdf8',
-                            300: '#38bdf8',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0ea5e9',
-                            700: '#0369a1',
-                            800: '#0369a1',
-                            900: '#0369a1',
+                            50: '#ffe0e1',
+                            100: '#ffb3b5',
+                            200: '#ff8082',
+                            300: '#ff4d55',
+                            400: '#ff2028',
+                            500: '#e51c24',
+                            600: '#e51c24',
+                            700: '#a51c24',
+                            800: '#a51c24',
+                            900: '#7a1018',
                         },
                         secondary: {
-                            50: '#5eead4',
-                            100: '#5eead4',
-                            200: '#5eead4',
-                            300: '#5eead4',
-                            400: '#5eead4',
-                            500: '#14b8a6',
-                            600: '#14b8a6',
-                            700: '#0f766e',
-                            800: '#0f766e',
-                            900: '#0f766e',
+                            50: '#f3d6fc',
+                            100: '#e4a8f7',
+                            200: '#d47af2',
+                            300: '#c04ce8',
+                            400: '#b63fdb',
+                            500: '#AC39D4',
+                            600: '#AC39D4',
+                            700: '#8a2aaa',
+                            800: '#6e2085',
+                            900: '#511660',
                         }
                     },
                     fontFamily: {
@@ -69,12 +69,12 @@
     <!-- CSS Variables -->
     <script>
         // Set CSS theme variables
-        document.documentElement.style.setProperty('--primary-color', '#0ea5e9');
-        document.documentElement.style.setProperty('--primary-color-dark', '#0369a1');
-        document.documentElement.style.setProperty('--primary-color-light', '#38bdf8');
-        document.documentElement.style.setProperty('--secondary-color', '#14b8a6');
-        document.documentElement.style.setProperty('--secondary-color-dark', '#0f766e');
-        document.documentElement.style.setProperty('--secondary-color-light', '#5eead4');
+        document.documentElement.style.setProperty('--primary-color', '#e51c24');
+        document.documentElement.style.setProperty('--primary-color-dark', '#a51c24');
+        document.documentElement.style.setProperty('--primary-color-light', '#ff4d55');
+        document.documentElement.style.setProperty('--secondary-color', '#AC39D4');
+        document.documentElement.style.setProperty('--secondary-color-dark', '#8a2aaa');
+        document.documentElement.style.setProperty('--secondary-color-light', '#c860e0');
         document.documentElement.style.setProperty('--text-color', '#111827');
         document.documentElement.style.setProperty('--bg-color', '#f9fafb');
         document.documentElement.style.setProperty('--card-bg-color', '#ffffff');
@@ -312,7 +312,7 @@
         
 <div class="flex flex-col lg:flex-row min-h-screen">
     <!-- Left Side - Branding & Illustration (Desktop Only) -->
-    <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-600 to-primary-800 relative overflow-hidden">
+    <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden" style="background: linear-gradient(135deg, #1a1426 0%, #e51c24 55%, #AC39D4 100%)">
         <!-- Animated Shapes -->
         <div class="absolute inset-0 overflow-hidden opacity-10">
             <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white rounded-full mix-blend-overlay floating-slow"></div>

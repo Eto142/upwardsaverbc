@@ -24,6 +24,18 @@
       padding: 15px;
       border-radius: 12px;
       margin-bottom: 10px;
+      cursor: pointer;
+      transition: background-color .2s, transform .15s, box-shadow .2s;
+    }
+
+    .transaction-box:hover {
+      background-color: #eee;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+
+    .transaction-box:active {
+      transform: scale(.98);
     }
 
    .bottom-nav {
@@ -105,4 +117,90 @@
       font-size: 48px;
       color: #ddd;
       margin-bottom: 15px;
+    }
+
+    /* ── Transaction Detail Modal ── */
+    .txn-modal-content {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .txn-modal-header {
+      background: linear-gradient(135deg, #e51c24, #AC39D4);
+      padding: 30px 24px 24px;
+      text-align: center;
+      position: relative;
+      color: #fff;
+    }
+
+    .txn-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      opacity: .8;
+    }
+
+    .txn-modal-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .txn-modal-amount {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      margin-bottom: 8px;
+    }
+
+    .txn-modal-header .badge {
+      font-size: 13px;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    .txn-modal-body {
+      padding: 20px 24px 28px;
+    }
+
+    .txn-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .txn-detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .txn-detail-label {
+      color: #888;
+      font-size: 13px;
+      white-space: nowrap;
+      min-width: 120px;
+    }
+
+    .txn-detail-label i {
+      margin-right: 6px;
+    }
+
+    .txn-detail-value {
+      font-weight: 500;
+      text-align: right;
+      word-break: break-word;
+      max-width: 60%;
+    }
+
+    .txn-detail-desc {
+      font-weight: 400;
+      color: #444;
     }

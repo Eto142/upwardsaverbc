@@ -1,284 +1,156 @@
-@include('home.header')    <main>
+@include('home.header')
 
-  <style>
-    .personal-hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('temp/custom/assets/img/personal-hero-bg.jpg');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      padding: 100px 0;
-    }
-    .account-card {
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-      margin-bottom: 30px;
-      border: none;
-    }
-    .account-card:hover {
-      transform: translateY(-10px);
-    }
-    .account-card .card-header {
-      background: #0056b3;
-      color: white;
-      border-radius: 10px 10px 0 0 !important;
-      padding: 20px;
-    }
-    .feature-icon-personal {
-      font-size: 2.5rem;
-      color: #0056b3;
-      margin-bottom: 15px;
-    }
-    .personal-testimonial {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 30px;
-    }
-  </style>
-</head>
+<!-- Page Hero -->
+<section class="bk-page-hero">
+  <div class="bk-wrap">
+    <h1>Personal Banking</h1>
+    <p>Accounts and services designed for your everyday financial needs.</p>
+    <div class="bk-breadcrumb"><a href="/">Home</a> <span>/</span> Personal Banking</div>
+  </div>
+</section>
 
-
-  <!-- Personal Hero Section -->
-  <section class="personal-hero">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="hero-content">
-            <span data-aos="fade-up">PERSONAL BANKING</span>
-            <h1 data-aos="fade-up" data-aos-delay="300">Banking Made Simple For You</h1>
-            <p data-aos="fade-up" data-aos-delay="400">From everyday checking to savings for your dreams, we have the right accounts and services to help you manage your money with confidence.</p>
-            <div class="hero-btn" data-aos="fade-up" data-aos-delay="500">
-              <a href="register" class="btn style1">OPEN AN ACCOUNT<i class="ri-arrow-right-s-line"></i></a>
-              <a href="login" class="btn style2">PERSONAL ONLINE BANKING</a>
-            </div>
-          </div>
+<!-- Account Options -->
+<section class="bk-page-section">
+  <div class="bk-wrap">
+    <div class="bk-section-top">
+      <span class="bk-label">Account Options</span>
+      <h2 class="bk-title">Find the Right Account for You</h2>
+      <p class="bk-desc">Whether you need everyday access or want to grow your savings, we have the perfect account.</p>
+    </div>
+    <div class="bk-page-grid-3">
+      <div class="bk-product-card sr">
+        <div class="bk-product-card-head">
+          <h3>Everyday Checking</h3>
+          <p>For daily transactions</p>
         </div>
-        <div class="col-lg-6">
-          <img src="temp/custom/assets/img/personal-hero-img.png" alt="Personal Banking" class="img-fluid">
+        <div class="bk-product-card-body">
+          <ul>
+            <li><i class="ri-check-line"></i> No monthly fee with direct deposit</li>
+            <li><i class="ri-check-line"></i> Free online &amp; mobile banking</li>
+            <li><i class="ri-check-line"></i> Free debit card</li>
+            <li><i class="ri-check-line"></i> Access to 30,000+ ATMs</li>
+            <li><i class="ri-check-line"></i> Overdraft protection available</li>
+          </ul>
+        </div>
+        <div class="bk-product-card-foot">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--fill" style="font-size:.78rem;padding:7px 18px">Open Account <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="bk-product-card sr">
+        <div class="bk-product-card-head bk-product-card-head--gold">
+          <h3>High-Yield Savings</h3>
+          <p>Grow your money faster</p>
+        </div>
+        <div class="bk-product-card-body">
+          <ul>
+            <li><i class="ri-check-line"></i> Earn up to 4.25% APY</li>
+            <li><i class="ri-check-line"></i> No minimum balance required</li>
+            <li><i class="ri-check-line"></i> FDIC insured up to $250,000</li>
+            <li><i class="ri-check-line"></i> Automatic savings tools</li>
+            <li><i class="ri-check-line"></i> Easy transfers to checking</li>
+          </ul>
+        </div>
+        <div class="bk-product-card-foot">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--fill" style="font-size:.78rem;padding:7px 18px">Start Saving <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="bk-product-card sr">
+        <div class="bk-product-card-head bk-product-card-head--blue">
+          <h3>Premium Benefits</h3>
+          <p>The ultimate banking experience</p>
+        </div>
+        <div class="bk-product-card-body">
+          <ul>
+            <li><i class="ri-check-line"></i> Priority customer support</li>
+            <li><i class="ri-check-line"></i> Higher transfer limits</li>
+            <li><i class="ri-check-line"></i> Exclusive rewards programme</li>
+            <li><i class="ri-check-line"></i> Free international transfers</li>
+            <li><i class="ri-check-line"></i> Complimentary financial planning</li>
+          </ul>
+        </div>
+        <div class="bk-product-card-foot">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--fill" style="font-size:.78rem;padding:7px 18px">Go Premium <i class="ri-arrow-right-line"></i></a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Account Options Section -->
-  <section class="account-options ptb-100">
-    <div class="container">
-      <div class="section-title style1 text-center mb-50">
-        <span>ACCOUNT OPTIONS</span>
-        <h2>Find The Right Account For You</h2>
+<!-- Features -->
+<section class="bk-page-section--alt">
+  <div class="bk-wrap">
+    <div class="bk-page-grid-2">
+      <div class="sr">
+        <img src="frontassets/images/banner/6.jpg" alt="Personal Banking Features" style="border-radius:var(--r-lg);width:100%;height:320px;object-fit:cover">
       </div>
-      
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="card account-card">
-            <div class="card-header text-center">
-              <h3>Everyday Checking</h3>
-            </div>
-            <div class="card-body">
-              <ul class="list-style">
-                <li><i class="ri-check-line"></i> No monthly maintenance fee with direct deposit</li>
-                <li><i class="ri-check-line"></i> Free online and mobile banking</li>
-                <li><i class="ri-check-line"></i> Access to 50,000+ ATMs nationwide</li>
-                <li><i class="ri-check-line"></i> Debit card with zero liability protection</li>
-              </ul>
-              <div class="text-center mt-4">
-                <a href="#" class="btn style1">LEARN MORE</a>
-              </div>
-            </div>
+      <div class="sr">
+        <span class="bk-label">Features</span>
+        <h2 class="bk-title" style="text-align:left">Banking That Fits Your Life</h2>
+        <div style="margin-top:16px">
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-smartphone-line"></i></div>
+            <div><h4>Mobile Banking</h4><p>Manage your accounts on the go with our award-winning app.</p></div>
           </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="card account-card">
-            <div class="card-header text-center">
-              <h3>High-Yield Savings</h3>
-            </div>
-            <div class="card-body">
-              <ul class="list-style">
-                <li><i class="ri-check-line"></i> Competitive interest rates</li>
-                <li><i class="ri-check-line"></i> No monthly maintenance fees</li>
-                <li><i class="ri-check-line"></i> Easy transfers to checking</li>
-                <li><i class="ri-check-line"></i> FDIC insured up to $250,000</li>
-                <li><i class="ri-check-line"></i> 24/7 account access</li>
-              </ul>
-              <div class="text-center mt-4">
-                <a href="#" class="btn style1">LEARN MORE</a>
-              </div>
-            </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-shield-check-line"></i></div>
+            <div><h4>Advanced Security</h4><p>Biometric login, real-time alerts, and instant card lock.</p></div>
           </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="card account-card">
-            <div class="card-header text-center">
-              <h3>Premium Benefits</h3>
-            </div>
-            <div class="card-body">
-              <ul class="list-style">
-                <li><i class="ri-check-line"></i> Higher interest rates</li>
-                <li><i class="ri-check-line"></i> Free checks and money orders</li>
-                <li><i class="ri-check-line"></i> ATM fee reimbursements</li>
-                <li><i class="ri-check-line"></i> Dedicated customer service</li>
-                <li><i class="ri-check-line"></i> Discounts on loans</li>
-              </ul>
-              <div class="text-center mt-4">
-                <a href="#" class="btn style1">LEARN MORE</a>
-              </div>
-            </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-customer-service-2-line"></i></div>
+            <div><h4>24/7 Support</h4><p>Our team is always available when you need assistance.</p></div>
+          </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-money-dollar-circle-line"></i></div>
+            <div><h4>Fee-Free ATMs</h4><p>Access your money at over 30,000 ATMs nationwide for free.</p></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Features Section -->
-  <section class="personal-features bg-light ptb-100">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="feature-img-wrap">
-            <img src="temp/custom/assets/img/personal-features.png" alt="Personal Banking Features" class="img-fluid">
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="section-title style1">
-            <span>WHY CHOOSE US</span>
-            <h2>Banking That Fits Your Life</h2>
-          </div>
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">
-                <i class="ri-smartphone-line feature-icon-personal"></i>
-              </div>
-              <div class="feature-text">
-                <h3>Mobile Banking</h3>
-                <p>Deposit checks, pay bills, transfer money and more with our award-winning mobile app.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <i class="ri-shield-check-line feature-icon-personal"></i>
-              </div>
-              <div class="feature-text">
-                <h3>Security You Can Trust</h3>
-                <p>Advanced encryption and fraud monitoring to protect your accounts 24/7.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <i class="ri-customer-service-2-line feature-icon-personal"></i>
-              </div>
-              <div class="feature-text">
-                <h3>24/7 Customer Support</h3>
-                <p>Real people ready to help whenever you need it, day or night.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <i class="ri-exchange-dollar-line feature-icon-personal"></i>
-              </div>
-              <div class="feature-text">
-                <h3>Fee-Free ATMs</h3>
-                <p>Access your money at thousands of ATMs nationwide without paying fees.</p>
-              </div>
-            </div>
-          </div>
+<!-- Testimonials -->
+<section class="bk-page-section">
+  <div class="bk-wrap">
+    <div class="bk-section-top">
+      <span class="bk-label">Testimonials</span>
+      <h2 class="bk-title">What Our Customers Say</h2>
+    </div>
+    <div class="bk-page-grid-3">
+      <div class="bk-testi-mini sr">
+        <div class="bk-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p>"Switching to Upward Saver Bank was the best financial decision I've made. The savings rates are excellent and the app is incredibly easy to use."</p>
+        <div class="bk-testi-mini-author"><div><strong>Michael Johnson</strong><span>Personal Account Holder</span></div></div>
+      </div>
+      <div class="bk-testi-mini sr">
+        <div class="bk-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+        <p>"The customer service is outstanding. They helped me set up my account and walked me through every feature. Truly personal banking."</p>
+        <div class="bk-testi-mini-author"><div><strong>Sarah Williams</strong><span>Premium Member</span></div></div>
+      </div>
+      <div class="bk-testi-mini sr">
+        <div class="bk-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i></div>
+        <p>"I love the fee-free ATM network and the budgeting tools in the app. It's helped me save more than I thought possible."</p>
+        <div class="bk-testi-mini-author"><div><strong>David Rodriguez</strong><span>Savings Account Holder</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bk-cta">
+  <div class="bk-wrap">
+    <div class="bk-cta-box sr">
+      <div class="bk-cta-content">
+        <h2>Ready to Open Your Account?</h2>
+        <p>It takes less than 5 minutes. No paperwork, no hassle.</p>
+        <div class="bk-cta-btns">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Get Started Today <i class="ri-arrow-right-line"></i></a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="personal-testimonials ptb-100">
-    <div class="container">
-      <div class="section-title style1 text-center mb-50">
-        <span>HAPPY CUSTOMERS</span>
-        <h2>What Our Customers Say</h2>
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="personal-testimonial">
-            <div class="rating mb-3">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-            </div>
-            <p>"I've been with Upward Saver Bank Corporation for 10 years and their customer service is exceptional. The mobile app makes banking so convenient!"</p>
-            <div class="client-info mt-4">
-              <img src="temp/custom/assets/img/testimonials/client-1.jpg" alt="Client" class="rounded-circle" width="50">
-              <div class="client-details">
-                <h5>Michael Johnson</h5>
-                <span>Customer since 2013</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="personal-testimonial">
-            <div class="rating mb-3">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-half-fill"></i>
-            </div>
-            <p>"Switching to Upward Saver Bank Corporation was the best financial decision I made. Their savings account rates are unbeatable."</p>
-            <div class="client-info mt-4">
-              <img src="temp/custom/assets/img/testimonials/client-2.jpg" alt="Client" class="rounded-circle" width="50">
-              <div class="client-details">
-                <h5>Sarah Williams</h5>
-                <span>Customer since 2018</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="personal-testimonial">
-            <div class="rating mb-3">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-            </div>
-            <p>"The loan process was so smooth and the rates were much better than other banks. Highly recommend for personal loans!"</p>
-            <div class="client-info mt-4">
-              <img src="temp/custom/assets/img/testimonials/client-3.jpg" alt="Client" class="rounded-circle" width="50">
-              <div class="client-details">
-                <h5>David Rodriguez</h5>
-                <span>Customer since 2020</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="personal-cta bg-primary text-white ptb-60">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-8">
-          <h2 class="text-white">Ready to Open Your Account?</h2>
-          <p class="text-white mb-lg-0">It only takes 5 minutes to apply online and start enjoying better banking.</p>
-        </div>
-        <div class="col-lg-4 text-lg-end">
-          <a href="register" class="btn style2">GET STARTED TODAY</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
+  </div>
+</section>
 
 @include('home.footer')

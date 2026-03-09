@@ -1,42 +1,61 @@
-@include('home.header') 
+@include('home.header')
 
+<!-- Page Hero -->
+<section class="bk-page-hero">
+  <div class="bk-wrap">
+    <h1>Business Savings Account</h1>
+    <p>Store unused assets where they can earn interest until you need them.</p>
+    <div class="bk-breadcrumb"><a href="/">Home</a> <span>/</span> <a href="{{ url('business') }}">Business</a> <span>/</span> Business Savings</div>
+  </div>
+</section>
 
-
-<div class="banner-section">
-    <div class="main-slider-carousel owl-carousel owl-theme" style="height:620px;">
-
-        <div class="slide" data-bg-image="https://ofmetro.com//front/images/main-slider/intro-1.jpg" style="height:620px;">
-            <div class="auto-container w-100">
-                <div class="row clearfix">
-
-                    <!-- Content Column -->
-                    <div class="content-column col-lg-7 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <h1> <span>Business Savings Account</span> </h1>
-                            <div class="text" style="color:#1F1B44;">Store your unused assets in an NTB Business Savings account where they can earn interest until you need them. This account is great for holding cash that is already obligated, for example, money soon to be paid to a supplier, or to accumulate money until a major receipt comes in.</div>
-                            <div class="btn-box">
-                                <a href="{{url('about')}}" class="theme-btn btn-style-one"><span class="txt">Who We Are</span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+<!-- Product Detail -->
+<section class="bk-page-section">
+  <div class="bk-wrap">
+    <div class="bk-page-grid-2">
+      <div class="sr">
+        <span class="bk-label">Business Account</span>
+        <h2 class="bk-title" style="text-align:left">Grow Your Business Reserves</h2>
+        <p style="margin-top:12px;line-height:1.8;color:#475569">Store your unused assets in a Business Savings account where they can earn interest until you need them. This account is great for holding cash that is already obligated — for example, money soon to be paid to a supplier — or to accumulate money until a major receipt comes in.</p>
+        <div style="margin-top:20px">
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-percent-line"></i></div>
+            <div><h4>Competitive Interest</h4><p>Earn competitive rates on your idle business funds.</p></div>
+          </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-hand-coin-line"></i></div>
+            <div><h4>Easy Access</h4><p>Access your funds when you need them without penalties.</p></div>
+          </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-shield-check-line"></i></div>
+            <div><h4>Secure &amp; Insured</h4><p>Your business deposits are fully insured up to $250,000.</p></div>
+          </div>
         </div>
-
+        <div style="margin-top:24px">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--primary">Open Business Savings <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+      <div class="sr">
+        <img src="frontassets/images/banner/7.jpg" alt="Business Savings" style="border-radius:var(--r-lg);width:100%;height:380px;object-fit:cover">
+      </div>
     </div>
+  </div>
+</section>
 
+<!-- CTA -->
+<section class="bk-cta">
+  <div class="bk-wrap">
+    <div class="bk-cta-box sr">
+      <div class="bk-cta-content">
+        <h2>Ready to Open a Business Savings Account?</h2>
+        <p>Start earning interest on your business funds today.</p>
+        <div class="bk-cta-btns">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Get Started <i class="ri-arrow-right-line"></i></a>
+          <a href="{{ url('contact') }}" class="bk-btn bk-btn--glass">Talk to a Banker <i class="ri-phone-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
-<!-- End Banner Section -->
-
-<!-- Map Section -->
-<!-- <div class="map-section">
-			<div class="contact-map-area">
-				<iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.961936781822!2d-122.34013238480624!3d47.60742979591455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab3cbba9c83%3A0x548849e16a192f92!2s1301%202nd%20Ave%20%232600%2C%20Seattle%2C%20WA%2098101%2C%20USA!5e0!3m2!1sen!2sng!4v1626796438815!5m2!1sen!2sng" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-			</div>
-		</div> -->
-<!-- End Map Section -->
-         
 @include('home.footer')

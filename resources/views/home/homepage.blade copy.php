@@ -7,22 +7,22 @@
   <div class="bk-hero-slides" id="bkHeroTrack">
     <!-- Slide 1 -->
     <div class="bk-hero-slide">
-      <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/banner-slide-1.jpg')"></div>
+      <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/1.jpg')"></div>
       <div class="bk-wrap">
         <div class="bk-hero-body">
           <span class="bk-hero-label">Welcome to Upward Saver Bank Banking Cooperation</span>
-          <h1>Transfer Money Across The World In Real time</h1>
-          <p>Upward Saver Bank Corporation transformed the digital banking industry using data and technology more than ten years ago. We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.</p>
+          <h1>Banking Made<br>Simple &amp; Secure</h1>
+          <p>Experience seamless digital banking with industry-leading security. Send, save, and grow your finances with confidence.</p>
           <div class="bk-hero-actions">
             <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Get Started <i class="ri-arrow-right-line"></i></a>
-            <a href="{{ route('login') }}" class="bk-btn bk-btn--glass">Login <i class="ri-play-circle-line"></i></a>
+            <a href="{{ url('about') }}" class="bk-btn bk-btn--glass">Learn More <i class="ri-play-circle-line"></i></a>
           </div>
         </div>
       </div>
     </div>
     <!-- Slide 2 -->
     <div class="bk-hero-slide">
-      <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/banner-slide-2.jpg')"></div>
+      <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/2.jpg')"></div>
       <div class="bk-wrap">
         <div class="bk-hero-body">
           <span class="bk-hero-label">Personal &amp; Business Solutions</span>
@@ -37,7 +37,7 @@
     </div>
     <!-- Slide 3 -->
     <div class="bk-hero-slide">
-      <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/banner-slide-3.jpg')"></div>
+      <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/4.jpg')"></div>
       <div class="bk-wrap">
         <div class="bk-hero-body">
           <span class="bk-hero-label">Global Transfers</span>
@@ -64,55 +64,6 @@
 </section>
 
 <!-- ============================================================
-     FEATURE TICKER
-     ============================================================ -->
-<div class="bk-ticker" aria-hidden="true">
-  <div class="bk-ticker-track">
-    <span class="bk-ticker-item"><i class="ri-shield-check-fill"></i> Bank-Grade Security</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-flashlight-fill"></i> Instant Transfers</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-global-fill"></i> 180+ Countries</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-customer-service-2-fill"></i> 24/7 Live Support</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-bank-card-fill"></i> Free  Credit Cards</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-percent-fill"></i> Competitive Interest Rates</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-lock-fill"></i> FDIC Insured Up to $250K</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-pie-chart-fill"></i> Smart Investment Tools</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-smartphone-fill"></i> Full Mobile Banking</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-exchange-dollar-fill"></i> Real-Time Exchange Rates</span>
-    <span class="bk-ticker-sep"></span>
-    <!-- duplicate for seamless loop -->
-    <span class="bk-ticker-item"><i class="ri-shield-check-fill"></i> Bank-Grade Security</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-flashlight-fill"></i> Instant Transfers</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-global-fill"></i> 180+ Countries</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-customer-service-2-fill"></i> 24/7 Live Support</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-bank-card-fill"></i> Free  Credit Cards</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-percent-fill"></i> Competitive Interest Rates</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-lock-fill"></i> FDIC Insured Up to $250K</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-pie-chart-fill"></i> Smart Investment Tools</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-smartphone-fill"></i> Full Mobile Banking</span>
-    <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-exchange-dollar-fill"></i> Real-Time Exchange Rates</span>
-    <span class="bk-ticker-sep"></span>
-  </div>
-</div>
-
-<!-- ============================================================
      TRUST STRIP
      ============================================================ -->
 <section class="bk-trust">
@@ -133,32 +84,6 @@
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-customer-service-2-line"></i></div>
         <div><strong>24/7 Support</strong><span>Always here to help you</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     STATS / NUMBERS
-     ============================================================ -->
-<section class="bk-stats">
-  <div class="bk-wrap">
-    <div class="bk-stats-grid">
-      <div class="bk-stat sr">
-        <span class="bk-stat-val">50,000<sup>+</sup></span>
-        <span class="bk-stat-label">Happy Customers</span>
-      </div>
-      <div class="bk-stat sr">
-        <span class="bk-stat-val">180<sup>+</sup></span>
-        <span class="bk-stat-label">Countries Supported</span>
-      </div>
-      <div class="bk-stat sr">
-        <span class="bk-stat-val">$2B<sup>+</sup></span>
-        <span class="bk-stat-label">Transactions Processed</span>
-      </div>
-      <div class="bk-stat sr">
-        <span class="bk-stat-val">15<sup>+</sup></span>
-        <span class="bk-stat-label">Years of Excellence</span>
       </div>
     </div>
   </div>
@@ -210,51 +135,6 @@
         <h3>Wealth Management</h3>
         <p>Expert financial planning and investment advisory to grow your portfolio and secure your future.</p>
         <a href="{{ url('about') }}" class="bk-card-link">Learn More <i class="ri-arrow-right-line"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SMART BANKING FEATURES
-     ============================================================ -->
-<section class="bk-features-dark" id="features">
-  <div class="bk-wrap">
-    <div class="bk-section-top">
-      <span class="bk-label bk-label--light">Smart Banking</span>
-      <h2 class="bk-title bk-title--white">Everything You Need, All in One Platform</h2>
-      <p class="bk-desc bk-desc--light">Cutting-edge technology meets personalised service manage your money with tools built for modern life.</p>
-    </div>
-    <div class="bk-fd-grid">
-      <div class="bk-fd-item">
-        <div class="bk-fd-icon"><i class="ri-send-plane-fill"></i></div>
-        <h4>Instant Transfers</h4>
-        <p>Send money to anyone, anywhere in seconds. Domestic and international transfers at unbeatable rates.</p>
-      </div>
-      <div class="bk-fd-item">
-        <div class="bk-fd-icon"><i class="ri-smartphone-line"></i></div>
-        <h4>Mobile Banking</h4>
-        <p>Full-featured banking in your pocket. Check balances, pay bills, and manage accounts on the go anytime.</p>
-      </div>
-      <div class="bk-fd-item">
-        <div class="bk-fd-icon"><i class="ri-fingerprint-line"></i></div>
-        <h4>Biometric Security</h4>
-        <p>Log in with your fingerprint or face ID. Your identity protected by the latest biometric technology.</p>
-      </div>
-      <div class="bk-fd-item">
-        <div class="bk-fd-icon"><i class="ri-notification-3-line"></i></div>
-        <h4>Real-Time Alerts</h4>
-        <p>Instant notifications for every transaction. Stay informed and in full control of your finances 24/7.</p>
-      </div>
-      <div class="bk-fd-item">
-        <div class="bk-fd-icon"><i class="ri-line-chart-line"></i></div>
-        <h4>Spending Insights</h4>
-        <p>AI-powered analytics help you understand spending patterns and reach your savings goals faster.</p>
-      </div>
-      <div class="bk-fd-item">
-        <div class="bk-fd-icon"><i class="ri-shield-star-line"></i></div>
-        <h4>Zero-Fraud Guarantee</h4>
-        <p>Industry-leading fraud protection. If you're ever impacted by fraud, we'll restore your funds guaranteed.</p>
       </div>
     </div>
   </div>

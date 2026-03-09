@@ -1,126 +1,109 @@
-@include('home.header')    <main>
-         
-<div class="banner-section">
-    <div class="main-slider-carousel owl-carousel owl-theme" style="height:620px;">
+@include('home.header')
 
-        <div class="slide" data-bg-image="https://ofmetro.com//front/images/main-slider/intro-1.jpg" style="height:620px;">
-            <div class="auto-container w-100">
-                <div class="row clearfix">
+<!-- Page Hero -->
+<section class="bk-page-hero">
+  <div class="bk-wrap">
+    <h1>Individual Retirement Account</h1>
+    <p>Prepare for a secure retirement with tax advantages and competitive returns.</p>
+    <div class="bk-breadcrumb"><a href="/">Home</a> <span>/</span> <a href="{{ url('personal') }}">Personal</a> <span>/</span> IRA</div>
+  </div>
+</section>
 
-                    <!-- Content Column -->
-                    <div class="content-column col-lg-7 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <h1> <span>Individual Retirement Account</span> </h1>
-                            <div class="text" style="color:#1F1B44;">An IRA can prepare you for a secure retirement, offering greater
-                                returns than standard savings and a variety of tax advantages and terms to fit your needs. So whether you
-                                plan to travel, start a new hobby, or just hang out with the grandkids, we can help you achieve financial
-                                security.</div>
-                            <div class="btn-box">
-                                <a href="{{url('about')}}" class="theme-btn btn-style-one"><span class="txt">Who We Are</span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+<!-- IRA Overview -->
+<section class="bk-page-section">
+  <div class="bk-wrap">
+    <div class="bk-page-grid-2">
+      <div class="sr">
+        <span class="bk-label">Retirement Planning</span>
+        <h2 class="bk-title" style="text-align:left">Invest in Your Future</h2>
+        <p style="margin-top:12px;line-height:1.8;color:#475569">An IRA can prepare you for a secure retirement, offering greater returns than standard savings and a variety of tax advantages and terms to fit your needs. Whether you plan to travel, start a new hobby, or just spend time with family, we can help you achieve financial security.</p>
+        <div style="margin-top:24px">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--primary">Open an IRA <i class="ri-arrow-right-line"></i></a>
         </div>
-
-    </div>
-
-
-</div>
-<!-- End Banner Section -->
-
-
-
-<!-- About Section -->
-<div class="about-section">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="row align-items-center clearfix">
-                <!-- Content Column -->
-                <div class="content-column col-lg-12 col-md-12 col-sm-12 mb-0">
-                    <div class="about-column">
-                        <div class="sec-title">
-                            <h2 style="visibility:hidden;"> <span>Line of Credit Sweeps</span> <br></h2>
-                        </div>
-                        <div class="accordian-box">
-                            <!--Accordian Box-->
-                            <ul class="accordion-box">
-
-                                <!--Block-->
-                                <li class="accordion block active-block">
-                                    <div class="acc-btn active">
-                                        <div class="icon-outer"><span class="icon icofont-plus"></span> <span class="icon icofont-minus"></span></div>DETAILS
-                                    </div>
-                                    <div class="acc-content current">
-                                        <div class="content">
-                                            <div class="accordian-text">
-                                                Save for retirement with tax advantages*<br>
-                                                Earn competitive interest higher than regular savings<br>
-                                                Available in Traditional and Roth<br>
-                                                Annual contribution limits apply<br>
-                                                $1,000 annual “catch up” contributions allowed for ages 50 and better<br>
-                                                No annual fees or set up fees<br>
-                                                Federally insured<br>
-                                                $2,500 minimum deposit to open
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <!--Block-->
-                                <li class="accordion block">
-                                    <div class="acc-btn">
-                                        <div class="icon-outer"><span class="icon icofont-plus"></span> <span class="icon icofont-minus"></span></div>TRADITONAL VS ROTH.
-                                    </div>
-                                    <div class="acc-content">
-                                        <div class="content">
-                                            <div class="accordian-text">
-                                                There are advantages to both Traditional and Roth IRAs. One of the biggest differences is the time at which you
-                                                see the most advantage. A Traditional IRA provides potential tax relief today, while a Roth IRA has the potential
-                                                for the most tax benefit at time of retirement.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <!--Block-->
-                                <li class="accordion block">
-                                    <div class="acc-btn">
-                                        <div class="icon-outer"><span class="icon icofont-plus"></span> <span class="icon icofont-minus"></span></div>Coverdell ESA
-                                    </div>
-                                    <div class="acc-content">
-                                        <div class="content">
-                                            <div class="accordian-text">
-                                                Create an easier transition into college for yourself and your student by setting up a savings account early. A Coverdell
-                                                Education Savings Account (ESA) provides a tax-free safe place to grow competitive dividends and also financial confidence
-                                                for a new stage in life.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      </div>
+      <div class="sr">
+        <div class="bk-product-card">
+          <div class="bk-pc-head bk-pc-head--blue">
+            <i class="ri-funds-line"></i>
+            <h3>IRA Features</h3>
+            <p>Tax-advantaged retirement savings</p>
+          </div>
+          <div class="bk-pc-body">
+            <ul>
+              <li><i class="ri-check-line"></i> Save for retirement with tax advantages</li>
+              <li><i class="ri-check-line"></i> Competitive interest higher than regular savings</li>
+              <li><i class="ri-check-line"></i> Available in Traditional and Roth</li>
+              <li><i class="ri-check-line"></i> Annual contribution limits apply</li>
+              <li><i class="ri-check-line"></i> $1,000 annual catch-up for ages 50+</li>
+              <li><i class="ri-check-line"></i> No annual or set-up fees</li>
+              <li><i class="ri-check-line"></i> Federally insured</li>
+              <li><i class="ri-check-line"></i> $2,500 minimum deposit to open</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- End About Section -->
+  </div>
+</section>
 
-<!-- Map Section -->
-<!-- <div class="map-section">
-			<div class="contact-map-area">
-				<iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.961936781822!2d-122.34013238480624!3d47.60742979591455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab3cbba9c83%3A0x548849e16a192f92!2s1301%202nd%20Ave%20%232600%2C%20Seattle%2C%20WA%2098101%2C%20USA!5e0!3m2!1sen!2sng!4v1626796438815!5m2!1sen!2sng" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-			</div>
-		</div> -->
-<!-- End Map Section -->
+<!-- Traditional vs Roth -->
+<section class="bk-page-section--alt">
+  <div class="bk-wrap" style="max-width:820px">
+    <div class="bk-section-top">
+      <span class="bk-label">Compare</span>
+      <h2 class="bk-title">Traditional vs. Roth IRA</h2>
+    </div>
+    <div class="bk-accordion">
+      <div class="bk-acc-item open sr">
+        <button class="bk-acc-btn">Traditional IRA <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>A Traditional IRA provides potential tax relief today. Contributions may be tax-deductible, and your investments grow tax-deferred until you make withdrawals in retirement. This is ideal if you expect to be in a lower tax bracket when you retire.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">Roth IRA <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>A Roth IRA has the potential for the most tax benefit at the time of retirement. Contributions are made with after-tax dollars, but qualified withdrawals in retirement are completely tax-free. This is ideal if you expect to be in a higher tax bracket when you retire.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">Coverdell Education Savings Account (ESA) <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Create an easier transition into college by setting up a savings account early. A Coverdell ESA provides a tax-free safe place to grow competitive dividends and also financial confidence for a new stage in life. Contributions can be used for qualified education expenses from kindergarten through college.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- CTA -->
+<section class="bk-cta">
+  <div class="bk-wrap">
+    <div class="bk-cta-box sr">
+      <div class="bk-cta-content">
+        <h2>Start Planning Your Retirement Today</h2>
+        <p>Open an IRA account and let your money work harder for your future.</p>
+        <div class="bk-cta-btns">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Open IRA Account <i class="ri-arrow-right-line"></i></a>
+          <a href="{{ url('contact') }}" class="bk-btn bk-btn--glass">Speak to an Advisor <i class="ri-phone-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accordion Script -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.bk-acc-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=this.parentElement;
+      var open=item.classList.contains('open');
+      item.closest('.bk-accordion').querySelectorAll('.bk-acc-item').forEach(function(i){i.classList.remove('open')});
+      if(!open) item.classList.add('open');
+    });
+  });
+});
+</script>
 
 @include('home.footer')

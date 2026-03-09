@@ -1,260 +1,166 @@
 @include('home.header')
-    <!-- Banner section start -->
-    <div class="main">
-      <section class="hero-section ptb-100 gradient-overlay"
-          style="background: url('img/header-bg-5.html')no-repeat center center / cover">
-          <div class="container">
-              <div class='row'>
-                  <div class="col-md-12 text-center">
-                      <div id="google_translate_element"></div>
-                      <script type="text/javascript">
-                          function googleTranslateElementInit() {
-                          new google.translate.TranslateElement({ p: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-                      }
-                      </script>
-                      <script type="text/javascript"
-                          src="translate.google.com/translate_a/elementa0d8a0d8a0d8.html?cb=googleTranslateElementInit">
-                      </script>
-                  </div>
-              </div>
-  
-              <div class="row justify-content-center">
-                  <div class="col-md-8 col-lg-7">
-                      <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-                          <h1 class="text-white mb-0">FAQ</h1>
-                          <div class="custom-breadcrumb">
-                              <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                                  <li class="list-inline-item breadcrumb-item active">Upward Saver Bank Corporation</li>
-                              </ol>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-  
-      <section class="promo-section ptb-100">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-8 col-md-9">
-                      <div class="section-heading mb-5">
-                          <h2>Frequently Asked Questions</h2>
-                          <p class="lead">
-                              Have Any Question?
-                          </p>
-                      </div>
-                  </div>
-              </div>
-              <!--pricing faq start-->
-              <div class="row">
-                  <div class="col-lg-6">
-                      <div id="accordion-1" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-1" data-toggle="collapse" role="button"
-                                  data-target="#collapse-1-1" aria-expanded="false" aria-controls="collapse-1-1">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> What is Upward Saver Bank Corporation?</h6>
-                              </div>
-                              <div id="collapse-1-1" class="collapse" aria-labelledby="heading-1-1"
-                                  data-parent="#accordion-1">
-                                  <div class="card-body">
-                                      <p>Upward Saver Bank Corporation our company provides a full investment service focused on the
-                                          bitcoin and cryptocurrency market We are among the best platforms to invest and
-                                          grow your bitcoin and other cryptocurrency</p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-  
-                      <div id="accordion-2" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-7" data-toggle="collapse" role="button"
-                                  data-target="#collapse-2-7" aria-expanded="false" aria-controls="collapse-2-7">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> What Is Bank Account?</h6>
-                              </div>
-                              <div id="collapse-2-7" class="collapse" aria-labelledby="heading-2-7"
-                                  data-parent="#accordion-2">
-                                  <div class="card-body">
-                                      <p>A bank account is a financial account maintained by a bank or other financial
-                                          institution in which the financial transactions between the bank and a customer
-                                          are recorded.</p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-  
-                      <div id="accordion-1" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-2" data-toggle="collapse" role="button"
-                                  data-target="#collapse-1-2" aria-expanded="false" aria-controls="collapse-1-2">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> How do I create my account?</h6>
-                              </div>
-                              <div id="collapse-1-2" class="collapse" aria-labelledby="heading-1-2"
-                                  data-parent="#accordion-1">
-                                  <div class="card-body">
-                                      <p>Registration process is very easy and will take a few moments to complete Simply
-                                          click CREATE ACCOUNT button and fill in all the required fields</p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-  
-                      <div id="accordion-1" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-3" data-toggle="collapse" role="button"
-                                  data-target="#collapse-1-3" aria-expanded="false" aria-controls="collapse-1-3">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> How do I make a deposit?</h6>
-                              </div>
-                              <div id="collapse-1-3" class="collapse" aria-labelledby="heading-1-3"
-                                  data-parent="#accordion-1">
-                                  <div class="card-body">
-                                      <p>To deposit funds in your trading account is quick and simple For your convenience
-                                          you may choose one of the several available deposit methods To make a successful
-                                          deposit please follow the steps below Login to your account Click on the
-                                          DEPOSITS button in the DASHBOARD section Choose the deposit option And follow
-                                          the steps to complete your transaction</p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-  
-                      <div id="accordion-1" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-4" data-toggle="collapse" role="button"
-                                  data-target="#collapse-1-4" aria-expanded="false" aria-controls="collapse-1-4">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> How long does my deposit take
-                                      before it can reflect on my Upward Saver Bank Corporation account dashboard?</h6>
-                              </div>
-                              <div id="collapse-1-4" class="collapse" aria-labelledby="heading-1-4"
-                                  data-parent="#accordion-1">
-                                  <div class="card-body">
-                                      <p>Your deposit will be reflected immediately once it is confirmed on the blockchain
-                                          network</p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-                  </div>
-  
-                  <div class="col-lg-6">
-                      <div id="accordion-2" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-5" data-toggle="collapse" role="button"
-                                  data-target="#collapse-2-5" aria-expanded="false" aria-controls="collapse-2-5">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> What Are The Requirements For
-                                      Business Loan?</h6>
-                              </div>
-                              <div id="collapse-2-5" class="collapse" aria-labelledby="heading-2-5"
-                                  data-parent="#accordion-2">
-                                  <div class="card-body">
-                                      <p>If you received a Paycheck Protection Program (PPP) loan, loan forgiveness isn’t
-                                          automatic. You need to apply if you want your loan forgiven. You may need to
-                                          include bank account statements on your PPP forgiveness application. <br>
-                                          Lenders want proof of your business’s incoming money. As a result, you may have
-                                          to show your bank statements to the lender when you apply for a business loan.
-                                          The lender reviews the statements to determine if you are a good fit for a loan.
-                                      </p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-  
-                      <div id="accordion-2" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-6" data-toggle="collapse" role="button"
-                                  data-target="#collapse-2-6" aria-expanded="false" aria-controls="collapse-2-6">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> How long does it take to process
-                                      a withdrawal to an international bank?</h6>
-                              </div>
-                              <div id="collapse-2-6" class="collapse" aria-labelledby="heading-2-6"
-                                  data-parent="#accordion-2">
-                                  <div class="card-body">
-                                      <p>Once we receive your withdrawal request we process immediately and send to your
-                                          Bank Account</p>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- Accordion card 3 -->
-                      </div>
-  
-  
-  
-                      <div id="accordion-2" class="accordion accordion-faq">
-                          <!-- Accordion card 1 -->
-                          <div class="card">
-                              <div class="card-header py-4" id="heading-1-9" data-toggle="collapse" role="button"
-                                  data-target="#collapse-2-9" aria-expanded="false" aria-controls="collapse-2-9">
-                                  <h6 class="mb-0"><span class="ti-receipt mr-3"></span> Can I have more than two
-                                      accounts?</h6>
-                              </div>
-                              <div id="collapse-2-9" class="collapse" aria-labelledby="heading-2-9"
-                                  data-parent="#accordion-2">
-                                  <div class="card-body">
-                                      <p>We do not allow multiple accounts except only for business purposes</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-  
-                  </div>
-  
-              </div>
-              <!--pricing faq end-->
-          </div>
-      </section>
+
+<!-- Page Hero -->
+<section class="bk-page-hero">
+  <div class="bk-wrap">
+    <h1>Frequently Asked Questions</h1>
+    <p>Get answers to common questions about our banking products and services.</p>
+    <div class="bk-breadcrumb"><a href="/">Home</a> <span>/</span> FAQ</div>
   </div>
-  
-  
-  <div class="client-section gray-light-bg" style="padding: 10px 0px;">
-      <div class="container">
-          <!--clients logo start-->
-          <div class="client-section gray-light-bg" style="padding: 10px 0px;">
-              <div class="container">
-                  <!--clients logo start-->
-                  <div class="row align-items-center">
-                      <div class="col-md-12">
-                          <div class="owl-carousel owl-theme clients-carousel dot-indicator">
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-01.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-02.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-03.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-04.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-05.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-06.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-07.png" alt="client logo" class="client-img">
-                              </div>
-                              <div class="item single-client">
-                                  <img src="base/img/clients-logo-08.png" alt="client logo" class="client-img">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-          <!--clients logo end-->
+</section>
+
+<!-- FAQ Accordion -->
+<section class="bk-page-section">
+  <div class="bk-wrap" style="max-width:820px">
+
+    <div class="bk-section-top">
+      <span class="bk-label">General</span>
+      <h2 class="bk-title">General Banking</h2>
+    </div>
+
+    <div class="bk-accordion">
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">What is Upward Saver Bank Banking Corporation? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Upward Saver Bank Banking Corporation is a full-service financial institution offering personal and business banking, loans, credit cards, and investment services. We are committed to providing secure, convenient, and innovative banking solutions to help our customers achieve their financial goals.</p>
+        </div>
       </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">How do I open a bank account? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Opening an account is easy. You can apply online by clicking "Open Account" on our website, visit any of our branch locations, or call our customer service team. You'll need a valid government-issued ID, proof of address, and a minimum opening deposit (varies by account type).</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">Is my money safe with Upward Saver Bank? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Yes. Your deposits are insured up to $250,000 per depositor. We also employ industry-leading security measures including 256-bit encryption, multi-factor authentication, and 24/7 fraud monitoring to keep your accounts safe.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">What are your banking hours? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Our online and mobile banking services are available 24/7. Branch hours vary by location — most branches are open Monday to Friday, 9:00 AM – 5:00 PM, and Saturday, 9:00 AM – 1:00 PM. You can find specific hours for your branch on our website or mobile app.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bk-section-top" style="margin-top:48px">
+      <span class="bk-label">Accounts</span>
+      <h2 class="bk-title">Deposits &amp; Withdrawals</h2>
+    </div>
+
+    <div class="bk-accordion">
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">How do I deposit money into my account? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>You can deposit funds through several methods: direct deposit from your employer, mobile check deposit using our app, wire transfer from another bank, in-branch cash or cheque deposit, or through any of our ATMs that accept deposits.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">How long do deposits take to clear? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Direct deposits and wire transfers are usually available the same or next business day. Mobile cheque deposits typically clear within 1–2 business days. ACH transfers may take 2–3 business days. In-branch cash deposits are available immediately.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">What are the withdrawal limits? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Daily ATM withdrawal limits depend on your account type and typically range from $500 to $5,000. Online transfers have separate limits. If you need to make a large withdrawal, please contact us in advance to ensure smooth processing.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">Can I have multiple accounts? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Absolutely. Many customers maintain multiple accounts for different purposes — such as a checking account for everyday use, a savings account for goals, and a business account. You can manage all of them from a single online banking login.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bk-section-top" style="margin-top:48px">
+      <span class="bk-label">Loans &amp; Cards</span>
+      <h2 class="bk-title">Loans &amp; Credit Cards</h2>
+    </div>
+
+    <div class="bk-accordion">
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">How do I apply for a loan? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>You can apply for a loan online through our secure application portal, visit a branch, or call us. We offer personal loans, auto loans, home mortgages, and business loans. Pre-qualification is available without affecting your credit score.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">What credit score do I need for a loan? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Credit requirements vary by loan type. Generally, a score of 670 or higher qualifies for our best rates. However, we consider the full picture — income, employment history, and existing debts — so we encourage everyone to apply.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">How do I report a lost or stolen card? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>If your card is lost or stolen, immediately lock it through our mobile app or online banking. Then call our 24/7 hotline at <strong>1-800-555-0199</strong> to report it and request a replacement. We will monitor your account for any unauthorised activity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bk-section-top" style="margin-top:48px">
+      <span class="bk-label">Digital</span>
+      <h2 class="bk-title">Online &amp; Mobile Banking</h2>
+    </div>
+
+    <div class="bk-accordion">
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">How do I enroll in online banking? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Visit our website and click "Sign Up" or download our mobile app. You'll need your account number and personal details to verify your identity. Once enrolled, you can manage accounts, pay bills, transfer funds, and more.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">Is mobile banking secure? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Yes. Our mobile app uses 256-bit encryption, biometric login (fingerprint and face recognition), and session timeouts for your protection. We never store sensitive data on your device and all communications are encrypted end-to-end.</p>
+        </div>
+      </div>
+      <div class="bk-acc-item sr">
+        <button class="bk-acc-btn">Can I send money to other people? <i class="ri-add-line"></i></button>
+        <div class="bk-acc-body">
+          <p>Yes. Our platform supports peer-to-peer payments, domestic wires, ACH transfers, and international wire transfers. You can send money directly from our mobile app or online banking portal to anyone with a bank account.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
+</section>
+
+<!-- Still Have Questions CTA -->
+<section class="bk-cta">
+  <div class="bk-wrap">
+    <div class="bk-cta-box sr">
+      <div class="bk-cta-content">
+        <h2>Still Have Questions?</h2>
+        <p>Our support team is here to help. Reach out anytime.</p>
+        <div class="bk-cta-btns">
+          <a href="{{ url('contact') }}" class="bk-btn bk-btn--white">Contact Us <i class="ri-arrow-right-line"></i></a>
+          <a href="tel:+18005550199" class="bk-btn bk-btn--glass">Call 1-800-555-0199 <i class="ri-phone-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.bk-acc-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=this.parentElement;
+      var open=item.classList.contains('open');
+      // close siblings
+      item.closest('.bk-accordion').querySelectorAll('.bk-acc-item').forEach(function(i){i.classList.remove('open')});
+      if(!open) item.classList.add('open');
+    });
+  });
+});
+</script>
 
 @include('home.footer')

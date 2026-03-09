@@ -40,14 +40,14 @@
       <!-- Contact -->
       <div class="bk-footer-col">
         <h4>Contact Us</h4>
-        <div class="bk-footer-contact-item">
+        {{-- <div class="bk-footer-contact-item">
           <i class="ri-map-pin-2-line"></i>
           <div><small>Address</small><p>256 Cowbridge Road E, Cardiff CF11 9TN, United Kingdom</p></div>
-        </div> 
-         <div class="bk-footer-contact-item">
+        </div> --}}
+        {{-- <div class="bk-footer-contact-item">
           <i class="ri-phone-line"></i>
           <div><small>Phone</small><p>+44 770 142 3168</p></div>
-        </div> 
+        </div> --}}
         <div class="bk-footer-contact-item">
           <i class="ri-mail-line"></i>
           <div><small>Email</small><p><a href="mailto:support@upwardsaverbc.com">support@upwardsaverbc.com</a></p></div>
@@ -58,7 +58,7 @@
   <div class="bk-footer-bottom">
     <div class="bk-wrap">
       <div class="bk-footer-bottom-inner">
-        <p>&copy;  2026 Upward Saver Bank Banking Corporation. All rights reserved.</p>
+        <p>&copy; {{ date('Y') }} Upward Saver Bank Banking Corporation. All rights reserved.</p>
         <div class="bk-footer-bottom-links">
           <a href="{{ url('terms') }}">Terms</a>
           <a href="#">Privacy</a>
@@ -77,29 +77,11 @@
      ============================================================ -->
 <script>
 (function(){
-  /* --- Preloader --- */
-  (function(){
-    var preloader = document.getElementById('bkPreloader');
-    var arc = document.querySelector('.bk-pl-arc');
-    var pctEl = document.getElementById('bkPlPct');
-    var circum = 364;
-    var count = 0;
-    var timer = setInterval(function(){
-      count++;
-      if(pctEl) pctEl.innerHTML = count + '<span>%</span>';
-      if(arc) arc.style.strokeDashoffset = circum - (circum * count / 100);
-      if(count >= 100){
-        clearInterval(timer);
-        setTimeout(function(){ if(preloader) preloader.classList.add('done'); }, 350);
-      }
-    }, 16);
-    window.addEventListener('load', function(){
-      clearInterval(timer);
-      if(pctEl) pctEl.innerHTML = '100<span>%</span>';
-      if(arc) arc.style.strokeDashoffset = 0;
-      setTimeout(function(){ if(preloader) preloader.classList.add('done'); }, 400);
-    });
-  })();
+  /* --- Loader --- */
+  window.addEventListener('load', function(){
+    var loader = document.getElementById('bkLoader');
+    if(loader){ loader.classList.add('done'); }
+  });
 
   /* --- Sticky Header --- */
   var header = document.getElementById('bkHeader');

@@ -1,110 +1,94 @@
-@include('home.header')    <main>
-         
-<div class="banner-section">
-    <div class="main-slider-carousel owl-carousel owl-theme" style="height:620px;">
+@include('home.header')
 
-        <div class="slide" data-bg-image="https://ofmetro.com//front/images/main-slider/intro-1.jpg" style="height:620px;">
-            <div class="auto-container w-100">
-                <div class="row clearfix">
+<!-- Page Hero -->
+<section class="bk-page-hero">
+  <div class="bk-wrap">
+    <h1>Health Savings Account</h1>
+    <p>Save tax-free for medical expenses with competitive interest rates.</p>
+    <div class="bk-breadcrumb"><a href="/">Home</a> <span>/</span> <a href="{{ url('personal') }}">Personal</a> <span>/</span> Health Savings</div>
+  </div>
+</section>
 
-                    <!-- Content Column -->
-                    <div class="content-column col-lg-7 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <h1> <span>Health Savings Account</span> </h1>
-                            <div class="text" style="color:#1F1B44;">An HSA helps employees save in advance for future medical expenses. Both
-                                you and your employees can contribute to the account tax-free, and balances over $100 earn competitive, tiered
-                                interest. Employees can pay for qualified medical expenses at anytime — without paying a penalty for withdrawal.</div>
-                            <div class="btn-box">
-                                <a href="{{url('about')}}" class="theme-btn btn-style-one"><span class="txt">Who We Are</span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
+<!-- Product Detail -->
+<section class="bk-page-section">
+  <div class="bk-wrap">
+    <div class="bk-page-grid-2">
+      <div class="sr">
+        <span class="bk-label">HSA Account</span>
+        <h2 class="bk-title" style="text-align:left">A Smart Way to Save for Healthcare</h2>
+        <p style="margin-top:12px;line-height:1.8;color:#475569">An HSA helps employees save in advance for future medical expenses. Both you and your employees can contribute to the account tax-free, and balances over $100 earn competitive, tiered interest. Employees can pay for qualified medical expenses at any time — without paying a penalty for withdrawal.</p>
+      </div>
+      <div class="sr">
+        <img src="frontassets/images/banner/5.jpg" alt="Health Savings" style="border-radius:var(--r-lg);width:100%;height:320px;object-fit:cover">
+      </div>
     </div>
+  </div>
+</section>
 
-
-</div>
-<!-- End Banner Section -->
-
-
-
-<!-- About Section -->
-<div class="about-section">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="row align-items-center clearfix">
-
-                <!-- Content Column -->
-                <div class="content-column col-lg-6 col-md-12 col-sm-12 mb-0">
-                    <div class="about-column">
-                        <div class="sec-title">
-                            <h2> <span>Employment Benefits</span> <br></h2>
-                        </div>
-                        <div class="accordian-box">
-                            <!--Accordian Box-->
-                            <ul class="accordion-box">
-                                <div class="accordian-box">
-                                    <ul class="list-group">
-                                        <li class="list-group-item"> Provide great benefit to employees</li>
-                                        <li class="list-group-item">Helps retain and attract good employees</li>
-                                        <li class="list-group-item">Contributions are tax-deductible</li>
-                                        <li class="list-group-item">Reduced insurance premiums</li>
-                                        <li class="list-group-item">Little administrative burden</li>
-                                    </ul>
-
-                                </div>
-
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Content Column -->
-                <div class="content-column col-lg-6 col-md-12 col-sm-12 mb-0">
-                    <div class="about-column">
-                        <div class="sec-title">
-                            <h2 style="visibility:hidden;"> <span>Line of Credit Sweeps</span> <br></h2>
-                        </div>
-                        <div class="accordian-box">
-                            <!--Accordian Box-->
-                            <ul class="accordion-box">
-                                <div class="accordian-box">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">Interest-bearing account</li>
-                                        <li class="list-group-item">Use funds on any qualified medical expense</li>
-                                        <li class="list-group-item">Contributions are tax-deductible</li>
-                                        <li class="list-group-item">Earnings are tax-deferred</li>
-                                        <li class="list-group-item">Reduce the High Deductible Health Plan (HDHP) costs</li>
-                                        <li class="list-group-item">Unused funds go toward retirement</li>
-                                        <li class="list-group-item">Free debit card</li>
-                                    </ul>
-
-                                </div>
-
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+<!-- Two Column Features -->
+<section class="bk-page-section--alt">
+  <div class="bk-wrap">
+    <div class="bk-page-grid-2">
+      <div class="sr">
+        <h2 class="bk-title" style="text-align:left;font-size:22px">Employment Benefits</h2>
+        <div style="margin-top:16px">
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-heart-pulse-line"></i></div>
+            <div><h4>Great Employee Benefit</h4><p>Provide valuable health savings to your workforce.</p></div>
+          </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-team-line"></i></div>
+            <div><h4>Retain &amp; Attract Talent</h4><p>A competitive benefits package helps recruit top employees.</p></div>
+          </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-money-dollar-circle-line"></i></div>
+            <div><h4>Tax-Deductible Contributions</h4><p>Employer contributions are fully tax-deductible.</p></div>
+          </div>
+          <div class="bk-feat-item">
+            <div class="bk-fi-icon"><i class="ri-shield-star-line"></i></div>
+            <div><h4>Reduced Insurance Premiums</h4><p>Pair with a high-deductible plan for lower costs.</p></div>
+          </div>
         </div>
+      </div>
+      <div class="sr">
+        <h2 class="bk-title" style="text-align:left;font-size:22px">Account Features</h2>
+        <div class="bk-product-card" style="margin-top:16px">
+          <div class="bk-pc-head bk-pc-head--green">
+            <i class="ri-heart-add-line"></i>
+            <h3>HSA Benefits</h3>
+            <p>Tax-advantaged health savings</p>
+          </div>
+          <div class="bk-pc-body">
+            <ul>
+              <li><i class="ri-check-line"></i> Interest-bearing account</li>
+              <li><i class="ri-check-line"></i> Use funds on any qualified medical expense</li>
+              <li><i class="ri-check-line"></i> Contributions are tax-deductible</li>
+              <li><i class="ri-check-line"></i> Earnings are tax-deferred</li>
+              <li><i class="ri-check-line"></i> Reduce HDHP costs</li>
+              <li><i class="ri-check-line"></i> Unused funds roll over toward retirement</li>
+              <li><i class="ri-check-line"></i> Free debit card included</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<!-- End About Section -->
+  </div>
+</section>
 
-<!-- Map Section -->
-<!-- <div class="map-section">
-			<div class="contact-map-area">
-				<iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.961936781822!2d-122.34013238480624!3d47.60742979591455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab3cbba9c83%3A0x548849e16a192f92!2s1301%202nd%20Ave%20%232600%2C%20Seattle%2C%20WA%2098101%2C%20USA!5e0!3m2!1sen!2sng!4v1626796438815!5m2!1sen!2sng" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-			</div>
-		</div> -->
-<!-- End Map Section -->
-
+<!-- CTA -->
+<section class="bk-cta">
+  <div class="bk-wrap">
+    <div class="bk-cta-box sr">
+      <div class="bk-cta-content">
+        <h2>Start Saving on Healthcare Costs</h2>
+        <p>Open an HSA today and enjoy tax-free savings for medical expenses.</p>
+        <div class="bk-cta-btns">
+          <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Open HSA Account <i class="ri-arrow-right-line"></i></a>
+          <a href="{{ url('contact') }}" class="bk-btn bk-btn--glass">Learn More <i class="ri-phone-line"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 @include('home.footer')
