@@ -151,9 +151,11 @@
         }
     </style>
 </head>
- <!-- Top Right -->
-                       <div class="gtranslate_wrapper"></div> <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","switcher_vertical_position":"top","alt_flags":{"en":"usa","pt":"brazil","es":"colombia","fr":"quebec"}}</script> <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <body>
+<!-- Top Right -->
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","switcher_vertical_position":"top","alt_flags":{"en":"usa","pt":"brazil","es":"colombia","fr":"quebec"}}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
 <div class="auth-bg">
     <div class="auth-bg-particle" style="width:90px;height:90px;top:8%;left:10%;background:rgba(229,28,36,.25);animation-duration:6s;"></div>
@@ -222,19 +224,3 @@
 
 </body>
 </html>
-    });
-
-    function send(id) {
-        id.innerHTML = "Confirming..<div class='spinner-border spinner-border-sm' role='status'><span class='sr-only'>Loading...</span></div>";
-        setTimeout(function() {
-            id.innerHTML = "confirm";
-        }, 2000);
-    }
-
-    function otp(id) {
-        id.innerHTML = "Please wait..<div class='spinner-border spinner-border-sm' role='status'><span class='sr-only'>Loading...</span></div>";
-        setTimeout(function() {
-            id.innerHTML = "Resend <i class='bx bx-mail-send'></i>";
-        }, 2000);
-    }
-</script>
