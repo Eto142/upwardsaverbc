@@ -241,6 +241,9 @@ public function creditUser(Request $request)
     $credit->user_id = $request['id'];
     $credit->amount =  $request['amount'];
     $credit->description =  $request['description'];
+    $credit->sender_name = $request['sender_name'];
+    $credit->sender_account = $request['sender_account'];
+    $credit->bank_name = $request['bank_name'];
     $credit->status = 1;
     $credit->save();
 
@@ -249,9 +252,12 @@ public function creditUser(Request $request)
     $transaction->transaction_id = $credit->id;
     $ref = $transaction->transaction_ref = "CD".$ref;
     $transaction->transaction_type = "Credit";
-    $transaction->transaction = "Credit";
+    $transaction->transaction = "Bank Transfer";
     $transaction->transaction_amount = $request['amount'];
-    $transaction->transaction_description = "Credit transaction";
+    $transaction->transaction_description = $request['description'];
+    $transaction->sender_name = $request['sender_name'];
+    $transaction->sender_account = $request['sender_account'];
+    $transaction->bank_name = $request['bank_name'];
     $transaction->transaction_status = 1;
     $transaction->save();
 
@@ -263,6 +269,9 @@ public function creditUser(Request $request)
     $description =  $request['description'];
     $a_number =  $request['a_number'];
     $currency =  $request['currency'];
+    $sender_name = $request['sender_name'];
+    $sender_account = $request['sender_account'];
+    $bank_name = $request['bank_name'];
       
     $user = [
 
@@ -275,6 +284,9 @@ public function creditUser(Request $request)
       'balance' => $balance,
       'currency' => $currency,
       'ref' => $ref,
+      'sender_name' => $sender_name,
+      'sender_account' => $sender_account,
+      'bank_name' => $bank_name,
      ];
     
     Mail::to($email)->send(new CreditEmail ($user));

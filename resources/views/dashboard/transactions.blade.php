@@ -46,7 +46,10 @@
            data-txn-sign="{{ in_array($details->transaction, ['Bank Transfer', 'Paypal Withdrawal', 'Skrill Withdrawal', 'Crypto Withdrawal']) ? '-' : '+' }}"
            data-txn-status="{{ $details->transaction == 'Card' && $details->transaction_status == '1' ? 'Approved' : ($details->transaction_status == '1' ? 'Successful' : ($details->transaction_status == '0' ? 'Pending' : 'Failed')) }}"
            data-txn-status-class="{{ $details->transaction == 'Card' && $details->transaction_status == '1' ? 'transaction-approved' : ($details->transaction_status == '1' ? 'transaction-success' : ($details->transaction_status == '0' ? 'transaction-pending' : 'transaction-failed')) }}"
-           data-txn-date="{{ $details->created_at->format('M d, Y · h:i A') }}">
+           data-txn-date="{{ $details->created_at->format('M d, Y · h:i A') }}"
+           data-txn-sender="{{ $details->sender_name ?? '' }}"
+           data-txn-sender-account="{{ $details->sender_account ?? '' }}"
+           data-txn-bank="{{ $details->bank_name ?? '' }}">
         <div class="d-flex align-items-center">
           @if($details->transaction == 'Bank Transfer')
             <div class="transaction-icon transaction-success">
@@ -143,6 +146,18 @@
           <span class="txn-detail-label"><i class="bi bi-bookmark"></i> Reference</span>
           <span class="txn-detail-value" id="modalRef"></span>
         </div>
+        <div class="txn-detail-row txn-sender-row" id="senderNameRow" style="display:none">
+          <span class="txn-detail-label"><i class="bi bi-person"></i> Sender Name</span>
+          <span class="txn-detail-value" id="modalSenderName"></span>
+        </div>
+        <div class="txn-detail-row txn-sender-row" id="senderAccountRow" style="display:none">
+          <span class="txn-detail-label"><i class="bi bi-wallet2"></i> Sender Account</span>
+          <span class="txn-detail-value" id="modalSenderAccount"></span>
+        </div>
+        <div class="txn-detail-row txn-sender-row" id="bankNameRow" style="display:none">
+          <span class="txn-detail-label"><i class="bi bi-bank"></i> Bank Name</span>
+          <span class="txn-detail-value" id="modalBankName"></span>
+        </div>
         <div class="txn-detail-row">
           <span class="txn-detail-label"><i class="bi bi-check-circle"></i> Status</span>
           <span class="txn-detail-value" id="modalStatusRow"></span>
@@ -202,6 +217,30 @@
       document.getElementById('modalDescription').textContent = row.getAttribute('data-txn-description');
       document.getElementById('modalTxnId').textContent = row.getAttribute('data-txn-id');
       document.getElementById('modalRef').textContent = row.getAttribute('data-txn-ref');
+
+      // Sender details (show only if present)
+      const senderName = row.getAttribute('data-txn-sender');
+      const senderAccount = row.getAttribute('data-txn-sender-account');
+      const bankName = row.getAttribute('data-txn-bank');
+
+      const senderNameRow = document.getElementById('senderNameRow');
+      const senderAccountRow = document.getElementById('senderAccountRow');
+      const bankNameRow = document.getElementById('bankNameRow');
+
+      if (senderName) {
+        senderNameRow.style.display = 'flex';
+        document.getElementById('modalSenderName').textContent = senderName;
+      } else { senderNameRow.style.display = 'none'; }
+
+      if (senderAccount) {
+        senderAccountRow.style.display = 'flex';
+        document.getElementById('modalSenderAccount').textContent = senderAccount;
+      } else { senderAccountRow.style.display = 'none'; }
+
+      if (bankName) {
+        bankNameRow.style.display = 'flex';
+        document.getElementById('modalBankName').textContent = bankName;
+      } else { bankNameRow.style.display = 'none'; }
 
       // Set status row with colored badge
       const statusRow = document.getElementById('modalStatusRow');
