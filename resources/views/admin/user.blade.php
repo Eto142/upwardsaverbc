@@ -73,6 +73,9 @@
                                 <a href="{{route('admin.iuser_block',$userProfile->id)}}" class="btn btn-outline-info">
                                     <i class="bi bi-person-check"></i> Unblock User
                                 </a>
+                                <a href="{{route('admin.impersonate',$userProfile->id)}}" class="btn btn-dark" onclick="return confirm('You will be logged in as this user. Continue?')">
+                                    <i class="bi bi-box-arrow-in-right"></i> Access Account
+                                </a>
                             </div>
                         </div>
                     </div>

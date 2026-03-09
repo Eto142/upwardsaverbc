@@ -299,6 +299,9 @@ Route::post('/decline-card/{id}', [AdminController::class, 'DeclineCard'])->name
   Route::post('/accept-kyc/{id}', [AdminController::class, 'acceptKyc'])->name('accept-kyc'); 
   Route::post('/decline-kyc/{id}', [AdminController::class, 'rejectKyc'])->name('decline-kyc'); 
 
+  // Impersonate user (login as user)
+  Route::get('/impersonate/{id}', [AdminController::class, 'impersonate'])->name('impersonate');
+
 
  // payment 
 Route::get('/update-wallet',[AdminController::class, 'updateWallet'])->name('wallet');

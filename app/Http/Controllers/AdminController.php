@@ -172,6 +172,20 @@ public function ManageUsers()
     
    
     
+        public function impersonate($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Store admin ID in session so we can return later
+        Session::put('impersonating_from_admin', Auth::guard('admin')->id());
+
+        // Log out admin guard and log into user guard
+        Auth::guard('admin')->logout();
+        Auth::guard('web')->login($user);
+
+        return redirect()->route('dashboard');
+    }
+
         public function adminChangePassword()
     {
         return view('admin.change_password');
