@@ -1,7 +1,7 @@
 @extends('mail.layout')
-@section('title', 'Bank Statement â€” Upward Saver Bank Corporation')
+@section('title', 'Bank Statement - Upward Saver Bank Corporation')
 @section('badge', 'Bank Statement')
-@section('icon', 'ðŸ“„')
+@section('icon', '📄')
 @section('header_title', 'Your Bank Statement')
 @section('body')
 

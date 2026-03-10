@@ -1,8 +1,8 @@
 @extends('mail.layout')
-@section('title', 'Credit Alert Ã¢â‚¬â€ Upward Saver Bank Corporation')
+@section('title', 'Credit Alert - Upward Saver Bank Corporation')
 @section('badge', 'Credit Alert')
-@section('icon', 'Ã°Å¸â€™Å¡')
-@section('header_title', 'Credit Alert Ã¢â‚¬â€ Funds Received')
+@section('icon', '💰')
+@section('header_title', 'Credit Alert - Funds Received')
 @section('body')
 
 <p style="margin:0 0 6px;color:#111827;font-size:16px;font-weight:600">Greetings, {{ $user['full_name'] }}!</p>
