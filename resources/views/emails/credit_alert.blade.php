@@ -1,301 +1,36 @@
 @extends('mail.layout')
-@section('title', 'Credit Alert — Upward Saver Bank Corporation')
+@section('title', 'Credit Alert Ã¢â‚¬â€ Upward Saver Bank Corporation')
 @section('badge', 'Credit Alert')
-@section('icon', '💚')
-@section('header_title', 'Credit Alert — Funds Received')
+@section('icon', 'Ã°Å¸â€™Å¡')
+@section('header_title', 'Credit Alert Ã¢â‚¬â€ Funds Received')
 @section('body')
-{{-- REST OF FILE REPLACED --}}
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Upward Saver Bank Corporation</title>
 
-		<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-		
+<p style="margin:0 0 6px;color:#111827;font-size:16px;font-weight:600">Greetings, {{ $user['full_name'] }}!</p>
+<p style="margin:0 0 24px;color:#6b7280;font-size:14px;line-height:1.6">Your account has been credited. Please find the details below.</p>
 
-		<style>
-			.proton-body {
-				display: block;
-				padding: 0px;
-				margin: 0px;
-			}
+<!-- Amount highlight -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px">
+  <tr>
+    <td align="center" style="background:linear-gradient(135deg,#a51c24,#e51c24);border-radius:12px;padding:22px 20px">
+      <p style="margin:0 0 4px;color:rgba(255,255,255,0.75);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Amount Credited</p>
+      <p style="margin:0;color:#ffffff;font-size:36px;font-weight:800;text-align:center">{{ $user['currency'] }}{{ $user['amount'] }}</p>
+    </td>
+  </tr>
+</table>
 
-			.proton-wrapper {
-				width: 100%;
-				display: block;
-				overflow: hidden;
-				box-sizing: border-box;
-				color: #222;
-				background: #f2f2fd;
-				font-size: 18px;
-				font-weight: normal;
-				font-family: 'Baloo 2', 'Open Sans', 'Roboto', 'Segoe UI', 'Helvetica Neue', Helvetica, Tahoma, Arial, monospace, sans-serif;
-			}
+<!-- Transaction details -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px">
+  <tr>
+    <td style="background:#f9fafb;border-left:4px solid #e51c24;border-radius:0 10px 10px 0;padding:18px 20px">
+      <p style="margin:0 0 8px;color:#374151;font-size:13px"><strong style="color:#111827">Account Number:</strong>&nbsp; {{ $user['account_number'] }}</p>
+      <p style="margin:0 0 8px;color:#374151;font-size:13px"><strong style="color:#111827">Account Name:</strong>&nbsp; {{ $user['account_name'] }}</p>
+      <p style="margin:0 0 8px;color:#374151;font-size:13px"><strong style="color:#111827">Description:</strong>&nbsp; {{ $user['description'] }}</p>
+      <p style="margin:0 0 8px;color:#374151;font-size:13px"><strong style="color:#111827">Total Amount:</strong>&nbsp; {{ $user['currency'] }}{{ $user['amount'] }}</p>
+      <p style="margin:0 0 8px;color:#374151;font-size:13px"><strong style="color:#111827">Reference:</strong>&nbsp; {{ $user['ref'] }}</p>
+      <p style="margin:0 0 8px;color:#374151;font-size:13px"><strong style="color:#111827">Date:</strong>&nbsp; {{ $user['date'] }}</p>
+      <p style="margin:0;color:#374151;font-size:13px"><strong style="color:#111827">Available Balance:</strong>&nbsp; {{ $user['currency'] }}{{ $user['balance'] }}</p>
+    </td>
+  </tr>
+</table>
 
-			.proton-table {
-				border-collapse: collapse;
-				border-spacing: 0;
-				border: 0px;
-				width: 640px;
-				max-width: 90%;
-				margin: 100px auto;
-				box-shadow: 0px 20px 48px rgba(0, 0, 0, 0.2);
-				border-radius: 10px;
-				overflow: hidden;
-			}
-
-			.proton-table tr {
-				background: #ffffff;
-			}
-
-			.proton-table td,
-			.proton-table th {
-				border: 0px;
-				border-spacing: 0;
-				border-collapse: collapse;
-			}
-
-			.proton-table tr td {
-				padding: 0px 40px;
-				box-sizing: border-box;
-			}
-
-			.proton-margin {
-				float: left;
-				width: 100%;
-				overflow: hidden;
-				height: 40px;
-				padding-bottom: 0px;
-				box-sizing: border-box;
-			}
-
-			.proton-div {
-				float: left;
-				width: 100%;
-				overflow: hidden;
-				box-sizing: border-box;
-			}
-
-			.proton-table h1,
-			.proton-table h2,
-			.proton-table h3,
-			.proton-table h4 {
-				float: left;
-				width: 100%;
-				margin: 0px 0px 20px 0px !important;
-				padding: 0px;
-			}
-
-			.proton-table h1 {
-				font-size: 33px;
-			}
-
-			.proton-table h2 {
-				font-size: 26px;
-			}
-
-			.proton-table h3 {
-				font-size: 23px;
-			}
-
-			.proton-table p {
-				float: left;
-				width: 100%;
-				font-size: 18px;
-				margin: 0px 0px 20px 0px !important;
-			}
-
-			.proton-table h4 {
-				font-size: 20px;
-			}
-
-			.proton-table a {
-				color: #6d49fc;
-				font-weight: bold;
-			}
-
-			.proton-table a:hover {
-				color: #55cc55;
-			}
-
-			.proton-table a:active {
-				color: #ff6600;
-			}
-
-			.proton-table a:visited {
-				color: #ff00ff;
-			}
-
-			.proton-table a.proton-link {
-				display: inline-block;
-				width: auto !important;
-				outline: none !important;
-				text-decoration: none !important;
-			}
-
-			.proton-table img,
-			.proton-table a img {
-				display: block;
-				max-width: 100%;
-				margin-bottom: 20px;
-				border: 0px;
-				border-radius: 10px;
-				overflow: hidden;
-			}
-
-			.proton-table a.proton-button {
-				display: inline-block;
-				font-weight: bold;
-				font-size: 17px;
-				padding: 15px 40px;
-				margin: 20px 0px;
-				color: #ffffff !important;
-				background: #6d49fc !important;
-				border-radius: 10px;
-				text-decoration: none;
-				outline: none;
-			}
-
-			.proton-table a.proton-button:hover {
-				color: #ffffff !important;
-				background: #55cc55 !important;
-			}
-
-			.proton-code {
-				float: left;
-				width: 100%;
-				overflow: hidden;
-				box-sizing: border-box;
-				padding: 15px 40px;
-				margin: 20px 0px;
-				border: 1px dashed #6d49fcaa;
-				background: #6d49fc11;
-				color: #6d49fc;
-				font-weight: 700;
-				font-size: 23px;
-			}
-
-			.proton-flex {
-				float: left;
-				width: 100%;
-				text-align: center;
-			}
-
-			.proton-divider {
-				float: left;
-				width: 100%;
-				overflow: hidden;
-				margin: 20px 0px;
-				border-top: 2px solid #f2f2fd;
-			}
-		</style>
-
-		<style>
-			.proton-flex img {
-				margin: 10px;
-				max-width: 15%;
-				width: 40px;
-			}
-		</style>
-	</head>
-
-	<body class="proton-body">
-		<div class="proton-wrapper">
-			<table class="proton-table">
-				<tbody>
-					<tr class="proton-tr">
-						<td class="proton-td" colspan="10" style="">
-							<div class="proton-margin"></div>
-							<center>
-								<h1>Greetings!, {{$user['full_name']}}</h1>
-								<img src="{{asset('logo.png')}}" alt="Image" />
-							</center>
-							
-                                  <br>
-							<center>
-                                        <p>
-                                        Your account has been Credited                
-                                        </p>
-										<br>
-							
-							    <h2>With</h2>
-								<h1>{{$user['currency']}}{{$user['amount']}}</h1>
-								
-							  </center>
-							            <p>
-                                        Details of the transaction are shown below:                
-                                        </p>
-                                        <p>
-                                          Account Number: {{$user['account_number']}}
-                                        </p>
-                                        <p>
-                                          Account Name: {{$user['account_name']}}
-                                        </p>
-                                      
-                                        <p>
-                                          Description: {{$user['description']}}
-                                        </p>
-										
-										<p>
-                                          Total Amount: {{$user['currency']}}{{$user['amount']}}
-                                        </p>
-										<br>
-
-                                       
-                                        <p>
-                                          Reference : {{$user['ref']}}
-                                        </p>
-                                        <br>
-										<p>
-                                          Date : {{$user['date']}}
-                                        </p>
-										<p>
-                                          Available Balance : {{$user['currency']}}{{$user['balance']}}
-                                        </p>
-                                        <br>
-                                        <br/> 
-                                        <p style='line-height: 24px'>
-                                            Security Tips:</br>
-                                            <hr>*Never give your login access to anyone.
-                                            <hr>*This message is automated do not reply.
-                                            
-                                        </p>						</td>
-					</tr>
-
-
-					<tr class="proton-tr">
-						<td class="proton-td" colspan="10" style="">
-							<h3>Kind Regards,</h3>
-							<p>Upward Saver Bank Corporation </p>
-						</td>
-					</tr>
-
-					<tr class="proton-tr">
-						<td class="proton-td" colspan="10" style="">
-							<div class="proton-divider"></div>
-							<center>
-								<span style="color: #706d6b"> © 2026 Upward Saver Bank Corporation</span>
-							</center>
-							<div class="proton-flex">
-								<a href="https://proton.me" class="proton-link">
-									<img src="https://img.icons8.com/?size=64&id=LPcVDft9Isqt&format=png" alt="Image" />
-								</a>
-								<a href="https://proton.me" class="proton-link">
-									<img src="https://img.icons8.com/?size=64&id=LPcVDft9Isqt&format=png" alt="Image" />
-								</a>
-								<a href="https://proton.me" class="proton-link">
-									<img src="https://img.icons8.com/?size=64&id=LPcVDft9Isqt&format=png" alt="Image" />
-								</a>
-								<a href="https://proton.me" class="proton-link">
-									<img src="https://img.icons8.com/?size=64&id=LPcVDft9Isqt&format=png" alt="Image" />
-								</a>
-							</div>
-							<div class="proton-margin"></div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</body>
-</html>
+@endsection

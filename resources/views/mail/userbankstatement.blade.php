@@ -23,10 +23,10 @@
 <p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700">Transaction History</p>
 <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
   <tr>
-    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:left;border-radius:8px 0 0 0">Date</th>
-    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:left">Description</th>
-    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:right">Amount</th>
-    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:center;border-radius:0 8px 0 0">Status</th>
+    <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:left;border-radius:8px 0 0 0">Date</th>
+    <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:left">Description</th>
+    <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:right">Amount</th>
+    <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:center;border-radius:0 8px 0 0">Status</th>
   </tr>
   @foreach($data['transactions'] as $transaction)
   <tr style="background:{{ $loop->even ? '#f9fafb' : '#ffffff' }}">

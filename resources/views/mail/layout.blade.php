@@ -45,7 +45,7 @@
 
         <!-- Footer -->
         <tr>
-          <td style="background:#a51c24;border-radius:0 0 14px 14px;padding:20px 40px;text-align:center">
+          <td style="background:linear-gradient(135deg,#a51c24,#e51c24);border-radius:0 0 14px 14px;padding:20px 40px;text-align:center">
             <p style="margin:0 0 4px;color:rgba(255,255,255,0.75);font-size:12px">
               &copy; {{ date('Y') }} Upward Saver Bank Corporation. All rights reserved.
             </p>

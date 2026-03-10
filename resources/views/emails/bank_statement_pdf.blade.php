@@ -1,9 +1,9 @@
 <table style="width:100%;border-collapse:collapse;font-size:13px;font-family:Arial,sans-serif">
   <thead>
     <tr>
-      <th style="background:#a51c24;color:#ffffff;padding:10px 12px;text-align:left;border:none">Date</th>
-      <th style="background:#a51c24;color:#ffffff;padding:10px 12px;text-align:left;border:none">Description</th>
-      <th style="background:#a51c24;color:#ffffff;padding:10px 12px;text-align:right;border:none">Amount</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#ffffff;padding:10px 12px;text-align:left;border:none">Date</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#ffffff;padding:10px 12px;text-align:left;border:none">Description</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#ffffff;padding:10px 12px;text-align:right;border:none">Amount</th>
     </tr>
   </thead>
   <tbody>

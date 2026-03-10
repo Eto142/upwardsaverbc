@@ -11,11 +11,11 @@
 <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:13px">
   <thead>
     <tr>
-      <th style="background:#a51c24;color:#fff;padding:10px 12px;text-align:left;border-radius:6px 0 0 0">Date</th>
-      <th style="background:#a51c24;color:#fff;padding:10px 12px;text-align:left">Description</th>
-      <th style="background:#a51c24;color:#fff;padding:10px 12px;text-align:center">Type</th>
-      <th style="background:#a51c24;color:#fff;padding:10px 12px;text-align:right">Amount ({{ $user->currency }})</th>
-      <th style="background:#a51c24;color:#fff;padding:10px 12px;text-align:center;border-radius:0 6px 0 0">Status</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;padding:10px 12px;text-align:left;border-radius:6px 0 0 0">Date</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;padding:10px 12px;text-align:left">Description</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;padding:10px 12px;text-align:center">Type</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;padding:10px 12px;text-align:right">Amount ({{ $user->currency }})</th>
+      <th style="background:linear-gradient(135deg,#a51c24,#e51c24);color:#fff;padding:10px 12px;text-align:center;border-radius:0 6px 0 0">Status</th>
     </tr>
   </thead>
   <tbody>
