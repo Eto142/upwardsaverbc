@@ -166,6 +166,11 @@
                         <input type="hidden" name="currency" value="{{$userProfile->currency}}"/>
                         
                         <div class="mb-3">
+                            <label class="form-label">Amount ({{$userProfile->currency}})</label>
+                            <input type="number" step="0.01" name="amount" class="form-control" placeholder="Enter Amount" required>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Sender Name</label>
                             <input type="text" name="sender_name" class="form-control" placeholder="Enter Sender Name" required>
                         </div>
@@ -178,11 +183,6 @@
                         <div class="mb-3">
                             <label class="form-label">Bank Name</label>
                             <input type="text" name="bank_name" class="form-control" placeholder="Enter Bank Name" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label">Amount ({{$userProfile->currency}})</label>
-                            <input type="number" step="0.01" name="amount" class="form-control" placeholder="Enter Amount" required>
                         </div>
                         
                         <div class="mb-3">
@@ -732,3 +732,4 @@
 				
 
 				@include('admin.footer')
+

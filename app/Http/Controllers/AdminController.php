@@ -264,7 +264,7 @@ public function creditUser(Request $request)
     $full_name = $request['name'];  
     $email =  $request['email'];
     $amount = $request->input('amount');
-    $date = Carbon::now();  
+    $date = $transaction->created_at;
     $balance =  $request['balance'] + $request['amount'];
     $description =  $request['description'];
     $a_number =  $request['a_number'];
@@ -280,7 +280,7 @@ public function creditUser(Request $request)
       'full_name' => $full_name,
       'description' => $description,
       'amount' => $amount,
-      'date' => $date,
+      'date' => $date->format('D, d M Y g:i A'),
       'balance' => $balance,
       'currency' => $currency,
       'ref' => $ref,
