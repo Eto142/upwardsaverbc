@@ -38,6 +38,8 @@ class User extends Authenticatable
         'account_type', 
         'account_pin',
         'password',
+        'login_otp',
+        'login_otp_expires_at',
   
        
     
@@ -61,7 +63,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at'      => 'datetime',
+        'login_otp_expires_at'   => 'datetime',
     ];
 
     /**

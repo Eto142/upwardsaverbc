@@ -128,6 +128,9 @@ Route::middleware([
  Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
  Route::get('login', [CustomAuthController::class, 'index'])->name('login');
  Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+ Route::get('login-otp', [CustomAuthController::class, 'showLoginOtp'])->name('login.otp');
+ Route::post('login-otp/verify', [CustomAuthController::class, 'verifyLoginOtp'])->name('login.otp.verify');
+ Route::post('login-otp/resend', [CustomAuthController::class, 'resendLoginOtp'])->name('login.otp.resend');
  Route::get('verify/{id}', [CustomAuthController::class, 'verify'])->name('verify');
  Route::post('email-verify', [CustomAuthController::class, 'emailVerify'])->name('code'); 
  Route::get('resend-code/{id}', [CustomAuthController::class, 'resendCode'])->name('resendCode'); 

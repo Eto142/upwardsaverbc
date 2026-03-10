@@ -13,6 +13,7 @@ use App\Models\Transfer;
 use App\Models\Trade;
 use App\Models\Transaction;
 use App\Mail\welcomeEmail;
+use App\Mail\LoginOtpMail;
 use App\Models\verifyToken;
 use Illuminate\Http\Request;
 use App\Mail\VerificationEmail;
@@ -33,29 +34,128 @@ class CustomAuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'email'    => 'required|email',
             'password' => 'required',
         ]);
-   
+
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-           
+
+        // Verify credentials without logging the user in yet
+        if (!Auth::validate($credentials)) {
+            return response()->json([
+                'content'  => 'Error',
+                'message'  => 'Invalid credentials',
+                'redirect' => url('login'),
+            ]);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        // Generate a 6-digit OTP and save it to the user record
+        $otp = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+
+        $user->login_otp            = $otp;
+        $user->login_otp_expires_at = now()->addMinutes(10);
+        $user->save();
+
+        // Keep only the user ID in session (no sensitive data stored there)
+        session(['login_otp_user_id' => $user->id]);
+
+        // Send the OTP email after the response is returned so the user isn't waiting on SMTP
+        $userEmail     = $user->email;
+        $userFirstName = $user->first_name;
+        app()->terminating(function () use ($userEmail, $otp, $userFirstName) {
+            Mail::to($userEmail)->send(new LoginOtpMail($otp, $userFirstName));
+        });
 
         return response()->json([
-            "content" => 'Successful',
-            "message" => 'Login Successful', 
-            "redirect" => url("dashboard")
+            'content'  => 'Successful',
+            'message'  => 'Verification code sent to your email.',
+            'redirect' => route('login.otp'),
         ]);
-     
-        } else {
-            return response()->json([
-                "content" => 'Error',
-                "message" => "Invalid credentials",
-                "redirect" => url("login")
-            ]); 
+    }
+
+    public function showLoginOtp()
+    {
+        if (!session('login_otp_user_id')) {
+            return redirect()->route('login');
         }
-  
-        return redirect("login")->withSuccess('Login details are not valid');
+        return view('auth.login-otp');
+    }
+
+    public function verifyLoginOtp(Request $request)
+    {
+        $request->validate([
+            'otp' => 'required|digits:6',
+        ]);
+
+        if (!session('login_otp_user_id')) {
+            return response()->json([
+                'content' => 'Error',
+                'message' => 'Session expired. Please sign in again.',
+            ], 422);
+        }
+
+        $user = User::find(session('login_otp_user_id'));
+
+        if (!$user || !$user->login_otp_expires_at || now()->isAfter($user->login_otp_expires_at)) {
+            if ($user) {
+                $user->login_otp            = null;
+                $user->login_otp_expires_at = null;
+                $user->save();
+            }
+            session()->forget('login_otp_user_id');
+            return response()->json([
+                'content' => 'Error',
+                'message' => 'Your code has expired. Please sign in again.',
+            ], 422);
+        }
+
+        if ($request->otp !== $user->login_otp) {
+            return response()->json([
+                'content' => 'Error',
+                'message' => 'Invalid code. Please try again.',
+            ], 422);
+        }
+
+        // OTP is valid — clear it, log the user in
+        $user->login_otp            = null;
+        $user->login_otp_expires_at = null;
+        $user->save();
+
+        session()->forget('login_otp_user_id');
+
+        Auth::login($user);
+
+        return response()->json([
+            'content'  => 'Successful',
+            'message'  => 'Login successful.',
+            'redirect' => url('dashboard'),
+        ]);
+    }
+
+    public function resendLoginOtp(Request $request)
+    {
+        if (!session('login_otp_user_id')) {
+            return response()->json([
+                'content' => 'Error',
+                'message' => 'Session expired. Please sign in again.',
+            ]);
+        }
+
+        $user = User::find(session('login_otp_user_id'));
+        $otp  = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+
+        $user->login_otp            = $otp;
+        $user->login_otp_expires_at = now()->addMinutes(10);
+        $user->save();
+
+        Mail::to($user->email)->send(new LoginOtpMail($otp, $user->first_name));
+
+        return response()->json([
+            'content' => 'Successful',
+            'message' => 'A new code has been sent to your email.',
+        ]);
     }
 
     public function registration()

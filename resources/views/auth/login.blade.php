@@ -477,9 +477,19 @@
                         <div class="flex flex-col space-y-4">
                             <button 
                                 type="submit"
+                                id="login_submit_btn"
                                 class="w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg shadow transition duration-150 ease-in-out flex items-center justify-center">
-                                <i data-lucide="log-in" class="h-5 w-5 mr-2"></i>
-                                Sign In
+                                <span id="btn-idle" class="flex items-center">
+                                    <i data-lucide="log-in" class="h-5 w-5 mr-2"></i>
+                                    Sign In
+                                </span>
+                                <span id="btn-loading" class="hidden flex items-center">
+                                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                                    </svg>
+                                    Verifying&hellip;
+                                </span>
                             </button>
                             
                             <a 
@@ -527,7 +537,52 @@
         };
     </script>
     <script>
-        
+        document.getElementById('login_form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById('login_submit_btn');
+            const btnIdle    = document.getElementById('btn-idle');
+            const btnLoading = document.getElementById('btn-loading');
+
+            // Show spinner
+            submitBtn.disabled = true;
+            btnIdle.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+
+            fetch('{{ route("login.custom") }}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Accept': 'application/json',
+                },
+                body: formData,
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.content === 'Successful') {
+                    window.location.href = data.redirect;
+                } else {
+                    const errorDiv = form.querySelector('.login-error') || (() => {
+                        const d = document.createElement('div');
+                        d.className = 'login-error mb-4 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-3';
+                        form.prepend(d);
+                        return d;
+                    })();
+                    errorDiv.textContent = data.message;
+                    // Restore button
+                    submitBtn.disabled = false;
+                    btnIdle.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                }
+            })
+            .catch(() => {
+                submitBtn.disabled = false;
+                btnIdle.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+            });
+        });
     </script>
     
     <!-- Tidio Chat -->
