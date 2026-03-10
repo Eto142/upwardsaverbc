@@ -171,6 +171,11 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Transaction Date</label>
+                            <input type="datetime-local" name="transaction_date" id="credit_transaction_date" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label">Sender Name</label>
                             <input type="text" name="sender_name" class="form-control" placeholder="Enter Sender Name" required>
                         </div>
@@ -733,3 +738,13 @@
 
 				@include('admin.footer')
 
+<script>
+    (function() {
+        var el = document.getElementById('credit_transaction_date');
+        if (el) {
+            var now = new Date();
+            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+            el.value = now.toISOString().slice(0, 16);
+        }
+    })();
+</script>

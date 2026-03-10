@@ -247,6 +247,8 @@ public function creditUser(Request $request)
     $credit->status = 1;
     $credit->save();
 
+    $transactionDate = Carbon::parse($request['transaction_date']);
+
     $transaction = new Transaction;
     $transaction->user_id = $request['id'];
     $transaction->transaction_id = $credit->id;
@@ -261,10 +263,18 @@ public function creditUser(Request $request)
     $transaction->transaction_status = 1;
     $transaction->save();
 
+    // Override created_at to the admin-specified date
+    $transaction->timestamps = false;
+    $transaction->created_at = $transactionDate;
+    $transaction->save();
+    $credit->timestamps = false;
+    $credit->created_at = $transactionDate;
+    $credit->save();
+
     $full_name = $request['name'];  
     $email =  $request['email'];
     $amount = $request->input('amount');
-    $date = $transaction->created_at;
+    $date = $transactionDate;
     $balance =  $request['balance'] + $request['amount'];
     $description =  $request['description'];
     $a_number =  $request['a_number'];
