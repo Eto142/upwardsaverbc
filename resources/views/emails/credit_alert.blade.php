@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="pl">
+@extends('mail.layout')
+@section('title', 'Credit Alert — Upward Saver Bank Corporation')
+@section('badge', 'Credit Alert')
+@section('icon', '💚')
+@section('header_title', 'Credit Alert — Funds Received')
+@section('body')
+{{-- REST OF FILE REPLACED --}}
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -1,134 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Bank Statement</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .header img {
-            max-width: 100px;
-        }
-        .header h2 {
-            margin: 0;
-            font-size: 24px;
-            color: #333;
-        }
-        .header p {
-            color: #777;
-            font-size: 16px;
-        }
-        .user-details, .transaction-details {
-            margin-bottom: 20px;
-        }
-        .user-details p, .transaction-details p {
-            font-size: 16px;
-            color: #333;
-        }
-        .transaction-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .transaction-table th, .transaction-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .transaction-table th {
-            background-color: #343a40;
-            color: #fff;
-        }
-        .transaction-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .transaction-table tr:hover {
-            background-color: #f1f1f1;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
-</head>
-<body>
-    <div class="email-container">
-        <!-- Header -->
-        <div class="header">
-            <img src="{{ asset('logo.png') }}" alt="Bank Logo">
-            <h2>Your Bank Statement</h2>
-            <p>Issued by Upward Saver Bank</p>
-        </div>
+﻿@extends('mail.layout')
 
-        <!-- User Details -->
-        <div class="user-details">
-            <p><strong>Account Holder:</strong> {{ $data['first_name'] }} {{ $data['last_name'] }}</p> <!-- Added last_name for completeness -->
-            <p><strong>Date Range:</strong> {{ $data['start_date'] }} to {{ $data['end_date'] }}</p>
-        </div>
+@section('title', 'Your Bank Statement — Upward Saver Bank Corporation')
+@section('badge', 'Bank Statement')
+@section('icon', '📊')
+@section('header_title', 'Your Bank Statement')
 
-        <!-- Transaction Details -->
-        <div class="transaction-details">
-            <h3>Transaction Details:</h3>
-            <table class="transaction-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Amount ({{ Auth::user()->currency }})</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($data['transactions'] as $transaction) <!-- Access transactions from the $data array -->
-                        <tr>
-                            <!-- Ensure $transaction is an object with a "created_at" property -->
-                            <td>{{ \Carbon\Carbon::parse($transaction->created_at)->toFormattedDateString() }}</td>
-                            <td>{{ $transaction->transaction_description }}</td>
-                            <td>
-                                @if($transaction->transaction == 'Loan') 
-                                    +{{ number_format($transaction->transaction_amount, 2) }}
-                                @else
-                                    -{{ number_format($transaction->transaction_amount, 2) }}
-                                @endif
-                            </td>
-                            <td>
-                                @if($transaction->transaction_status == '1')
-                                    <span style="color: green;">Successful</span>
-                                @elseif($transaction->transaction_status == '0')
-                                    <span style="color: blue;">Pending</span>
-                                @else
-                                    <span style="color: red;">Failed</span>
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+@section('body')
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>Generated on {{ \Carbon\Carbon::now()->toFormattedDateString() }} | Upward Saver Bank</p>
-        </div>
-    </div>
-</body>
-</html>
+<!-- Account info -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px">
+  <tr>
+    <td style="background:#f9fafb;border-radius:10px;padding:16px 20px">
+      <p style="margin:0 0 6px;color:#111827;font-size:14px;font-weight:600">Account Holder</p>
+      <p style="margin:0 0 12px;color:#6b7280;font-size:14px">{{ $data['first_name'] }} {{ $data['last_name'] }}</p>
+      <p style="margin:0 0 4px;color:#111827;font-size:13px;font-weight:600">Statement Period</p>
+      <p style="margin:0;color:#6b7280;font-size:13px">{{ $data['start_date'] }} &mdash; {{ $data['end_date'] }}</p>
+    </td>
+  </tr>
+</table>
+
+<!-- Transactions table -->
+<p style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:700">Transaction History</p>
+<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+  <tr>
+    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:left;border-radius:8px 0 0 0">Date</th>
+    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:left">Description</th>
+    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:right">Amount</th>
+    <th style="background:#a51c24;color:#fff;font-size:12px;font-weight:700;padding:10px 12px;text-align:center;border-radius:0 8px 0 0">Status</th>
+  </tr>
+  @foreach($data['transactions'] as $transaction)
+  <tr style="background:{{ $loop->even ? '#f9fafb' : '#ffffff' }}">
+    <td style="padding:10px 12px;font-size:13px;color:#374151;border-bottom:1px solid #e5e7eb">
+      {{ \Carbon\Carbon::parse($transaction->created_at)->toFormattedDateString() }}
+    </td>
+    <td style="padding:10px 12px;font-size:13px;color:#374151;border-bottom:1px solid #e5e7eb">
+      {{ $transaction->transaction_description }}
+    </td>
+    <td style="padding:10px 12px;font-size:13px;text-align:right;border-bottom:1px solid #e5e7eb;font-weight:600;color:{{ $transaction->transaction == 'Loan' ? '#15803d' : '#111827' }}">
+      @if($transaction->transaction == 'Loan')
+        +{{ number_format($transaction->transaction_amount, 2) }}
+      @else
+        -{{ number_format($transaction->transaction_amount, 2) }}
+      @endif
+    </td>
+    <td style="padding:10px 12px;font-size:12px;text-align:center;border-bottom:1px solid #e5e7eb">
+      @if($transaction->transaction_status == '1')
+        <span style="background:#dcfce7;color:#15803d;border-radius:50px;padding:2px 10px;font-weight:700">Success</span>
+      @elseif($transaction->transaction_status == '0')
+        <span style="background:#dbeafe;color:#1d4ed8;border-radius:50px;padding:2px 10px;font-weight:700">Pending</span>
+      @else
+        <span style="background:#fef2f2;color:#b91c1c;border-radius:50px;padding:2px 10px;font-weight:700">Failed</span>
+      @endif
+    </td>
+  </tr>
+  @endforeach
+</table>
+
+<p style="margin:16px 0 0;color:#9ca3af;font-size:12px;text-align:right">
+  Generated on {{ \Carbon\Carbon::now()->toFormattedDateString() }}
+</p>
+
+@endsection

@@ -1,96 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿@extends('mail.layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite TB Transaction Confirmation</title>
-    <style>
-        /* Reset styles */
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
+@section('title', 'Transaction OTP — Upward Saver Bank Corporation')
+@section('badge', 'Security Code')
+@section('icon', '🔑')
+@section('header_title', 'Transaction Confirmation Code')
 
-        body {
-            font-family: 'Work Sans', sans-serif;
-            background-color: #f4f4f4;
-            color: #333333;
-        }
+@section('body')
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        }
+<p style="margin:0 0 6px;color:#111827;font-size:16px;font-weight:600">Hello,</p>
+<p style="margin:0 0 26px;color:#6b7280;font-size:14px;line-height:1.6">
+  Kindly use the one-time code below to verify your transaction. This code expires shortly.
+</p>
 
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+<!-- Code Box -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:26px">
+  <tr>
+    <td align="center" style="background:linear-gradient(135deg,#a51c24,#e51c24);border-radius:12px;padding:28px 20px">
+      <p style="margin:0 0 8px;color:rgba(255,255,255,0.7);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Your One-Time Code</p>
+      <p style="margin:0;color:#ffffff;font-size:40px;font-weight:800;letter-spacing:10px;text-align:center;font-family:'Courier New',monospace">{{ $token }}</p>
+    </td>
+  </tr>
+</table>
 
-        .header img {
-            max-width: 100%;
-            height: auto;
-        }
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background:#fff5f5;border:1px solid #fecaca;border-radius:10px;padding:14px 18px">
+      <p style="margin:0;color:#b91c1c;font-size:13px;line-height:1.7">
+        If you did not request this code, please ignore this email or contact support immediately.
+      </p>
+    </td>
+  </tr>
+</table>
 
-        .content {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .content h2 {
-            margin-bottom: 10px;
-            color: #333333;
-        }
-
-        .content p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .footer {
-            text-align: center;
-            color: #888888;
-            font-size: 12px;
-        }
-
-        .footer a {
-            color: #5caad2;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="{{asset('logo.png')}}" alt="Logo">
-        </div>
-        <div class="content">
-            <h2>Confirm Your Transaction</h2>
-            <p>Kindly use the code below to validate your One-Time Code:</p>
-            <h3>{{$token}}</h3>
-            <p>If you did not request this code, please ignore this email.</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2025 - All Rights Reserved</p>
-            <p><a href="#">UNSUBSCRIBE</a></p>
-        </div>
-    </div>
-</body>
-
-</html>
+@endsection

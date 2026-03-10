@@ -1,149 +1,31 @@
-<!DOCTYPE html>
-<html xmlns:v='urn:schemas-microsoft-com:vml'>
+﻿@extends('mail.layout')
 
-<head>
-    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Upward Saver Bank Corporation</title>
-    <style type='text/css'>
-        body {
-            width: 100%;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
+@section('title', 'Loan Application Update — Upward Saver Bank Corporation')
+@section('badge', 'Loan Update')
+@section('icon', '💰')
+@section('header_title', 'Loan Application Update')
 
-        p,
-        h1,
-        h2,
-        h3,
-        h4 {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
+@section('body')
 
-        span.preheader {
-            display: none;
-            font-size: 1px;
-        }
+<!-- Status badge -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px">
+  <tr>
+    <td align="center">
+      <span style="display:inline-block;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:50px;padding:5px 16px;font-size:12px;font-weight:700;letter-spacing:.5px">⚠️ &nbsp;REQUIRES ATTENTION</span>
+    </td>
+  </tr>
+</table>
 
-        table {
-            font-size: 14px;
-            border: 0;
-        }
+<p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.7">{{ $data }}</p>
 
-        /* Responsiveness */
-        @media only screen and (max-width: 640px) {
-            .main-header {
-                font-size: 20px !important;
-            }
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background:#f9fafb;border-left:4px solid #e51c24;border-radius:0 8px 8px 0;padding:14px 18px">
+      <p style="margin:0;color:#6b7280;font-size:13px;line-height:1.7">
+        For further assistance or to appeal this decision, please contact our support team.
+      </p>
+    </td>
+  </tr>
+</table>
 
-            .main-section-header {
-                font-size: 28px !important;
-            }
-
-            /* Adjust styles for smaller screens */
-            .main-image img {
-                width: 100% !important;
-                height: auto !important;
-            }
-
-            .container590 {
-                width: 100% !important;
-            }
-
-            .main-button {
-                width: 80% !important;
-            }
-
-            .section-img img {
-                width: 100% !important;
-                height: auto !important;
-            }
-
-            .team-img img {
-                width: 100% !important;
-                height: auto !important;
-            }
-        }
-
-        @media only screen and (max-width: 479px) {
-            /* Adjust styles for even smaller screens */
-            .main-header {
-                font-size: 18px !important;
-            }
-
-            .main-section-header {
-                font-size: 26px !important;
-            }
-
-            .container590 {
-                width: 100% !important;
-            }
-
-            .section-img img {
-                width: 100% !important;
-                height: auto !important;
-            }
-        }
-    </style>
-</head>
-
-<body class='respond' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
-    <table border='0' width='100%' cellpadding='0' cellspacing='0' bgcolor='#ffffff'>
-        <!-- Header Section -->
-        <tr>
-            <td align='center'>
-                <table border='0' width='590' cellpadding='0' cellspacing='0' style='max-width: 100%;'>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align='center'>
-                            <a href=''><img width='300' border='0' style='display: block; width: 300px; margin: 0 auto;' src='{{ asset('logo.png') }}' alt=''></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <!-- Content Section -->
-        <tr>
-            <td align='center' style='padding: 0 15px;'>
-                <table border='0' width='590' cellpadding='0' cellspacing='0' style='max-width: 100%;'>
-                    <tr>
-                        <td align='center' style='color: #888888; font-size: 16px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;'>
-                            <h2 style='margin-bottom: 15px;'>Loan Declined!</h2>
-                            <p style='line-height: 24px; margin-bottom: 15px;'>{{$data}}</p>
-                            <p style='line-height: 24px;'>Kind Regards,<br/>Upward Saver Bank Corporation</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <!-- Footer Section -->
-        <tr>
-            <td align='center'>
-                <table border='0' width='590' cellpadding='0' cellspacing='0' style='max-width: 100%;' bgcolor='#f4f4f4'>
-                    <tr>
-                        <td height='25' style='font-size: 25px; line-height: 25px;'>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align='center' style='color: #aaaaaa; font-size: 14px; font-family: 'Work Sans', Calibri, sans-serif; line-height: 24px;'>
-                            <div style='line-height: 24px;'>
-                                <span style='color: #333333;'>Copyright 2026 - All Rights Reserved</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
-
-</html>
+@endsection

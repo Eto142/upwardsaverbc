@@ -1,142 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿@extends('mail.layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Upward Saver </title>
-    <style>
-        /* Reset styles */
-        body, h1, h2, p {
-            margin: 0;
-            padding: 0;
-        }
+@section('title', 'Verify Your Account — Upward Saver Bank Corporation')
+@section('badge', 'New Account')
+@section('icon', '✅')
+@section('header_title', 'Verify Your Account')
 
-        /* Global styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            line-height: 1.6;
-        }
+@section('body')
 
-        /* Container styles */
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
+<p style="margin:0 0 6px;color:#111827;font-size:16px;font-weight:600">Welcome to Upward Saver Bank Corporation!</p>
+<p style="margin:0 0 26px;color:#6b7280;font-size:14px;line-height:1.6">
+  Thank you for registering. You are just one step away from activating your account.
+  Enter the activation code below on the verification page.
+</p>
 
-        /* Header styles */
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+<!-- Code Box -->
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:26px">
+  <tr>
+    <td align="center" style="background:linear-gradient(135deg,#a51c24,#e51c24);border-radius:12px;padding:28px 20px">
+      <p style="margin:0 0 8px;color:rgba(255,255,255,0.7);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:center">Your Activation Code</p>
+      <p style="margin:0;color:#ffffff;font-size:40px;font-weight:800;letter-spacing:10px;text-align:center;font-family:'Courier New',monospace">{{ $validToken }}</p>
+    </td>
+  </tr>
+</table>
 
-        .header img {
-            max-width: 200px;
-            height: auto;
-        }
+<!-- Security Tips -->
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background:#f9fafb;border-radius:10px;padding:16px 20px">
+      <p style="margin:0 0 8px;color:#374151;font-size:13px;font-weight:600">Security Tips</p>
+      <ul style="margin:0;padding-left:16px;color:#6b7280;font-size:13px;line-height:1.8">
+        <li>Never give your login access to anyone.</li>
+        <li>This message is automated — do not reply.</li>
+        <li>Contact us immediately if you notice any suspicious activity.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-        /* Content styles */
-        .content {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .content h1, .content h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .content p {
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        .activation-code {
-            margin: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* Security tips styles */
-        .security-tips {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-            color: #888;
-        }
-
-        .security-tips p {
-            margin-bottom: 10px;
-        }
-
-        .security-tips ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        .security-tips ul li {
-            margin-bottom: 5px;
-        }
-
-        /* Footer styles */
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #888;
-            font-size: 12px;
-        }
-
-        .footer a {
-            color: #888;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-    
-        </div>
-        
-        <!-- Content -->
-        <div class="content">
-            <h1>Confirm Your Registration</h1>
-            <h2>Welcome to Upward Saver </h2>
-            <p>Your registration is successful, and you are just a step away from verifying your account.</p>
-            <p>Please find your activation code below:</p>
-            <p class="activation-code">{{$validToken}}</p>
-        </div>
-
-        <!-- Security Tips -->
-        <div class="security-tips">
-            <p><strong>Security Tips:</strong></p>
-            <ul>
-                <li>Never give your login access to anyone.</li>
-                <li>This message is automated; do not reply.</li>
-                <li>Enable two-factor authentication for enhanced security.</li>
-                <li>Contact us immediately if you notice any suspicious activity.</li>
-            </ul>
-            <p><em>Kind Regards,<br>Upward Saver </em></p>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2026 Upward Saver . All Rights Reserved.</p>
-            <p><a href="#">Unsubscribe</a></p>
-        </div>
-    </div>
-</body>
-
-</html>
+@endsection

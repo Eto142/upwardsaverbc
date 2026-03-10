@@ -1,62 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Upward Saver Bank Corporation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 15px;
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.4;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .logo {
-            width: 160px;
-            margin-bottom: 15px;
-        }
-        h1 {
-            font-size: 20px;
-            margin: 10px 0;
-            color: #2a5885;
-            font-weight: 600;
-        }
-        .approval-message {
-            font-size: 15px;
-            margin: 15px 0 20px 0;
-        }
-        .footer {
-            font-size: 11px;
-            color: #666666;
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid #eeeeee;
-        }
-        .unsubscribe {
-            font-size: 11px;
-            color: #0066cc;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <img src="https://upwardsaverbc.com/logo.png" alt="Upward Saver Bank Logo" class="logo">
-        
-        <h1>Check Deposit</h1>
-        <p class="approval-message">Your check has been approved successfully</p>
-        
-        <div class="footer">
-            <div>© 2026 Upward Saver Bank Corporation. All Rights Reserved.</div>
-            <a href="#" class="unsubscribe">UNSUBSCRIBE</a>
-        </div>
-    </div>
-</body>
-</html>
+@extends('mail.layout')
+@section('title', 'Deposit Approved — Upward Saver Bank Corporation')
+@section('badge', 'Deposit Update')
+@section('icon', '🏦')
+@section('header_title', 'Check Deposit Approved')
+@section('body')
+
+<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px">
+  <tr>
+    <td align="center">
+      <span style="display:inline-block;background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;border-radius:50px;padding:5px 16px;font-size:12px;font-weight:700;letter-spacing:.5px">✅ &nbsp;APPROVED</span>
+    </td>
+  </tr>
+</table>
+
+<p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.7">Your check deposit has been approved successfully. The funds will be reflected in your account shortly.</p>
+
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="background:#f9fafb;border-left:4px solid #e51c24;border-radius:0 8px 8px 0;padding:14px 18px">
+      <p style="margin:0;color:#6b7280;font-size:13px;line-height:1.7">If you have questions about this deposit, please contact our support team.</p>
+    </td>
+  </tr>
+</table>
+
+@endsection
