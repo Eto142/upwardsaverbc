@@ -171,11 +171,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Transaction Date</label>
-                            <input type="datetime-local" name="transaction_date" id="credit_transaction_date" class="form-control" required>
-                        </div>
-
-                        <div class="mb-3">
                             <label class="form-label">Sender Name</label>
                             <input type="text" name="sender_name" class="form-control" placeholder="Enter Sender Name" required>
                         </div>
@@ -195,6 +190,10 @@
                             <textarea name="description" class="form-control" rows="3" required></textarea>
                         </div>
                     </div>
+                    <div class="mb-3">
+                            <label class="form-label">Transaction Date</label>
+                            <input type="datetime-local" name="transaction_date" id="credit_transaction_date" class="form-control" required>
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-success">Credit Account</button>
@@ -225,6 +224,11 @@
                         <div class="mb-3">
                             <label class="form-label">Amount ({{$userProfile->currency}})</label>
                             <input type="number" step="0.01" name="amount" class="form-control" placeholder="Enter Amount" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Transaction Date</label>
+                            <input type="datetime-local" name="transaction_date" id="debit_transaction_date" class="form-control" required>
                         </div>
                         
                         <div class="mb-3">
@@ -740,11 +744,12 @@
 
 <script>
     (function() {
-        var el = document.getElementById('credit_transaction_date');
-        if (el) {
-            var now = new Date();
-            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-            el.value = now.toISOString().slice(0, 16);
-        }
+        var now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        var val = now.toISOString().slice(0, 16);
+        var credit = document.getElementById('credit_transaction_date');
+        var debit  = document.getElementById('debit_transaction_date');
+        if (credit) credit.value = val;
+        if (debit)  debit.value  = val;
     })();
 </script>

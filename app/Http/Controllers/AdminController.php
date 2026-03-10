@@ -321,6 +321,8 @@ public function debitUser(Request $request)
     $debit->status = 1;
     $debit->save();
 
+    $transactionDate = Carbon::parse($request['transaction_date']);
+
     $transaction = new Transaction;
     $transaction->user_id = $request['id'];
     $transaction->transaction_id = $debit->id;
@@ -332,12 +334,18 @@ public function debitUser(Request $request)
     $transaction->transaction_status = 1;
     $transaction->save();
 
-
+    // Override created_at to the admin-specified date
+    $transaction->timestamps = false;
+    $transaction->created_at = $transactionDate;
+    $transaction->save();
+    $debit->timestamps = false;
+    $debit->created_at = $transactionDate;
+    $debit->save();
 
     $full_name = $request['name'];  
     $email =  $request['email'];
     $amount = $request->input('amount');
-    $date = Carbon::now();  
+    $date = $transactionDate;
     $balance =  $request['balance'] - $request['amount'];
     $description =  $request['description'];
     $a_number =  $request['a_number'];
@@ -350,7 +358,7 @@ public function debitUser(Request $request)
       'full_name' => $full_name,
       'description' => $description,
       'amount' => $amount,
-      'date' => $date,
+      'date' => $date->format('D, d M Y g:i A'),
       'balance' => $balance,
       'currency' => $currency,
       'ref' => $ref,
