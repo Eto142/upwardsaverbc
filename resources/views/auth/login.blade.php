@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="Upward Saver Bank Corporation">
     <meta name="application-name" content="Upward Saver Bank Corporation">
     <meta name="description" content="Swift and Secure Money Transfer to any UK bank account will become a breeze with Upward Saver Bank Corporation.">
-    <link rel="shortcut icon" href="https://ccufinance.com/storage/app/public/photos/SogsHXqU6Y0ICRb6DyZgVRWFyDOm44mgql9lWKwW.png">
+    <link rel="shortcut icon" href="{{ asset('logo1.png') }}" type="image/png">
     
     
     <!-- Tailwind CSS -->
@@ -244,20 +244,20 @@
         }
     </style>
     <!-- Web Application Manifest -->
-<link rel="manifest" href="https://ccufinance.com/manifest.json">
+<link rel="manifest" href="{{ asset('manifest.json') }}">
 <!-- Chrome for Android theme color -->
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#e51c24">
 
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="PWA">
-<link rel="icon" sizes="512x512" href="/images/icons/icon-512x512.png">
+<meta name="application-name" content="Upward Saver Bank Corporation">
+<link rel="icon" sizes="512x512" href="{{ asset('logo1.png') }}">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="PWA">
-<link rel="apple-touch-icon" href="/images/icons/icon-512x512.png">
+<meta name="apple-mobile-web-app-title" content="Upward Saver Bank Corporation">
+<link rel="apple-touch-icon" href="{{ asset('logo1.png') }}">
 
 
 <link href="/images/icons/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />

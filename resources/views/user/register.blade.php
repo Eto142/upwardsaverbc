@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<!-- Mirrored from www.trader.digitalcryptocurrencytrade.com/register by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Oct 2022 19:23:35 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="eoH8gBoy6Ta98jODmhTHlIwvVtFwAxOSPlnvaVbT">
-        <title>DigitalCryptoTrade | Creaet Account</title>
-        
-        
-        <link rel="icon" href="auth/storage/app/public/photos/UvJWMw59672-cryptocurrency-mining-blockchain-bitcoin-pool-free-transparent-image-hq.png1655237630" type="image/png"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>Create Account — Upward Saver Bank Corporation</title>
+
+        <link rel="icon" href="{{ asset('logo1.png') }}" type="image/png"/>
                    
             <link href="auth/temp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
             <!-- Icons -->
@@ -31,7 +26,7 @@
             <div class="pb-3 row justify-content-center">
 
                 <div class="col-12 col-md-6 col-lg-6 col-sm-10 col-xl-6">
-                    <a href="index.html"><img src="storage/app/public/photos/UvJWMwDigital%20Crypto%20Trade.png1655237630" alt="" class="mb-3 img-fluid auth__logo"></a>
+                    <a href="{{ url('/') }}"><img src="{{ asset('logo1.png') }}" alt="Upward Saver Bank" class="mb-3 img-fluid auth__logo" style="max-height:60px;"></a>
                     
                                                     
                     
@@ -390,29 +385,15 @@
                                     </div>
                                     <!--end col-->
 
-                                    <div class="mt-4 text-center col-lg-12">
-                                                                                <h6>Or Login With</h6>
-                                        <div class="row">
-                                            <!--end col-->
-                                            <div class="mt-3 col-12">
-                                                <a href="https://accounts.google.com/o/oauth2/auth?client_id=your+client+ID&amp;redirect_uri=http%3A%2F%2Fyoursiteurl%2Fauth%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=iRaLAJlXEVoxHZxNufScbEdS2EfRpiyiJhiTkTt6" class="btn btn-block btn-light"><i
-                                                        class="mdi mdi-google text-danger"></i> Google</a>
-                                            </div>
-                                            <!--end col-->
-                                        </div>
-                                                                            </div>
-                                    <!--end col-->
-                                    <!--end col-->
-
                                     <div class="text-center col-12">
-                                        <p class="mt-3 mb-0"><small class="mr-2 text-dark">Already have an account
-                                                </small> <a href="login.html"
+                                        <p class="mt-3 mb-0"><small class="mr-2 text-dark">Already have an account?
+                                                </small> <a href="{{ route('login') }}"
                                                 class="text-dark font-weight-bold">Login</a></p>
                                     </div>
                                     <!--end col-->
-                                    
+
                                     <div class="text-center col-12">
-                                        <p class="mt-4 mb-0"><small class="mr-2 text-dark">&copy; Copyright  2022 &nbsp; DigitalCryptoTrade &nbsp; All Rights Reserved.</small>
+                                        <p class="mt-4 mb-0"><small class="mr-2 text-dark">&copy; {{ date('Y') }} &nbsp; Upward Saver Bank Corporation &nbsp; All Rights Reserved.</small>
                                         </p>
                                     </div>
                                 </div>
@@ -452,6 +433,4 @@
     });
 </script>
     </body>
-
-<!-- Mirrored from www.trader.digitalcryptocurrencytrade.com/register by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 21 Oct 2022 19:23:36 GMT -->
 </html>

@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
     <meta name="description" content="Enter the one-time code sent to your email to complete sign-in.">
-    <link rel="shortcut icon" href="https://ccufinance.com/storage/app/public/photos/SogsHXqU6Y0ICRb6DyZgVRWFyDOm44mgql9lWKwW.png">
+    <link rel="shortcut icon" href="{{ asset('logo1.png') }}" type="image/png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
