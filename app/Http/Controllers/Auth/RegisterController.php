@@ -28,12 +28,13 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name'     => 'required',
-            'email'    => 'required|email|unique:users',
-            'address'  => 'required',
-            'phone'    => 'required',
-            'country'  => 'required',
-            'password' => 'string|required|confirmed|min:3',
+            'first_name' => 'required',
+            'last_name'  => 'required',
+            'email'      => 'required|email|unique:users',
+            'address'    => 'required',
+            'phone'      => 'required',
+            'country'    => 'required',
+            'password'   => 'string|required|confirmed|min:3',
         ]);
 
         $user = $this->createUser($request->all());
@@ -111,12 +112,13 @@ class RegisterController extends Controller
     protected function createUser(array $data): User
     {
         return User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'address'  => $data['address'],
-            'phone'    => $data['phone'],
-            'country'  => $data['country'],
-            'password' => Hash::make($data['password']),
+            'first_name' => $data['first_name'],
+            'last_name'  => $data['last_name'],
+            'email'      => $data['email'],
+            'address'    => $data['address'],
+            'phone_number' => $data['phone'],
+            'country'    => $data['country'],
+            'password'   => Hash::make($data['password']),
         ]);
     }
 }
