@@ -454,7 +454,7 @@
                 
                 <!-- Form Container -->
                 <div class="px-8 py-6">
-                   <form method="POST" action="{{route('register')}}" id="regester" class="needs-validation" novalidate>
+                   <form method="POST" action="{{route('register.custom')}}" id="regester" class="needs-validation" novalidate>
                                 @csrf
                                               
                         <!-- Step 1: Personal Information -->
