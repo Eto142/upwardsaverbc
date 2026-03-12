@@ -1,0 +1,21 @@
+{
+    "name": "Upward Saver Bank Corporation",
+    "short_name": "USBC",
+    "description": "Upward Saver Bank Banking Corporation — Secure, modern digital banking.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#e51c24",
+    "icons": [
+        {
+            "src": "/logo1.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo1.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
