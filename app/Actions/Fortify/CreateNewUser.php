@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Mail\welcomeEmail;
 use App\Models\verifyToken;
 use App\Mail\VerificationEmail;
-use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +33,6 @@ class CreateNewUser implements CreatesNewUsers
             'account_type' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
-            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
         
         
