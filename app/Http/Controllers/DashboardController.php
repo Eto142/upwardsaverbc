@@ -20,6 +20,7 @@ use App\Mail\bankStatementEmail;
 use App\Models\Transfer;
 use App\Mail\nftUserEmail;
 use App\Mail\SendTokenEmail;
+use App\Models\Trade;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,34 @@ use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
+    /**
+     * Show the authenticated user's dashboard.
+     */
+    public function index()
+    {
+        $data['transaction'] = Transaction::where('user_id', Auth::id())
+                                          ->orderBy('created_at', 'desc')
+                                          ->get();
+        $data['trades']      = Trade::where('user_id', Auth::id())
+                                    ->orderBy('created_at', 'desc')
+                                    ->get();
+
+        $data['credit_transfers'] = Transaction::where('user_id', Auth::id())
+            ->where('transaction_status', '1')->where('transaction_type', 'Credit')
+            ->sum('transaction_amount');
+        $data['debit_transfers']  = Transaction::where('user_id', Auth::id())
+            ->where('transaction_status', '1')->where('transaction_type', 'Debit')
+            ->sum('transaction_amount');
+        $data['user_deposits']    = Deposit::where('user_id', Auth::id())->where('status', '1')->sum('amount');
+        $data['user_loans']       = Loan::where('user_id', Auth::id())->where('status', '1')->sum('amount');
+        $data['user_card']        = Card::where('user_id', Auth::id())->sum('amount');
+        $data['user_credit']      = Credit::where('user_id', Auth::id())->where('status', '1')->sum('amount');
+        $data['user_debit']       = Debit::where('user_id', Auth::id())->where('status', '1')->sum('amount');
+        $data['balance']          = $data['user_deposits'] + $data['credit_transfers'] + $data['user_loans']
+                                    - $data['user_debit'] - $data['debit_transfers'] - $data['user_card'];
+
+        return view('dashboard.home', $data);
+    }
 
     public function transferPage()
     {
@@ -325,21 +354,31 @@ for ($i = 0; $i < 16; $i++) {
     
   public function sendBankStatement(Request $request)
     {
-        try {
-            // Mock email content and transactions
-            $transactions = $request->input('transactions'); // Transactions sent from the frontend
-            $user = auth()->user();
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after_or_equal:start_date',
+        ]);
 
-            // Send the email
-            Mail::send('emails.bank-statement', ['transactions' => $transactions, 'user' => $user], function ($message) use ($user) {
+        $user = auth()->user();
+
+        $transactions = Transaction::where('user_id', $user->id)
+            ->whereBetween('created_at', [
+                $request->start_date . ' 00:00:00',
+                $request->end_date   . ' 23:59:59',
+            ])
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->toArray();
+
+        try {
+            Mail::send('emails.bank-statement', ['transactions' => $transactions, 'user' => $user], function ($message) use ($user, $request) {
                 $message->to($user->email)
-                        ->subject('Your Bank Statement');
+                        ->subject('Your Bank Statement (' . $request->start_date . ' – ' . $request->end_date . ')');
             });
 
-            // Return a success response
-            return response()->json(['message' => 'Bank statement emailed successfully!']);
+            return redirect()->back()->with('statement_success', 'Your bank statement has been sent to ' . $user->email . '.');
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to send email: ' . $e->getMessage()], 500);
+            return redirect()->back()->with('statement_error', 'Failed to send statement. Please try again.');
         }
     }
     

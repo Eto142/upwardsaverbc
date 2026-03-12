@@ -95,6 +95,19 @@
 
  <!-- Shortcuts -->
 <h6 class="mt-4">Shortcuts</h6>
+
+@if(session('statement_success'))
+  <div class="alert alert-success alert-dismissible fade show py-2 small" role="alert">
+    <i class="bi bi-check-circle me-1"></i> {{ session('statement_success') }}
+    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+@if(session('statement_error'))
+  <div class="alert alert-danger alert-dismissible fade show py-2 small" role="alert">
+    <i class="bi bi-exclamation-circle me-1"></i> {{ session('statement_error') }}
+    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
 <div class="d-flex justify-content-around text-center">
   <a href="{{route('cryptopage')}}" class="text-decoration-none text-dark">
     <div>
@@ -126,6 +139,46 @@
       <small>PayPal</small>
     </div>
   </a>
+  <a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#bankStatementModal">
+    <div>
+      <div class="shortcut-icon bg-shortcut-2"><i class="bi bi-file-earmark-text"></i></div>
+      <small>Statement</small>
+    </div>
+  </a>
+</div>
+
+<!-- Bank Statement Modal -->
+<div class="modal fade" id="bankStatementModal" tabindex="-1" aria-labelledby="bankStatementModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title fw-semibold" id="bankStatementModalLabel">
+          <i class="bi bi-file-earmark-text me-2"></i>Request Bank Statement
+        </h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{{ route('send.bank.statement') }}" method="POST">
+        @csrf
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Your bank statement will be sent to <strong>{{ Auth::user()->email }}</strong>.</p>
+          <div class="mb-3">
+            <label for="start_date" class="form-label small">From</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" required>
+          </div>
+          <div class="mb-3">
+            <label for="end_date" class="form-label small">To</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-main btn-sm">
+            <i class="bi bi-send me-1"></i>Send to Email
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 
@@ -268,6 +321,7 @@
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   function triggerFileInput() {
     document.getElementById('profilePictureInput').click();

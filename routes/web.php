@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\Auth\LoginController as UserLoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\TradeController;
@@ -36,29 +37,29 @@ Route::get('/commercial-real', fn () => view('home.commercial-real'));
 // __ Guest auth routes (login / register) _______________________________
 
 Route::middleware('guest')->group(function () {
-    Route::get('login',    [CustomAuthController::class, 'index'])->name('login');
-    Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
+    Route::get('login',    [UserLoginController::class, 'showLoginForm'])->name('login');
+    Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 });
 
-Route::post('custom-login',        [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::get('login-otp',            [CustomAuthController::class, 'showLoginOtp'])->name('login.otp');
-Route::post('login-otp/verify',    [CustomAuthController::class, 'verifyLoginOtp'])->name('login.otp.verify');
-Route::post('login-otp/resend',    [CustomAuthController::class, 'resendLoginOtp'])->name('login.otp.resend');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('verify/{id}',          [CustomAuthController::class, 'verify'])->name('verify');
-Route::post('email-verify',        [CustomAuthController::class, 'emailVerify'])->name('code');
-Route::get('resend-code/{id}',     [CustomAuthController::class, 'resendCode'])->name('resendCode');
+Route::post('custom-login',        [UserLoginController::class, 'login'])->name('login.custom');
+Route::get('login-otp',            [UserLoginController::class, 'showOtpForm'])->name('login.otp');
+Route::post('login-otp/verify',    [UserLoginController::class, 'verifyOtp'])->name('login.otp.verify');
+Route::post('login-otp/resend',    [UserLoginController::class, 'resendOtp'])->name('login.otp.resend');
+Route::post('custom-registration', [RegisterController::class, 'register'])->name('register.custom');
+Route::get('verify/{id}',          [RegisterController::class, 'showVerifyForm'])->name('verify');
+Route::post('email-verify',        [RegisterController::class, 'verifyEmail'])->name('code');
+Route::get('resend-code/{id}',     [RegisterController::class, 'resendCode'])->name('resendCode');
 
 // Logout
-Route::get('log_out',       [CustomAuthController::class, 'signOut'])->name('sign.out');
-Route::get('/logout',       [CustomAuthController::class, 'logOut'])->name('logOut');
-Route::post('/user/logout', [CustomAuthController::class, 'UserlogOut'])->name('user.logout');
+Route::get('log_out',       [UserLoginController::class, 'signOut'])->name('sign.out');
+Route::get('/logout',       [UserLoginController::class, 'legacyLogout'])->name('logOut');
+Route::post('/user/logout', [UserLoginController::class, 'logout'])->name('user.logout');
 
 // __ Authenticated user routes __________________________________________
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::post('send-mail',           [SendMailController::class, 'sendMail'])->name('send-mail');
     Route::post('send-bank-statement', [DashboardController::class, 'sendBankStatement'])->name('send.bank.statement');
