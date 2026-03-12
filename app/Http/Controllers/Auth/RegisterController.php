@@ -69,19 +69,19 @@ class RegisterController extends Controller
      */
     public function verifyEmail(Request $request)
     {
-        $token       = $request->input('digit');
-        $verifyToken = User::where('token', $token)->first();
+        $token = $request->input('digit');
+        $verifyToken = verifyToken::where('token', $token)->first();
 
         if (!$verifyToken) {
             return back()->with('error', 'Incorrect Activation Code!');
         }
 
-        $user               = User::where('email', $verifyToken->email)->firstOrFail();
+        $user = User::where('email', $verifyToken->email)->firstOrFail();
         $user->is_activated = 1;
         $user->save();
 
         Mail::to($user->email)->send(new welcomeEmail([
-            'name'     => $user->name,
+            'name'     => $user->first_name,
             'a_number' => $user->a_number,
             'email'    => $user->email,
             'password' => '*********',
