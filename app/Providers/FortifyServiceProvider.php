@@ -28,6 +28,9 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Stop Fortify from registering its own routes (we define all routes ourselves)
+        Fortify::ignoreRoutes();
+
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         // Explicitly bind password-reset views (no component dependencies)

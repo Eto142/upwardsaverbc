@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\TradeController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\PasswordResetLinkController;
+use Laravel\Fortify\Http\Controllers\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,12 @@ Route::get('/commercial-real', fn () => view('home.commercial-real'));
 Route::middleware('guest')->group(function () {
     Route::get('login',    [UserLoginController::class, 'showLoginForm'])->name('login');
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
+    // Password reset
+    Route::get('forgot-password',         [PasswordResetLinkController::class, 'create'])->name('password.request');
+    Route::post('forgot-password',        [PasswordResetLinkController::class, 'store'])->name('password.email');
+    Route::get('reset-password/{token}',  [NewPasswordController::class, 'create'])->name('password.reset');
+    Route::post('reset-password',         [NewPasswordController::class, 'store'])->name('password.update');
 });
 
 Route::post('custom-login',        [UserLoginController::class, 'login'])->name('login.custom');
