@@ -1,57 +1,31 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <div x-data="{ recovery: false }">
-            <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
-                {{ __('Please confirm access to your account by entering the authentication code provided by your authenticator application.') }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Factor Authentication - {{ config('app.name') }}</title>
+    <link rel="shortcut icon" href="{{ asset('logo1.png') }}" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Two Factor Authentication</h1>
+        @if ($errors->any())
+            <div class="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded">
+                @foreach ($errors->all() as $error)<p>{{ $error }}</p>@endforeach
             </div>
-
-            <div class="mb-4 text-sm text-gray-600" x-show="recovery">
-                {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
+        @endif
+        <form method="POST" action="{{ route('two-factor.login.store') }}">
+            @csrf
+            <div class="mb-4">
+                <label for="code" class="block text-sm font-medium text-gray-700 mb-1">Authentication Code</label>
+                <input id="code" type="text" name="code" inputmode="numeric" autofocus autocomplete="one-time-code"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
-
-            <x-jet-validation-errors class="mb-4" />
-
-            <form method="POST" action="{{ route('two-factor.login') }}">
-                @csrf
-
-                <div class="mt-4" x-show="! recovery">
-                    <x-jet-label for="code" value="{{ __('Code') }}" />
-                    <x-jet-input id="code" class="block mt-1 w-full" type="text" inputmode="numeric" name="code" autofocus x-ref="code" autocomplete="one-time-code" />
-                </div>
-
-                <div class="mt-4" x-show="recovery">
-                    <x-jet-label for="recovery_code" value="{{ __('Recovery Code') }}" />
-                    <x-jet-input id="recovery_code" class="block mt-1 w-full" type="text" name="recovery_code" x-ref="recovery_code" autocomplete="one-time-code" />
-                </div>
-
-                <div class="flex items-center justify-end mt-4">
-                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
-                                    x-show="! recovery"
-                                    x-on:click="
-                                        recovery = true;
-                                        $nextTick(() => { $refs.recovery_code.focus() })
-                                    ">
-                        {{ __('Use a recovery code') }}
-                    </button>
-
-                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
-                                    x-show="recovery"
-                                    x-on:click="
-                                        recovery = false;
-                                        $nextTick(() => { $refs.code.focus() })
-                                    ">
-                        {{ __('Use an authentication code') }}
-                    </button>
-
-                    <x-jet-button class="ml-4">
-                        {{ __('Log in') }}
-                    </x-jet-button>
-                </div>
-            </form>
-        </div>
-    </x-jet-authentication-card>
-</x-guest-layout>
+            <button type="submit" class="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md transition">
+                Verify
+            </button>
+        </form>
+    </div>
+</body>
+</html>

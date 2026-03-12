@@ -1,38 +1,50 @@
-
- <!-- Top Right -->
-                       <div class="gtranslate_wrapper"></div> <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","switcher_vertical_position":"top","alt_flags":{"en":"usa","pt":"brazil","es":"colombia","fr":"quebec"}}</script> <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-                    </div>
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - {{ config('app.name') }}</title>
+    <link rel="shortcut icon" href="{{ asset('logo1.png') }}" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+        <div class="text-center mb-6">
+            <a href="/"><img src="{{ asset('logo1.png') }}" alt="{{ config('app.name') }}" class="h-12 mx-auto mb-3"></a>
+            <h1 class="text-2xl font-bold text-gray-800">Forgot Password</h1>
+            <p class="text-sm text-gray-500 mt-1">Enter your email address and we will send you a password reset link.</p>
         </div>
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
+            <div class="mb-4 p-3 bg-green-50 border border-green-200 text-green-700 text-sm rounded">
                 {{ session('status') }}
             </div>
         @endif
 
-        <x-jet-validation-errors class="mb-4" />
+        @if ($errors->any())
+            <div class="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
 
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-jet-button>
-            </div>
+            <button type="submit"
+                class="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md transition">
+                Send Reset Link
+            </button>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+
+        <p class="mt-4 text-center text-sm text-gray-500">
+            <a href="{{ route('login') }}" class="text-indigo-600 hover:underline">Back to login</a>
+        </p>
+    </div>
+</body>
+</html>
