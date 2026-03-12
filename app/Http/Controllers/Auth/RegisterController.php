@@ -80,6 +80,9 @@ class RegisterController extends Controller
         $user->is_activated = 1;
         $user->save();
 
+        // Log the user in after successful verification
+        Auth::login($user);
+
         Mail::to($user->email)->send(new welcomeEmail([
             'name'     => $user->first_name,
             'a_number' => $user->a_number,
@@ -87,7 +90,7 @@ class RegisterController extends Controller
             'password' => '*********',
         ]));
 
-        return redirect('dashboard')->with('status', 'Your account has been verified successfully, you can now login.');
+        return redirect('dashboard')->with('status', 'Your account has been verified successfully.');
     }
 
     /**
