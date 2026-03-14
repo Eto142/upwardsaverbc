@@ -1,9 +1,13 @@
 ﻿@extends('mail.layout')
 
-@section('title', '{{ $data["subject"] }} — Upward Saver Bank Corporation')
+@section('title')
+{{ $data['subject'] }} — Upward Saver Bank Corporation
+@endsection
 @section('badge', 'Account Notification')
 @section('icon', '🔔')
-@section('header_title', '{{ $data["subject"] }}')
+@section('header_title')
+{{ $data['subject'] }}
+@endsection
 
 @section('body')
 
