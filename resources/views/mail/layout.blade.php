@@ -35,11 +35,6 @@
         <tr>
           <td style="background:#ffffff;padding:36px 40px">
             @yield('body')
-            <!-- Auto footer note -->
-            <p style="margin:28px 0 0;color:#9ca3af;font-size:12px;line-height:1.6;text-align:center">
-              This is an automated message from Upward Saver Bank Corporation.<br>
-              Please do not reply to this email.
-            </p>
           </td>
         </tr>
 

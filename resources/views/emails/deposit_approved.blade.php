@@ -2,16 +2,8 @@
 @section('title', 'Deposit Approved — Upward Saver Bank Corporation')
 @section('badge', 'Deposit Update')
 @section('icon', '🏦')
-@section('header_title', 'Check Deposit Approved')
+@section('header_title', 'Check Deposit')
 @section('body')
-
-<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:22px">
-  <tr>
-    <td align="center">
-      <span style="display:inline-block;background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;border-radius:50px;padding:5px 16px;font-size:12px;font-weight:700;letter-spacing:.5px">✅ &nbsp;APPROVED</span>
-    </td>
-  </tr>
-</table>
 
 <p style="margin:0 0 20px;color:#374151;font-size:15px;line-height:1.7">Your check deposit has been approved successfully. The funds will be reflected in your account shortly.</p>
 
