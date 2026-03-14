@@ -39,7 +39,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('admin.send.mail') }}" method="POST" class="mt-4">
+            <form action="{{ route('admin.send.mail.send') }}" method="POST" class="mt-4">
                 @csrf
 
                 <div class="row mb-3">
