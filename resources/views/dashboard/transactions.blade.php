@@ -75,6 +75,10 @@
             <div class="transaction-icon">
               <i class="bi bi-wallet2"></i>
             </div>
+          @elseif($details->transaction == 'Deposit')
+            <div class="transaction-icon transaction-success">
+              <i class="bi bi-file-earmark-check"></i>
+            </div>
           @endif
           
           <div>

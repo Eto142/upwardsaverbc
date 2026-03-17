@@ -256,6 +256,104 @@
           </div>
         </div>
       </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="MSFT">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-windows"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Microsoft Corp.</div>
+            <div class="asset-symbol">MSFT</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$415.32</div>
+            <div class="price-change-up">+1.12%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="GOOGL">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-google"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Alphabet Inc.</div>
+            <div class="asset-symbol">GOOGL</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$172.45</div>
+            <div class="price-change-down">-0.43%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="NVDA">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-cpu"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">NVIDIA Corp.</div>
+            <div class="asset-symbol">NVDA</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$875.40</div>
+            <div class="price-change-up">+3.21%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="META">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-person-badge"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Meta Platforms</div>
+            <div class="asset-symbol">META</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$502.18</div>
+            <div class="price-change-up">+0.95%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="JPM">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-bank"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">JPMorgan Chase</div>
+            <div class="asset-symbol">JPM</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$196.74</div>
+            <div class="price-change-down">-0.18%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="NFLX">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-play-circle"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Netflix Inc.</div>
+            <div class="asset-symbol">NFLX</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$634.90</div>
+            <div class="price-change-up">+1.44%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="V">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-credit-card"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Visa Inc.</div>
+            <div class="asset-symbol">V</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$278.63</div>
+            <div class="price-change-up">+0.54%</div>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- Crypto Tab -->
@@ -306,6 +404,104 @@
           <div class="text-end">
             <div class="asset-price">$187.34</div>
             <div class="price-change-down">-0.65%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="BNB">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-coin"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">BNB</div>
+            <div class="asset-symbol">BNB</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$598.20</div>
+            <div class="price-change-up">+1.03%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="XRP">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-arrow-left-right"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">XRP</div>
+            <div class="asset-symbol">XRP</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$0.6134</div>
+            <div class="price-change-up">+2.15%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="ADA">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-currency-exchange"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Cardano</div>
+            <div class="asset-symbol">ADA</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$0.4872</div>
+            <div class="price-change-down">-0.31%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="DOGE">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-emoji-smile"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Dogecoin</div>
+            <div class="asset-symbol">DOGE</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$0.1623</div>
+            <div class="price-change-up">+5.42%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="AVAX">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-lightning-charge"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Avalanche</div>
+            <div class="asset-symbol">AVAX</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$38.90</div>
+            <div class="price-change-up">+1.78%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="LINK">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-link-45deg"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Chainlink</div>
+            <div class="asset-symbol">LINK</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$17.54</div>
+            <div class="price-change-down">-0.92%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="LTC">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon crypto-icon"><i class="bi bi-currency-bitcoin"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Litecoin</div>
+            <div class="asset-symbol">LTC</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">$84.20</div>
+            <div class="price-change-up">+0.67%</div>
           </div>
         </div>
       </div>
@@ -362,7 +558,142 @@
           </div>
         </div>
       </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="USD/CHF">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">US Dollar / Swiss Franc</div>
+            <div class="asset-symbol">USD/CHF</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">0.8921</div>
+            <div class="price-change-down">-0.09%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="AUD/USD">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Australian Dollar / US Dollar</div>
+            <div class="asset-symbol">AUD/USD</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">0.6543</div>
+            <div class="price-change-up">+0.18%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="USD/CAD">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">US Dollar / Canadian Dollar</div>
+            <div class="asset-symbol">USD/CAD</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">1.3612</div>
+            <div class="price-change-up">+0.07%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="NZD/USD">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">New Zealand Dollar / US Dollar</div>
+            <div class="asset-symbol">NZD/USD</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">0.5987</div>
+            <div class="price-change-down">-0.22%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="EUR/GBP">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Euro / British Pound</div>
+            <div class="asset-symbol">EUR/GBP</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">0.8534</div>
+            <div class="price-change-up">+0.05%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="EUR/JPY">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Euro / Japanese Yen</div>
+            <div class="asset-symbol">EUR/JPY</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">169.74</div>
+            <div class="price-change-up">+0.33%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="GBP/JPY">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-globe"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">British Pound / Japanese Yen</div>
+            <div class="asset-symbol">GBP/JPY</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">198.41</div>
+            <div class="price-change-up">+0.26%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card clickable" data-bs-toggle="modal" data-bs-target="#tradeModal" data-asset="XAU/USD">
+        <div class="d-flex align-items-center">
+          <div class="asset-icon stock-icon"><i class="bi bi-gem"></i></div>
+          <div class="flex-grow-1">
+            <div class="asset-name">Gold / US Dollar</div>
+            <div class="asset-symbol">XAU/USD</div>
+          </div>
+          <div class="text-end">
+            <div class="asset-price">2,318.50</div>
+            <div class="price-change-up">+0.61%</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- TradingView Chart -->
+<div class="container-fluid px-3 mt-4 mb-3">
+  <h6 class="fw-semibold mb-2">Live Market Chart</h6>
+  <div class="tradingview-widget-container" style="border-radius:16px; overflow:hidden;">
+    <div id="tradingview_chart"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.widget({
+        "width": "100%",
+        "height": 420,
+        "symbol": "NASDAQ:AAPL",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "light",
+        "style": "1",
+        "locale": "en",
+        "allow_symbol_change": true,
+        "container_id": "tradingview_chart"
+      });
+    </script>
   </div>
 </div>
 
