@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Upward Saver Bank Banking Corporation — Secure, modern digital banking for personal and business needs.">
-<meta name="keywords" content="Bank, Upward Saver Bank Banking Corporation, Internet Banking, Digital Banking, Savings, Loans">
-<meta property="og:description" content="Upward Saver Bank Banking Corporation — Banking made simple, secure, and smart.">
-<meta property="og:site_name" content="Upward Saver Bank Banking Corporation">
+<meta name="description" content="Upward Saver Bank Corporation — Secure, modern digital banking for personal and business needs.">
+<meta name="keywords" content="Bank, Upward Saver Bank Corporation, Internet Banking, Digital Banking, Savings, Loans">
+<meta property="og:description" content="Upward Saver Bank Corporation — Banking made simple, secure, and smart.">
+<meta property="og:site_name" content="Upward Saver Bank Corporation">
 <link rel="canonical" href="/">
-<title>Upward Saver Bank Banking Corporation</title>
+<title>Upward Saver Bank Corporation</title>
 <link rel="icon" type="image/png" href="storage/app/public/photos/SogsHXqU6Y0ICRb6DyZgVRWFyDOm44mgql9lWKwW.png">
 
 <!-- Fonts -->
@@ -79,7 +79,7 @@
   <div class="bk-wrap">
     <div class="bk-header-row">
      <a href="/" class="bk-logo">
-  <img src="logo1.png" alt="Upward Saver Bank Banking Corporation" style="height:40px; width:auto;">
+  <img src="logo1.png" alt="Upward Saver Bank Corporation" style="height:40px; width:auto;">
 </a>
 
 

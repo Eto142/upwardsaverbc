@@ -17,7 +17,7 @@
         <div class="bk-content-block sr">
           <img src="frontassets/images/banner/5.jpg" alt="Personal Loans" style="border-radius:var(--r-md);width:100%;height:280px;object-fit:cover;margin-bottom:20px">
           <h2 style="font-size:22px;color:var(--bk-navy);margin-bottom:12px">A Loan for Whatever You Need</h2>
-          <p style="line-height:1.8;color:#475569">Whether it's a sudden expense or a vacation to get away from everything, Upward Saver Bank Banking Corporation can make it happen. Renovate your home, buy a new computer, or pay off your credit cards — anything's possible with a personal loan. Let one of our loan experts customise a loan just for you.</p>
+          <p style="line-height:1.8;color:#475569">Whether it's a sudden expense or a vacation to get away from everything, Upward Saver Bank Corporation can make it happen. Renovate your home, buy a new computer, or pay off your credit cards — anything's possible with a personal loan. Let one of our loan experts customise a loan just for you.</p>
         </div>
 
         <div class="bk-content-block sr" style="margin-top:24px">

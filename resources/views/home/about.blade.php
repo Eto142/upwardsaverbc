@@ -4,7 +4,7 @@
 <section class="bk-page-hero">
   <div class="bk-wrap">
     <h1>About Us</h1>
-    <p>Learn about our mission, values, and the team behind Upward Saver Bank Banking Corporation.</p>
+    <p>Learn about our mission, values, and the team behind Upward Saver Bank Corporation.</p>
     <div class="bk-breadcrumb"><a href="/">Home</a> <span>/</span> About Us</div>
   </div>
 </section>
@@ -16,7 +16,7 @@
       <div class="bk-content-block sr">
         <span class="bk-label">Our Story</span>
         <h2>Banking With a Purpose</h2>
-        <p>Upward Saver Bank Banking Corporation was founded with a clear mission: to make banking simple, accessible, and human. Since launching over a decade ago, we've grown into one of the most trusted digital banking providers in the industry.</p>
+        <p>Upward Saver Bank Corporation was founded with a clear mission: to make banking simple, accessible, and human. Since launching over a decade ago, we've grown into one of the most trusted digital banking providers in the industry.</p>
         <p>We combine cutting-edge technology with personalised service to deliver an experience that empowers individuals and businesses to take control of their financial future.</p>
         <div class="bk-check-list" style="margin-top:16px">
           <div class="bk-check-item">

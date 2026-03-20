@@ -10,7 +10,7 @@
       <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/1.jpg')"></div>
       <div class="bk-wrap">
         <div class="bk-hero-body">
-          <span class="bk-hero-label">Welcome to Upward Saver Bank Banking Cooperation</span>
+          <span class="bk-hero-label">Welcome to Upward Saver Bank Corporation</span>
           <h1>Banking Made<br>Simple &amp; Secure</h1>
           <p>Experience seamless digital banking with industry-leading security. Send, save, and grow your finances with confidence.</p>
           <div class="bk-hero-actions">
@@ -71,7 +71,7 @@
     <div class="bk-trust-grid">
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-shield-check-line"></i></div>
-        <div><strong>FDIC Insured</strong><span>Deposits insured up to $250,000</span></div>
+        <div><strong>FDIC Insured</strong><span>Deposits insured up to £250,000</span></div>
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-lock-2-line"></i></div>
@@ -79,7 +79,7 @@
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-global-line"></i></div>
-        <div><strong>180+ Countries</strong><span>Global transfer network</span></div>
+        <div><strong>50+ Countries</strong><span>Global transfer network</span></div>
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-customer-service-2-line"></i></div>
@@ -158,7 +158,7 @@
       <div class="bk-split-text sr">
         <span class="bk-label">Why Choose Us</span>
         <h2 class="bk-title">A Bank You Can Truly Trust</h2>
-        <p class="bk-desc" style="margin:0 0 20px">Upward Saver Bank Banking Corporation has been transforming digital banking for over a decade. We combine cutting-edge technology with personalised service to deliver an experience that puts you first.</p>
+        <p class="bk-desc" style="margin:0 0 20px">Upward Saver Bank Corporation has been transforming digital banking for over a decade. We combine cutting-edge technology with personalised service to deliver an experience that puts you first.</p>
         <div class="bk-check-list">
           <div class="bk-check-item">
             <i class="ri-checkbox-circle-fill"></i>

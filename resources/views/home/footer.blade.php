@@ -7,7 +7,7 @@
       <!-- Brand -->
       <div class="bk-footer-about">
         <a href="/"><img src="logo02.png" alt="Upward Saver Bank" class="bk-footer-logo"></a>
-        <p>Upward Saver Bank Banking Corporation is dedicated to innovating, simplifying, and humanizing digital banking for customers around the world.</p>
+        <p>Upward Saver Bank Corporation is dedicated to innovating, simplifying, and humanizing digital banking for customers around the world.</p>
         <div class="bk-footer-socials">
           <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
           <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
@@ -58,7 +58,7 @@
   <div class="bk-footer-bottom">
     <div class="bk-wrap">
       <div class="bk-footer-bottom-inner">
-        <p>&copy;  2026 Upward Saver Bank Banking Corporation. All rights reserved.</p>
+        <p>&copy;  2026 Upward Saver Bank Corporation. All rights reserved.</p>
         <div class="bk-footer-bottom-links">
           <a href="{{ url('terms') }}">Terms</a>
           <a href="#">Privacy</a>

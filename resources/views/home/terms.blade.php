@@ -15,7 +15,7 @@
     <div class="bk-text-page sr">
 
       <h2>1. Acceptance of Terms</h2>
-      <p>By accessing and using the services of Upward Saver Bank Banking Corporation ("the Bank"), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you should not use our services.</p>
+      <p>By accessing and using the services of Upward Saver Bank Corporation ("the Bank"), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you should not use our services.</p>
 
       <h2>2. Account Opening &amp; Eligibility</h2>
       <p>To open an account, you must be at least 18 years of age and provide valid identification as required by applicable law. The Bank reserves the right to decline any application at its discretion.</p>

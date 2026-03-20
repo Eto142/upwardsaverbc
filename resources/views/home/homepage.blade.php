@@ -10,7 +10,7 @@
       <div class="bk-hero-bg" style="background-image:url('frontassets/images/banner/banner-slide-1.jpg')"></div>
       <div class="bk-wrap">
         <div class="bk-hero-body">
-          <span class="bk-hero-label">Welcome to Upward Saver Bank Banking Cooperation</span>
+          <span class="bk-hero-label">Welcome to Upward Saver Bank Corporation</span>
           <h1>Transfer Money Across The World In Real time</h1>
           <p>Upward Saver Bank Corporation transformed the digital banking industry using data and technology more than ten years ago. We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.</p>
           <div class="bk-hero-actions">
@@ -278,7 +278,7 @@
       <div class="bk-split-text sr">
         <span class="bk-label">Why Choose Us</span>
         <h2 class="bk-title">A Bank You Can Truly Trust</h2>
-        <p class="bk-desc" style="margin:0 0 20px">Upward Saver Bank Banking Corporation has been transforming digital banking for over a decade. We combine cutting-edge technology with personalised service to deliver an experience that puts you first.</p>
+        <p class="bk-desc" style="margin:0 0 20px">Upward Saver Bank Corporation has been transforming digital banking for over a decade. We combine cutting-edge technology with personalised service to deliver an experience that puts you first.</p>
         <div class="bk-check-list">
           <div class="bk-check-item">
             <i class="ri-checkbox-circle-fill"></i>

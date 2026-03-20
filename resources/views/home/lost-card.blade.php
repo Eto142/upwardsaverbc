@@ -19,7 +19,7 @@
         </div>
         <h2 class="bk-title">Report a Lost or Stolen Card</h2>
       </div>
-      <p style="line-height:1.8;color:#475569;text-align:center;max-width:600px;margin:0 auto 28px">If your Upward Saver Bank Banking Corporation card has been lost or stolen, notify us immediately. We will freeze your card, monitor for unauthorised activity, and issue a replacement.</p>
+      <p style="line-height:1.8;color:#475569;text-align:center;max-width:600px;margin:0 auto 28px">If your Upward Saver Bank Corporation card has been lost or stolen, notify us immediately. We will freeze your card, monitor for unauthorised activity, and issue a replacement.</p>
       
       <div class="bk-page-grid-2" style="margin-top:28px">
         <div class="bk-info-card sr" style="text-align:center">

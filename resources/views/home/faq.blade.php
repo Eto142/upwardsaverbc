@@ -20,9 +20,9 @@
 
     <div class="bk-accordion">
       <div class="bk-acc-item sr">
-        <button class="bk-acc-btn">What is Upward Saver Bank Banking Corporation? <i class="ri-add-line"></i></button>
+        <button class="bk-acc-btn">What is Upward Saver Bank Corporation? <i class="ri-add-line"></i></button>
         <div class="bk-acc-body">
-          <p>Upward Saver Bank Banking Corporation is a full-service financial institution offering personal and business banking, loans, credit cards, and investment services. We are committed to providing secure, convenient, and innovative banking solutions to help our customers achieve their financial goals.</p>
+          <p>Upward Saver Bank Corporation is a full-service financial institution offering personal and business banking, loans, credit cards, and investment services. We are committed to providing secure, convenient, and innovative banking solutions to help our customers achieve their financial goals.</p>
         </div>
       </div>
       <div class="bk-acc-item sr">
