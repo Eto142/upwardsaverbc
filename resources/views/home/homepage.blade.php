@@ -72,7 +72,7 @@
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-flashlight-fill"></i> Instant Transfers</span>
     <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-global-fill"></i> 180+ Countries</span>
+    <span class="bk-ticker-item"><i class="ri-global-fill"></i> 50+ Countries</span>
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-customer-service-2-fill"></i> 24/7 Live Support</span>
     <span class="bk-ticker-sep"></span>
@@ -93,7 +93,7 @@
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-flashlight-fill"></i> Instant Transfers</span>
     <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-global-fill"></i> 180+ Countries</span>
+    <span class="bk-ticker-item"><i class="ri-global-fill"></i> 50+ Countries</span>
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-customer-service-2-fill"></i> 24/7 Live Support</span>
     <span class="bk-ticker-sep"></span>
@@ -120,7 +120,7 @@
     <div class="bk-trust-grid">
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-shield-check-line"></i></div>
-        <div><strong>FDIC Insured</strong><span>Deposits insured up to $250,000</span></div>
+        <div><strong>FDIC Insured</strong><span>Deposits insured up to £250,000</span></div>
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-lock-2-line"></i></div>
@@ -128,7 +128,7 @@
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-global-line"></i></div>
-        <div><strong>180+ Countries</strong><span>Global transfer network</span></div>
+        <div><strong>50+ Countries</strong><span>Global transfer network</span></div>
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-customer-service-2-line"></i></div>
@@ -149,11 +149,11 @@
         <span class="bk-stat-label">Happy Customers</span>
       </div>
       <div class="bk-stat sr">
-        <span class="bk-stat-val">180<sup>+</sup></span>
+        <span class="bk-stat-val">50<sup>+</sup></span>
         <span class="bk-stat-label">Countries Supported</span>
       </div>
       <div class="bk-stat sr">
-        <span class="bk-stat-val">$2B<sup>+</sup></span>
+        <span class="bk-stat-val">£2B<sup>+</sup></span>
         <span class="bk-stat-label">Transactions Processed</span>
       </div>
       <div class="bk-stat sr">
