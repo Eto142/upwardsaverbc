@@ -854,7 +854,7 @@ To setup online access, we need to locate you in our system.</p>
                                         <select 
                                             id="currency" 
                                           name="currency"
-                                            x-model="formData.country"
+                                            x-model="formData.currency"
                                             class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 appearance-none"
                                             required>
                                              <option>select</option>
