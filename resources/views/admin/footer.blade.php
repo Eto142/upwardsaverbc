@@ -1,7 +1,7 @@
 
         <!-- App Footer start -->
         <div class="app-footer">
-          <span>© Upward Saver Bank Corporation 2025</span>
+          <span>© Upward Saver Bank Corporation 2026</span>
         </div>
         <!-- App footer end -->
 
