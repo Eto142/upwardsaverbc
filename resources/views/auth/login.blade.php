@@ -327,7 +327,7 @@
         <div class="relative flex flex-col justify-center items-center w-full h-full text-white p-12 z-10">
             <!-- Logo -->
             <a href="/" class="mb-6">
-                <img src="logo02.png" alt="Logo" class="h-16 filter brightness-0 invert">
+                <img src="our-logo.png" alt="Logo" class="h-16 filter brightness-0 invert">
             </a>
             
             <!-- Title -->
@@ -374,7 +374,7 @@
             <!-- Mobile Logo -->
             <div class="lg:hidden text-center mb-8">
                 <a href="/">
-                    <img src="logo02.png" alt="Logo" class="h-12 mx-auto">
+                    <img src="our-logo.png" alt="Logo" class="h-12 mx-auto">
                 </a>
             </div>
             
@@ -384,7 +384,7 @@
             <!-- Login Card -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <!-- Card Header -->
-                <center><img class="logo-light" src="logo1.png" alt="Upward Saver Bank Corporation  " width="200" height="260"></center>
+                <center><img class="logo-light" src="our-logo.png" alt="Upward Saver Bank Corporation  " width="200" height="260"></center>
                 <div class="px-8 pt-8 pb-6">
                     <h2 class="text-2xl font-bold text-gray-900">Sign In to Upward Saver Bank Corporation</h2>
                     <p class="mt-2 text-sm text-gray-600">Access the Upward Saver Bank Corporation panel using your email and password.</p>
