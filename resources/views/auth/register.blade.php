@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="Upward Saver Bank Corporation">
     <meta name="application-name" content="Upward Saver Bank Corporation">
     <meta name="description" content="Swift and Secure Money Transfer to any UK bank account will become a breeze with Upward Saver Bank Corporation.">
-    <link rel="shortcut icon" href="{{ asset('logo1.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('our-logo.png') }}" type="image/png">
     
     
     <!-- Tailwind CSS -->
@@ -251,13 +251,13 @@
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="application-name" content="Upward Saver Bank Corporation">
-<link rel="icon" sizes="512x512" href="{{ asset('logo1.png') }}">
+<link rel="icon" sizes="512x512" href="{{ asset('our-logo.png') }}">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Upward Saver Bank Corporation">
-<link rel="apple-touch-icon" href="{{ asset('logo1.png') }}">
+<link rel="apple-touch-icon" href="{{ asset('our-logo.png') }}">
 
 
 <link href="/images/icons/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
@@ -433,7 +433,7 @@
                 }
             }" class="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <!-- Progress Header -->
-                  <center><img class="logo-light" src="logo1.png" alt="Upward Saver Bank Corporation  " width="200" height="260"></center>
+                  <center><img class="logo-light" src="our-logo.png" alt="Upward Saver Bank Corporation  " width="200" height="260"></center>
                 <div class="bg-gray-50 px-8 py-6 border-b border-gray-200">
                     <div class="flex justify-between items-center mb-2">
                         <h2 class="text-2xl font-bold text-gray-900">Create Your Account</h2>
