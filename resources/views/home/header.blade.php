@@ -44,7 +44,7 @@
         <circle class="bk-pl-arc"   cx="65" cy="65" r="58"/>
       </svg>
       <div class="bk-pl-logo-box">
-        <img src="logo1.png" alt="Upward Saver Bank">
+        <img src="our-logo.png" alt="Upward Saver Bank">
       </div>
     </div>
     <div class="bk-pl-pct" id="bkPlPct">0<span>%</span></div>
@@ -79,7 +79,7 @@
   <div class="bk-wrap">
     <div class="bk-header-row">
      <a href="/" class="bk-logo">
-  <img src="logo1.png" alt="Upward Saver Bank Corporation" style="height:40px; width:auto;">
+  <img src="our-logo.png" alt="Upward Saver Bank Corporation" style="height:40px; width:auto;">
 </a>
 
 
@@ -109,7 +109,7 @@
 <div class="bk-overlay" id="bkOverlay"></div>
 <div class="bk-drawer" id="bkDrawer">
   <div class="bk-drawer-head">
-    <a href="/"><img src="logo1.png" alt="Upward Saver Bank" class="bk-drawer-logo"></a>
+    <a href="/"><img src="our-logo.png" alt="Upward Saver Bank" class="bk-drawer-logo"></a>
     <button class="bk-drawer-x" id="bkDrawerClose"><i class="ri-close-line"></i></button>
   </div>
   <nav class="bk-drawer-links">

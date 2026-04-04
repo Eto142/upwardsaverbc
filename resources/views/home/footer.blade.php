@@ -6,7 +6,7 @@
     <div class="bk-footer-grid">
       <!-- Brand -->
       <div class="bk-footer-about">
-        <a href="/"><img src="logo02.png" alt="Upward Saver Bank" class="bk-footer-logo"></a>
+        <a href="/"><img src="our-logo.png" alt="Upward Saver Bank" class="bk-footer-logo"></a>
         <p>Upward Saver Bank Corporation is dedicated to innovating, simplifying, and humanizing digital banking for customers around the world.</p>
         <div class="bk-footer-socials">
           <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>

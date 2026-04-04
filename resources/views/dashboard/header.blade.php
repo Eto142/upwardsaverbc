@@ -164,9 +164,9 @@ window.smartsupp||(function(d) {
         ***********************************-->
         <div class="nav-header">
             <a href="{{route('dashboard')}}" class="brand-logo">
-                <img class="" src="{{asset('assets/images/logo.png')}}" alt="" width="95px" >
-                <img class="logo-compact" src="{{asset('assets/images/logo.png')}}" alt="">
-                <img class="brand-title" src="{{asset('assets/images/logo.png')}}" alt="" >
+                <img class="" src="{{asset('our-logo.png')}}" alt="" width="95px" >
+                <img class="logo-compact" src="{{asset('our-logo.png')}}" alt="">
+                <img class="brand-title" src="{{asset('our-logo.png')}}" alt="" >
             </a>
 
             <div class="nav-control">
