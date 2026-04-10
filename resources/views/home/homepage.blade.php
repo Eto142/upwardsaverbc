@@ -80,7 +80,7 @@
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-percent-fill"></i> Competitive Interest Rates</span>
     <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-lock-fill"></i> FDIC Insured Up to $250K</span>
+    <span class="bk-ticker-item"><i class="ri-lock-fill"></i> FSCS Insured Up to £120K</span>
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-pie-chart-fill"></i> Smart Investment Tools</span>
     <span class="bk-ticker-sep"></span>
@@ -101,7 +101,7 @@
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-percent-fill"></i> Competitive Interest Rates</span>
     <span class="bk-ticker-sep"></span>
-    <span class="bk-ticker-item"><i class="ri-lock-fill"></i> FDIC Insured Up to $250K</span>
+    <span class="bk-ticker-item"><i class="ri-lock-fill"></i> FSCS Insured Up to £120K</span>
     <span class="bk-ticker-sep"></span>
     <span class="bk-ticker-item"><i class="ri-pie-chart-fill"></i> Smart Investment Tools</span>
     <span class="bk-ticker-sep"></span>
@@ -121,7 +121,7 @@
     <div class="bk-trust-grid">
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-shield-check-line"></i></div>
-        <div><strong>FDIC Insured</strong><span>Deposits insured up to £250,000</span></div>
+        <div><strong>FSCS Insured</strong><span>Deposits insured up to £120,000</span></div>
       </div>
       <div class="bk-trust-item">
         <div class="bk-trust-icon"><i class="ri-lock-2-line"></i></div>

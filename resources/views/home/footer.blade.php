@@ -65,6 +65,9 @@
           <a href="#">Cookies</a>
         </div>
       </div>
+      <p class="bk-footer-legal">
+        Upward Saver Bank Corporation is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority (Financial Services Register number: 765215). Upward Saver Bank Corporation is a company incorporated under the laws of England and Wales with company registration number 7325299 and its registered office at 256 Cowbridge Road E, Cardiff, CF11 9TN, United Kingdom. Upward Saver Bank Corporation's registered VAT Number is GB 559372783.
+      </p>
     </div>
   </div>
 </footer>
