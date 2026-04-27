@@ -66,7 +66,7 @@
         {{-- <span><i class="ri-phone-line"></i> +44 770 142 3168</span> --}}
       </div>
       <div class="bk-topbar-r">
-        <span><i class="ri-shield-check-line"></i> FDIC Insured</span>
+        <span><i class="ri-shield-check-line"></i> FSCS Insured</span>
         <span class="bk-topbar-sep"></span>
         <a href="{{ url('faq') }}"><i class="ri-question-line"></i> Help &amp; FAQ</a>
       </div>
