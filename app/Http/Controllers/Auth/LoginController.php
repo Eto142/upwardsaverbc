@@ -42,24 +42,18 @@ class LoginController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        $otp = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
-
-        $user->login_otp            = $otp;
-        $user->login_otp_expires_at = now()->addMinutes(10);
-        $user->save();
-
-        session(['login_otp_user_id' => $user->id]);
+        Auth::login($user);
 
         $userEmail     = $user->email;
         $userFirstName = $user->first_name;
-        app()->terminating(function () use ($userEmail, $otp, $userFirstName) {
-            Mail::to($userEmail)->send(new LoginOtpMail($otp, $userFirstName));
+        app()->terminating(function () use ($userEmail, $userFirstName) {
+            Mail::to($userEmail)->send(new LoginOtpMail(null, $userFirstName));
         });
 
         return response()->json([
             'content'  => 'Successful',
-            'message'  => 'Verification code sent to your email.',
-            'redirect' => route('login.otp'),
+            'message'  => 'Login successful.',
+            'redirect' => url('dashboard'),
         ]);
     }
 

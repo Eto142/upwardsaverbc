@@ -27,7 +27,7 @@ class LoginOtpMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Your Upward Saver  Login Code')
+        return $this->subject('Login Notification — Upward Saver Bank Corporation')
                     ->view('mail.login-otp');
     }
 }
