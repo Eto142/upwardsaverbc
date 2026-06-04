@@ -706,6 +706,14 @@ public function DeclineDeposit(Request $request, $id)
 
 
 
+public function deleteDeposit($id)
+{
+    $deposit = Deposit::findOrFail($id);
+    Transaction::where('transaction_id', $deposit->transaction_id)->delete();
+    $deposit->delete();
+    return redirect()->back()->with('message', 'Deposit deleted successfully');
+}
+
 public function approveLoan(Request $request, $id)
 {
     // Get the deposit with the given ID

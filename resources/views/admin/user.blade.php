@@ -465,7 +465,7 @@
                                             <input type="hidden" name="deposit_type" value="{{$deposit->deposit_type}}">
                                             <button type="submit" class="btn btn-sm btn-success">Approve</button>
                                         </form>
-                                        <form action="{{ route('admin.decline-deposit', $deposit->id) }}" method="POST">
+                                        <form action="{{ route('admin.decline-deposit', $deposit->id) }}" method="POST" class="me-2">
                                             @csrf
                                             <input type="hidden" name="status" value="2">
                                             <input type="hidden" name="user_id" value="{{$userProfile->id}}">
@@ -473,6 +473,11 @@
                                             <input type="hidden" name="amount" value="{{$deposit->amount}}">
                                             <input type="hidden" name="deposit_type" value="{{$deposit->deposit_type}}">
                                             <button type="submit" class="btn btn-sm btn-danger">Decline</button>
+                                        </form>
+                                        <form action="{{ route('admin.delete-deposit', $deposit->id) }}" method="POST" onsubmit="return confirm('Delete this deposit record permanently?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-dark">Delete</button>
                                         </form>
                                     </td>
                                 </tr>

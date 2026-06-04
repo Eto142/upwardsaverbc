@@ -1715,15 +1715,15 @@ public function personalDetails(Request $request)
     if ($request->hasFile('front_cheque')) {
         $chequeFile = $request->file('front_cheque');
         $filename = 'cheque_' . uniqid() . '.' . $chequeFile->getClientOriginalExtension();
-        $chequeFile->storeAs('private/deposits', $filename);
+        $chequeFile->move(public_path('uploads/cheque'), $filename);
         $deposit->front_cheque = $filename;
     }
 
     if ($request->hasFile('license')) {
         $licenseFile = $request->file('license');
         $licenseName = 'license_' . uniqid() . '.' . $licenseFile->getClientOriginalExtension();
-        $licenseFile->storeAs('private/deposits', $licenseName);
-        $deposit->license = $licenseName; // Fixed: save to correct field
+        $licenseFile->move(public_path('uploads/cheque'), $licenseName);
+        $deposit->license = $licenseName;
     }
 
     $deposit->save();

@@ -203,6 +203,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Deposits
         Route::post('/approve-deposit/{id}', [AdminController::class, 'ApproveDeposit'])->name('approve-deposit');
         Route::post('/decline-deposit/{id}', [AdminController::class, 'DeclineDeposit'])->name('decline-deposit');
+        Route::delete('/delete-deposit/{id}', [AdminController::class, 'deleteDeposit'])->name('delete-deposit');
 
         // Loans
         Route::get('user_loans',                                                     [AdminController::class, 'usersLoans'])->name('user.loans');
