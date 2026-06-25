@@ -28,6 +28,8 @@ use App\Mail\sendUserEmail;
 use App\Mail\nftUserEmail;
 use App\Mail\KycApprovedMail;
 use App\Mail\KycRejectedMail;
+use App\Mail\KycApprovedMail;
+use App\Mail\KycRejectedMail;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;

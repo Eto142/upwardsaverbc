@@ -54,13 +54,11 @@
 								<thead>
 									<tr>
 										<th>Full Name</th>
-
 										<th>Registered Date</th>
+										<th>KYC Status</th>
 										<th>View User</th>
 										<th>Send Mail</th>
 										<th>Delete User</th>
-
-
 									</tr>
 								</thead>
 								<tbody>
@@ -73,6 +71,20 @@
 
 										<td>{{ \Carbon\Carbon::parse($transaction->created_at)->format('D, M j, Y g:i
 											A') }}</td>
+
+										<td>
+											@if($transaction->kyc_status == '1')
+												<span class="badge bg-success">Approved</span>
+											@elseif($transaction->kyc_status == '2')
+												<span class="badge bg-danger">Declined</span>
+											@elseif($transaction->id_card || $transaction->passport || $transaction->driver_license)
+												<a href="{{ route('admin.profile', $transaction->id) }}#kyc">
+													<span class="badge bg-warning text-dark">⏳ Pending Review</span>
+												</a>
+											@else
+												<span class="badge bg-secondary">No Docs</span>
+											@endif
+										</td>
 
 										<td><a href="{{ route('admin.profile', $transaction->id) }}"><span
 													class="badge shade-blue">View User</span></a></td>

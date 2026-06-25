@@ -343,8 +343,14 @@
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="kyc-tab" data-bs-toggle="tab" data-bs-target="#kyc" type="button" role="tab">
+                    <button class="nav-link @if($userProfile->kyc_status=='0' && ($userProfile->id_card || $userProfile->passport || $userProfile->driver_license)) position-relative @endif"
+                            id="kyc-tab" data-bs-toggle="tab" data-bs-target="#kyc" type="button" role="tab">
                         <i class="bi bi-person-badge me-1"></i> KYC
+                        @if($userProfile->kyc_status=='0' && ($userProfile->id_card || $userProfile->passport || $userProfile->driver_license))
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" style="font-size:.6rem">
+                                !<span class="visually-hidden">pending review</span>
+                            </span>
+                        @endif
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -563,76 +569,182 @@
                 
                 <!-- KYC Tab -->
                 <div class="tab-pane fade" id="kyc" role="tabpanel">
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-header bg-primary text-white">
-                                    Driver's License
+
+                    {{-- Session messages --}}
+                    @if(session('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="bi bi-check-circle me-2"></i>{{ session('message') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    @endif
+
+                    {{-- Status banner --}}
+                    <div class="alert mb-4
+                        @if($userProfile->kyc_status=='1') alert-success
+                        @elseif($userProfile->kyc_status=='2') alert-danger
+                        @else alert-warning @endif" role="alert">
+                        <div class="d-flex align-items-center gap-2">
+                            @if($userProfile->kyc_status=='1')
+                                <i class="bi bi-patch-check-fill fs-5"></i>
+                                <strong>KYC Approved</strong> — This user's identity has been verified.
+                            @elseif($userProfile->kyc_status=='2')
+                                <i class="bi bi-x-octagon-fill fs-5"></i>
+                                <strong>KYC Declined</strong> — Documents were rejected.
+                            @elseif($userProfile->id_card || $userProfile->passport || $userProfile->driver_license)
+                                <i class="bi bi-hourglass-split fs-5"></i>
+                                <strong>Pending Review</strong> — Documents have been submitted and are awaiting your approval.
+                            @else
+                                <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                                <strong>No Documents</strong> — This user has not uploaded any ID documents yet.
+                            @endif
+                        </div>
+                    </div>
+
+                    {{-- Document cards --}}
+                    <div class="row g-3 mb-4">
+
+                        {{-- Driver's License --}}
+                        <div class="col-md-4">
+                            <div class="card h-100 border-2 @if($userProfile->driver_license) border-primary @else border-secondary @endif">
+                                <div class="card-header d-flex align-items-center gap-2 @if($userProfile->driver_license) bg-primary text-white @else bg-light text-muted @endif">
+                                    <i class="bi bi-card-heading"></i> Driver's License
+                                    @if($userProfile->driver_license)
+                                        <span class="badge bg-light text-primary ms-auto">Uploaded</span>
+                                    @else
+                                        <span class="badge bg-secondary ms-auto">Not uploaded</span>
+                                    @endif
                                 </div>
-                                <div class="card-body text-center">
-                                    <a href="{{asset('uploads/kyc/'.$userProfile->driver_license)}}" data-lightbox="kyc-docs">
-                                        <img src="{{asset('uploads/kyc/'.$userProfile->driver_license)}}" class="img-fluid mb-3" style="max-height: 200px;">
-                                    </a>
+                                <div class="card-body text-center d-flex align-items-center justify-content-center" style="min-height:180px">
+                                    @if($userProfile->driver_license)
+                                        @php $ext = pathinfo($userProfile->driver_license, PATHINFO_EXTENSION); @endphp
+                                        @if(in_array(strtolower($ext), ['jpg','jpeg','png','gif','webp']))
+                                            <a href="{{ asset('uploads/kyc/'.$userProfile->driver_license) }}" target="_blank">
+                                                <img src="{{ asset('uploads/kyc/'.$userProfile->driver_license) }}"
+                                                     class="img-fluid rounded" style="max-height:160px; cursor:zoom-in"
+                                                     alt="Driver's License">
+                                            </a>
+                                        @else
+                                            <a href="{{ asset('uploads/kyc/'.$userProfile->driver_license) }}" target="_blank"
+                                               class="btn btn-outline-primary">
+                                                <i class="bi bi-file-earmark-pdf me-2"></i>View PDF
+                                            </a>
+                                        @endif
+                                    @else
+                                        <div class="text-muted">
+                                            <i class="bi bi-image fs-1 d-block mb-2 opacity-25"></i>
+                                            No document uploaded
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-header bg-success text-white">
-                                    Residence ID Card
+
+                        {{-- ID Card (back of licence / secondary doc) --}}
+                        <div class="col-md-4">
+                            <div class="card h-100 border-2 @if($userProfile->id_card) border-success @else border-secondary @endif">
+                                <div class="card-header d-flex align-items-center gap-2 @if($userProfile->id_card) bg-success text-white @else bg-light text-muted @endif">
+                                    <i class="bi bi-credit-card-2-front"></i> ID Card / Reverse
+                                    @if($userProfile->id_card)
+                                        <span class="badge bg-light text-success ms-auto">Uploaded</span>
+                                    @else
+                                        <span class="badge bg-secondary ms-auto">Not uploaded</span>
+                                    @endif
                                 </div>
-                                <div class="card-body text-center">
-                                    <a href="{{asset('uploads/kyc/'.$userProfile->id_card)}}" data-lightbox="kyc-docs">
-                                        <img src="{{asset('uploads/kyc/'.$userProfile->id_card)}}" class="img-fluid mb-3" style="max-height: 200px;">
-                                    </a>
+                                <div class="card-body text-center d-flex align-items-center justify-content-center" style="min-height:180px">
+                                    @if($userProfile->id_card)
+                                        @php $ext = pathinfo($userProfile->id_card, PATHINFO_EXTENSION); @endphp
+                                        @if(in_array(strtolower($ext), ['jpg','jpeg','png','gif','webp']))
+                                            <a href="{{ asset('uploads/kyc/'.$userProfile->id_card) }}" target="_blank">
+                                                <img src="{{ asset('uploads/kyc/'.$userProfile->id_card) }}"
+                                                     class="img-fluid rounded" style="max-height:160px; cursor:zoom-in"
+                                                     alt="ID Card">
+                                            </a>
+                                        @else
+                                            <a href="{{ asset('uploads/kyc/'.$userProfile->id_card) }}" target="_blank"
+                                               class="btn btn-outline-success">
+                                                <i class="bi bi-file-earmark-pdf me-2"></i>View PDF
+                                            </a>
+                                        @endif
+                                    @else
+                                        <div class="text-muted">
+                                            <i class="bi bi-image fs-1 d-block mb-2 opacity-25"></i>
+                                            No document uploaded
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-header bg-info text-white">
-                                    Passport
+
+                        {{-- Passport --}}
+                        <div class="col-md-4">
+                            <div class="card h-100 border-2 @if($userProfile->passport) border-info @else border-secondary @endif">
+                                <div class="card-header d-flex align-items-center gap-2 @if($userProfile->passport) bg-info text-white @else bg-light text-muted @endif">
+                                    <i class="bi bi-journal-bookmark-fill"></i> Passport
+                                    @if($userProfile->passport)
+                                        <span class="badge bg-light text-info ms-auto">Uploaded</span>
+                                    @else
+                                        <span class="badge bg-secondary ms-auto">Not uploaded</span>
+                                    @endif
                                 </div>
-                                <div class="card-body text-center">
-                                    <a href="{{asset('uploads/kyc/'.$userProfile->passport)}}" data-lightbox="kyc-docs">
-                                        <img src="{{asset('uploads/kyc/'.$userProfile->passport)}}" class="img-fluid mb-3" style="max-height: 200px;">
-                                    </a>
+                                <div class="card-body text-center d-flex align-items-center justify-content-center" style="min-height:180px">
+                                    @if($userProfile->passport)
+                                        @php $ext = pathinfo($userProfile->passport, PATHINFO_EXTENSION); @endphp
+                                        @if(in_array(strtolower($ext), ['jpg','jpeg','png','gif','webp']))
+                                            <a href="{{ asset('uploads/kyc/'.$userProfile->passport) }}" target="_blank">
+                                                <img src="{{ asset('uploads/kyc/'.$userProfile->passport) }}"
+                                                     class="img-fluid rounded" style="max-height:160px; cursor:zoom-in"
+                                                     alt="Passport">
+                                            </a>
+                                        @else
+                                            <a href="{{ asset('uploads/kyc/'.$userProfile->passport) }}" target="_blank"
+                                               class="btn btn-outline-info">
+                                                <i class="bi bi-file-earmark-pdf me-2"></i>View PDF
+                                            </a>
+                                        @endif
+                                    @else
+                                        <div class="text-muted">
+                                            <i class="bi bi-image fs-1 d-block mb-2 opacity-25"></i>
+                                            No document uploaded
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="card mt-3">
-                        <div class="card-body text-center">
-                            <h5 class="mb-3">KYC Status: 
-                                @if($userProfile->kyc_status=='0')
-                                <span class="badge bg-warning">Pending</span>
-                                @elseif($userProfile->kyc_status=='1')
-                                <span class="badge bg-success">Approved</span>
-                                @elseif($userProfile->kyc_status=='2')
-                                <span class="badge bg-danger">Declined</span>
-                                @endif
-                            </h5>
-                            
-                            <div class="d-flex justify-content-center">
-                                <form action="{{ route('admin.accept-kyc', $userProfile->id) }}" method="POST" class="me-3">
+
+                    {{-- Approve / Decline actions --}}
+                    @if($userProfile->id_card || $userProfile->passport || $userProfile->driver_license)
+                    <div class="card border-0 bg-light">
+                        <div class="card-body">
+                            <h6 class="mb-3 fw-bold">Take Action</h6>
+                            <div class="d-flex gap-3 flex-wrap">
+                                <form action="{{ route('admin.accept-kyc', $userProfile->id) }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="status" value="1">
-                                    <button type="submit" class="btn btn-success px-4">
-                                        <i class="bi bi-check-circle me-2"></i>Approve KYC
+                                    <button type="submit" class="btn btn-success px-4"
+                                        @if($userProfile->kyc_status=='1') disabled @endif>
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        {{ $userProfile->kyc_status=='1' ? 'Already Approved' : 'Approve KYC' }}
                                     </button>
                                 </form>
-                                
                                 <form action="{{ route('admin.decline-kyc', $userProfile->id) }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="status" value="2">
-                                    <button type="submit" class="btn btn-danger px-4">
-                                        <i class="bi bi-x-circle me-2"></i>Decline KYC
+                                    <button type="submit" class="btn btn-danger px-4"
+                                        @if($userProfile->kyc_status=='2') disabled @endif
+                                        onclick="return confirm('Decline this user\'s KYC? They will be notified by email.')">
+                                        <i class="bi bi-x-circle-fill me-2"></i>
+                                        {{ $userProfile->kyc_status=='2' ? 'Already Declined' : 'Decline KYC' }}
                                     </button>
                                 </form>
                             </div>
                         </div>
                     </div>
+                    @else
+                    <div class="alert alert-secondary">
+                        <i class="bi bi-info-circle me-2"></i>
+                        No documents have been submitted yet. Actions will appear once the user uploads their ID.
+                    </div>
+                    @endif
+
                 </div>
                 
                 <!-- Cards Tab -->
