@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\KycSubmittedMail;
 use App\Mail\VerificationEmail;
 use App\Mail\welcomeEmail;
 use App\Models\User;
@@ -138,15 +139,69 @@ class RegisterController extends Controller
 
         $user = $this->createUser($data);
 
-        $validToken = rand(1234, 9999);
-        $get_token          = new verifyToken();
-        $get_token->token   = $validToken;
-        $get_token->email   = $user->email;
-        $get_token->save();
+        // ── Email verification commented out – re-enable when needed ──────
+        // $validToken = rand(1234, 9999);
+        // $get_token          = new verifyToken();
+        // $get_token->token   = $validToken;
+        // $get_token->email   = $user->email;
+        // $get_token->save();
+        // Mail::to($user->email)->send(new VerificationEmail($validToken));
+        // return redirect("verify/{$user->id}");
+        // ──────────────────────────────────────────────────────────────────
 
-        Mail::to($user->email)->send(new VerificationEmail($validToken));
+        // Auto-login the newly registered user and send to ID upload
+        Auth::login($user);
 
-        return redirect("verify/{$user->id}");
+        return redirect()->route('kyc.upload.form');
+    }
+
+    /**
+     * Show the KYC / ID proof upload form (shown immediately after registration).
+     */
+    public function showKycForm()
+    {
+        return view('auth.kyc-upload');
+    }
+
+    /**
+     * Handle KYC document submission after registration.
+     */
+    public function submitKyc(Request $request)
+    {
+        $request->validate([
+            'document_type'  => 'required|in:passport,driver_license',
+            'document_front' => 'required|file|mimes:jpeg,png,jpg,pdf|max:4096',
+            'document_back'  => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:4096',
+        ]);
+
+        $user = Auth::user();
+        $user->kyc_status = 0; // pending
+
+        $type  = $request->input('document_type');
+        $front = $request->file('document_front');
+        $frontName = $type . '_front_' . time() . '_' . uniqid() . '.' . $front->getClientOriginalExtension();
+        $front->move(public_path('uploads/kyc'), $frontName);
+
+        if ($type === 'passport') {
+            $user->passport = $frontName;
+        } else {
+            $user->driver_license = $frontName;
+        }
+
+        if ($request->hasFile('document_back')) {
+            $back     = $request->file('document_back');
+            $backName = $type . '_back_' . time() . '_' . uniqid() . '.' . $back->getClientOriginalExtension();
+            $back->move(public_path('uploads/kyc'), $backName);
+            $user->id_card = $backName;
+        }
+
+        $user->save();
+
+        // Notify the user that their documents were received
+        Mail::to($user->email)->send(new KycSubmittedMail($user));
+
+        return redirect()->route('dashboard')
+            ->with('status', 'Your ID documents have been submitted and are under review. We will notify you once approved.');
     }
 
     /**

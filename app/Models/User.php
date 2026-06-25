@@ -36,9 +36,10 @@ class User extends Authenticatable
         'password',
         'login_otp',
         'login_otp_expires_at',
-  
-       
-    
+        'kyc_status',
+        'id_card',
+        'driver_license',
+        'passport',
     ];
 
     /**

@@ -26,6 +26,8 @@ use App\Mail\approveCardEmail;
 use App\Mail\declineCardEmail;
 use App\Mail\sendUserEmail;
 use App\Mail\nftUserEmail;
+use App\Mail\KycApprovedMail;
+use App\Mail\KycRejectedMail;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -621,21 +623,25 @@ public function sendUserMail($userId)
 
     public function acceptKyc($id)
     {
-
-        $user  = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->kyc_status = '1';
         $user->save();
+
+        Mail::to($user->email)->send(new KycApprovedMail($user));
+
         return back()->with('message', 'Kyc Approved Successfully');
     }
 
 
     public function rejectKyc($id)
     {
-
-        $user  = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->kyc_status = '2';
         $user->save();
-        return back()->with('message', 'Kyc Rejected Successfully');;
+
+        Mail::to($user->email)->send(new KycRejectedMail($user));
+
+        return back()->with('message', 'Kyc Rejected Successfully');
     }
 
 

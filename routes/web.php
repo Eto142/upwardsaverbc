@@ -54,6 +54,14 @@ Route::get('login-otp',            [UserLoginController::class, 'showOtpForm'])-
 Route::post('login-otp/verify',    [UserLoginController::class, 'verifyOtp'])->name('login.otp.verify');
 Route::post('login-otp/resend',    [UserLoginController::class, 'resendOtp'])->name('login.otp.resend');
 Route::post('custom-registration', [RegisterController::class, 'register'])->name('register.custom');
+
+// ── KYC / ID verification after registration ──────────────────────────────
+Route::middleware('auth')->group(function () {
+    Route::get('kyc-upload',  [RegisterController::class, 'showKycForm'])->name('kyc.upload.form');
+    Route::post('kyc-upload', [RegisterController::class, 'submitKyc'])->name('kyc.upload.submit');
+});
+// ─────────────────────────────────────────────────────────────────────────
+
 Route::get('verify/{id}',          [RegisterController::class, 'showVerifyForm'])->name('verify');
 Route::post('email-verify',        [RegisterController::class, 'verifyEmail'])->name('code');
 Route::get('resend-code/{id}',     [RegisterController::class, 'resendCode'])->name('resendCode');
