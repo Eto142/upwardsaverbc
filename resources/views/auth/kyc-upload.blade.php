@@ -148,9 +148,9 @@
             </button>
         </form>
 
-        <a href="{{ route('dashboard') }}" class="skip-link">
+        {{-- <a href="{{ route('dashboard') }}" class="skip-link">
             Skip for now — I'll upload later from my profile
-        </a>
+        </a> --}}
     </div>
 </div>
 
