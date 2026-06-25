@@ -200,8 +200,7 @@ class RegisterController extends Controller
         // Notify the user that their documents were received
         Mail::to($user->email)->send(new KycSubmittedMail($user));
 
-        return redirect()->route('dashboard')
-            ->with('status', 'Your ID documents have been submitted and are under review. We will notify you once approved.');
+        return redirect()->route('kyc.pending');
     }
 
     /**

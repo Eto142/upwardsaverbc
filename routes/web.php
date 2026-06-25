@@ -59,6 +59,7 @@ Route::post('custom-registration', [RegisterController::class, 'register'])->nam
 Route::middleware('auth')->group(function () {
     Route::get('kyc-upload',  [RegisterController::class, 'showKycForm'])->name('kyc.upload.form');
     Route::post('kyc-upload', [RegisterController::class, 'submitKyc'])->name('kyc.upload.submit');
+    Route::get('kyc-pending', fn () => view('auth.kyc-pending'))->name('kyc.pending');
 });
 // ─────────────────────────────────────────────────────────────────────────
 
@@ -73,7 +74,7 @@ Route::post('/user/logout', [UserLoginController::class, 'logout'])->name('user.
 
 // __ Authenticated user routes __________________________________________
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'kyc.approved'])->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
