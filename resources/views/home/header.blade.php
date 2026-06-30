@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -86,7 +86,8 @@
       <nav class="bk-nav" id="bkDesktopNav">
         <a href="/" class="active">Home</a>
         <a href="{{ url('personal') }}">Personal</a>
-        <a href="{{ url('business') }}">Business</a>
+        <a href="{{ url('corporate') }}">Corporate</a>
+        <a href="{{ url('investment') }}">Investment</a>
         <a href="{{ url('credit-card') }}">Cards</a>
         <a href="{{ url('loans') }}">Loans</a>
         <a href="{{ url('about') }}">About</a>
@@ -95,7 +96,7 @@
 
       <div class="bk-header-actions">
         <a href="{{ route('login') }}" class="bk-btn bk-btn--ghost">Sign In</a>
-        <a href="{{ route('register') }}" class="bk-btn bk-btn--fill">Open Account</a>
+        <a href="{{ url('account-options') }}" class="bk-btn bk-btn--fill">Open Account</a>
       </div>
 
       <button class="bk-burger" id="bkBurger" aria-label="Menu">
@@ -115,7 +116,8 @@
   <nav class="bk-drawer-links">
     <a href="/">Home</a>
     <a href="{{ url('personal') }}">Personal Banking</a>
-    <a href="{{ url('business') }}">Business Banking</a>
+    <a href="{{ url('corporate') }}">Corporate Banking</a>
+    <a href="{{ url('investment') }}">Investment & Wealth</a>
     <a href="{{ url('credit-card') }}">Credit Cards</a>
     <a href="{{ url('loans') }}">Loans</a>
     <a href="{{ url('about') }}">About Us</a>
@@ -124,7 +126,7 @@
   </nav>
   <div class="bk-drawer-cta">
     <a href="{{ route('login') }}" class="bk-btn bk-btn--ghost bk-btn--block">Sign In</a>
-    <a href="{{ route('register') }}" class="bk-btn bk-btn--fill bk-btn--block">Open Account</a>
+    <a href="{{ url('account-options') }}" class="bk-btn bk-btn--fill bk-btn--block">Open Account</a>
   </div>
   <div class="bk-drawer-info">
     {{-- <p><i class="ri-phone-line"></i> +44 770 142 3168</p> --}}

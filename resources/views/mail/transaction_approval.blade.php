@@ -2,7 +2,7 @@
 
 @section('title', 'Transaction Successful — Upward Saver Bank Corporation')
 @section('badge', 'Transaction')
-@section('icon', '✅')
+{{-- @section('icon', '✅') --}}
 @section('header_title', 'Transaction Successful')
 
 @section('body')

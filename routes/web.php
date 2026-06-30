@@ -35,13 +35,15 @@ Route::get('/business', fn () => view('home.business'));
 Route::get('/credit-card', fn () => view('home.credit-card'));
 Route::get('/loans', fn () => view('home.loans'));
 Route::get('/commercial-real', fn () => view('home.commercial-real'));
-
+Route::get('/account-options', fn () => view('home.account-options'));
+Route::get('/corporate', fn () => view('home.corporate'));
+Route::get('/investment', fn () => view('home.investment'));
 // __ Guest auth routes (login / register) _______________________________
 
 Route::middleware('guest')->group(function () {
     Route::get('login',    [UserLoginController::class, 'showLoginForm'])->name('login');
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-
+     Route::get('register-corporate', [RegisterController::class, 'showRegistrationCorporateForm'])->name('register.corporate');
     // Password reset
     Route::get('forgot-password',         [PasswordResetLinkController::class, 'create'])->name('password.request');
     Route::post('forgot-password',        [PasswordResetLinkController::class, 'store'])->name('password.email');

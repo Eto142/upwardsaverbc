@@ -23,6 +23,11 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
+     public function showRegistrationCorporateForm()
+    {
+        return view('auth.register-corporate');
+    }
+
     /**
      * Handle a registration request.
      */

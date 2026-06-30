@@ -2,7 +2,7 @@
 
 @section('title', 'Verify Your Account — Upward Saver Bank Corporation')
 @section('badge', 'New Account')
-@section('icon', '✅')
+{{-- @section('icon', '✅') --}}
 @section('header_title', 'Verify Your Account')
 
 @section('body')

@@ -14,7 +14,7 @@
           <h1>Transfer Money Across The World In Real time</h1>
           <p>Upward Saver Bank Corporation transformed the digital banking industry using data and technology more than ten years ago. We are now one of the largest digital banking providers, dedicated to innovating, simplifying, and humanizing banking.</p>
           <div class="bk-hero-actions">
-            <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Get Started <i class="ri-arrow-right-line"></i></a>
+            <a href="{{ url('account-options') }}" class="bk-btn bk-btn--white">Get Started <i class="ri-arrow-right-line"></i></a>
             <a href="{{ route('login') }}" class="bk-btn bk-btn--glass">Login <i class="ri-play-circle-line"></i></a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <h1>Send Money<br>Anywhere, Anytime</h1>
           <p>Fast international transfers with competitive exchange rates. Trusted by thousands of customers worldwide.</p>
           <div class="bk-hero-actions">
-            <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Open Account <i class="ri-arrow-right-line"></i></a>
+            <a href="{{ url('account-options') }}" class="bk-btn bk-btn--white">Open Account <i class="ri-arrow-right-line"></i></a>
             <a href="{{ url('contact') }}" class="bk-btn bk-btn--glass">Talk to Us <i class="ri-customer-service-2-line"></i></a>
           </div>
         </div>
@@ -204,7 +204,7 @@
         <div class="bk-card-icon"><i class="ri-exchange-dollar-line"></i></div>
         <h3>International Transfers</h3>
         <p>Send money globally with real-time exchange rates. Fast, secure, and with low transfer fees.</p>
-        <a href="{{ route('register') }}" class="bk-card-link">Get Started <i class="ri-arrow-right-line"></i></a>
+        <a href="{{ url('account-options') }}" class="bk-card-link">Get Started <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="bk-card sr">
         <div class="bk-card-icon"><i class="ri-pie-chart-2-line"></i></div>
@@ -336,35 +336,35 @@
             <td class="bk-mono">1.2645</td>
             <td class="bk-mono">1.2590</td>
             <td><span class="bk-badge bk-badge--up">+0.12%</span></td>
-            <td><a href="{{ route('register') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
+            <td><a href="{{ url('account-options') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
           </tr>
           <tr>
             <td><div class="bk-cur"><img src="https://flagcdn.com/w40/eu.png" alt="EUR"><div><b>EUR</b><small>Euro</small></div></div></td>
             <td class="bk-mono">1.0842</td>
             <td class="bk-mono">1.0790</td>
             <td><span class="bk-badge bk-badge--up">+0.08%</span></td>
-            <td><a href="{{ route('register') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
+            <td><a href="{{ url('account-options') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
           </tr>
           <tr>
             <td><div class="bk-cur"><img src="https://flagcdn.com/w40/jp.png" alt="JPY"><div><b>JPY</b><small>Japanese Yen</small></div></div></td>
             <td class="bk-mono">0.00671</td>
             <td class="bk-mono">0.00665</td>
             <td><span class="bk-badge bk-badge--down">-0.15%</span></td>
-            <td><a href="{{ route('register') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
+            <td><a href="{{ url('account-options') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
           </tr>
           <tr>
             <td><div class="bk-cur"><img src="https://flagcdn.com/w40/ca.png" alt="CAD"><div><b>CAD</b><small>Canadian Dollar</small></div></div></td>
             <td class="bk-mono">0.7410</td>
             <td class="bk-mono">0.7365</td>
             <td><span class="bk-badge bk-badge--up">+0.05%</span></td>
-            <td><a href="{{ route('register') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
+            <td><a href="{{ url('account-options') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
           </tr>
           <tr>
             <td><div class="bk-cur"><img src="https://flagcdn.com/w40/ch.png" alt="CHF"><div><b>CHF</b><small>Swiss Franc</small></div></div></td>
             <td class="bk-mono">1.1290</td>
             <td class="bk-mono">1.1235</td>
             <td><span class="bk-badge bk-badge--down">-0.03%</span></td>
-            <td><a href="{{ route('register') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
+            <td><a href="{{ url('account-options') }}" class="bk-btn-xs">Send <i class="ri-send-plane-line"></i></a></td>
           </tr>
         </tbody>
       </table>
@@ -461,7 +461,7 @@
         <h2>Ready to Start Banking Smarter?</h2>
         <p>Join thousands of satisfied customers. Open your free account in under 5 minutes  no paperwork, no hassle.</p>
         <div class="bk-cta-btns">
-          <a href="{{ route('register') }}" class="bk-btn bk-btn--white">Open Free Account <i class="ri-arrow-right-line"></i></a>
+          <a href="{{ url('account-options') }}" class="bk-btn bk-btn--white">Open Free Account <i class="ri-arrow-right-line"></i></a>
           <a href="{{ url('contact') }}" class="bk-btn bk-btn--glass">Contact Us <i class="ri-phone-line"></i></a>
         </div>
       </div>
