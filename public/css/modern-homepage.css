@@ -152,6 +152,7 @@ a { text-decoration: none; color: inherit; }
   transition: box-shadow .3s, background .3s;
 }
 .bk-header.stuck { box-shadow: var(--shadow); }
+.bk-header .bk-wrap { padding-left: 0; }
 .bk-header-row { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .bk-logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; color: var(--blue-d); }
 .bk-logo img { height: 40px; width: auto; }
