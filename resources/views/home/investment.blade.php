@@ -17,7 +17,7 @@
       <h2 class="bk-title">Choose Your Investment Vehicle</h2>
       <p class="bk-desc">From equities to fixed income, we offer a full range of investment products tailored to every risk appetite and financial goal.</p>
     </div>
-    <div class="bk-page-grid-3">
+    <div class="bk-page-grid-4">
       <div class="bk-product-card sr">
         <div class="bk-product-card-head">
           <h3>Stocks &amp; Equities</h3>
@@ -68,6 +68,25 @@
             <li><i class="ri-check-line"></i> Low expense ratios from 0.05%</li>
             <li><i class="ri-check-line"></i> SIP &amp; lump-sum options available</li>
             <li><i class="ri-check-line"></i> Tax-efficient fund structures</li>
+          </ul>
+        </div>
+        <div class="bk-product-card-foot">
+          <a href="{{ url('account-options') }}" class="bk-btn bk-btn--fill" style="font-size:.78rem;padding:7px 18px">Open Account <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+
+      <div class="bk-product-card sr">
+        <div class="bk-product-card-head bk-product-card-head--purple">
+          <h3>Cryptocurrency</h3>
+          <p>Digital assets, future-forward investing</p>
+        </div>
+        <div class="bk-product-card-body">
+          <ul>
+            <li><i class="ri-check-line"></i> Bitcoin, Ethereum &amp; top altcoins</li>
+            <li><i class="ri-check-line"></i> Secure, regulated crypto custody</li>
+            <li><i class="ri-check-line"></i> 24/7 real-time trading platform</li>
+            <li><i class="ri-check-line"></i> Cold-storage asset protection</li>
+            <li><i class="ri-check-line"></i> Auto-invest &amp; DCA strategies</li>
           </ul>
         </div>
         <div class="bk-product-card-foot">

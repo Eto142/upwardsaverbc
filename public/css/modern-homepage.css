@@ -536,8 +536,35 @@ a { text-decoration: none; color: inherit; }
 .bk-breadcrumb span { margin: 0 6px; opacity: .5; }
 
 .bk-page-section { padding: 56px 0; }
+.bk-page-section--alt { padding: 56px 0; background: var(--bg2); }
 .bk-page-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.bk-page-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.bk-page-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .bk-map { width: 100%; height: 320px; border-radius: var(--r-lg); border: 1px solid var(--border); }
+
+/* ── PRODUCT CARDS ──────────────────────────────────────────── */
+.bk-product-card {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--bg); overflow: hidden;
+  transition: box-shadow .35s, transform .35s;
+}
+.bk-product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.bk-product-card-head {
+  padding: 26px 26px 20px;
+  background: linear-gradient(135deg, var(--blue-d) 0%, var(--blue) 100%);
+  color: #fff;
+}
+.bk-product-card-head--gold  { background: linear-gradient(135deg, #7a500a 0%, #c98a1a 100%); }
+.bk-product-card-head--blue  { background: linear-gradient(135deg, #0e3fa8 0%, #1a56db 100%); }
+.bk-product-card-head--purple{ background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
+.bk-product-card-head h3 { font-size: 18px; font-weight: 800; margin: 0 0 4px; color: #fff; }
+.bk-product-card-head p  { font-size: 13px; color: rgba(255,255,255,.75); margin: 0; }
+.bk-product-card-body { flex: 1; padding: 22px 26px; }
+.bk-product-card-body ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.bk-product-card-body li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--txt-m); line-height: 1.5; }
+.bk-product-card-body li i { color: var(--blue); font-size: 16px; flex-shrink: 0; }
+.bk-product-card-foot { padding: 0 26px 24px; }
 
 /* ── FORM & INFO CARD (Contact page) ─────────────────────── */
 .bk-info-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px; }
@@ -740,6 +767,7 @@ textarea.bk-input { min-height: 100px; resize: vertical; }
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .bk-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .bk-page-grid-3 { grid-template-columns: repeat(2, 1fr); }
   .bk-trust-grid { grid-template-columns: repeat(2, 1fr); }
   .bk-testimonials-scroll { grid-template-columns: repeat(2, 1fr); }
   .bk-footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -764,6 +792,8 @@ textarea.bk-input { min-height: 100px; resize: vertical; }
   .bk-cta-box h2 { font-size: 26px; }
   .bk-footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .bk-page-grid-2 { grid-template-columns: 1fr; }
+  .bk-page-grid-3 { grid-template-columns: 1fr; }
+  .bk-page-grid-4 { grid-template-columns: 1fr; }
   .bk-page-hero h1 { font-size: 28px; }
   .bk-rates-wrap { overflow-x: auto; }
   .bk-rates-table { min-width: 600px; }
