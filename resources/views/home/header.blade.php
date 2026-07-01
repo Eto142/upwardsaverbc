@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="temp/custom/assets/css/flaticon.css">
 
 <!-- Main Stylesheet -->
-<link rel="stylesheet" href="css/modern-homepage.css">
+<link rel="stylesheet" href="{{ asset('css/modern-homepage.css') }}?v={{ filemtime(public_path('css/modern-homepage.css')) }}">
 </head>
 <body class="bk-body">
 
